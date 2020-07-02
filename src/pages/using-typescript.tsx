@@ -23,6 +23,9 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   </Layout>
 )
 
+
+
+
 export default UsingTypescript
 
 export const query = graphql`
