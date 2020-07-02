@@ -16,6 +16,7 @@ const IndexPage = () => {
 
   return (<div>
     <SEO title="Home"/>
+    <p>Hello World</p>
   </div>)
 }
 
