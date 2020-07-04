@@ -4,6 +4,9 @@ import Layout from "../components/shared/Layout"
 import Grid from "../components/shared/Grid"
 import Logo from "../components/shared/Logo"
 import Header from "../components/Header/Header"
+import ThemeContext from '../context'
+
+import '../styles.css'
 
 const IndexPage = () => {
   useEffect(() => {
@@ -18,7 +21,7 @@ const IndexPage = () => {
   })
 
   return (
-    <div>
+    <ThemeContext>
       <SEO title="Home" />
       <Layout>
         <Logo />
@@ -27,7 +30,7 @@ const IndexPage = () => {
           <Header />
         </Grid>
       </Layout>
-    </div>
+    </ThemeContext>
   )
 }
 

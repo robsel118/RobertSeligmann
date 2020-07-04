@@ -32,15 +32,17 @@ export const Social = styled.div`
   transition-duration: 0.5s;
 
   .git,
-  .linkedin {
+  .linkedin,
+  .theme {
     path {
       transition-duration: 0.5s;
+      fill: ${props => props.theme.icon};
     }
   }
 
   .git:hover {
     path {
-      fill: black;
+      fill: ${props => props.theme.iconHover};
     }
   }
 
@@ -49,11 +51,19 @@ export const Social = styled.div`
       fill: #2867b2;
     }
   }
+
+  .theme:hover {
+    path {
+      fill: ${props => props.theme.iconHover};
+    }
+  }
 `
 
 export const Headline = styled.h1`
   font-family: ${fonts.muli};
   font-size: 6vw;
+  color: ${props => props.theme.textColor};
+
   @media (min-width: ${breakpoints.lg}) {
     font-size: 3.75rem;
   }
