@@ -9,7 +9,7 @@ import {
 } from "./styles"
 import Container from "../shared/Container"
 import { Highlighted } from "../shared/Highlight"
-import ThemeToggleButton from './ThemeToggleButton'
+import ThemeToggleButton from '../shared/ThemeToggleButton'
 
 interface SocialButtonProps {
   title: string

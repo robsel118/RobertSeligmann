@@ -4,7 +4,7 @@ import Layout from "../components/shared/Layout"
 import Grid from "../components/shared/Grid"
 import Logo from "../components/shared/Logo"
 import Header from "../components/Header/Header"
-import ThemeContext from '../context'
+import ThemedContext from '../Context'
 
 import '../styles.css'
 
@@ -21,7 +21,7 @@ const IndexPage = () => {
   })
 
   return (
-    <ThemeContext>
+    <ThemedContext>
       <SEO title="Home" />
       <Layout>
         <Logo />
@@ -30,7 +30,7 @@ const IndexPage = () => {
           <Header />
         </Grid>
       </Layout>
-    </ThemeContext>
+    </ThemedContext>
   )
 }
 

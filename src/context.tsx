@@ -13,23 +13,24 @@ const defaultTheme: ThemeContextType = {
     theme: 'light',
 }
 
-export const Context = React.createContext<ThemeContextType>(defaultTheme)
+export const ThemeContext = React.createContext<ThemeContextType>(defaultTheme)
 
-interface ThemeContextProps {
+interface ThemedContextProps {
     children: React.ReactNode
 }
-const ThemeContext = ({ children }: ThemeContextProps) => {
-    const [theme, setTheme] = useState<Theme>('dark');
+
+const ThemedContext = ({ children }: ThemedContextProps) => {
+    const [theme, setTheme] = useState<Theme>(localStorage.getItem("theme") as Theme || 'light');
     const root = document.body;
 
     useEffect(() => {
-        console.log("switching theme")
+        localStorage.setItem("theme", theme)
         root.style.setProperty(
             'background-color',
             themes[theme].background
         );
     },[theme])
-    return (<Context.Provider value={{
+    return (<ThemeContext.Provider value={{
         theme: theme,
         setTheme: () => {
             const newTheme = theme == 'light' ? 'dark' : 'light'
@@ -43,7 +44,7 @@ const ThemeContext = ({ children }: ThemeContextProps) => {
         <ThemeProvider theme={themes[theme]}>
             {children}
         </ThemeProvider>
-    </Context.Provider>)
+    </ThemeContext.Provider>)
 }
 
-export default ThemeContext;
+export default ThemedContext;

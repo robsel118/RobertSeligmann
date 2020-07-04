@@ -20,6 +20,7 @@ export const themes = {
     buttonColor: "#ECEFF4",
     icon: "#9a9a9a",
     iconHover: "black",
+    inverted: "invert(0%)",
   },
   dark: {
     background: "#121212",
@@ -29,5 +30,6 @@ export const themes = {
     buttonColor: "#ECEFF4",
     icon: "white",
     iconHover: "#6200EE",
+    inverted: "invert(100%)",
   },
 }
