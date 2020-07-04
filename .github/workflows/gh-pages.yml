@@ -28,11 +28,11 @@ jobs:
       # This triggers `gatsby build` script in "package.json"
       - run: yarn build
 
-#        # deploying branch to git pages
-#       - uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           external_repository: robsel118/robsel118.github.io
-#           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-#           publish_dir: ./public
-#           publish_branch: master 
+       # deploying branch to git pages
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          external_repository: robsel118/robsel118.github.io
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master 
 
