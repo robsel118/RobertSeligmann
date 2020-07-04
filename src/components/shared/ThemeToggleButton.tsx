@@ -1,4 +1,4 @@
-import { ThemeContext } from '../../Context'
+import { ThemeContext } from '../../context'
 import React from "react"
 import { Social } from "../Header/styles"
 
