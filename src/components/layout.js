@@ -1,51 +1,31 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import styled, { keyframes } from "styled-components"
+import { breakpoints } from "../theme"
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+const FadeIn = keyframes`
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+`
 
-import Header from "./header"
-import "./layout.css"
+const Layout = styled.div`
+  min-height: 100vh;
+  padding: 1.25rem 2rem;
+  margin: 2rem auto;
+  opacity: 0;
+  animation: ${FadeIn} 0.5s 0.3s ease-in-out forwards;
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  @media (min-width: ${breakpoints.lg}) {
+    max-width: 1024px;
+    margin: 75px auto;
+  }
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  @media (min-width: ${breakpoints.xl}) {
+    max-width: 1280px;
+    margin: 75px auto;
+  }
+`
 
 export default Layout
