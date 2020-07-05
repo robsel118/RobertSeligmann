@@ -24,11 +24,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+
       - run: yarn install --prod --pure-lockfile
       # This triggers `gatsby build` script in "package.json"
       - run: yarn build
 
-       # deploying branch to git pages
+      # deploying branch to git pages
+
       - uses: peaceiris/actions-gh-pages@v3
         with:
           external_repository: robsel118/robsel118.github.io

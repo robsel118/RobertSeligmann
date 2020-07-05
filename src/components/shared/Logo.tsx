@@ -9,7 +9,9 @@ const LogoImg = styled.div`
   background-image: url(${logosvg});
   width: 36px;
   height: 34px;
+  fill: red;
   background-repeat: no-repeat;
+  filter: ${props => props.theme.inverted}
 `
 
 const Logo = () => (
