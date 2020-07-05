@@ -7,11 +7,9 @@ import { Social } from "../Header/styles"
 const ThemeToggleButton = () => {
     return (
         <ThemeContext.Consumer>
-            {({ theme, setTheme }) => (<Social pressed={theme==='dark'}>
+            {({ theme, setTheme }) => (<Social  onClick={setTheme} pressed={theme==='dark'}>
                 <svg
-                    className={theme==='dark'? 'light-on': 'light'}
-                    style={{ cursor: "pointer" }}
-                    onClick={setTheme}
+                    className={theme==='dark'? 'light-on': 'light'}                 
                     width="30"
                     height="30"
                     viewBox="0 0 352 512"

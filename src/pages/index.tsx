@@ -2,10 +2,9 @@ import React, { useEffect } from "react"
 import SEO from "../components/shared/seo"
 import Layout from "../components/shared/Layout"
 import Grid from "../components/shared/Grid"
-import Logo from "../components/shared/Logo"
 import Header from "../components/Header/Header"
 import ThemedContext from '../ThemeContext'
-
+import Navbar from '../components/Navbar/Navbar'
 import '../styles.css'
 
 const IndexPage = () => {
@@ -24,7 +23,7 @@ const IndexPage = () => {
     <ThemedContext>
       <SEO title="Home" />
       <Layout>
-        <Logo />
+        <Navbar/>
         <Grid cols={2}>
           <Header />
           <Header />

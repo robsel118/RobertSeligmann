@@ -40,34 +40,30 @@ export const Social = styled(FlatIcon)`
     display: block;
     margin: auto;
   }
+
+  &:hover {
+    .git,
+    .linkedin,
+    .light,
+    .light-on {
+      path {
+        fill: ${props => props.theme.textColor};
+      }
+    }
+  }
   .git,
   .linkedin,
   .light,
   .light-on {
     path {
       transition-duration: 0.5s;
-      fill: ${props => props.theme.icon};
-    }
-  }
-
-  .git:hover,
-  .linkedin:hover,
-  .light:hover {
-    path {
-      fill: ${props => props.theme.textColor};
-    }
-  }
-
-  .light-on {
-    path {
-      fill: #00f3ff;
-      text-shadow: 2rem 2rem 2rem #00f3ff;
+      fill: ${props => props.theme.linkColor};
     }
   }
 `
 
 export const Headline = styled.h1`
-  font-family: ${fonts.muli};
+  font-family: ${fonts.archivo};
   font-size: 6vw;
   color: ${props => props.theme.textColor};
 

@@ -1,8 +1,9 @@
 body, div{
     transition: background-color 0.3s ease-in-out;
-    transition: box-shadow 0.15s ease-in-out;
+    transition: box-shadow 0.3s linear;
 }
 
-p, span, h1, h2, h3{
-    transition: color-color 0.3s ease-in-out;
+a, p, span, h1, h2, h3{
+    transition: color 0.3s ease-in-out;
 }
+

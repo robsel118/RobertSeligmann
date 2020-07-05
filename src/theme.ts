@@ -28,8 +28,9 @@ export const themes = {
       "inset 5px 5px 12px #bfbfbf, inset -5px -5px 12px #ffffff",
     buttonBackground: "#5E81AC",
     textColor: "black",
+    linkColor: "#9a9a9a",
+    linkColorHover: "#333",
     buttonColor: "#ECEFF4",
-    icon: "#9a9a9a",
     inverted: "invert(0%)",
   },
   dark: {
@@ -44,8 +45,9 @@ export const themes = {
       "inset 5px 5px 12px #353535, inset -5px -5px 12px #595959",
     buttonBackground: "#5E81AC",
     textColor: "white",
+    linkColor: "#e6e6e6",
+    linkColorHover: "white",
     buttonColor: "#ECEFF4",
-    icon: "white",
     inverted: "invert(100%)",
   },
 }
