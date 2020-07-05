@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { FlatIcon } from "../shared/Neumorphic"
 import { fonts, breakpoints } from "../../theme"
 
 export const Socials = styled.div`
@@ -22,39 +23,45 @@ export const Line = styled.div`
   width: 200px;
   background-color: gray;
 `
-export const Social = styled.div`
-  height: 2rem;
-  width: 2rem;
+export const Social = styled(FlatIcon)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
   margin: 0 1rem;
+
   background-repeat: no-repeat;
-  background-size: 2rem 2rem;
+  background-size: 3rem 3rem;
   background-position: center center;
   transition-duration: 0.5s;
 
+  svg {
+    display: block;
+    margin: auto;
+  }
   .git,
   .linkedin,
-  .theme {
+  .light,
+  .light-on {
     path {
       transition-duration: 0.5s;
       fill: ${props => props.theme.icon};
     }
   }
 
-  .git:hover {
+  .git:hover,
+  .linkedin:hover,
+  .light:hover {
     path {
-      fill: ${props => props.theme.iconHover};
+      fill: ${props => props.theme.textColor};
     }
   }
 
-  .linkedin:hover {
+  .light-on {
     path {
-      fill: #2867b2;
-    }
-  }
-
-  .theme:hover {
-    path {
-      fill: ${props => props.theme.iconHover};
+      fill: #00f3ff;
+      text-shadow: 2rem 2rem 2rem #00f3ff;
     }
   }
 `
