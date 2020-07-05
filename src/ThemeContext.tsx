@@ -20,9 +20,14 @@ interface ThemedContextProps {
 }
 
 const ThemedContext = ({ children }: ThemedContextProps) => {
-    const [theme, setTheme] = useState<Theme>(localStorage.getItem("theme") as Theme || 'light');
+    const [theme, setTheme] = useState<Theme>('light');
     const root = document.body;
 
+    useEffect(() => {
+        const currentTheme:Theme = localStorage.getItem("theme") as Theme || 'light'
+        setTheme(currentTheme)
+    },[])
+    
     useEffect(() => {
         localStorage.setItem("theme", theme)
         root.style.setProperty(
@@ -30,6 +35,8 @@ const ThemedContext = ({ children }: ThemedContextProps) => {
             themes[theme].background
         );
     },[theme])
+
+   
     return (<ThemeContext.Provider value={{
         theme: theme,
         setTheme: () => {
