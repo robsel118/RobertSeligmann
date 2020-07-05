@@ -62,7 +62,7 @@ const Intro = () => (
     <IntroText>
       <Headline>
         Hi there, I'm Robert. <br /> Software{' '}
-        <Highlighted>Developer</Highlighted>, <br /> student, and freelancer.
+        <Highlighted inset="-3rem">Developer</Highlighted>, <br /> student, and freelancer.
       </Headline>
     </IntroText>
   </Container>
