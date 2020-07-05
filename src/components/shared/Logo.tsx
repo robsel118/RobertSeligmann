@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-import  logosvg from "../../images/logo.svg"
+import logosvg from '../../images/logo.svg'
 
 const LogoImg = styled.div`
   cursor: pointer;
@@ -12,7 +12,7 @@ const LogoImg = styled.div`
   width: 36px;
   height: 34px;
   background-repeat: no-repeat;
-  filter: ${props => props.theme.inverted}
+  filter: ${props => props.theme.inverted};
 `
 
 const Logo = () => (

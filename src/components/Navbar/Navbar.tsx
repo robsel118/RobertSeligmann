@@ -2,13 +2,24 @@ import React from 'react'
 import Logo from '../shared/Logo'
 import { NavbarContainer, NavbarLink, NavLinkcontainer } from './styles'
 
-const Navbar = () => (<NavbarContainer>
+export const Header = () => (
+  <NavbarContainer>
     <Logo />
     <NavLinkcontainer>
-        <NavbarLink to="/">Projects</NavbarLink>
-        <NavbarLink to="/about">About</NavbarLink>
+      <NavbarLink to="/">Projects</NavbarLink>
+      <NavbarLink to="/about">About</NavbarLink>
     </NavLinkcontainer>
-</NavbarContainer>)
+  </NavbarContainer>
+)
 
-export default Navbar;
+export const Footer = () => (
+  <NavbarContainer>
+    <Logo />
+    <NavLinkcontainer>
+      <NavbarLink to="/">Projects</NavbarLink>
+      <NavbarLink to="/about">About</NavbarLink>
+    </NavLinkcontainer>
+  </NavbarContainer>
+)
+
 

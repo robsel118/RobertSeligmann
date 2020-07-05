@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { fonts } from "../../theme"
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { fonts } from '../../theme'
 
 export const NavbarLink = styled(Link)`
   display: inline-block;
