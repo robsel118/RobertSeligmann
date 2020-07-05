@@ -4,7 +4,7 @@ import Layout from "../components/shared/Layout"
 import Grid from "../components/shared/Grid"
 import Logo from "../components/shared/Logo"
 import Header from "../components/Header/Header"
-import ThemedContext from '../context'
+import ThemedContext from '../ThemeContext'
 
 import '../styles.css'
 
