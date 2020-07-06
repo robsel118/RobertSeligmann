@@ -6,11 +6,11 @@ const ThemeToggleButton = () => {
   return (
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
-        <Social onClick={setTheme} pressed={theme === 'dark'}>
+        <Social style={{float: 'right'}} onClick={setTheme} pressed={theme === 'dark'}>
           <svg
             className={theme === 'dark' ? 'light-on' : 'light'}
-            width="30"
-            height="30"
+            width="25"
+            height="25"
             viewBox="0 0 352 512"
             xmlns="http://www.w3.org/2000/svg"
           >

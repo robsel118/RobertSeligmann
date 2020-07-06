@@ -35,15 +35,14 @@ export const Line = styled.div`
   background-color: gray;
 `
 export const Social = styled(FlatIcon)`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
   margin: 0 1rem;
-
   background-repeat: no-repeat;
-  background-size: 3rem 3rem;
+  background-size: 2.5rem 2.5rem;
   background-position: center center;
   transition-duration: 0.5s;
 

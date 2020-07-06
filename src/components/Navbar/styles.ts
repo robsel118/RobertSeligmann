@@ -3,7 +3,8 @@ import { Link } from 'gatsby'
 import { fonts } from '../../theme'
 
 export const NavbarLink = styled(Link)`
-  display: inline-block;
+  /* display: inline-block; */
+  float: right;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -19,9 +20,12 @@ export const NavbarLink = styled(Link)`
 export const NavLinkcontainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
 `
 
 export const NavbarContainer = styled.div`
+  display: table;
   width: 100%;
-  display: inline-block;
+
 `

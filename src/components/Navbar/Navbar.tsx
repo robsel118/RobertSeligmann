@@ -1,13 +1,15 @@
 import React from 'react'
 import Logo from '../shared/Logo'
+import ThemeToggleButton from '../shared/ThemeToggleButton'
 import { NavbarContainer, NavbarLink, NavLinkcontainer } from './styles'
 
 export const Header = () => (
   <NavbarContainer>
-    <Logo />
+      <Logo />
     <NavLinkcontainer>
       <NavbarLink to="/">Projects</NavbarLink>
       <NavbarLink to="/about">About</NavbarLink>
+      <ThemeToggleButton />
     </NavLinkcontainer>
   </NavbarContainer>
 )
