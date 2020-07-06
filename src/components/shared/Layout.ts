@@ -12,7 +12,7 @@ const FadeIn = keyframes`
 
 const Layout = styled.div`
   min-height: 100vh;
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 1rem;
   margin: 2rem auto;
   opacity: 0;
   animation: ${FadeIn} 0.5s 0.3s ease-in-out forwards;
@@ -20,6 +20,7 @@ const Layout = styled.div`
   @media (min-width: ${breakpoints.lg}) {
     max-width: 1024px;
     margin: 75px auto;
+    padding: 1.25rem 2rem;
   }
 
   @media (min-width: ${breakpoints.xl}) {
