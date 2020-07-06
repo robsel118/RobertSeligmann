@@ -27,7 +27,7 @@ export const themes = {
     iconShadowPressed:
       'inset 5px 5px 12px #bfbfbf, inset -5px -5px 12px #ffffff',
     buttonBackground: '#5E81AC',
-    textColor: 'black',
+    textColor: '#696969',
     linkColor: '#9a9a9a',
     linkColorHover: '#333',
     buttonColor: '#ECEFF4',

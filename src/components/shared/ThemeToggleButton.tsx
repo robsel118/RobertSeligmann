@@ -6,7 +6,7 @@ const ThemeToggleButton = () => {
   return (
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
-        <Social style={{float: 'right'}} onClick={setTheme} pressed={theme === 'dark'}>
+        <Social style={{cursor: 'pointer'}} onClick={setTheme} pressed={theme === 'dark'}>
           <svg
             className={theme === 'dark' ? 'light-on' : 'light'}
             width="25"

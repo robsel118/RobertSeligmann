@@ -7,7 +7,7 @@ export const NavbarLink = styled(Link)`
   float: right;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.1rem;
   font-family: ${fonts.teko};
   font-size: 1.25rem;
   margin-left: 2rem;
@@ -21,11 +21,9 @@ export const NavLinkcontainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 `
 
 export const NavbarContainer = styled.div`
   display: table;
   width: 100%;
-
 `
