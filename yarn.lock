@@ -12947,10 +12947,20 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-archivo@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/typeface-archivo/-/typeface-archivo-1.1.3.tgz#22c86cde8c18de4b878687bbc856c1f2e2389d4a"
+  integrity sha512-08zahBpkGVcsLZEJ5nHTQ1WPiZXIIcm9f/GQfUI4BGt3bOwQ3SJHsDTU/kFwEHE9HeuuRqjWXjnVfRnA/7Rx7Q==
+
 typeface-muli@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/typeface-muli/-/typeface-muli-1.1.3.tgz#cd8078fd6ba28fd3b4c761c2a2d9fb6963ae3208"
   integrity sha512-kqBjcgrjzld/K3iIgjPYDcvlUmmVrhFXF2gWDeksVqcyIx9D17xZdDLJrDkVI8ZmgzeOObdYPmzN2GpbtFyPKw==
+
+typeface-teko@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-teko/-/typeface-teko-0.0.72.tgz#74553a327d3fef13a3ddef472c2827c1f0e6d33b"
+  integrity sha512-WAExerDPtm8vxn3J3cbCmVi6GGOVwlZK3t19v2axhhwx8Atfu+rXqjAbwO7Asr4JBrOFcercrF7UGx2FG31rMQ==
 
 typescript@^3.9.6:
   version "3.9.6"

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react"
-import SEO from "../components/shared/seo"
-import Layout from "../components/shared/Layout"
-import Grid from "../components/shared/Grid"
-import Logo from "../components/shared/Logo"
-import Header from "../components/Header/Header"
+import React, { useEffect } from 'react'
+import SEO from '../components/shared/seo'
+import Layout from '../components/shared/Layout'
+import Grid from '../components/shared/Grid'
+import Intro from '../components/Intro'
 import ThemedContext from '../ThemeContext'
-
+import {Header} from '../components/Navbar'
 import '../styles.css'
 
 const IndexPage = () => {
@@ -24,10 +23,10 @@ const IndexPage = () => {
     <ThemedContext>
       <SEO title="Home" />
       <Layout>
-        <Logo />
+        <Header />
         <Grid cols={2}>
-          <Header />
-          <Header />
+          <Intro />
+          <Intro />
         </Grid>
       </Layout>
     </ThemedContext>
