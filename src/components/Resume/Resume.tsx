@@ -4,7 +4,7 @@ import { ResumeContainer, Column, Section, SectionTitle, SectionText, EventConta
 
 interface EventProps {
     title: string;
-    duration: string;
+    duration?: string;
     children: React.ReactNode;
     titleExtension?: string;
 }
@@ -80,6 +80,20 @@ const Resume =()=>(
                    <SectionText>Customer service, bus passes sales, excursion planning.</SectionText>
                 </ProfessionalEvent>
 
+            </Section>
+            <Section>
+                <SectionTitle>
+                    Extra-Curricular
+                </SectionTitle>
+                <ProfessionalEvent title="Developer, Junction 2019" titleExtension="challenge 2nd place ">
+                   <SectionText>Our service incited clients to make sustainable choices. Our team developed a React dashboard and an Android application, both connected to a Firebase backend.</SectionText>
+                </ProfessionalEvent>
+                <ProfessionalEvent title="Volunteer, Geneva Health Forum 2018">
+                   <SectionText>Promoted the use of XR technologies in the medical field to experts in the healthcare industry. Our rescue application made during the Arkathon was showcased.</SectionText>
+                </ProfessionalEvent>
+                <ProfessionalEvent title="Developer, Arkathon 2018" titleExtension="Jury’s pick Award">
+                   <SectionText>Our team developed a simulation to train specialists to intervene in an extreme environment. Our rescue simulation was made for the HTC Vive using Unity and C#.</SectionText>
+                </ProfessionalEvent>
             </Section>
             
         </Column>
