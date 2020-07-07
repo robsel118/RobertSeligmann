@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import logosvg from '../../images/logo.svg'
-import { breakpoints } from '../../theme'
+import { breakpoints } from '../../theme/styles'
 
 const LogoImg = styled.div`
   cursor: pointer;

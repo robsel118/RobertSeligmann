@@ -1,10 +1,9 @@
 import React from 'react'
 import Layout from '../components/shared/Layout'
 import {Header} from '../components/Navbar'
-import ThemedContext from '../ThemeContext'
+import ThemedContext from '../theme/ThemeContext'
 import SEO from '../components/shared/seo'
 
-import '../styles.css'
 
 const About = () => {
   return (

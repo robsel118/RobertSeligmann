@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FlatIcon } from '../shared/Neumorphic'
-import { fonts, breakpoints } from '../../theme'
+import { fonts, breakpoints } from '../../theme/styles'
 
 export const Socials = styled.div`
   margin-left: 1.25rem;
@@ -71,5 +71,3 @@ export const Social = styled(FlatIcon)`
     }
   }
 `
-
-

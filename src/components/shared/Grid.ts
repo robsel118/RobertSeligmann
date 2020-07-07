@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../theme'
+import { breakpoints } from '../../theme/styles'
 
 interface GridProps {
   cols: number
 }
 
 const Grid = styled.div<GridProps>`
+  margin: 3rem 0;
+  grid-column-gap: 3rem;
   display: flex;
   flex-direction: column;
   justify-items: center;
