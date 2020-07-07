@@ -17,9 +17,7 @@ type DataProps = {
     fluid: any
   },
   fuji: {
-    resize :{
-      src: string
-    }
+    fluid: any
   },
   ideathon: {
     fluid: any
@@ -32,16 +30,17 @@ const TextContent = styled.div`
 `
 
 
-const FST: React.FC<PageProps<DataProps>>  = ({ data }) => {
+const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <ThemedContext>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Layout>
         <SEO title="Fujitsu Software Technology" />
         <Header />
-        <Hero image={data.fuji.resize.src}>
-            <HeroTitle>Working in Matsumoto, Japan</HeroTitle>
-            <HeroSubTitle>Summer internship in the Land of the Rising Sun</HeroSubTitle>
+        <Hero>
+          <Image  title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
+          <HeroTitle>Working in Matsumoto, Japan</HeroTitle>
+          <HeroSubTitle>Summer internship in the Land of the Rising Sun</HeroSubTitle>
         </Hero>
         <TextContent>
           <Title>Working at Fujitsu Software Technologies</Title>
@@ -49,24 +48,24 @@ const FST: React.FC<PageProps<DataProps>>  = ({ data }) => {
         </TextContent>
         <Grid cols={2}>
           <Stack>
-            <VueStack/>
-            <D3Stack/>
-            <LodashStack/>
+            <VueStack />
+            <D3Stack />
+            <LodashStack />
           </Stack>
           <TextContent>
             <Title>Challenges</Title>
             <Paragraph>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
-          </TextContent>  
+          </TextContent>
         </Grid>
         <Grid cols={2}>
-          <Image title="Matsumoto Castle" fluid={data.matsumoto.fluid}/>
-          <Image title="FST Ideathon" fluid={data.ideathon.fluid}/>
+          <Image title="Matsumoto Castle" fluid={data.matsumoto.fluid} />
+          <Image title="FST Ideathon" fluid={data.ideathon.fluid} />
         </Grid>
         <TextContent>
           <Title>Summary</Title>
           <Paragraph>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
         </TextContent>
-        <Footer/>
+        <Footer />
       </Layout>
     </ThemedContext>
   )
@@ -80,8 +79,8 @@ export const query = graphql`
       }
     },
     fuji: imageSharp(fluid: { originalName: { regex: "/fuji/" } }) {
-      resize(width: 1200, quality: 100) {
-        src
+      fluid(maxWidth: 1200, quality: 100) {
+        ...GatsbyImageSharpFluid
       }
     },
     ideathon: imageSharp(fluid: { originalName: { regex: "/fst_ideathon/" } }) {
