@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a, p, span, h1, h2, h3{
-        transition: color 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
 

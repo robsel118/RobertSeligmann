@@ -3,7 +3,7 @@ import Logo from '../shared/Logo'
 import ThemeToggleButton from '../shared/ThemeToggleButton'
 import { Link } from 'gatsby'
 
-import { NavbarContainer, NavbarLink, NavLinkcontainer } from './styles'
+import { NavbarContainer, NavLinkcontainer } from './styles'
 
 export const Header = () => (
   <NavbarContainer>
