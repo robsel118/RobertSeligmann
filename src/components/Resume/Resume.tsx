@@ -39,7 +39,21 @@ const Resume =()=>(
                 <SectionTitle>
                     Future Ventures
                 </SectionTitle>
-                {['Iamge/Video Editing', 'Ruby on Rails', 'Swift'].map(skill=><SectionText>{skill}</SectionText>)}
+                {['Image/Video Editing', 'Ruby on Rails', 'Swift'].map(skill=><SectionText>{skill}</SectionText>)}
+            </Section>
+            <Section>
+                <SectionTitle>
+                    Education
+                </SectionTitle>
+                <ProfessionalEvent title="Aalto University" duration="2018 - Current">
+                   <SectionText>M.Sc. in Computer Science</SectionText>
+                </ProfessionalEvent>
+                <ProfessionalEvent title="Haaga-Helia" duration="2017 - 2018">
+                   <SectionText>B.Sc. in Business Administration</SectionText>
+                </ProfessionalEvent>
+                <ProfessionalEvent title="HES-SO Valais" duration="2015 - 2017">
+                   <SectionText>B.Sc. in Business Information Technology</SectionText>
+                </ProfessionalEvent>
             </Section>
             <Section>
                 <SectionTitle>
@@ -67,20 +81,7 @@ const Resume =()=>(
                 </ProfessionalEvent>
 
             </Section>
-            <Section>
-                <SectionTitle>
-                    Education
-                </SectionTitle>
-                <ProfessionalEvent title="Aalto University" titleExtension="M.Sc. in Computer Science" duration="September 2018 - Present">
-                   <SectionText>Major track in Software Systems and Technologies.</SectionText>
-                </ProfessionalEvent>
-                <ProfessionalEvent title="Haaga-Helia" titleExtension="B.Sc. in Business Administration" duration="August 2017 - April 2018 (1 yr)">
-                   <SectionText>Double degree exchange program.</SectionText>
-                </ProfessionalEvent>
-                <ProfessionalEvent title="HES-SO Valais" titleExtension="B.Sc. in Business Information Technology" duration="September 2015 - June 2017 (2 yr)">
-                   <SectionText>Customer service, food / beverage service, scheduling, inventory.</SectionText>
-                </ProfessionalEvent>
-            </Section>
+            
         </Column>
 
     </ResumeContainer>
