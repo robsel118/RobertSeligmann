@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 import { Social } from '../Intro/styles'
 
 const ThemeToggleButton = () => {

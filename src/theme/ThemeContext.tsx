@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { themes } from './theme'
+import { themes } from './styles'
 
 type Theme = 'light' | 'dark'
 
@@ -9,15 +9,15 @@ interface ThemeContextType {
   setTheme?: () => void
 }
 
+interface ThemedContextProps {
+  children: React.ReactNode
+}
+
 const defaultTheme: ThemeContextType = {
   theme: 'light',
 }
 
 export const ThemeContext = React.createContext<ThemeContextType>(defaultTheme)
-
-interface ThemedContextProps {
-  children: React.ReactNode
-}
 
 const ThemedContext = ({ children }: ThemedContextProps) => {
   const [theme, setTheme] = useState<Theme>('light')
@@ -32,12 +32,6 @@ const ThemedContext = ({ children }: ThemedContextProps) => {
   // OnComponentUpdate
   useEffect(() => {
     localStorage.setItem('theme', theme)
-
-    // update the root body element color
-    document.body.style.setProperty(
-      'background-color',
-      themes[theme].background
-    )
   }, [theme])
 
   return (

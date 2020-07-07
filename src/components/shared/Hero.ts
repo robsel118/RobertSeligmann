@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Title } from './Typography'
-import { fonts, themes } from '../../theme'
+import { fonts, themes } from '../../theme/styles'
 
 export const HeroTitle = styled(Title)`
   font-size: 3rem;

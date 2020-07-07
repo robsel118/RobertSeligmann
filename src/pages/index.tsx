@@ -3,9 +3,10 @@ import SEO from '../components/shared/seo'
 import Layout from '../components/shared/Layout'
 import Grid from '../components/shared/Grid'
 import Intro from '../components/Intro'
-import ThemedContext from '../ThemeContext'
-import {Header} from '../components/Navbar'
-import '../styles.css'
+import ThemedContext from '../theme/ThemeContext'
+import GlobalStyle from '../theme/Global'
+
+import { Header } from '../components/Navbar'
 
 const IndexPage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const IndexPage = () => {
 
   return (
     <ThemedContext>
+      <GlobalStyle/>
       <SEO title="Home" />
       <Layout>
         <Header />

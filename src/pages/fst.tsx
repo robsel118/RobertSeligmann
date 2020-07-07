@@ -7,12 +7,10 @@ import Grid from '../components/shared/Grid'
 import Image from '../components/shared/Image'
 import Stack, { VueStack, D3Stack, LodashStack } from '../components/shared/Stack'
 import Layout from '../components/shared/Layout'
-import ThemedContext from '../ThemeContext'
+import ThemedContext from '../theme/ThemeContext'
+import GlobalStyle from '../theme/Global'
 import SEO from '../components/shared/seo'
 import { Header, Footer } from '../components/Navbar'
-
-
-import '../styles.css'
 
 type DataProps = {
   matsumoto: {
@@ -37,6 +35,7 @@ const TextContent = styled.div`
 const FST: React.FC<PageProps<DataProps>>  = ({ data }) => {
   return (
     <ThemedContext>
+      <GlobalStyle/>
       <Layout>
         <SEO title="Fujitsu Software Technology" />
         <Header />

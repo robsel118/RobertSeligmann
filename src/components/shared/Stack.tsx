@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../theme'
+import { fonts } from '../../theme/styles'
 import { FlatCard } from './Neumorphic'
 import vueSVG from '../../images/tech/Logo_Vue.svg'
 import d3SVG from '../../images/tech/Logo_D3.svg'
