@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { fonts } from '../../theme'
 
 export const NavLinkcontainer = styled.div`
@@ -8,7 +7,6 @@ export const NavLinkcontainer = styled.div`
   align-items: center;
 
   a {
-    /* display: inline-block; */
     float: right;
     font-weight: 400;
     text-transform: uppercase;
