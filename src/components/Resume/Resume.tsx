@@ -37,12 +37,6 @@ const Resume =()=>(
             </Section>
             <Section>
                 <SectionTitle>
-                    Future Ventures
-                </SectionTitle>
-                {['Image/Video Editing', 'Ruby on Rails', 'Swift'].map(skill=><SectionText>{skill}</SectionText>)}
-            </Section>
-            <Section>
-                <SectionTitle>
                     Education
                 </SectionTitle>
                 <ProfessionalEvent title="Aalto University" duration="2018 - Current">
@@ -54,6 +48,12 @@ const Resume =()=>(
                 <ProfessionalEvent title="HES-SO Valais" duration="2015 - 2017">
                    <SectionText>B.Sc. in Business Information Technology</SectionText>
                 </ProfessionalEvent>
+            </Section>
+            <Section>
+                <SectionTitle>
+                    Future Ventures
+                </SectionTitle>
+                {['Image/Video Editing', 'Ruby on Rails', 'Swift'].map(skill=><SectionText>{skill}</SectionText>)}
             </Section>
             <Section>
                 <SectionTitle>
