@@ -17,7 +17,6 @@ interface ColumnProps {
 }
 
 export const Section = styled.div`
-  border-top: 1px solid ${props => props.theme.linkColor};
   margin: 1rem 1rem 3rem 1rem;
   padding-top: 1.5rem;
 `
@@ -45,9 +44,24 @@ export const EventContainer = styled.div`
 `
 
 export const Column = styled.div<ColumnProps>`
+  ${Section}:not(:first-child) {
+    border-top: 1px solid ${props => props.theme.linkColor};
+  }
+
   @media (max-width: ${breakpoints.md}) {
     padding: 1rem 1rem;
     order: ${props => props.order};
+  }
+`
+
+export const Table = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 0.3rem;
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `
 

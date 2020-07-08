@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../theme/styles'
-import { FlatCard } from './Neumorphic'
+import { FlatBorder } from './Neumorphic'
 import vueSVG from '../../images/tech/Logo_Vue.svg'
 import d3SVG from '../../images/tech/Logo_D3.svg'
 import lodashSVG from '../../images/tech/Logo_Lodash.svg'
@@ -27,7 +27,7 @@ const TechStackText = styled.p`
   font-size: 1.2rem;
 `
 
-const TechStackContainer = styled(FlatCard)`
+const TechStackContainer = styled(FlatBorder)`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

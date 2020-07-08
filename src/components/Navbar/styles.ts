@@ -27,7 +27,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
-  padding: 0.6rem 0;
+  padding: 0;
   top: 0;
   z-index: 1;
   background-color: ${props => props.theme.background};

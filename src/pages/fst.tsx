@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components';
 import { graphql, PageProps } from "gatsby";
 import Hero, { HeroTitle, HeroSubTitle } from '../components/shared/Hero'
-import { Title, Paragraph } from '../components/shared/Typography'
+import { Title, Paragraph, TextContent } from '../components/shared/Typography'
 import Grid from '../components/shared/Grid'
 import Image from '../components/shared/Image'
 import Stack, { VueStack, D3Stack, LodashStack } from '../components/shared/Stack'
@@ -24,17 +23,10 @@ type DataProps = {
   }
 }
 
-const TextContent = styled.div`
-  max-width: 50rem;
-  margin: 5rem 0;
-`
-
-
 const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <ThemedContext>
       <GlobalStyle />
-      <Layout>
         <SEO title="Fujitsu Software Technology" />
         <Header />
         <Hero>
@@ -42,6 +34,7 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
           <HeroTitle>Working in Matsumoto, Japan</HeroTitle>
           <HeroSubTitle>Summer internship in the Land of the Rising Sun</HeroSubTitle>
         </Hero>
+      <Layout>
         <TextContent>
           <Title>Working at Fujitsu Software Technologies</Title>
           <Paragraph>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>

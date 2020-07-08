@@ -35,6 +35,7 @@ const Hero = styled.div<HeroProps>`
   ${Image} {
     filter: brightness(75%);
     position: absolute !important;
+    border-radius: 0;
     margin: 0;
     top: 0;
     left: 0;

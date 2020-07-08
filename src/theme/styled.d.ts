@@ -16,5 +16,7 @@ declare module 'styled-components' {
     linkColorHover: string
     buttonColor: string
     inverted: string
+    highlight: string
+    highlightHover: string
   }
 }

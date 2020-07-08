@@ -1,25 +1,38 @@
 import React from 'react'
 import Layout from '../components/shared/Layout'
 import Grid from '../components/shared/Grid'
-import { Paragraph, Title } from '../components/shared/Typography'
-import {Header} from '../components/Navbar'
+import Stack from '../components/shared/Stack'
+import { FlatCard } from '../components/shared/Neumorphic'
+import { Paragraph, Title, TextContent } from '../components/shared/Typography'
+import { Header } from '../components/Navbar'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '../components/shared/seo'
 import Resume from '../components/Resume'
+import { HighlightedLink } from '../components/shared/Highlight'
 
 const About = () => {
   return (
     <ThemedContext>
-      <GlobalStyle/>
-      <Layout>
+      <GlobalStyle />
         <SEO title="About" />
         <Header />
+      <Layout>
         <Grid cols={2}>
-          <Title>Hello there, a pleasure to meet you!</Title>
-          <Paragraph>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
+          <TextContent>
+            <Title>Hello there, I'm Robert. Nice to meet you!</Title>
+            <Paragraph>
+              A soon-to-be graduate of the MSC in Computer Science at <HighlightedLink href="https://www.aalto.fi/en">Aalto University</HighlightedLink>
+              , my journey actually began at the <HighlightedLink href="https://www.hevs.ch/en/">HES-SO Valais</HighlightedLink> where I studied Business Information Technology.
+              With a hybrid background in business and computer science, I aim to create simple, beautiful, and meaningful digital experiences.
+              
+            </Paragraph>
+            <Paragraph>I am always looking for new challenges and opportunities that will help me learn and grow as a person.</Paragraph>
+            <Paragraph>Currently, I am open to new opportunities from freelance work to full-time contract.</Paragraph>
+          </TextContent>
         </Grid>
-        <Resume/>
+        <hr/>
+        <Resume />
       </Layout>
     </ThemedContext>
   )

@@ -8,9 +8,15 @@ const Bordered = styled.div<BaseProps>`
   border-radius: ${props => props.radius || '51px'};
 `
 
-export const FlatCard = styled(Bordered)<BaseProps>`
+export const FlatBorder = styled(Bordered)<BaseProps>`
   background: ${props => props.theme.cardBackground};
   box-shadow: ${props => props.theme.cardShadowFlat};
+`
+
+export const FlatCard = styled(FlatBorder)<BaseProps>`
+  width: 100%;
+  max-width: 300px;
+  padding: 0 0.8rem;
 `
 
 interface ButtonProps extends BaseProps {

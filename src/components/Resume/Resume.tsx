@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ResumeContainer, Column, Section, SectionTitle, SectionText, EventContainer, EventPeriod, DownloadLink } from './styles'
+import { ResumeContainer, Column, Section, SectionTitle, SectionText, EventContainer, EventPeriod, DownloadLink, Table } from './styles'
 
 interface EventProps {
     title: string;
@@ -27,13 +27,16 @@ const Resume =()=>(
                 <SectionTitle>
                     Skills
                 </SectionTitle>
-                {["JavaScript", "Java", "C#", "React", "TypeScript", "Android"].map(skill=><SectionText>{skill}</SectionText>)}
+                <Table>{["JavaScript", "Java", "C#", "React", "TypeScript", "Android"].map(skill=><SectionText>{skill}</SectionText>)}</Table>
             </Section>
             <Section>
                 <SectionTitle>
                     Languages
                 </SectionTitle>
-                {["French", 'English'].map(skill=><SectionText>{skill}</SectionText>)}
+                <Table>
+                    {   ["French", "Native", 
+                        'English' , "CAE (C1)"].map(skill=><SectionText>{skill}</SectionText>)}
+                </Table>
             </Section>
             <Section>
                 <SectionTitle>

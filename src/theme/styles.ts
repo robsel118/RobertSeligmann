@@ -32,6 +32,8 @@ export const themes = {
     linkColorHover: '#333',
     buttonColor: '#ECEFF4',
     inverted: 'invert(0%)',
+    highlight: '#CDEEF2',
+    highlightHover: '#B4DDE3',
   },
   dark: {
     background: '#474747',
@@ -49,5 +51,7 @@ export const themes = {
     linkColorHover: 'white',
     buttonColor: '#ECEFF4',
     inverted: 'invert(100%)',
+    highlight: '#4AAD52 ',
+    highlightHover: '#488B49',
   },
 }
