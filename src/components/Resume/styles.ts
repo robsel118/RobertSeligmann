@@ -67,14 +67,14 @@ export const Table = styled.div`
 `
 
 export const DownloadLink = styled.a`
+  transition: all 0.2s ease-in-out;
   font-family: ${fonts.muli};
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 400px;
+  font-weight: 600;
   letter-spacing: 0.03rem;
   color: ${props => props.theme.linkColor};
   border-bottom: 2px solid ${props => props.theme.linkColor};
-  transition: outline 0.6s linear;
   &:hover {
     color: ${props => props.theme.linkColorHover};
     border-bottom: 4px solid ${props => props.theme.linkColorHover};

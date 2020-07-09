@@ -29,12 +29,12 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
       <GlobalStyle />
       <SEO title="Fujitsu Software Technology" />
       <Header />
-      <Banner>
-        <Image title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
-        <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
-        <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
-      </Banner>
       <Layout>
+        <Banner>
+          <Image title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
+          <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
+          <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
+        </Banner>
         <TextContent>
           <Title>Working at Fujitsu Software Technologies</Title>
           <Paragraph>I had the opportunty to work with the Fujutsu Software Technologies (FST) team in Matsumoto, Japan. This was an amaying experience where I was pushed beyond my comfort zone.</Paragraph>

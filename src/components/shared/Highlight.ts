@@ -18,6 +18,7 @@ export const HighlightedLink = styled(Paragraph).attrs({
     ${props => props.theme.highlight};
   color: ${props => props.theme.textColor};
   text-decoration: none;
+  transition: box-shadow 0.3s ease-in-out;
   &:hover {
     box-shadow: inset 0 ${props => props.inset || '-0.6rem'}
       ${props => props.theme.highlightHover};
