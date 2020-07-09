@@ -14,7 +14,7 @@ export const Title = styled.p`
   font-family: ${fonts.teko};
   font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.25rem;
+  letter-spacing: 2px;
   font-weight: 300;
   color: ${props => props.theme.textColor};
 `

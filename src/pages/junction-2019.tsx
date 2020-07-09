@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, PageProps } from "gatsby";
 import Banner, { BannerTitle, BannerSubTitle } from '../components/shared/Banner'
 import { Title, Paragraph, TextContent } from '../components/shared/Typography'
+import { HighlightedLink } from '../components/shared/Highlight'
 import Grid from '../components/shared/Grid'
 import Image from '../components/shared/Image'
 import Stack, { ReactStack, AndroidStack, FirebaseStack } from '../components/shared/Stack'
@@ -33,12 +34,12 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
       <GlobalStyle />
       <SEO title="Junction 2019" />
       <Header />
-      <Banner>
-        <Image  title="Junction" fluid={data.junction.fluid} />
-        <BannerTitle>Junction 2019</BannerTitle>
-        <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-      </Banner>
       <Layout>
+        <Banner>
+          <Image title="Junction" fluid={data.junction.fluid} />
+          <BannerTitle>Junction 2019</BannerTitle>
+          <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
+        </Banner>
         <TextContent>
           <Title>Joining the Sustainability Track</Title>
           <Paragraph>Junction is an annual hackathon gather around 1'500 hackers for a weekend long experience. A place where designers, developers, and other techies team up to create new tech projects in 48 hours.</Paragraph>
@@ -70,7 +71,7 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
           <Title>Summary</Title>
           <Paragraph>
             Hackathons are a great way to challenge thyself, being surrounded by such innovative people is an incredible experience. We gave our best effort into delivering a product we tought could really help people become more sustainable.
-            The idea and our demonstration was enthousiastically received by the challenge issuers, as a result, we received the 2nd place price of the challenge. An extra big than you to my teammate Matti for the fun experience and for enduring me when I was sleep-deprieved. 
+            The idea and our demonstration was enthousiastically received by the challenge issuers, as a result, we received the 2nd place price of the challenge. An extra big than you to my teammate <HighlightedLink href="https://www.linkedin.com/in/matti-mk/">Matti</HighlightedLink> for the fun experience and for enduring me when I was sleep-deprieved.
           </Paragraph>
         </TextContent>
         <Image title="Matt and I" fluid={data.team.fluid} />
