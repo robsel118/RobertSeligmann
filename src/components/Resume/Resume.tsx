@@ -27,7 +27,7 @@ const Resume =()=>(
                 <SectionTitle>
                     Skills
                 </SectionTitle>
-                <Table>{["JavaScript", "Java", "C#", "React", "TypeScript", "Android"].map(skill=><SectionText>{skill}</SectionText>)}</Table>
+                <Table>{["JavaScript", "Java", "C#", "React.js", "TypeScript", "Android", "Node.js", "Python", "SQL/NoSQL", "Figma"].map(skill=><SectionText>{skill}</SectionText>)}</Table>
             </Section>
             <Section>
                 <SectionTitle>
