@@ -1,28 +1,33 @@
 import React from 'react'
 import Logo from '../shared/Logo'
+import Layout from '../shared/Layout'
 import ThemeToggleButton from '../shared/ThemeToggleButton'
 import { Link } from 'gatsby'
 
-import { NavbarContainer, NavbarLink, NavLinkcontainer } from './styles'
+import { NavbarContainer, NavLinkcontainer } from './styles'
 
 export const Header = () => (
   <NavbarContainer>
-      <Logo />
-    <NavLinkcontainer>
-      <Link to="/">Projects</Link>
-      <Link to="/about">About</Link>
-      <ThemeToggleButton />
-    </NavLinkcontainer>
+    <Layout>
+      <Logo height="2.4rem" width="2.6rem" />
+      <NavLinkcontainer>
+        <Link to="/">Projects</Link>
+        <Link to="/about">About</Link>
+        <ThemeToggleButton />
+      </NavLinkcontainer>
+    </Layout>
   </NavbarContainer>
 )
 
 export const Footer = () => (
   <NavbarContainer>
-    <Logo />
-    <NavLinkcontainer>
-      <a href="https://github.com/robsel118">GitHub</a>
-      <a href="https://www.linkedin.com/in/robert-seligmann/">LinkedIn</a>
-    </NavLinkcontainer>
+    <Layout>
+      <Logo />
+      <NavLinkcontainer>
+        <a href="https://github.com/robsel118">GitHub</a>
+        <a href="https://www.linkedin.com/in/robert-seligmann/">LinkedIn</a>
+      </NavLinkcontainer>
+    </Layout>
   </NavbarContainer>
 )
 

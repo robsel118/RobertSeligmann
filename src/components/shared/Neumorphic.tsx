@@ -8,9 +8,15 @@ const Bordered = styled.div<BaseProps>`
   border-radius: ${props => props.radius || '51px'};
 `
 
-export const FlatCard = styled(Bordered)<BaseProps>`
+export const FlatBorder = styled(Bordered)<BaseProps>`
+  width: 100%;  
   background: ${props => props.theme.cardBackground};
   box-shadow: ${props => props.theme.cardShadowFlat};
+`
+
+export const FlatCard = styled(FlatBorder)<BaseProps>`
+  max-width: 300px;
+  padding: 0 0.8rem;
 `
 
 interface ButtonProps extends BaseProps {
@@ -18,7 +24,7 @@ interface ButtonProps extends BaseProps {
 }
 
 export const FlatIcon = styled(Bordered)<ButtonProps>`
-  background: ${props => props.theme.iconBackground};
+  background: ${props => props.theme.cardBackground};
   /* border: 1px solid #525252; */
   box-shadow: ${props =>
     props.pressed ? props.theme.iconShadowPressed : props.theme.iconShadowFlat};
@@ -31,21 +37,5 @@ export const FlatIcon = styled(Bordered)<ButtonProps>`
       props.pressed
         ? props.theme.iconShadowPressed
         : props.theme.iconShadowFlat};
-  }
-`
-
-export const FlatButton = styled(FlatCard)<ButtonProps>`
-  background: ${props => props.theme.cardBackground};
-  box-shadow: ${props =>
-    props.pressed ? props.theme.cardShadowPressed : props.theme.cardShadowFlat};
-  &:hover {
-    background: ${props =>
-      props.pressed
-        ? props.theme.cardBackground
-        : props.theme.cardBackgroundHover};
-    box-shadow: ${props =>
-      props.pressed
-        ? props.theme.cardShadowPressed
-        : props.theme.cardShadowFlat};
   }
 `

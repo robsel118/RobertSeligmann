@@ -56,8 +56,11 @@ export const Social = styled(FlatIcon)`
     .linkedin,
     .light,
     .light-on {
-      path {
-        fill: ${props => props.theme.textColor};
+      path,
+      rect,
+      circle,
+      line {
+        stroke: ${props => props.theme.textColor};
       }
     }
   }
@@ -65,9 +68,16 @@ export const Social = styled(FlatIcon)`
   .linkedin,
   .light,
   .light-on {
-    path {
+    path,
+    rect,
+    circle,
+    line {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: 'round';
+      stroke-linejoin: 'round';
       transition-duration: 0.5s;
-      fill: ${props => props.theme.linkColor};
+      stroke: ${props => props.theme.linkColor};
     }
   }
 `

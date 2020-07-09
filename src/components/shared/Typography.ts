@@ -6,7 +6,7 @@ export const Paragraph = styled.p`
   font-family: ${fonts.muli};
   font-size: 1.1rem;
   letter-spacing: 0.04rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
   line-height: 150%;
 `
 
@@ -15,5 +15,10 @@ export const Title = styled.p`
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
+  font-weight: 300;
   color: ${props => props.theme.textColor};
+`
+export const TextContent = styled.div`
+  max-width: 50rem;
+  margin: 5rem 0;
 `

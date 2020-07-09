@@ -5,23 +5,25 @@ import { Link } from 'gatsby'
 import logosvg from '../../images/logo.svg'
 import { breakpoints } from '../../theme/styles'
 
-const LogoImg = styled.div`
+interface LogoImgProps {
+  height: string;
+  width: string;
+}
+const LogoImg = styled.div<LogoImgProps>`
   cursor: pointer;
-  /* position: relative; */
   float: left;
-  display: inline-block;
-  margin-top: auto 0px;
+  margin: auto 0px;
   background-image: url(${logosvg});
-  width: 2.1rem;
-  height: 2rem;
+  width: ${props => props.height};
+  height: ${props => props.width};
   background-repeat: no-repeat;
   filter: ${props => props.theme.inverted};
   align-self: flex-start;
 `
 
-const Logo = () => (
+const Logo = ({height = "2rem", width = "2.1rem"}) => (
   <Link to="/">
-    <LogoImg />
+    <LogoImg height={height} width={width} />
   </Link>
 )
 

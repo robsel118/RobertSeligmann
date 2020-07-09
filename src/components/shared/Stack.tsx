@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../theme/styles'
-import { FlatCard } from './Neumorphic'
+import { FlatBorder } from './Neumorphic'
 import vueSVG from '../../images/tech/Logo_Vue.svg'
 import d3SVG from '../../images/tech/Logo_D3.svg'
 import lodashSVG from '../../images/tech/Logo_Lodash.svg'
+import reactSVG from '../../images/tech/Logo_React.svg'
+import androidSVG from '../../images/tech/Logo_Android.svg'
+import firebaseSVG from '../../images/tech/Logo_Firebase.svg'
 
 const Stack = styled.div`
   display: flex;
@@ -27,12 +30,12 @@ const TechStackText = styled.p`
   font-size: 1.2rem;
 `
 
-const TechStackContainer = styled(FlatCard)`
+const TechStackContainer = styled(FlatBorder)`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items:center;
-  width: 150px;
+  width: 180px;
   margin: 1.5rem 0;
   border-radius: 15px;
 `
@@ -54,6 +57,24 @@ export const LodashStack = () => {
   return <TechStackContainer>
     <TechStackImage src={lodashSVG}/>
     <TechStackText>Lodash</TechStackText>
+  </TechStackContainer>
+}
+export const ReactStack = () => {
+  return <TechStackContainer>
+    <TechStackImage src={reactSVG}/>
+    <TechStackText>React.js</TechStackText>
+  </TechStackContainer>
+}
+export const AndroidStack = () => {
+  return <TechStackContainer>
+    <TechStackImage src={androidSVG}/>
+    <TechStackText>Android</TechStackText>
+  </TechStackContainer>
+}
+export const FirebaseStack = () => {
+  return <TechStackContainer>
+    <TechStackImage src={firebaseSVG}/>
+    <TechStackText>Firebase</TechStackText>
   </TechStackContainer>
 }
 
