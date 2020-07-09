@@ -11,18 +11,22 @@ interface LogoImgProps {
 }
 const LogoImg = styled.div<LogoImgProps>`
   cursor: pointer;
+  position: relative;
   float: left;
-  margin: auto 0px;
+  display: block;
+  font-size: 100%;
+  margin : 0.5rem 0;
   background-image: url(${logosvg});
   width: ${props => props.height};
   height: ${props => props.width};
   background-repeat: no-repeat;
   filter: ${props => props.theme.inverted};
-  align-self: flex-start;
+  ;
+
 `
 
-const Logo = ({height = "2rem", width = "2.1rem"}) => (
-  <Link to="/">
+const Logo = ({ height = "3.2rem", width = "2.8rem" }) => (
+  <Link to="/" >
     <LogoImg height={height} width={width} />
   </Link>
 )

@@ -70,8 +70,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             <Link to="junction-2019">Read More</Link>
           </div>
         </Banner>
-      </Layout>
       <Footer />
+      </Layout>
     </ThemedContext>
   )
 }

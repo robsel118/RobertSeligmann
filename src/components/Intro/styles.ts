@@ -34,7 +34,7 @@ export const Line = styled.div`
   width: 200px;
   background-color: gray;
 `
-export const Social = styled(FlatIcon)`
+export const Social = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;

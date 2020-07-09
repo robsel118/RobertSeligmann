@@ -20,5 +20,5 @@ export const Title = styled.p`
 `
 export const TextContent = styled.div`
   max-width: 50rem;
-  margin: 5rem 0;
+  margin: 3rem 0;
 `

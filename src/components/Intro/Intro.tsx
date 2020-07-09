@@ -32,8 +32,8 @@ const SocialButton: React.FC<SocialButtonProps> = ({
 )
 
 const Intro = () => (
-  <Container>
-    <IntroSocials>
+  <>
+    {/* <IntroSocials>
       <Line />
       <Socials>
         <SocialButton
@@ -53,14 +53,14 @@ const Intro = () => (
           <circle cx="4" cy="4" r="2" />
         </SocialButton>
       </Socials>
-    </IntroSocials>
+    </IntroSocials> */}
     <IntroText>
       <Headline>
         Hi there, I'm Robert. <br /> Software{' '}
         <Highlighted inset="-3rem">Developer</Highlighted>, <br /> student, and freelancer.
       </Headline>
     </IntroText>
-  </Container>
+  </ >
 )
 
 export default Intro

@@ -33,8 +33,8 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
     <ThemedContext>
       <GlobalStyle />
       <SEO title="Junction 2019" />
-      <Header />
       <Layout>
+        <Header />
         <Banner>
           <Image title="Junction" fluid={data.junction.fluid} />
           <BannerTitle>Junction 2019</BannerTitle>
@@ -75,8 +75,8 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
           </Paragraph>
         </TextContent>
         <Image title="Matt and I" fluid={data.team.fluid} />
+        <Footer />
       </Layout>
-      <Footer />
     </ThemedContext>
   )
 }
