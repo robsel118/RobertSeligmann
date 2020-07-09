@@ -10,11 +10,13 @@ const GlobalStyle = createGlobalStyle`
 
     body, div {
         transition: background-color 0.3s ease-in-out;
-        transition: box-shadow 0.3s ease;
+        transition: box-shadow 0.3s ease-in-out;
     }
 
     a, p, span{
         transition: color 0.3s ease-in-out;
+        transition: border 0.3s ease-in-out;
+        
     }
 
 

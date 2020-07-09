@@ -25,7 +25,6 @@ export const NavLinkcontainer = styled.div`
 export const NavbarContainer = styled.div`
   display: table;
   width: 100%;
-  position: -webkit-sticky;
   position: sticky;
   padding: 0;
   top: 0;

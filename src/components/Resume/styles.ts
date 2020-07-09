@@ -50,6 +50,7 @@ export const Column = styled.div<ColumnProps>`
 
   @media (max-width: ${breakpoints.md}) {
     padding: 1rem 1rem;
+    border-bottom: 1px solid ${props => props.theme.linkColor};
     order: ${props => props.order};
   }
 `
@@ -73,9 +74,9 @@ export const DownloadLink = styled.a`
   letter-spacing: 0.03rem;
   color: ${props => props.theme.linkColor};
   border-bottom: 2px solid ${props => props.theme.linkColor};
+  transition: outline 0.6s linear;
   &:hover {
     color: ${props => props.theme.linkColorHover};
-    border-bottom: 2px solid ${props => props.theme.linkColorHover};
-    padding-bottom: 0.5rem;
+    border-bottom: 4px solid ${props => props.theme.linkColorHover};
   }
 `

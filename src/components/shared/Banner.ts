@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import Image from '../shared/Image'
+import Image from './Image'
 import { Title } from './Typography'
 import { fonts, themes } from '../../theme/styles'
 
-export const HeroTitle = styled(Title)`
+export const BannerTitle = styled(Title)`
   font-size: 3rem;
   line-height: 3.5rem;
   margin: 0 0;
@@ -12,18 +12,18 @@ export const HeroTitle = styled(Title)`
   }
 `
 
-export const HeroSubTitle = styled.p`
+export const BannerSubTitle = styled.p`
   font-family: ${fonts.muli};
   font-size: 1rem;
   margin: 0 0;
 `
 
-interface HeroProps {
+interface BannerProps {
   image?: string
   isBackgroundDark?: boolean
 }
 
-const Hero = styled.div<HeroProps>`
+const Banner = styled.div<BannerProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,4 +54,4 @@ const Hero = styled.div<HeroProps>`
   }
 `
 
-export default Hero
+export default Banner

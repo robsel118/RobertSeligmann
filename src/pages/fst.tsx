@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, PageProps } from "gatsby";
-import Hero, { HeroTitle, HeroSubTitle } from '../components/shared/Hero'
+import Banner, { BannerTitle, BannerSubTitle } from '../components/shared/Banner'
 import { Title, Paragraph, TextContent } from '../components/shared/Typography'
 import Grid from '../components/shared/Grid'
 import Image from '../components/shared/Image'
@@ -27,13 +27,13 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <ThemedContext>
       <GlobalStyle />
-        <SEO title="Fujitsu Software Technology" />
-        <Header />
-        <Hero>
-          <Image  title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
-          <HeroTitle>Working in Matsumoto, Japan</HeroTitle>
-          <HeroSubTitle>Summer internship in the Land of the Rising Sun</HeroSubTitle>
-        </Hero>
+      <SEO title="Fujitsu Software Technology" />
+      <Header />
+      <Banner>
+        <Image title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
+        <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
+        <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
+      </Banner>
       <Layout>
         <TextContent>
           <Title>Working at Fujitsu Software Technologies</Title>
@@ -58,8 +58,8 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
           <Title>Summary</Title>
           <Paragraph>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
         </TextContent>
-        <Footer />
       </Layout>
+      <Footer />
     </ThemedContext>
   )
 }

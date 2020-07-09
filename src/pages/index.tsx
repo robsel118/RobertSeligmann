@@ -6,7 +6,7 @@ import Intro from '../components/Intro'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 
-import { Header } from '../components/Navbar'
+import { Header, Footer } from '../components/Navbar'
 
 const IndexPage = () => {
   useEffect(() => {
@@ -31,6 +31,7 @@ const IndexPage = () => {
           <Intro />
         </Grid>
       </Layout>
+      <Footer/>
     </ThemedContext>
   )
 }
