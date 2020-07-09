@@ -9,12 +9,12 @@ const Bordered = styled.div<BaseProps>`
 `
 
 export const FlatBorder = styled(Bordered)<BaseProps>`
+  width: 100%;  
   background: ${props => props.theme.cardBackground};
   box-shadow: ${props => props.theme.cardShadowFlat};
 `
 
 export const FlatCard = styled(FlatBorder)<BaseProps>`
-  width: 100%;
   max-width: 300px;
   padding: 0 0.8rem;
 `
