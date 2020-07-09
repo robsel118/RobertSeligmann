@@ -10,6 +10,7 @@ const Bordered = styled.div<BaseProps>`
 
 export const FlatBorder = styled(Bordered)<BaseProps>`
   width: 100%;  
+  margin: 1rem auto;
   background: ${props => props.theme.cardBackground};
   box-shadow: ${props => props.theme.cardShadowFlat};
 `
