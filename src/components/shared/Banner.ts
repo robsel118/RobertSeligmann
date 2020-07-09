@@ -57,7 +57,11 @@ const Banner = styled.div<BannerProps>`
 
   a {
     text-decoration: none;
-    border: 2px solid ${props => props.theme.textColor};
+    border: 2px solid
+      ${props =>
+        props.isBackgroundDark
+          ? themes.light.textColor
+          : themes.dark.textColor};
     font-family: ${fonts.teko};
     padding: 0.8rem 1.5rem;
     transition: all 0.3s linear;
@@ -76,7 +80,7 @@ const Banner = styled.div<BannerProps>`
       background-color: ${props =>
         props.isBackgroundDark
           ? themes.light.textColor
-          : themes.dark.textColor} !important;
+          : themes.dark.textColor};
     }
   }
 `
