@@ -21,6 +21,9 @@ type DataProps = {
   junction: {
     fluid: any
   },
+  robert: {
+    fluid: any
+  }
 }
 
 
@@ -43,9 +46,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <SEO title="Home" />
       <Header />
       <Layout>
-        <Grid cols={2}>
-          <Intro />
-        </Grid>
+          {/* <Intro picture={data.robert}/> */}
         <TextContent>
           <Title>
             Some of the things I have done
@@ -85,6 +86,11 @@ export const query = graphql`
     },
     junction: imageSharp(fluid: { originalName: { regex: "/banner-junction/" } }) {
       fluid(maxWidth: 1200, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    },
+    robert: imageSharp(fluid: { originalName: { regex: "/me/" } }) {
+      fluid(maxWidth: 700, quality: 100) {
         ...GatsbyImageSharpFluid
       }
     },

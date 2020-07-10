@@ -15,18 +15,46 @@ export const IntroSocials = styled.div`
   align-items: center;
 `
 
-export const IntroText = styled.div`
-  align-items: center;
+export const HiddenBackground = styled.div`
+  position: relative;
+  flex: 1;
+  z-index: 2;
+  background-color: black;
+`
+
+export const IntroContainer = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
 `
 
 export const Headline = styled.h1`
+  position: absolute;
   font-family: ${fonts.archivo};
   font-size: 6vw;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.linkColorHover};
+  z-index: 4;
 
   @media (min-width: ${breakpoints.lg}) {
     font-size: 3.75rem;
   }
+`
+export const IntroText = styled.div`
+  align-items: center;
+  ${Headline}:last-child {
+    z-index: 6;
+    color: transparent;
+    -webkit-text-stroke: 2px ${props => props.theme.linkColorHover};
+  }
+`
+
+export const ImageContainer = styled.div`
+  z-index: 5;
+  min-width: 40rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  filter: grayscale(60%);
 `
 
 export const Line = styled.div`

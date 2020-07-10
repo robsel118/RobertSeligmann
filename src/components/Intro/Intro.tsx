@@ -1,7 +1,8 @@
 import React from 'react'
 import Container from '../shared/Container'
-import { IntroSocials, IntroText, Social, Socials, Line, Headline } from './styles'
+import { IntroSocials, IntroText, Social, Socials, Line, Headline, IntroContainer, ImageContainer } from './styles'
 import { Highlighted } from '../shared/Highlight'
+import Image from '../shared/Image'
 
 interface SocialButtonProps {
   title: string
@@ -16,23 +17,26 @@ const SocialButton: React.FC<SocialButtonProps> = ({
   classname,
   children
 }) => (
-  <a target="_blank" rel="noreferrer" title={title} href={url}>
-    <Social>
-      <svg
-        className={classname}
-        width="25"
-        height="25"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {children}
-      </svg>
-    </Social>
-  </a>
-)
+    <a target="_blank" rel="noreferrer" title={title} href={url}>
+      <Social>
+        <svg
+          className={classname}
+          width="25"
+          height="25"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {children}
+        </svg>
+      </Social>
+    </a>
+  )
 
-const Intro = () => (
-  <>
+interface IntroProps {
+  picture: any;
+}
+const Intro: React.FC<IntroProps> = ({ picture }) => (
+  <IntroContainer>
     {/* <IntroSocials>
       <Line />
       <Socials>
@@ -57,10 +61,18 @@ const Intro = () => (
     <IntroText>
       <Headline>
         Hi there, I'm Robert. <br /> Software{' '}
-        <Highlighted inset="-3rem">Developer</Highlighted>, <br /> student, and freelancer.
-      </Headline>
+          Developer, <br /> student, and freelancer.
+        </Headline>
+      <Headline>
+
+        Hi there, I'm Robert. <br /> Software{' '}
+        Developer, <br /> student, and freelancer.
+        </Headline>
     </IntroText>
-  </ >
+    <ImageContainer>
+      <Image fluid={ picture.fluid}/>
+    </ImageContainer>
+  </IntroContainer>
 )
 
 export default Intro

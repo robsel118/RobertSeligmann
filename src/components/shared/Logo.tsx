@@ -4,10 +4,12 @@ import { Link } from 'gatsby'
 
 import logosvg from '../../images/logo.svg'
 import { breakpoints } from '../../theme/styles'
+import { checkPropTypes } from 'prop-types'
 
 interface LogoImgProps {
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
+  filter?: string;
 }
 const LogoImg = styled.div<LogoImgProps>`
   cursor: pointer;
@@ -20,15 +22,14 @@ const LogoImg = styled.div<LogoImgProps>`
   width: ${props => props.height};
   height: ${props => props.width};
   background-repeat: no-repeat;
-  filter: ${props => props.theme.inverted};
-  ;
-
+  filter: ${props => props.filter || props.theme.inverted}
 `
 
-const Logo = ({ height = "3.2rem", width = "2.8rem" }) => (
+const Logo:React.FC<LogoImgProps> = ({ height = "3.2rem", width = "2.8rem", filter}) => (
   <Link to="/" >
-    <LogoImg height={height} width={width} />
+    <LogoImg height={height} width={width} filter={filter}/>
   </Link>
 )
+
 
 export default Logo

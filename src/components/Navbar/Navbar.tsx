@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { GitHub, Linkedin , Sun} from 'react-feather'
+import { Menu } from 'react-feather'
 import Logo from '../shared/Logo'
 import { Social, } from '../Intro/styles'
 import Layout from '../shared/Layout'
 import ThemeToggleButton from '../shared/ThemeToggleButton'
-import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, IconLink, IconList, LinkList, Navlink } from './styles'
+import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
 
 interface SocialButtonProps {
   title: string
@@ -36,37 +36,35 @@ const SocialButton: React.FC<SocialButtonProps> = ({
     </a>
   )
 
-export const Header = () => (
-  <HeaderContainer>
-    <ContentRow>
-      <Logo />
+
+
+export const Header = () => {
+
+  const [expanded, setExpanded] = useState(false)
+
+  return (<HeaderContainer>
+    <ContentRow >
+      <Logo filter="invert(100%)"/>
       <NavLinkcontainer>
         <LinkList>
-          {/* <LinkList className="icons">
-            <Navlink><a target="_blank" href="https://github.com/robsel118"><GitHub /></a></Navlink>
-            <Navlink><a target="_blank" href="https://www.linkedin.com/in/robert-seligmann/"><Linkedin /></a></Navlink>
-          </LinkList> */}
-          <Navlink><ThemeToggleButton/></Navlink>
-        
+          <Navlink><ThemeToggleButton /></Navlink>
           <Navlink><Link to="/">Projects</Link></Navlink>
           <Navlink><Link to="/about">About</Link></Navlink>
         </LinkList>
-        {/* <Link to="/">Projects</Link>
-      <Link to="/about">About</Link>
-        <IconList>
-          <IconLink>
-            <a href="https://github.com/robsel118"><GitHub/></a>
-          </IconLink>
-          <IconLink>
-            <a href="https://www.linkedin.com/in/robert-seligmann/"><Linkedin/></a>
-          </IconLink>
-          <IconLink>
-          </IconLink>
-        </IconList> */}
+        <CollapseButton expanded={expanded}>
+          <Menu  onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
+        </CollapseButton>
       </NavLinkcontainer>
     </ContentRow>
+    <CollapsibleMenu expanded={expanded}>
+        <Navlink><Link to="/">Projects</Link></Navlink>
+        <Navlink><Link to="/about">About</Link></Navlink>
+        <Line/>
+        <Navlink><ThemeToggleButton /></Navlink>
+    </CollapsibleMenu>
   </HeaderContainer>
-)
+  )
+}
 
 export const Footer = () => (
   <NavbarContainer>

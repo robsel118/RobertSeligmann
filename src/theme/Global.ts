@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         transition: background-color 0.3s ease-in-out;
+        text-rendering: optimizeLegibility;
     }
 
     body, div {
