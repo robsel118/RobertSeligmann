@@ -1,5 +1,5 @@
 require('typeface-muli')
-require('typeface-archivo')
+
 require('typeface-teko')
 
 export const breakpoints = {
@@ -10,8 +10,7 @@ export const breakpoints = {
 }
 
 export const fonts = {
-  muli: 'Muli, sans-serif',
-  archivo: 'Archivo, sans-serif',
+  muli: 'Nunito-sans, sans-serif',
   teko: 'Teko, sans-serif',
 }
 
@@ -27,13 +26,14 @@ export const themes = {
     iconShadowPressed:
       'inset 5px 5px 12px #bfbfbf, inset -5px -5px 12px #ffffff',
     buttonBackground: '#5E81AC',
-    textColor: '#696969',
+    textColor: '#333',
     linkColor: '#9a9a9a',
-    linkColorHover: '#333',
+    linkColorHover: '#333333',
     buttonColor: '#ECEFF4',
     inverted: 'invert(0%)',
     highlight: '#CDEEF2',
     highlightHover: '#B4DDE3',
+    bw: 'black',
   },
   dark: {
     background: '#474747',
@@ -53,5 +53,6 @@ export const themes = {
     inverted: 'invert(100%)',
     highlight: '#4AAD52 ',
     highlightHover: '#488B49',
+    bw: 'white',
   },
 }

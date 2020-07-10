@@ -19,7 +19,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   position: sticky;
   top: 0;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   top: 0.4rem 0;
   z-index: 1;
   background-color: ${props => props.theme.background};
@@ -88,7 +88,7 @@ export const LinkList = styled.ul`
   }
 
   li {
-    margin: 1rem 1.5rem 1rem 1rem;
+    margin: 1.2rem 1.5rem 0rem 1rem;
   }
   &.icons li {
     margin: 1rem 0.8rem;

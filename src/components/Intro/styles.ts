@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FlatIcon } from '../shared/Neumorphic'
 import { fonts, breakpoints } from '../../theme/styles'
 
 export const Socials = styled.div`
@@ -29,11 +28,12 @@ export const IntroContainer = styled.div`
 `
 
 export const Headline = styled.h1`
-  position: absolute;
-  font-family: ${fonts.archivo};
+  position: relative;
+  font-family: ${fonts.muli};
   font-size: 6vw;
-  color: ${props => props.theme.linkColorHover};
-  z-index: 4;
+  font-weight: bold;
+  color: ${props => props.theme.bw};
+  z-index: 9;
 
   @media (min-width: ${breakpoints.lg}) {
     font-size: 3.75rem;
@@ -41,11 +41,6 @@ export const Headline = styled.h1`
 `
 export const IntroText = styled.div`
   align-items: center;
-  ${Headline}:last-child {
-    z-index: 6;
-    color: transparent;
-    -webkit-text-stroke: 2px ${props => props.theme.linkColorHover};
-  }
 `
 
 export const ImageContainer = styled.div`
@@ -54,13 +49,31 @@ export const ImageContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  filter: grayscale(60%);
+  filter: contrast(90%);
 `
 
 export const Line = styled.div`
   height: 1px;
-  width: 200px;
+  width: 80px;
   background-color: gray;
+`
+
+export const SocialContainer = styled.div`
+  display: table;
+  padding: 1rem 0;
+
+  a {
+    margin-right: 0.8rem;
+    svg {
+      transition: stroke 0.3s linear;
+      stroke: ${props => props.theme.linkColor};
+    }
+  }
+  a:hover {
+    svg {
+      stroke: ${props => props.theme.linkColorHover};
+    }
+  }
 `
 
 export const Social = styled.div`

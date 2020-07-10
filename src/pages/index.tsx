@@ -46,7 +46,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <SEO title="Home" />
       <Header />
       <Layout>
-          {/* <Intro picture={data.robert}/> */}
+          <Intro picture={data.robert}/>
         <TextContent>
           <Title>
             Some of the things I have done

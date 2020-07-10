@@ -1,7 +1,7 @@
 import { keyframes } from 'styled-components'
 
 export const HeaderPopDown = keyframes`
-    100% {
+    to {
        transform:  translateY(100%)
     }
 `

@@ -16,8 +16,8 @@ const About = () => {
     <ThemedContext>
       <GlobalStyle />
       <SEO title="About" />
+      <Header />
       <Layout>
-        <Header />
         <Grid cols={2}>
           <TextContent>
             <Title>Hello there, I'm Robert. Nice to meet you!</Title>

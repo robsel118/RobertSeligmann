@@ -28,8 +28,8 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
     <ThemedContext>
       <GlobalStyle />
       <SEO title="Fujitsu Software Technology" />
+      <Header />
       <Layout>
-        <Header />
         <Banner>
           <Image title="Mt. Fuji sunrise" fluid={data.fuji.fluid} />
           <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
@@ -60,8 +60,8 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
         </Grid>
         <TextContent>
           <Title>Summary</Title>
-          <Paragraph>My experience at FST was not perfect, but it will be something that I will cherish forever, 
-            and I want to thank everybody at FST for their kindness and for the time they took to teach me about their wonderful culture. It really showed me how little I knew about the world, which excites me even more as it means that I just have that much more to learn.
+          <Paragraph>My experience at FST was not perfect, but it will be something that I will cherish forever,
+          and I want to thank everybody at FST for their kindness and for the time they took to teach me about their wonderful culture. It really showed me how little I knew about the world, which excites me even more as it means that I just have that much more to learn.
           </Paragraph>
         </TextContent>
         <Footer />
