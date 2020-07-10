@@ -52,7 +52,7 @@ export const Header = () => {
           <Navlink><Link to="/about">About</Link></Navlink>
         </LinkList>
         <CollapseButton expanded={expanded}>
-          <Menu  onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
+          <Menu onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
         </CollapseButton>
       </NavLinkcontainer>
     </ContentRow>

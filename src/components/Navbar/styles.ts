@@ -27,13 +27,13 @@ export const NavbarContainer = styled.div`
 `
 
 export const ContentRow = styled.div`
-  width: 100%;
-  display: table;
-  padding: 0 1rem;
+  display: block;
+  padding: 0 0 0 1rem;
 
   @media (min-width: ${breakpoints.lg}) {
     max-width: 1024px;
     margin: 0 auto;
+    padding: 0;
   }
 
   @media (min-width: ${breakpoints.xl}) {
@@ -82,6 +82,7 @@ export const LinkList = styled.ul`
   padding: 0;
   float: right;
   list-style: none;
+
   @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
@@ -101,9 +102,9 @@ interface CollapsibleMenuProps {
 export const CollapseButton = styled.ul<CollapsibleMenuProps>`
   margin: 0;
   display: none;
-
+  cursor: pointer;
   @media (max-width: ${breakpoints.sm}) {
-    display: block;
+    display: inline;
   }
 
   svg {

@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-
 import logosvg from '../../images/logo.svg'
-import { breakpoints } from '../../theme/styles'
-import { checkPropTypes } from 'prop-types'
 
 interface LogoImgProps {
   height?: string;
@@ -30,6 +27,5 @@ const Logo:React.FC<LogoImgProps> = ({ height = "3.2rem", width = "2.8rem", filt
     <LogoImg height={height} width={width} filter={filter}/>
   </Link>
 )
-
 
 export default Logo

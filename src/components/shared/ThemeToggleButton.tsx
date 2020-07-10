@@ -9,6 +9,7 @@ interface ToggleableSunProps {
   active: boolean
 }
 const ToggleableSun = styled.span<ToggleableSunProps>`
+  cursor: pointer;
   svg{
     path, circle, line {
         stroke: white;
