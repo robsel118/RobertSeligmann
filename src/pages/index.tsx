@@ -4,12 +4,14 @@ import SEO from '../components/shared/seo'
 import { graphql, PageProps } from "gatsby";
 import Layout from '../components/shared/Layout'
 import Grid from '../components/shared/Grid'
+import { ProjectContainer, ProjectDescription, ProjectImage, DescriptionTitle, DescriptionText, DescriptionTechList, DescriptionLinks } from '../components/Project/styles'
 import Intro from '../components/Intro'
+import {GitHub, Archive} from 'react-feather'
 import ThemedContext from '../theme/ThemeContext'
 import { TextContent, Title, Paragraph } from '../components/shared/Typography'
 import GlobalStyle from '../theme/Global'
 import Image from '../components/shared/Image'
-import Banner, { BannerSubTitle, BannerTitle } from '../components/shared/Banner'
+import Banner, { BannerSubTitle, BannerTitle, BannerLinks , BorderedButton} from '../components/shared/Banner'
 
 import { Header, Footer } from '../components/Navbar'
 
@@ -46,7 +48,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <SEO title="Home" />
       <Header />
       <Layout>
-          <Intro picture={data.robert}/>
+        <Intro picture={data.robert}/>
         <TextContent>
           <Title>
             Some of the things I have done
@@ -55,20 +57,55 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             While you're here, why not take a look at some of the applications and articles I've spent time on?
           </Paragraph>
         </TextContent>
-        <Banner alignment="left">
+
+      {/* <ProjectContainer>
+        <ProjectImage>  <Image title="Sake Barrels" fluid={data.barrels.fluid} /></ProjectImage>
+        <ProjectDescription>
+          <DescriptionTitle>Tests</DescriptionTitle>
+          <DescriptionText> A nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.</DescriptionText>
+          <DescriptionTechList>
+            <span>JAvaScript</span>
+            <span>Nodejs</span>
+            <span>TypeScript</span>
+          </DescriptionTechList>
+          <DescriptionLinks>
+            <a><GitHub/></a>
+            <a><Archive/></a>
+          </DescriptionLinks>
+          </ProjectDescription>
+      </ProjectContainer> */}
+   
+      
+     
+       <Banner alignment="left">
           <Image title="Sake Barrels" fluid={data.barrels.fluid} />
           <div>
             <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
             <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
-            <Link to="fst">Read More</Link>
+            <BorderedButton to="fst">Read More</BorderedButton>
           </div>
         </Banner>
-        <Banner alignment="left">
+        <Banner alignment="right" >
           <Image title="Junction" fluid={data.junction.fluid} />
           <div>
             <BannerTitle>Junction 2019</BannerTitle>
             <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-            <Link to="junction-2019">Read More</Link>
+            <BannerLinks>
+              <BorderedButton to="junction-2019">Read More</BorderedButton>
+              <a><GitHub/></a>
+              <a><Archive/></a>
+            </BannerLinks>
+          </div>
+        </Banner>
+        <Banner alignment="right" >
+          <Image title="Junction" fluid={data.junction.fluid} />
+          <div>
+            <BannerTitle>Junction 2019</BannerTitle>
+            <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
+            <BannerLinks>
+              <a><GitHub/></a>
+              <a><Archive/></a>
+            </BannerLinks>
           </div>
         </Banner>
       <Footer />

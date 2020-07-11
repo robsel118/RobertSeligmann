@@ -5,7 +5,7 @@ export const Paragraph = styled.p`
   color: ${props => props.theme.textColor};
   font-family: ${fonts.muli};
   font-size: 1.1rem;
-  letter-spacing: 0.04rem;
+  letter-spacing: 0.03rem;
   margin: 2rem 0;
   line-height: 150%;
 `

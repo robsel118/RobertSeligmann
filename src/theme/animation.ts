@@ -5,7 +5,6 @@ export const HeaderPopDown = keyframes`
        transform:  translateY(100%)
     }
 `
-
 export const FadeIn = keyframes`
   0%{
     opacity: 0;

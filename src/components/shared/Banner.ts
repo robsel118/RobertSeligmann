@@ -1,18 +1,42 @@
 import styled from 'styled-components'
 import Image from './Image'
+import { Link } from 'gatsby'
 import { Title, Paragraph } from './Typography'
 import { fonts, themes, breakpoints } from '../../theme/styles'
 
 export const BannerTitle = styled(Title)`
-  font-size: 3rem;
-  line-height: 3.5rem;
+  font-size: 2.5rem;
+  line-height: 2rem;
   margin: 0 0;
+  @media (min-width: ${breakpoints.md}) {
+    line-height: 3.5rem;
+  }
 `
 
 export const BannerSubTitle = styled(Paragraph)`
   font-size: 1rem;
   font-weight: 500;
   margin: 1rem 0 4rem 0 !important;
+  @media (min-width: ${breakpoints.md}) {
+    font-size: 1.1rem;
+  }
+`
+
+export const BannerLinks = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const BorderedButton = styled(Link)`
+  text-decoration: none;
+  border: 2px solid;
+  margin-right: 2rem;
+  font-family: ${fonts.teko};
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s linear;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
 `
 
 interface BannerProps {
@@ -26,7 +50,7 @@ const Banner = styled.div<BannerProps>`
   justify-content: center;
   align-items: ${props => props.alignment || 'center'};
   margin: 2rem 0;
-  min-height: 38rem;
+  min-height: 30rem;
   position: relative;
   padding-left: 4rem;
 
@@ -54,20 +78,23 @@ const Banner = styled.div<BannerProps>`
         ? themes.light.textColor
         : themes.dark.textColor} !important;
   }
-
-  a {
-    text-decoration: none;
-    border: 2px solid
-      ${props =>
+  a > svg {
+    margin-right: 1rem;
+    stroke: ${props =>
+      props.isBackgroundDark
+        ? themes.light.linkColor
+        : themes.dark.linkColor} !important;
+    &:hover {
+      stroke: ${props =>
         props.isBackgroundDark
-          ? themes.light.textColor
-          : themes.dark.textColor};
-    font-family: ${fonts.teko};
-    padding: 0.8rem 1.5rem;
-    transition: all 0.3s linear;
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 2px;
+          ? themes.dark.linkColorHover
+          : themes.light.linkColorHover} !important;
+    }
+  }
+  ${BorderedButton} {
+    border-color: ${props =>
+      props.isBackgroundDark ? themes.light.textColor : themes.dark.textColor};
+
     color: ${props =>
       props.isBackgroundDark
         ? themes.light.textColor
@@ -80,7 +107,7 @@ const Banner = styled.div<BannerProps>`
       background-color: ${props =>
         props.isBackgroundDark
           ? themes.light.textColor
-          : themes.dark.textColor};
+          : themes.dark.textColor} !important;
     }
   }
 `

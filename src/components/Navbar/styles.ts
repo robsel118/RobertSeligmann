@@ -46,7 +46,7 @@ export const HeaderContainer = styled.div`
   position: relative;
   top: -4rem;
   display: block;
-  background-color: #333;
+  background-color: #09182d;
   height: 4rem;
   animation: ${HeaderPopDown} 0.5s ease-in-out forwards;
   z-index: 999;
