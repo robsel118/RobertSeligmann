@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Line, Headline, IntroContainer, ImageContainer } from './styles'
+import {  Line, Headline, IntroContainer, ImageContainer,CTA, SocialContainer } from './styles'
 import { GitHub, Linkedin, Mail, ChevronsDown } from 'react-feather'
 import Image from '../shared/Image'
 
@@ -32,6 +32,14 @@ const Intro: React.FC<IntroProps> = ({ picture }) => (
       <ChevronsDown size={40}/> 
       </div>
     </IntroText> */}
+    <CTA>
+    <Line/>
+      <SocialContainer>
+          <a title="GitHub profile" href='https://github.com/robsel118' target='_blank' rel='noreferrer' ><GitHub/></a>
+          <a title="LinkedIn profile" href='https://www.linkedin.com/in/robert-seligmann/' target='_blank' rel='noreferrer'><Linkedin/></a>
+          <a title="E-Mail contact" href='mailto:robert.seligmann@protonmail.ch'><Mail/></a>
+      </SocialContainer>
+    </CTA>
     <ImageContainer>
       <Image fluid={ picture.fluid}/>
     </ImageContainer>
