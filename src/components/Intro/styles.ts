@@ -63,7 +63,7 @@ export const IntroContainer = styled.div`
 
   @media (min-width: ${breakpoints.lg}) {
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, minmax(calc((100vmin - 100px) / 4), 210px));
+    grid-template-rows: repeat(4, minmax(calc((100vmin - 64px) / 4), 210px));
   }
 
   ${Headline}:nth-child(2) {

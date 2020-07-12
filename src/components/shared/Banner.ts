@@ -75,39 +75,39 @@ const Banner = styled.div<BannerProps>`
     margin: 0.5rem 0;
     color: ${props =>
       props.isBackgroundDark
-        ? themes.light.textColor
-        : themes.dark.textColor} !important;
+        ? themes.dark.textColor
+        : themes.light.textColor} !important;
   }
   a > svg {
     margin-right: 1rem;
     stroke: ${props =>
       props.isBackgroundDark
-        ? themes.light.linkColor
-        : themes.dark.linkColor} !important;
+        ? themes.dark.linkColor
+        : themes.light.linkColor} !important;
     &:hover {
       stroke: ${props =>
         props.isBackgroundDark
-          ? themes.dark.linkColorHover
-          : themes.light.linkColorHover} !important;
+          ? themes.light.linkColorHover
+          : themes.dark.linkColorHover} !important;
     }
   }
   ${BorderedButton} {
     border-color: ${props =>
-      props.isBackgroundDark ? themes.light.textColor : themes.dark.textColor};
+      props.isBackgroundDark ? themes.dark.textColor : themes.light.textColor};
 
     color: ${props =>
       props.isBackgroundDark
-        ? themes.light.textColor
-        : themes.dark.textColor} !important;
+        ? themes.dark.textColor
+        : themes.light.textColor} !important;
     &:hover {
       color: ${props =>
         props.isBackgroundDark
-          ? themes.dark.textColor
-          : themes.light.textColor} !important;
-      background-color: ${props =>
-        props.isBackgroundDark
           ? themes.light.textColor
           : themes.dark.textColor} !important;
+      background-color: ${props =>
+        props.isBackgroundDark
+          ? themes.dark.textColor
+          : themes.light.textColor} !important;
     }
   }
 `

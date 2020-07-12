@@ -13,7 +13,7 @@ interface EventProps {
 const ProfessionalEvent: React.FC<EventProps> =({title, duration, children, titleExtension})=> {
     return <EventContainer>
         <span>
-            <SectionText><b>{titleExtension? `${titleExtension}`:''}</b> @ {title}</SectionText>
+            <SectionText><b>{titleExtension? `${titleExtension} @ `:''}</b>{title}</SectionText>
         </span>  
         <EventPeriod>{duration}</EventPeriod>
         { children }
