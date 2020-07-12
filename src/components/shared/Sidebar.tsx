@@ -2,6 +2,9 @@ import React from 'react';
 import { GitHub, Linkedin } from 'react-feather'
 import styled from 'styled-components'
 import { breakpoints, fonts } from '@theme/styles'
+import { github, email, linkedin } from '@config';
+
+
 
 const MenuWrapper = styled.div`
   position: fixed;
@@ -34,10 +37,10 @@ const LinkWrapper = styled.a`
 
 const Sidebar =()=> {
   return ( <MenuWrapper>
-    <LinkWrapper title="GitHub profile" href='https://github.com/robsel118' target='_blank' rel='noreferrer' ><GitHub/></LinkWrapper>
-    <LinkWrapper title="LinkedIn profile" href='https://www.linkedin.com/in/robert-seligmann/' target='_blank' rel='noreferrer' ><Linkedin/></LinkWrapper>
+    <LinkWrapper title="GitHub profile" href={github} target='_blank' rel='noreferrer' ><GitHub/></LinkWrapper>
+    <LinkWrapper title="LinkedIn profile" href={linkedin} target='_blank' rel='noreferrer' ><Linkedin/></LinkWrapper>
     <Line />
-    <LinkWrapper title="E-Mail contact" href='mailto:robert.seligmann@protonmail.ch'>robert.seligmann@protonmail.ch</LinkWrapper>
+    <LinkWrapper title="E-Mail contact" href={`mailto:${email}`}>{email}</LinkWrapper>
     <Line style={{height: '50px'}}/>
   </MenuWrapper>)
 }

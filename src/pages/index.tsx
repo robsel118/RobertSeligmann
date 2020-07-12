@@ -3,11 +3,10 @@ import { graphql, PageProps } from "gatsby";
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
-import Intro from '@components/Intro'
+import Intro from '@sections/Intro'
 import ThemedContext from '@theme/ThemeContext'
 import Projects from '@sections/Projects'
 import GlobalStyle from '@theme/Global'
-import Image from '@components/shared/Image'
 import Sidebar from '@components/shared/Sidebar'
 
 import { Header } from '@components/Navbar'
@@ -15,6 +14,7 @@ import { Header } from '@components/Navbar'
 
 type DataProps = {
   projects: any,
+  intro: any,
   barrels: {
     fluid: any
   },
@@ -39,6 +39,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
     #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
   })
+  console.log(data)
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -46,9 +47,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <Layout>
         <Header />
         <Content>
-          <section id='intro'>
-            <Intro picture={data.robert} />
-          </section>
+          <Intro intro={data.intro.edges} />
           <Projects projects={data.projects.edges}/>
         </Content>
        <Sidebar/>
@@ -80,6 +79,38 @@ export const query = graphql`
               }
             } 
           }
+        }
+      }
+    },
+    intro:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/intro/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            profilePic{
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            welcomeMessage
+          }
+          html
+        }
+      }
+    },
+    about:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/about/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            title
+            linkToResume
+          }
+          html
         }
       }
     },
