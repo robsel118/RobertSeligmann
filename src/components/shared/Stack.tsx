@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../theme/styles'
+import { fonts } from '@theme/styles'
 import { FlatBorder } from './Neumorphic'
-import vueSVG from '../../images/tech/Logo_Vue.svg'
-import d3SVG from '../../images/tech/Logo_D3.svg'
-import lodashSVG from '../../images/tech/Logo_Lodash.svg'
-import reactSVG from '../../images/tech/Logo_React.svg'
-import androidSVG from '../../images/tech/Logo_Android.svg'
-import firebaseSVG from '../../images/tech/Logo_Firebase.svg'
+import vueSVG from '@images/tech/Logo_Vue.svg'
+import d3SVG from '@images/tech/Logo_D3.svg'
+import lodashSVG from '@images/tech/Logo_Lodash.svg'
+import reactSVG from '@images/tech/Logo_React.svg'
+import androidSVG from '@images/tech/Logo_Android.svg'
+import firebaseSVG from '@images/tech/Logo_Firebase.svg'
 
 const Stack = styled.div`
   display: flex;

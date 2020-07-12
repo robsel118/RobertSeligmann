@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import logosvg from '../../images/logo.svg'
+import logosvg from '@images/logo.svg'
 
 interface LogoImgProps {
   height?: string;

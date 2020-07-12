@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
-import { breakpoints } from '../../theme/styles'
-import { FadeIn } from '../../theme/animation'
+import { breakpoints } from '@theme/styles'
+import { FadeIn } from '@theme/animation'
 
 const Content = styled.div`
   width: 100%;

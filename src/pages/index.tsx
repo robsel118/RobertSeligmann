@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import SEO from '@components/shared/seo'
 import { graphql, PageProps } from "gatsby";
+import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
 import Intro from '@components/Intro'
-import ThemedContext from '../theme/ThemeContext'
-import { TextContent, Title, Paragraph } from '@components/shared/Typography'
-import Projects from '../sections/Projects'
-import GlobalStyle from '../theme/Global'
+import ThemedContext from '@theme/ThemeContext'
+import Projects from '@sections/Projects'
+import GlobalStyle from '@theme/Global'
 import Image from '@components/shared/Image'
 import Sidebar from '@components/shared/Sidebar'
 
@@ -54,7 +53,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </Content>
        <Sidebar/>
       </Layout>
-
     </ThemedContext>
   )
 }

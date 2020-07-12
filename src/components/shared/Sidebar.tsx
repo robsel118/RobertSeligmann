@@ -1,7 +1,7 @@
 import React from 'react';
 import { GitHub, Linkedin } from 'react-feather'
 import styled from 'styled-components'
-import { breakpoints, fonts } from '../../theme/styles'
+import { breakpoints, fonts } from '@theme/styles'
 
 const MenuWrapper = styled.div`
   position: fixed;

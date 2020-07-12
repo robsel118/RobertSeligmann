@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ThemeContext } from '../../theme/ThemeContext'
+import { ThemeContext } from '@theme/ThemeContext'
 
 import { Sun} from 'react-feather'
 

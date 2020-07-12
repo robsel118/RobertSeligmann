@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Image from './Image'
 import { Link } from 'gatsby'
 import { Title, Paragraph } from './Typography'
-import { fonts, themes, breakpoints } from '../../theme/styles'
+import { fonts, themes, breakpoints } from '@theme/styles'
 
 export const BannerTitle = styled(Title)`
   font-size: 2.5rem;

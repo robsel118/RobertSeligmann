@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Menu } from 'react-feather'
-import Logo from '../shared/Logo'
-import Layout from '../shared/Layout'
-import ThemeToggleButton from '../shared/ThemeToggleButton'
+import Logo from '@components/shared/Logo'
+import Layout from '@components/shared/Layout'
+import ThemeToggleButton from '@components/shared/ThemeToggleButton'
 import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
 
 export const Header = () => {

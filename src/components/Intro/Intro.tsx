@@ -1,7 +1,7 @@
 import React from 'react'
 import { GitHub, Linkedin, Mail } from 'react-feather'
 import { Line, Headline, IntroContainer, ImageContainer, CTA, SocialContainer, IntroTextContainer } from './styles'
-import Image from '../shared/Image'
+import Image from '@components/shared/Image'
 
 
 interface IntroProps {

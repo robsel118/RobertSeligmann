@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Paragraph } from '../shared/Typography'
+import { Paragraph } from '@components/shared/Typography'
 
 interface HighlightedProps {
   inset?: string
