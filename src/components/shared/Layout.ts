@@ -1,32 +1,15 @@
-import styled, { keyframes } from 'styled-components'
-import { breakpoints } from '../../theme/styles'
-
-const FadeIn = keyframes`
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-`
+import styled from 'styled-components'
 
 const Layout = styled.div`
-  /* min-height: 100vh; */
-  padding: 1.25rem 1rem;
-  margin: 2rem auto;
-  opacity: 0;
-  animation: ${FadeIn} 0.5s 0.3s ease-in-out forwards;
-
-  @media (min-width: ${breakpoints.lg}) {
-    max-width: 1024px;
-    margin: 2px auto;
-    padding: 1.25rem 2rem;
-  }
-
-  @media (min-width: ${breakpoints.xl}) {
-    max-width: 1280px;
-    margin: 2px auto;
-  }
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
 `
 
 export default Layout

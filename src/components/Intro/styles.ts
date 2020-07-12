@@ -1,83 +1,123 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FlatIcon } from '../shared/Neumorphic'
-import { fonts, breakpoints } from '../../theme/styles'
-
-export const Socials = styled.div`
-  margin-left: 1.25rem;
-  width: auto;
-  height: auto;
-  display: flex;
-`
-
-export const IntroSocials = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-export const IntroText = styled.div`
-  align-items: center;
-`
+import { fonts, breakpoints, themes } from '../../theme/styles'
 
 export const Headline = styled.h1`
-  font-family: ${fonts.archivo};
-  font-size: 6vw;
-  color: ${props => props.theme.textColor};
+  font-family: ${fonts.muli};
+
+  color: ${props => props.theme.bw};
+  z-index: 4;
+  color: black;
+  filter: blur(0.2px);
+  grid-area: 1 / 1 / -1 / -1;
+
+  @media (min-width: ${breakpoints.sm}) {
+    font-size: 2rem;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
 
   @media (min-width: ${breakpoints.lg}) {
-    font-size: 3.75rem;
+    font-size: 3rem;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+`
+export const CTA = styled.div`
+  @media (min-width: ${breakpoints.sm}) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 2;
+  }
+  @media (min-width: ${breakpoints.lg}) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 2;
+  }
+`
+
+export const IntroTextContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  @media (min-width: ${breakpoints.sm}) {
+    grid-column: 2 / 5;
+    grid-row: 2 / -1;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-column: 1 / 7;
+    grid-row: 2 / -2;
+  }
+`
+
+export const IntroContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+
+  @media (min-width: ${breakpoints.sm}) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, minmax(100px, 1fr));
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, minmax(calc((100vmin - 100px) / 4), 210px));
+  }
+
+  ${Headline}:nth-child(2) {
+    z-index: 9;
+    color: white;
+    mix-blend-mode: color-dodge;
+  }
+  ${Headline}:nth-child(3) {
+    z-index: 10;
+    mix-blend-mode: exclusion;
+    color: ${props => (props.theme == themes.light ? 'black' : 'white')};
+  }
+`
+
+export const ImageContainer = styled.div`
+  z-index: 5;
+  position: relative;
+  filter: contrast(90%);
+  grid-column: 1 / 1;
+  grid-row: 2 / 2;
+  @media (min-width: ${breakpoints.sm}) {
+    grid-column: 4 / span 2;
+    grid-row: 2 / -1;
+    & > div {
+      overflow: visible !important;
+      &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        border: 2px solid #06d6a0;
+        top: 1.5rem;
+        left: 1.5rem;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-column: 5 /8;
+    grid-row: 2 / auto;
   }
 `
 
 export const Line = styled.div`
   height: 1px;
-  width: 200px;
+  width: 80px;
   background-color: gray;
 `
-export const Social = styled(FlatIcon)`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5rem;
-  width: 2.5rem;
-  margin: 0 1rem;
-  background-repeat: no-repeat;
-  background-size: 2.5rem 2.5rem;
-  background-position: center center;
-  transition-duration: 0.5s;
 
-  svg {
-    display: block;
-    margin: auto;
-  }
-
-  &:hover {
-    .git,
-    .linkedin,
-    .light,
-    .light-on {
-      path,
-      rect,
-      circle,
-      line {
-        stroke: ${props => props.theme.textColor};
-      }
-    }
-  }
-  .git,
-  .linkedin,
-  .light,
-  .light-on {
-    path,
-    rect,
-    circle,
-    line {
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: 'round';
-      stroke-linejoin: 'round';
-      transition-duration: 0.5s;
-      stroke: ${props => props.theme.linkColor};
-    }
+export const SocialContainer = styled.div`
+  display: table;
+  padding: 1rem 0;
+  a {
+    margin-right: 0.8rem;
   }
 `

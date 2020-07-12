@@ -6,7 +6,7 @@ interface GridProps {
 }
 
 const Grid = styled.div<GridProps>`
-  margin: 3rem 0;
+  margin: 1.5rem 0;
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
   display: flex;

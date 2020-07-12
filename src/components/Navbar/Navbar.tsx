@@ -1,23 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'gatsby'
+import { Menu } from 'react-feather'
 import Logo from '../shared/Logo'
 import Layout from '../shared/Layout'
 import ThemeToggleButton from '../shared/ThemeToggleButton'
-import { Link } from 'gatsby'
+import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
 
-import { NavbarContainer, NavLinkcontainer } from './styles'
+export const Header = () => {
 
-export const Header = () => (
-  <NavbarContainer>
-    <Layout>
-      <Logo height="2.4rem" width="2.6rem" />
+  const [expanded, setExpanded] = useState(false)
+
+  return (<HeaderContainer>
+    <ContentRow >
+      <Logo filter="invert(100%)"/>
       <NavLinkcontainer>
-        <Link to="/">Projects</Link>
-        <Link to="/about">About</Link>
-        <ThemeToggleButton />
+        <LinkList>
+          <Navlink><ThemeToggleButton /></Navlink>
+          <Navlink><Link to="/">Projects</Link></Navlink>
+          <Navlink><Link to="/about">About</Link></Navlink>
+        </LinkList>
+        <CollapseButton expanded={expanded}>
+          <Menu onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
+        </CollapseButton>
       </NavLinkcontainer>
-    </Layout>
-  </NavbarContainer>
-)
+    </ContentRow>
+    <CollapsibleMenu expanded={expanded}>
+        <Navlink><Link to="/">Projects</Link></Navlink>
+        <Navlink><Link to="/about">About</Link></Navlink>
+        <Line/>
+        <Navlink><ThemeToggleButton /></Navlink>
+    </CollapsibleMenu>
+  </HeaderContainer>
+  )
+}
 
 export const Footer = () => (
   <NavbarContainer>
@@ -32,3 +47,13 @@ export const Footer = () => (
 )
 
 
+// <NavbarContainer>
+// <Layout>
+//   <Logo height="2.4rem" width="2.6rem" />
+//   <NavLinkcontainer>
+//     <Link to="/">Projects</Link>
+//     <Link to="/about">About</Link>
+//     <ThemeToggleButton />
+//   </NavLinkcontainer>
+// </Layout>
+// </NavbarContainer>

@@ -18,5 +18,6 @@ declare module 'styled-components' {
     inverted: string
     highlight: string
     highlightHover: string
+    bw: string
   }
 }

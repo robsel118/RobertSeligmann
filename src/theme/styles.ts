@@ -1,5 +1,5 @@
 require('typeface-muli')
-require('typeface-archivo')
+
 require('typeface-teko')
 
 export const breakpoints = {
@@ -11,8 +11,18 @@ export const breakpoints = {
 
 export const fonts = {
   muli: 'Muli, sans-serif',
-  archivo: 'Archivo, sans-serif',
   teko: 'Teko, sans-serif',
+  roboto: 'Roboto, sans-serif',
+}
+
+const darkPalette = {
+  background: '#091B34', // Oxford blue
+  surface: '#393939', // transmarent primary
+  primary: '06D6A0', //carabean green
+  secondary: 'F25F5C', //fire opal
+  onBackground: 'FDF7FA',
+  onPrimary: '#000000',
+  onSecondary: '#000000',
 }
 
 export const themes = {
@@ -27,16 +37,17 @@ export const themes = {
     iconShadowPressed:
       'inset 5px 5px 12px #bfbfbf, inset -5px -5px 12px #ffffff',
     buttonBackground: '#5E81AC',
-    textColor: '#696969',
+    textColor: '#333',
     linkColor: '#9a9a9a',
-    linkColorHover: '#333',
+    linkColorHover: '#333333',
     buttonColor: '#ECEFF4',
     inverted: 'invert(0%)',
     highlight: '#CDEEF2',
     highlightHover: '#B4DDE3',
+    bw: 'black',
   },
   dark: {
-    background: '#474747',
+    background: '#181818',
     cardBackground: '#474747',
     cardBackgroundHover: 'linear-gradient(145deg, #404040, #4c4c4c)',
     cardShadowFlat: '9px 9px 17px #3c3c3c, -9px -9px 17px #525252',
@@ -53,5 +64,6 @@ export const themes = {
     inverted: 'invert(100%)',
     highlight: '#4AAD52 ',
     highlightHover: '#488B49',
+    bw: 'white',
   },
 }

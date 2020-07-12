@@ -8,7 +8,7 @@ const Image = styled(Img)`
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 5px;
-  margin: 1rem 0.5rem;
+  /* margin: 1rem 0.5rem; */
 `
 
 export default Image
