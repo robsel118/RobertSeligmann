@@ -13,39 +13,65 @@ export const Headline = styled.h1`
 
   @media (min-width: ${breakpoints.sm}) {
     font-size: 2rem;
-    grid-column: 2 /7;
-    grid-row: 2 / span 3;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    /* grid-column: 2 /7;
+    grid-row: 2 / span 3; */
   }
 
   @media (min-width: ${breakpoints.lg}) {
     font-size: 3rem;
-    grid-column: 1 / 6;
-    grid-row: 2 / span 2;
+    /* grid-column: 1 / 6;
+    grid-row: 2 / span 2; */
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
   }
 `
 export const CTA = styled.div`
   @media (min-width: ${breakpoints.sm}) {
-    grid-column: 2 /7;
-    grid-row: 3 / span 1;
+    /* grid-column: 2 /7;
+    grid-row: 3 / span 1; */
+    grid-column: 1 / -1;
+    grid-row: 2 / 2;
   }
   @media (min-width: ${breakpoints.lg}) {
-    grid-column: 1 /4;
-    grid-row: 3 / span 1;
+    /* grid-column: 1 /4;
+    grid-row: 3 / span 1; */
+    grid-column: 1 / -1;
+    grid-row: 2 / 2;
   }
 `
+
+export const IntroTextContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  @media (min-width: ${breakpoints.sm}) {
+    grid-column: 2 / 5;
+    grid-row: 2 / -1;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-column: 1 / 7;
+    grid-row: 2 / -2;
+  }
+`
+
 export const IntroContainer = styled.div`
-  /* position: relative; */
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
 
   @media (min-width: ${breakpoints.sm}) {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, minmax(100px, 1fr));
   }
 
   @media (min-width: ${breakpoints.lg}) {
-    grid-template-rows: repeat(4, minmax(calc((100vmin - 64px) / 4), 210px));
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, minmax(calc((100vmin - 100px) / 4), 210px));
   }
 
   /* IDEA Subgrid for healine and CTO */
@@ -68,13 +94,14 @@ export const ImageContainer = styled.div`
   filter: contrast(90%);
 
   @media (min-width: ${breakpoints.sm}) {
-    grid-column: 5 / span 3;
-    grid-row: 2 / span 2;
+    grid-column: 4 / span 2;
+    grid-row: 2 / -1;
   }
 
   @media (min-width: ${breakpoints.lg}) {
     grid-column: 5 /8;
     grid-row: 2 / auto;
+
     & > div::before {
       position: absolute;
       content: '';
@@ -100,14 +127,5 @@ export const SocialContainer = styled.div`
 
   a {
     margin-right: 0.8rem;
-    svg {
-      transition: stroke 0.3s linear;
-      stroke: ${props => props.theme.linkColor};
-    }
-  }
-  a:hover {
-    svg {
-      stroke: ${props => props.theme.linkColorHover};
-    }
   }
 `
