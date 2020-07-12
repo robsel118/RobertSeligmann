@@ -1,6 +1,6 @@
 import React from 'react'
-import { Line, Headline, IntroContainer, ImageContainer, CTA, SocialContainer, IntroTextContainer } from './styles'
 import { GitHub, Linkedin, Mail } from 'react-feather'
+import { Line, Headline, IntroContainer, ImageContainer, CTA, SocialContainer, IntroTextContainer } from './styles'
 import Image from '../shared/Image'
 
 

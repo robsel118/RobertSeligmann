@@ -3,18 +3,18 @@ import { Link } from 'gatsby'
 import SEO from '../components/shared/seo'
 import { graphql, PageProps } from "gatsby";
 import Layout from '../components/shared/Layout'
+import Content from '../components/shared/Content'
 import Grid from '../components/shared/Grid'
-import { ProjectContainer, ProjectDescription, ProjectImage, DescriptionTitle, DescriptionText, DescriptionTechList, DescriptionLinks } from '../components/Project/styles'
 import Intro from '../components/Intro'
-import { ChevronsDown } from 'react-feather'
-import { GitHub, Archive } from 'react-feather'
+import { GitHub, Archive, Linkedin } from 'react-feather'
 import ThemedContext from '../theme/ThemeContext'
 import { TextContent, Title, Paragraph } from '../components/shared/Typography'
 import GlobalStyle from '../theme/Global'
 import Image from '../components/shared/Image'
 import Banner, { BannerSubTitle, BannerTitle, BannerLinks, BorderedButton } from '../components/shared/Banner'
+import Sidebar from '../components/shared/Sidebar'
 
-import { Header, Footer } from '../components/Navbar'
+import { Header } from '../components/Navbar'
 
 
 type DataProps = {
@@ -47,21 +47,21 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     <ThemedContext>
       <GlobalStyle />
       <SEO title="Home" />
-      <Header />
       <Layout>
-        <section id='intro'>
-          <Intro picture={data.robert} />
-        </section>
-        <TextContent>
-          <Title>
-            Some of the things I have done
+        <Header />
+        <Content>
+          <section id='intro'>
+            <Intro picture={data.robert} />
+          </section>
+          <TextContent>
+            <Title>
+              Some of the things I have done
           </Title>
-          <Paragraph>
-            While you're here, why not take a look at some of the applications and articles I've spent time on?
+            <Paragraph>
+              While you're here, why not take a look at some of the applications and articles I've spent time on?
           </Paragraph>
-        </TextContent>
-
-        {/* <ProjectContainer>
+          </TextContent>
+          {/* <ProjectContainer>
         <ProjectImage>  <Image title="Sake Barrels" fluid={data.barrels.fluid} /></ProjectImage>
         <ProjectDescription>
           <DescriptionTitle>Tests</DescriptionTitle>
@@ -80,39 +80,39 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
 
 
-        <Banner alignment="left">
-          <Image title="Sake Barrels" fluid={data.barrels.fluid} />
-          <div>
-            <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
-            <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
-            <BorderedButton to="fst">Read More</BorderedButton>
-          </div>
-        </Banner>
-        <Banner alignment="right" >
-          <Image title="Junction" fluid={data.junction.fluid} />
-          <div>
-            <BannerTitle>Junction 2019</BannerTitle>
-            <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-            <BannerLinks>
-              <BorderedButton to="junction-2019">Read More</BorderedButton>
-              <a><GitHub /></a>
-              <a><Archive /></a>
-            </BannerLinks>
-          </div>
-        </Banner>
-        <Banner alignment="right" >
-          <Image title="Junction" fluid={data.junction.fluid} />
-          <div>
-            <BannerTitle>Junction 2019</BannerTitle>
-            <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-            <BannerLinks>
-              <a><GitHub /></a>
-              <a><Archive /></a>
-            </BannerLinks>
-          </div>
-        </Banner>
-        <Footer />
+          <Banner alignment="left">
+            <Image title="Sake Barrels" fluid={data.barrels.fluid} />
+            <div>
+              <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
+              <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
+              <BorderedButton to="fst">Read More</BorderedButton>
+            </div>
+          </Banner>
+          <Banner alignment="right" >
+            <Image title="Junction" fluid={data.junction.fluid} />
+            <div>
+              <BannerTitle>Junction 2019</BannerTitle>
+              <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
+              <BannerLinks>
+                <BorderedButton to="junction-2019">Read More</BorderedButton>
+              </BannerLinks>
+            </div>
+          </Banner>
+          <Banner alignment="right" >
+            <Image title="Junction" fluid={data.junction.fluid} />
+            <div>
+              <BannerTitle>Junction 2019</BannerTitle>
+              <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
+              <BannerLinks>
+                <a><GitHub /></a>
+                <a><Archive /></a>
+              </BannerLinks>
+            </div>
+          </Banner>
+        </Content>
+       <Sidebar/>
       </Layout>
+
     </ThemedContext>
   )
 }

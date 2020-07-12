@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
+import { fonts } from './styles'
 
 const GlobalStyle = createGlobalStyle`
 
     body{
+        font-family: ${fonts.muli};
         background-color: ${({ theme }) => theme.background};
         margin: 0;
         padding: 0;
@@ -17,9 +19,16 @@ const GlobalStyle = createGlobalStyle`
 
     a, p, span{
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
+        color: ${props => props.theme.textColor};
     }
 
     a {
+        font-family: ${fonts.roboto};
+        color: ${props => props.theme.linkColor};
+        &:hover{
+            color: ${props => props.theme.linkColorHover};
+
+        }
         & > svg {
             transition: all 0.3s ease-in-out;
             cursor: pointer;

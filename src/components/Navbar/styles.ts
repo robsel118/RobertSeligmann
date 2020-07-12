@@ -43,6 +43,7 @@ export const ContentRow = styled.div`
 `
 
 export const HeaderContainer = styled.div`
+  grid-area: header-start / header-start / header-end / header-end;
   position: relative;
   top: -4rem;
   display: block;

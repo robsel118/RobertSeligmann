@@ -2,41 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Menu } from 'react-feather'
 import Logo from '../shared/Logo'
-import { Social, } from '../Intro/styles'
 import Layout from '../shared/Layout'
 import ThemeToggleButton from '../shared/ThemeToggleButton'
 import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
-
-interface SocialButtonProps {
-  title: string
-  url: string
-  classname: string
-  children: React.ReactNode
-}
-
-
-const SocialButton: React.FC<SocialButtonProps> = ({
-  title,
-  url,
-  classname,
-  children
-}) => (
-    <a target="_blank" rel="noreferrer" title={title} href={url}>
-      <Social>
-        <svg
-          className={classname}
-          width="25"
-          height="25"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {children}
-        </svg>
-      </Social>
-    </a>
-  )
-
-
 
 export const Header = () => {
 
