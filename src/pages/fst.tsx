@@ -10,7 +10,7 @@ import Content from '../components/shared/Content'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '../components/shared/seo'
-import { Header, Footer } from '../components/Navbar'
+import { Header } from '../components/Navbar'
 
 type DataProps = {
   matsumoto: {

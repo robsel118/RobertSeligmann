@@ -2,24 +2,22 @@ import styled from 'styled-components'
 import Image from './Image'
 import { Link } from 'gatsby'
 import { Title, Paragraph } from './Typography'
-import { fonts, themes, breakpoints } from '@theme/styles'
+import { themes, breakpoints } from '@theme/styles'
+import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
 
 export const BannerTitle = styled(Title)`
   font-size: 2.5rem;
   line-height: 2rem;
   margin: 0 0;
-  @media (min-width: ${breakpoints.md}) {
-    line-height: 3.5rem;
-  }
+  ${mediaMin.md`line-height: 3.5rem;`}
 `
 
 export const BannerSubTitle = styled(Paragraph)`
   font-size: 1rem;
   font-weight: 500;
   margin: 1rem 0 4rem 0 !important;
-  @media (min-width: ${breakpoints.md}) {
-    font-size: 1.1rem;
-  }
+  ${mediaMin.md`font-size: 1.1rem;`}
 `
 
 export const BannerLinks = styled.div`
@@ -28,15 +26,13 @@ export const BannerLinks = styled.div`
 `
 
 export const BorderedButton = styled(Link)`
+  ${mixins.teko}
   text-decoration: none;
   border: 2px solid;
   margin-right: 2rem;
-  font-family: ${fonts.teko};
   padding: 0.8rem 1.5rem;
   transition: all 0.3s linear;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 2px;
+  font-size: 1.2rem;
 `
 
 interface BannerProps {
@@ -52,11 +48,9 @@ const Banner = styled.div<BannerProps>`
   margin: 2rem 0;
   min-height: 30rem;
   position: relative;
-  padding-left: 4rem;
+  padding: 1rem;
 
-  @media (max-width: ${breakpoints.md}) {
-    padding: 1rem;
-  }
+  ${mediaMin.sm`padding-left: 3rem;`}
 
   ${Image} {
     filter: brightness(75%);

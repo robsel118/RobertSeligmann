@@ -1,18 +1,21 @@
 import React from 'react'
+import { graphql, PageProps } from "gatsby";
+
 import Layout from '../components/shared/Layout'
 import Content from '../components/shared/Content'
-import Grid from '../components/shared/Grid'
-import Stack from '../components/shared/Stack'
-import { Paragraph, Title, TextContent } from '../components/shared/Typography'
-import { Header, Footer } from '../components/Navbar'
+import { Header } from '../components/Navbar'
+import About from '@sections/About'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '../components/shared/seo'
 import Resume from '../components/Resume'
-import { DownloadLink } from '../components/Resume/styles'
-import { HighlightedLink } from '../components/shared/Highlight'
 
-const About = () => {
+type DataProps = {
+  about: any,
+  
+}
+
+const AboutPage:React.FC<PageProps<DataProps>> = ({data}) => {
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -20,7 +23,7 @@ const About = () => {
       <Layout>
         <Header />
         <Content>
-          
+        <About about={data.about.edges}/>
           <hr />
           <Resume />
         </Content>
@@ -29,4 +32,23 @@ const About = () => {
   )
 }
 
-export default About
+
+
+export const query = graphql`
+  {
+    about:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/about/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            title
+            linkToResume
+          }
+          html
+        }
+      }
+    },
+  }
+`
+export default AboutPage

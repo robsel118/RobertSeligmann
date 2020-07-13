@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import { fonts, breakpoints } from '../../theme/styles'
+import { fonts, breakpoints, themes } from '../../theme/styles'
 import { HeaderPopDown } from '../../theme/animation'
+import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
 
 export const NavLinkcontainer = styled.div`
   display: block;
@@ -14,32 +16,19 @@ export const Line = styled.div`
   opacity: 50%;
 `
 
-export const NavbarContainer = styled.div`
-  display: table;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  padding: 0.8rem 0;
-  top: 0.4rem 0;
-  z-index: 1;
-  background-color: ${props => props.theme.background};
-  margin-top: 0;
-`
-
 export const ContentRow = styled.div`
   display: block;
   padding: 0 0 0 1rem;
 
-  @media (min-width: ${breakpoints.lg}) {
+  ${mediaMin.lg`
     max-width: 1024px;
     margin: 0 auto;
-    padding: 0;
-  }
+    padding: 0;`}
 
-  @media (min-width: ${breakpoints.xl}) {
+  ${mediaMin.xl`
     max-width: 1280px;
     margin: 0 auto;
-  }
+  `}
 `
 
 export const HeaderContainer = styled.div`
@@ -47,7 +36,7 @@ export const HeaderContainer = styled.div`
   position: relative;
   top: -4rem;
   display: block;
-  background-color: #09182d;
+  background-color: ${themes.dark.background};
   height: 4rem;
   animation: ${HeaderPopDown} 0.5s ease-in-out forwards;
   z-index: 999;
@@ -58,22 +47,13 @@ export const Navlink = styled.li`
   padding: 0;
   float: right;
   a {
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-family: ${fonts.teko};
+    ${mixins.teko}
     font-size: 1.25rem;
     color: white;
     text-decoration: none;
 
     &:hover {
-      color: gray;
-    }
-    svg {
-      stroke: white;
-      &:hover {
-        stroke: gray;
-      }
+      color: #06d6a0;
     }
   }
 `
@@ -83,14 +63,13 @@ export const LinkList = styled.ul`
   padding: 0;
   float: right;
   list-style: none;
-
-  @media (max-width: ${breakpoints.sm}) {
-    display: none;
-  }
+  display: none;
+  ${mediaMin.sm`display: block;`}
 
   li {
     margin: 1.2rem 1.5rem 0rem 1rem;
   }
+
   &.icons li {
     margin: 1rem 0.8rem;
   }
@@ -102,17 +81,15 @@ interface CollapsibleMenuProps {
 
 export const CollapseButton = styled.ul<CollapsibleMenuProps>`
   margin: 0;
-  display: none;
+  display: inline;
   cursor: pointer;
-  @media (max-width: ${breakpoints.sm}) {
-    display: inline;
-  }
+  ${mediaMin.sm`display: none;`}
 
   svg {
     margin: 1rem 1.5rem 1rem 1rem;
 
     line {
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
     line:first-child {
       opacity: ${props => (props.expanded ? '0' : '1')};
@@ -142,10 +119,10 @@ export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   position: absolute;
   top: 4rem;
   text-align: center;
-  @media (min-width: ${breakpoints.sm}) {
+
+  ${mediaMin.sm`
     visibility: hidden;
-    max-width: 0;
-  }
+    max-width: 0;`}
   ${Navlink} {
     float: inherit;
     display: block;

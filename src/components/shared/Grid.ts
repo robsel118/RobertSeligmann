@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from '@theme/styles'
+import mediaMin from '@theme/media'
 
 interface GridProps {
   cols: number
@@ -14,17 +15,17 @@ const Grid = styled.div<GridProps>`
   justify-items: center;
   align-items: center;
 
-  @media (min-width: ${breakpoints.md}) {
+  ${mediaMin.md`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-betweeen;
-  }
+  `}
 
-  @media (min-width: ${breakpoints.lg}) {
+  ${mediaMin.lg`
     display: grid;
     grid-template-columns: repeat(${props => props.cols}, 1fr);
     justify-content: space-betweeen;
-  }
+  `}
 `
 
 export default Grid

@@ -39,7 +39,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
     #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
   })
-  console.log(data)
   return (
     <ThemedContext>
       <GlobalStyle />

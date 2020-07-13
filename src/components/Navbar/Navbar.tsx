@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { Menu } from 'react-feather'
 import Logo from '@components/shared/Logo'
-import Layout from '@components/shared/Layout'
 import ThemeToggleButton from '@components/shared/ThemeToggleButton'
-import { NavbarContainer, NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
+import {  NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
 
 export const Header = () => {
 
@@ -33,27 +32,3 @@ export const Header = () => {
   </HeaderContainer>
   )
 }
-
-export const Footer = () => (
-  <NavbarContainer>
-    <Layout>
-      <Logo />
-      <NavLinkcontainer>
-        <a href="https://github.com/robsel118">GitHub</a>
-        <a href="https://www.linkedin.com/in/robert-seligmann/">LinkedIn</a>
-      </NavLinkcontainer>
-    </Layout>
-  </NavbarContainer>
-)
-
-
-// <NavbarContainer>
-// <Layout>
-//   <Logo height="2.4rem" width="2.6rem" />
-//   <NavLinkcontainer>
-//     <Link to="/">Projects</Link>
-//     <Link to="/about">About</Link>
-//     <ThemeToggleButton />
-//   </NavLinkcontainer>
-// </Layout>
-// </NavbarContainer>

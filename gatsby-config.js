@@ -7,6 +7,20 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -27,13 +41,6 @@ module.exports = {
       options: {
         name: `intro`,
         path: `${__dirname}/content/intro`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `contact`,
-        path: `${__dirname}/content/contact`,
       },
     },
     {

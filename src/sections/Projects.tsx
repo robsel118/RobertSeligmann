@@ -27,9 +27,8 @@ interface Projects {
 
 const Projects: React.FC<Projects> = ({ projects }) => {
 
-  // const projects = data.filter(({ node }) => node);
   const projectsToShow = projects.map(({ node }) => node);
-  console.log(projectsToShow)
+  
   return (<section>
     {
       projectsToShow.map((project, index) => {

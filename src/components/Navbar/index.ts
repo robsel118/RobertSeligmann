@@ -1,1 +1,1 @@
-export { Header, Footer } from './Navbar'
+export { Header } from './Navbar'

@@ -9,6 +9,10 @@ export const breakpoints = {
   xl: '1280px',
 }
 
+export const color = {
+  caribbeanGreen: '#06d6a0',
+}
+
 export const fonts = {
   muli: 'Muli, sans-serif',
   teko: 'Teko, sans-serif',
