@@ -31,14 +31,14 @@ const mixins = {
       box-shadow: inset 0 -0.7rem ${props => props.theme.highlightHover};
     }
   `,
-  grid: (md?: number, lg?: number) => {
+  grid: (md?: string, lg?: string) => {
     return css`
       display: grid;
       grid-template-columns: 1fr;
       grid-column-gap: 3rem;
       grid-row-gap: 2rem;
-      ${mediaMin.md`grid-template-columns: repeat(${md || 2}, 1fr)`}
-      ${mediaMin.lg`grid-template-columns: repeat(${lg || 2}, 1fr)`}
+      ${mediaMin.md`grid-template-columns: ${md || 'repeat(2, 1fr)'}`}
+      /* ${mediaMin.lg`grid-template-columns: ${lg || 'repeat(2, 1fr)'}`} */
     `
   },
 }

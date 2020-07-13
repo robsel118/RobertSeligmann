@@ -66,8 +66,8 @@ export const themes = {
     linkColorHover: 'white',
     buttonColor: '#ECEFF4',
     inverted: 'invert(100%)',
-    highlight: '#4AAD52 ',
-    highlightHover: '#488B49',
+    highlight: '#06d6a0 ',
+    highlightHover: '#06d6a0',
     bw: 'white',
   },
 }

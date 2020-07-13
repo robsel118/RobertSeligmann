@@ -19,40 +19,42 @@ export const Headline = styled.h1`
   ${mediaMin.sm`
     font-size: 2rem;
     grid-column: 1 / 1;
-    grid-row: 1 / 1;`
+    grid-row: 1 / auto;`
   }
 
   ${mediaMin.lg`
     font-size: 3rem;
     grid-column: 1 / 1;
-    grid-row: 1 / 1;
+    grid-row: 1 / auto;
   `}
 `
 export const CTA = styled.div`
  ${mediaMin.sm`
     grid-column: 1 / -1;
-    grid-row: 2 / 2;
+    grid-row: 2 / auto;
     `
   }
   ${mediaMin.lg`
     grid-column: 1 / -1;
-    grid-row: 2 / 2;`
+    grid-row: 2 / auto;`
   }
 `
 
 export const IntroTextContainer = styled.div`
  display: grid;
  grid-template-columns: 1fr;
- grid-template-rows: 1fr 1fr;
+ grid-template-rows: auto auto;
  
- @media (min-width: ${breakpoints.sm}) {
+ ${mediaMin.sm`
    grid-column: 2 / 5;
-   grid-row: 2 / -1;
+   grid-row: 2 / auto;
+   `
  }
  
- @media (min-width: ${breakpoints.lg}) {
+ ${mediaMin.lg`
    grid-column: 1 / 6;
-   grid-row: 2 / -2;
+   grid-row: 2 / auto;
+   `
  }
 `
 
@@ -62,14 +64,16 @@ export const IntroContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   
-  @media (min-width: ${breakpoints.sm}) {
+  ${mediaMin.sm`
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, minmax(100px, 1fr));
+    grid-template-rows: repeat(4, minmax(calc((100vmin - 64px) / 4),150px));
+  `
   }
   
-  @media (min-width: ${breakpoints.lg}) {
+  ${mediaMin.lg`
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, minmax(calc((100vmin - 64px) / 4), 210px));
+    grid-template-rows: repeat(4, minmax(calc((100vmin - 64px) / 4), 200px));
+  `
   }
   
   ${Headline}:nth-child(2) {
@@ -90,9 +94,14 @@ export const ImageContainer = styled.div`
    filter: contrast(90%);
    grid-column: 1 / 1;
    grid-row: 2 / 2;
-   @media (min-width: ${breakpoints.sm}) {
+   & > div {
+       img {
+         background: #06d6a0;
+       }
+   }
+   ${mediaMin.sm`
      grid-column: 4 / span 2;
-     grid-row: 2 / -1;
+     grid-row: 2 / auto;
      & > div {
        overflow: visible !important;
        &::before {
@@ -106,11 +115,13 @@ export const ImageContainer = styled.div`
          width: 100%;
        }
      }
+     `
    }
    
-   @media (min-width: ${breakpoints.lg}) {
+   ${mediaMin.lg`
      grid-column: 5 /8;
      grid-row: 2 / auto;
+     `
    }
 `
    
@@ -119,7 +130,7 @@ position: relative;
   max-width: 75%;
   z-index: 10;
   p{
-    font-size: 1.3rem;
+    ${mediaMin.md`font-size: 1.2rem;`}
     a{
       ${mixins.inlineLink}
     }

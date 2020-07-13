@@ -35,10 +35,9 @@ const GlobalStyle = createGlobalStyle`
             stroke: ${({ theme }) => theme.linkColor};
         }
         &:hover > svg{
-            transform: translateY(-3px);
-            svg {
-                stroke: ${({ theme }) => theme.linkColorHover};
-            }}
+            /* transform: translateY(-3px); */
+            stroke: #06d6a0;
+        }
     }
   
 

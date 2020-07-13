@@ -8,5 +8,5 @@ skills:
 darkCover: true
 github: "https://github.com/robsel118/flutter_travel_app_challenge"
 external: ""
-blog: ""
+blog: "fst"
 ---

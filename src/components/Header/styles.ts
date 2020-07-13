@@ -21,12 +21,12 @@ export const ContentRow = styled.div`
   padding: 0 0 0 1rem;
 
   ${mediaMin.lg`
-    max-width: 1024px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0;`}
 
   ${mediaMin.xl`
-    max-width: 1280px;
+    max-width: 1000px;
     margin: 0 auto;
   `}
 `

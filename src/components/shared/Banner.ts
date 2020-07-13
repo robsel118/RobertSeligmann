@@ -16,7 +16,7 @@ export const BannerTitle = styled(Title)`
 export const BannerSubTitle = styled(Paragraph)`
   font-size: 1rem;
   font-weight: 500;
-  margin: 1rem 0 4rem 0 !important;
+  margin: 1rem 0 2rem 0 !important;
   ${mediaMin.md`font-size: 1.1rem;`}
 `
 
@@ -75,33 +75,22 @@ const Banner = styled.div<BannerProps>`
   a > svg {
     margin-right: 1rem;
     stroke: ${props =>
-      props.isBackgroundDark
-        ? themes.dark.linkColor
-        : themes.light.linkColor} !important;
-    &:hover {
-      stroke: ${props =>
-        props.isBackgroundDark
-          ? themes.light.linkColorHover
-          : themes.dark.linkColorHover} !important;
-    }
+      props.isBackgroundDark ? themes.dark.linkColor : themes.light.linkColor};
   }
   ${BorderedButton} {
     border-color: ${props =>
       props.isBackgroundDark ? themes.dark.textColor : themes.light.textColor};
-
     color: ${props =>
-      props.isBackgroundDark
-        ? themes.dark.textColor
-        : themes.light.textColor} !important;
+      props.isBackgroundDark ? themes.dark.textColor : themes.light.textColor};
     &:hover {
       color: ${props =>
         props.isBackgroundDark
           ? themes.light.textColor
-          : themes.dark.textColor} !important;
+          : themes.dark.textColor};
       background-color: ${props =>
         props.isBackgroundDark
           ? themes.dark.textColor
-          : themes.light.textColor} !important;
+          : themes.light.textColor};
     }
   }
 `

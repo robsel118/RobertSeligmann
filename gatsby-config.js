@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`,
+        name: `archive`,
+        path: `${__dirname}/content/archive`,
       },
     },
     {
@@ -41,6 +41,13 @@ module.exports = {
       options: {
         name: `intro`,
         path: `${__dirname}/content/intro`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `featured`,
+        path: `${__dirname}/content/featured`,
       },
     },
     {

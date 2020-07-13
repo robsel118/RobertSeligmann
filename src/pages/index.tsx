@@ -5,15 +5,15 @@ import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
 import Intro from '@sections/Intro'
 import ThemedContext from '@theme/ThemeContext'
-import Projects from '@sections/Projects'
+import Featured from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
-
+import Archive, { ArchiveProps } from '@sections/Archive'
 import { Header } from '@components/Navbar'
 
 
 type DataProps = {
-  projects: any,
+  featured: any,
   intro: any,
   barrels: {
     fluid: any
@@ -24,6 +24,7 @@ type DataProps = {
   robert: {
     fluid: any
   }
+  archive: ArchiveProps.edges
 }
 
 
@@ -47,7 +48,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Header />
         <Content>
           <Intro intro={data.intro.edges} />
-          <Projects projects={data.projects.edges}/>
+          <Featured featured={data.featured.edges} />
+          <Archive archive={data.archive.edges}/>
         </Content>
        <Sidebar/>
       </Layout>
@@ -57,8 +59,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
 export const query = graphql`
   {
-    projects:allMarkdownRemark(filter: {
-      fileAbsolutePath: { regex: "/projects/" }
+    featured:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/featured/" }
     }){
       edges {
         node {
@@ -113,21 +115,25 @@ export const query = graphql`
         }
       }
     },
-    barrels: imageSharp(fluid: { originalName: { regex: "/barrels/" } }) {
-      fluid(maxWidth: 1200, quality: 100) {
-        ...GatsbyImageSharpFluid
+    archive:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/archive/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            type
+            title
+            description
+            tags
+            external
+            internal
+            github
+          }
+          html
+        }
       }
     },
-    junction: imageSharp(fluid: { originalName: { regex: "/banner-flutter-travel-ui/" } }) {
-      fluid(maxWidth: 1200, quality: 100) {
-        ...GatsbyImageSharpFluid
-      }
-    },
-    robert: imageSharp(fluid: { originalName: { regex: "/me/" } }) {
-      fluid(maxWidth: 700, quality: 100) {
-        ...GatsbyImageSharpFluid
-      }
-    },
+   
   }
 `
 
