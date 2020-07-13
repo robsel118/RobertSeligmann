@@ -13,5 +13,9 @@ module.exports = {
       name: 'Linkedin',
       url: 'https://www.linkedin.com/in/robert-seligmann/',
     },
+    {
+      name: 'Mail',
+      url: 'mailto:robert.seligmann@protonmail.ch',
+    },
   ],
 }

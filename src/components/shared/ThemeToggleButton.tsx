@@ -22,7 +22,7 @@ const ToggleableSun = styled.span<ToggleableSunProps>`
   }
   svg:hover {
     path, circle{
-        stroke: #06d6a0;
+        stroke: white;
     }
     line{
       opacity: ${props => props.active? '100%': '80%'};

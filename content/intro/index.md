@@ -1,5 +1,5 @@
 ---
-welcomeMessage: Hello there! My name is Robert Seligmann. I build things for the web.' 
+welcomeMessage: 'Hello there! My name is Robert Seligmann. I build things for the web.' 
 profilePic: './me.png'
 ---
 

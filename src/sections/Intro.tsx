@@ -1,12 +1,12 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { GitHub, Mail, Linkedin } from 'react-feather'
 import { fonts, breakpoints, themes } from '@theme/styles'
 import mixins from '@theme/mixins'
 import Image from '@components/shared/Image'
-import { github, email, linkedin } from '@config';
+import { socials } from '@config';
 import mediaMin from '@theme/media'
+import Icon from '@components/shared/Icons'
 
 export const Headline = styled.h1`
   font-family: ${fonts.muli};
@@ -163,7 +163,7 @@ const Intro: React.FC<IntroProps> = ({ intro }) => {
   const introduction = intro[0].node;
   const { welcomeMessage, profilePic } = introduction.frontmatter;
 
-  return (<section id="Introduction">
+  return (<section id="introduction">
     <IntroContainer>
       <IntroTextContainer>
         <Headline>
@@ -181,9 +181,7 @@ const Intro: React.FC<IntroProps> = ({ intro }) => {
 
           <Line />
           <SocialContainer>
-            {github && <a title="GitHub profile" href={github} target='_blank' rel='noreferrer' ><GitHub /></a>}
-            {linkedin && <a title="LinkedIn profile" href={linkedin} target='_blank' rel='noreferrer'><Linkedin /></a>}
-            <a title="E-Mail contact" href={`mailto:${email}`}><Mail /></a>
+            {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name} /></a>)}
           </SocialContainer>
         </CTA>
 

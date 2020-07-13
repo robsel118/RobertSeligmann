@@ -1,10 +1,9 @@
 import React from 'react';
-import { GitHub, Linkedin } from 'react-feather'
 import styled from 'styled-components'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
-import { Icon } from '@components/shared/Icons'
-import { github, email, linkedin, socials } from '@config';
+import Icon from '@components/shared/Icons'
+import { email, socials } from '@config';
 
 
 

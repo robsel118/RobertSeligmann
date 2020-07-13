@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner, { BannerLinks, BannerSubTitle, BannerTitle, BorderedButton } from '../components/shared/Banner'
+import SectionHeader from '../components/shared/SectionHeader'
 import { GitHub, ExternalLink } from 'react-feather'
 import Image from '../components/shared/Image'
 interface Projects {
@@ -29,7 +30,8 @@ const Projects: React.FC<Projects> = ({ projects }) => {
 
   const projectsToShow = projects.map(({ node }) => node);
   
-  return (<section>
+  return (<section id='projects'>
+    <SectionHeader>Featured Projects</SectionHeader>
     {
       projectsToShow.map((project, index) => {
         

@@ -1,5 +1,6 @@
 import { css } from 'styled-components'
 import { fonts } from '@theme/styles'
+import mediaMin from '@theme/media'
 
 const mixins = {
   muli: css`
@@ -30,18 +31,16 @@ const mixins = {
       box-shadow: inset 0 -0.7rem ${props => props.theme.highlightHover};
     }
   `,
-  // highlightedLink: (inset: number) => {
-  //   return css`
-  //     box-shadow: inset 0 ${inset || '-0.6rem '}
-  //       ${props => props.theme.highlight};
-  //     color: ${props => props.theme.textColor};
-  //     text-decoration: none;
-  //     &:hover {
-  //       box-shadow: inset 0 ${inset || '-0.6rem '}
-  //         ${props => props.theme.highlightHover};
-  //     }
-  //   `
-  // },
+  grid: (md?: number, lg?: number) => {
+    return css`
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-column-gap: 3rem;
+      grid-row-gap: 2rem;
+      ${mediaMin.md`grid-template-columns: repeat(${md || 2}, 1fr)`}
+      ${mediaMin.lg`grid-template-columns: repeat(${lg || 2}, 1fr)`}
+    `
+  },
 }
 
 export default mixins
