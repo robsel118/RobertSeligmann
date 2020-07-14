@@ -4,21 +4,18 @@ import { graphql, PageProps } from "gatsby";
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
 import Header from '@components/Header'
-import About from '@sections/About'
+import Footer from '@components/Footer'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '@components/shared/seo'
-// import Resume from '@components/Resume'
-import Resume, { ResumeProps} from '@sections/Resume'
 import Sidebar from '@components/shared/Sidebar';
+import About, { AboutProps} from '@sections/About'
+import Resume, { ResumeProps} from '@sections/Resume'
 
-interface DataProps extends ResumeProps {
-  about: any,
-
-}
+interface DataProps extends ResumeProps, AboutProps { }
 
 const AboutPage: React.FC<PageProps<DataProps>> = ({ data }) => {
-  console.log(data)
+
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -26,11 +23,11 @@ const AboutPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <Layout>
         <Header />
         <Content>
-        <About about={data.about.edges}/>
-          {/* <hr /> */}
+          <About about={data.about}/>
           <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} skills={data.skills}/>
         </Content>
-      <Sidebar/>
+        <Sidebar />
+        <Footer/>
       </Layout>
     </ThemedContext>
   )

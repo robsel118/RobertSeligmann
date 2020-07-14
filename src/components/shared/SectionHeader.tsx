@@ -19,16 +19,18 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
     counter-increment: section;
     content: ${props => props.contentBefore || '"0" counter(section) ". "'}
   }
-  &::after{
-    content:'';
-    display: block;
-    position: relative;
-    top: 50%;
-    height: 1px;
-    width: 100%;
-    max-width: 200px;
-    margin-left: 1rem;
-    background-color: gray;
+  ${mediaMin.sm`
+    &::after{
+      content:'';
+      display: block;
+      position: relative;
+      top: 50%;
+      height: 1px;
+      width: 100%;
+      max-width: 200px;
+      margin-left: 1rem;
+      background-color: gray;
+    }`
   }
 `
 

@@ -7,7 +7,6 @@ import { hex2rgba } from '@utils/'
 
 const ArchiveGrid = styled.div`
   ${mixins.grid("repeat(auto-fill, minmax(300px, 25vw))")}
-
 `
 
 const ArchiveCard = styled.div`

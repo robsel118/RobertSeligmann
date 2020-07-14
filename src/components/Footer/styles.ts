@@ -4,7 +4,7 @@ import mixins from '@theme/mixins'
 export const FooterContainer = styled.div`
   grid-area: footer-start / footer-start / footer-end / footer-end;
   position: relative;
-  margin: 3rem 0;
+  margin: 1rem 0 3rem 0;
   width: 100%;
 `
 

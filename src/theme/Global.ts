@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         transition: box-shadow 0.3s ease-in-out;
     }
 
-    a, p, span{
+    a, p, span, li, h1, h2{
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
         color: ${({ theme }) => theme.textColor};
     }

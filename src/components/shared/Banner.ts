@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Image from './Image'
 import { Link } from 'gatsby'
 import { Title, Paragraph } from './Typography'
-import { themes, breakpoints } from '@theme/styles'
+import { themes } from '@theme/styles'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
 

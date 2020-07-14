@@ -6,6 +6,7 @@ const Layout = styled.div`
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
     'header'
     'content'

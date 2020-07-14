@@ -174,13 +174,10 @@ const Resume: React.FC<ResumeProps> = (data) => {
   const jobToShow = data.jobs.edges.map(({ node }) => node);
   const educationToShow = data.educations.edges.map(({ node }) => node);
   const extrasToShow = data.extras.edges.map(({ node }) => node);
-  console.log(data)
+
   const [selectedTab, setSelectedTab] = useState(0)
   const orderedTabs = ['jobs', 'educations', 'skills', 'other']
 
-  useEffect(() => {
-
-  }, [])
   
   return <ResumeContainer id="resume">
     <Tab>
@@ -237,7 +234,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
     <ResumeSection selected={selectedTab === orderedTabs.indexOf('skills')}>
     <Section>
       <SectionHeader contentBefore={`"▹"`}>Skills</SectionHeader>
-        <Section><SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/></Section>
+        <SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/>
      </Section>
     </ResumeSection>
   </ResumeContainer>
