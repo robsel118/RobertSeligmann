@@ -4,13 +4,13 @@ import {Link} from 'gatsby'
 import SectionHeader from '@components/shared/SectionHeader'
 import { fonts } from '@theme/styles'
 import mixins from '@theme/mixins'
-import scroll from 'gatsby-plugin-scroll-reveal'
 
 
 const ResumeContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr ;
   grid-template-rows: auto;
+  width: 100%;
 
 `
 
@@ -25,7 +25,7 @@ const TabItem = styled(Link).attrs({
   to: '/about#resume'
 })<{selected: boolean}>`
   ${mixins.teko};
-  font-size: 1.2rem;
+  font-size: 1.2rem ;
   margin: 0 1rem;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -37,18 +37,50 @@ const TabItem = styled(Link).attrs({
 `
 const ResumeSection = styled.section<{ selected: boolean }>`
   transition: all 1s ease;
-  display: ${props => props.selected ? 'flex' : 'none'};
   opacity: ${props => props.selected ? '1' : '0'};
   visibility: ${props => (props.selected ? 'visible' : 'hidden')};
-  transition: all 1s ease-in-out;
-  min-height: calc(100vmin - 80px);
+  transform: ${props => (props.selected ? 'none': 'translateX(-20%)')};
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  min-height: ${props => props.selected? 'calc(100vmin - 80px)': "0"};
+  max-height: ${props => props.selected? '100%': "0"};
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
 
 `
+const SkillsSection = styled.div`
+  h1 {
+    ${mixins.muli}
+  }
+  ul{
+    ${mixins.grid()}
+    width: 100%;
+    padding: 0;
+    margin: 2rem 0;
+    grid-row-gap: 1rem; 
+    list-style-type: none;
+    li{
+      display: grid;
+      grid-template-columns:  auto 60% 40%;
+      ${mixins.roboto}
+      font-weight: 500;
+      code {
+        ${mixins.roboto}
 
+      }
+      &::before{
+        content: "○";
+        position: relative;
+        left: 0;
+        margin-right: 5px;
+        color: #06d6a0;
+      }
+    }
+  }
+
+`
 export const Section = styled.div`
   max-width: 700px;
   width: 100%
@@ -125,16 +157,26 @@ export interface ResumeProps {
         }
       }
     ]
-  }
+  },
+  skills: {
+    edges: [
+      {
+        node: {
+
+          html: string
+        }
+      }
+    ]
+  },
 }
 
 const Resume: React.FC<ResumeProps> = (data) => {
   const jobToShow = data.jobs.edges.map(({ node }) => node);
   const educationToShow = data.educations.edges.map(({ node }) => node);
   const extrasToShow = data.extras.edges.map(({ node }) => node);
-  
+  console.log(data)
   const [selectedTab, setSelectedTab] = useState(0)
-  const tabs = ['jobs', 'educations', 'extra-curriculars']
+  const orderedTabs = ['jobs', 'educations', 'skills', 'other']
 
   useEffect(() => {
 
@@ -142,9 +184,9 @@ const Resume: React.FC<ResumeProps> = (data) => {
   
   return <ResumeContainer id="resume">
     <Tab>
-      {tabs.map((tab, index) => <TabItem key={index} selected={selectedTab == index} onClick={()=>setSelectedTab(index)}>{tab}</TabItem>) }
+      {orderedTabs.map((tab, index) => <TabItem key={index} selected={selectedTab == index} onClick={()=>setSelectedTab(index)}>{tab}</TabItem>) }
     </Tab>
-    <ResumeSection id="jobs" selected={selectedTab === tabs.indexOf('jobs')}>
+    <ResumeSection selected={selectedTab === orderedTabs.indexOf('jobs')}>
       <Section>
         <SectionHeader contentBefore={`"▹"`}>Work Experience</SectionHeader>
         {jobToShow.map((job, index) => {
@@ -160,7 +202,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
         })}
      </Section>
     </ResumeSection>
-    <ResumeSection id="extras" selected={selectedTab === tabs.indexOf('extra-curriculars')}>
+    <ResumeSection  selected={selectedTab === orderedTabs.indexOf('other')}>
     <Section>
       <SectionHeader contentBefore={`"▹"`}>Extra-Curricular</SectionHeader>
         {extrasToShow.map((extra, index) => {
@@ -176,7 +218,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
         })}
      </Section>
     </ResumeSection>
-    <ResumeSection id="education" selected={selectedTab === tabs.indexOf('educations')}>
+    <ResumeSection selected={selectedTab === orderedTabs.indexOf('educations')}>
     <Section>
       <SectionHeader contentBefore={`"▹"`}>education</SectionHeader>
         {educationToShow.map((education, index) => {
@@ -190,6 +232,12 @@ const Resume: React.FC<ResumeProps> = (data) => {
             <div dangerouslySetInnerHTML={{__html: education.html}}/>
           </EventContainer>)
         })}
+     </Section>
+    </ResumeSection>
+    <ResumeSection selected={selectedTab === orderedTabs.indexOf('skills')}>
+    <Section>
+      <SectionHeader contentBefore={`"▹"`}>Skills</SectionHeader>
+        <Section><SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/></Section>
      </Section>
     </ResumeSection>
   </ResumeContainer>

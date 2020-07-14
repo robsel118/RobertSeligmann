@@ -28,9 +28,9 @@ const AboutPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Content>
         <About about={data.about.edges}/>
           {/* <hr /> */}
-          <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} />
+          <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} skills={data.skills}/>
         </Content>
-        <Sidebar/>
+      <Sidebar/>
       </Layout>
     </ThemedContext>
   )
@@ -97,6 +97,15 @@ export const query = graphql`
             role
             mention
           }
+          html
+        }
+      }
+    },
+    skills:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/skills/" }}
+      ){
+      edges {
+        node {
           html
         }
       }

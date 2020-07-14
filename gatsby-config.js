@@ -78,6 +78,13 @@ module.exports = {
         path: `${__dirname}/content/resume/extras`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `skills`,
+        path: `${__dirname}/content/resume/skills`,
+      },
+    },
 
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

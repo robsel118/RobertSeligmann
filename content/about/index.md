@@ -12,4 +12,3 @@ linkToResume: "sdasdsadsa"
  Thanks for viewing my portfolio!
 
 
-
