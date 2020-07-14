@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     a {
         font-family: ${fonts.roboto};
         color: ${props => props.theme.linkColor};
+        text-decoration: none;
         &:hover{
             color: ${({ theme }) => theme.linkColorHover};
 

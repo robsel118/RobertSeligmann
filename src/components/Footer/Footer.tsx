@@ -1,5 +1,6 @@
 import React from 'react'
 import { FooterContainer, Content, ContentRow, TextWrapper } from './styles'
+import {github, linkedin, email} from '@config/'
 import Logo from '@components/shared/Logo'
 
 const Footer = () => {
@@ -9,14 +10,14 @@ const Footer = () => {
         <TextWrapper>
           <p>Let's Build Something Together</p>
           <p>Need a developer? Or maybe you just want to chat? Feel free to reach me out.</p>
-          <a>robert.seligmann@protonmail.ch</a>
+          <a href={`mailto:${email}`}>robert.seligmann@protonmail.ch</a>
         </TextWrapper>
       </ContentRow>
       <ContentRow>
         <Logo />
         <div>
-          <a>github</a>
-          <a>linkedin</a>
+          <a target="_blank" rel="noreferrer" href={ github }>github</a>
+          <a target="_blank" rel="noreferrer" href={ linkedin }>linkedin</a>
         </div>
       </ContentRow>
     </Content>

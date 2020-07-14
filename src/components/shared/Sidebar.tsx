@@ -18,6 +18,7 @@ const MenuWrapper = styled.div`
   align-items:center;
   justify-content: flex-end;
   color: ${props => props.theme.textColor};
+  z-index: 99;
 
   ${mixins.roboto}
   ${mediaMin.md`display: flex;`  }

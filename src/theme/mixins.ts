@@ -31,14 +31,13 @@ const mixins = {
       box-shadow: inset 0 -0.7rem ${({ theme }) => theme.highlightHover};
     }
   `,
-  grid: (md?: string, lg?: string) => {
+  grid: (md?: string) => {
     return css`
       display: grid;
       grid-template-columns: 1fr;
       grid-column-gap: 3rem;
       grid-row-gap: 2rem;
       ${mediaMin.md`grid-template-columns: ${md || 'repeat(2, 1fr)'}`}
-      /* ${mediaMin.lg`grid-template-columns: ${lg || 'repeat(2, 1fr)'}`} */
     `
   },
   contentSpace: css`
