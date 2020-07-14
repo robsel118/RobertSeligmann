@@ -23,12 +23,12 @@ const mixins = {
   `,
   inlineLink: css`
     text-decoration: none;
-    color: ${props => props.theme.textColor};
+    color: ${({ theme }) => theme.textColor};
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: inset 0 -0.2rem ${props => props.theme.highlight};
+    box-shadow: inset 0 -0.2rem ${({ theme }) => theme.highlight};
     &:hover {
-      box-shadow: inset 0 -0.7rem ${props => props.theme.highlightHover};
+      box-shadow: inset 0 -0.7rem ${({ theme }) => theme.highlightHover};
     }
   `,
   grid: (md?: string, lg?: string) => {
@@ -41,6 +41,23 @@ const mixins = {
       /* ${mediaMin.lg`grid-template-columns: ${lg || 'repeat(2, 1fr)'}`} */
     `
   },
+  contentSpace: css`
+    ${mediaMin.lg`
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0;`}
+
+    ${mediaMin.xl`
+      max-width: 1000px;
+      margin: 0 auto;
+  `}
+  `,
+  heading: css`
+    font-family: ${fonts.muli};
+    font-size: 1.5rem;
+    ${mediaMin.sm`font-size: 2rem;`}
+    ${mediaMin.lg`font-size: 2.5rem;`}
+  `,
 }
 
 export default mixins

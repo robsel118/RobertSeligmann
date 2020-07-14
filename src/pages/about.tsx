@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby";
 
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
-import { Header } from '@components/Header'
+import Header from '@components/Header'
 import About from '@sections/About'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'

@@ -10,7 +10,7 @@ import Content from '@components/shared/Content'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '@components/shared/seo'
-import {Header} from '@components/Header'
+import Header from '@components/Header'
 import { FlatBorder } from '@components/shared/Neumorphic'
 
 type DataProps = {

@@ -1,5 +1,6 @@
 ---
-type: 'post'
+icon: "Icon3"
+iconColor: "#06d6a0"
 title: 'Fujitsu'
 tags:
   - Internship
@@ -11,4 +12,4 @@ internal: 'fst'
 ---
 
 
-aomwething [dsdafs](https://www.fiverr.com/categories/graphics-design/creative-logo-design?source=category_tree&page=2&offset=-23)
+Read about my experience as an intern in on of Japan's largest IT service provider.

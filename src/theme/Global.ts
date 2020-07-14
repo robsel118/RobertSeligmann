@@ -19,14 +19,14 @@ const GlobalStyle = createGlobalStyle`
 
     a, p, span{
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
-        color: ${props => props.theme.textColor};
+        color: ${({ theme }) => theme.textColor};
     }
 
     a {
         font-family: ${fonts.roboto};
         color: ${props => props.theme.linkColor};
         &:hover{
-            color: ${props => props.theme.linkColorHover};
+            color: ${({ theme }) => theme.linkColorHover};
 
         }
         & > svg {
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
         }
         &:hover > svg{
             /* transform: translateY(-3px); */
-            stroke: #06d6a0;
+            stroke:  ${({ theme }) => theme.linkColorHover};
         }
     }
   

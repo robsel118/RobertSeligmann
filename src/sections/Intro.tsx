@@ -16,14 +16,13 @@ export const Headline = styled.h1`
   filter: blur(0.2px);
   grid-area: 1 / 1 / -1 / -1;
   
+  ${mixins.heading}
   ${mediaMin.sm`
-    font-size: 2rem;
     grid-column: 1 / 1;
     grid-row: 1 / auto;`
   }
 
   ${mediaMin.lg`
-    font-size: 3rem;
     grid-column: 1 / 1;
     grid-row: 1 / auto;
   `}

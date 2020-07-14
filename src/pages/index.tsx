@@ -9,7 +9,8 @@ import Featured, {FeaturedProps}from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive'
-import { Header } from '@components/Header'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
 interface DataProps extends ArchiveProps, FeaturedProps, IntroProps {}
 
@@ -36,7 +37,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/>
         </Content>
-       <Sidebar/>
+        <Sidebar />
+        <Footer/>
       </Layout>
     </ThemedContext>
   )
@@ -106,7 +108,8 @@ export const query = graphql`
       edges {
         node {
           frontmatter{
-            type
+            icon
+            iconColor
             title
             description
             tags

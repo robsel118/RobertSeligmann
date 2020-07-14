@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, GitHub } from 'react-feather'
+import { Tag, GitHub, Edit3 } from 'react-feather'
 import mixins from '@theme/mixins'
 import SectionHeader from '@components/shared/SectionHeader'
+import { hex2rgba } from '@utils/'
 
 const ArchiveGrid = styled.div`
   ${mixins.grid("repeat(auto-fill, minmax(300px, 25vw))")}
@@ -14,8 +15,15 @@ const ArchiveCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 5rem;
-  background: grey;
   padding: 1rem;
+  z-index: 3;
+  transition: all 0.3s ease-in-out;
+  border: 0.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1), 1px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  &:hover{
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+  }
 `
 
 const ArchiveHeader = styled.div`
@@ -27,26 +35,28 @@ const ArchiveHeader = styled.div`
   margin-bottom: 1rem;
 `
 
-const ArchiveHeaderTag = styled.div`
-  float: left;
+const ArchiveHeaderTag = styled.div<{color?: string}>`
+
+  height: 3rem;
+  width: 3rem;
   display: flex;
+  justify-content: center;
   align-items: center;
+  border-radius:50%;
+  background-color: ${props => hex2rgba(props.color || '#000000', 0.2)};
   svg {
-    stroke: green;
+    stroke:  ${props => hex2rgba(props.color || '#000000', 0.95)};
   }
-  span{
-    ${mixins.muli};
-    margin-left: 0.5rem;
-    font-size: 1.3rem;
-  }
+
 `
 
 const ArchiveHeaderLink = styled.a`
-  float: right;
+
 `
 
 const ArchiveTitle = styled.p`
-   ${mixins.teko};
+   ${mixins.muli};
+   font-size: 1.5rem;
 `
 const ArchiveDescription = styled.div`
    p{
@@ -70,7 +80,8 @@ export interface ArchiveProps {
       {
         node :{
           frontmatter: {
-            type: string;
+            icon: string;
+            iconColor?: string;
             title:string
             tags: [string]
             external? :string
@@ -91,12 +102,11 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
     <SectionHeader>Other Projects/Links</SectionHeader>
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
-      const { title, type, tags } = archiveItem.frontmatter;
+      const { title, icon, iconColor, tags } = archiveItem.frontmatter;
       return <ArchiveCard key={index}>
         <ArchiveHeader>
-          <ArchiveHeaderTag>
-            <Tag />
-            <span>{type}</span>
+          <ArchiveHeaderTag color={iconColor}>
+            <Edit3 size={30}/>
           </ArchiveHeaderTag>
           <ArchiveHeaderLink><GitHub/></ArchiveHeaderLink>
         </ArchiveHeader>

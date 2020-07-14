@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts, breakpoints, themes } from '../../theme/styles'
+import { themes } from '../../theme/styles'
 import { HeaderPopDown } from '../../theme/animation'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
@@ -20,15 +20,7 @@ export const ContentRow = styled.div`
   display: block;
   padding: 0 0 0 1rem;
 
-  ${mediaMin.lg`
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0;`}
-
-  ${mediaMin.xl`
-    max-width: 1000px;
-    margin: 0 auto;
-  `}
+  ${mixins.contentSpace}
 `
 
 export const HeaderContainer = styled.div`
