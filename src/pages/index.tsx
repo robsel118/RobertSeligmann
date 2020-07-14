@@ -3,30 +3,15 @@ import { graphql, PageProps } from "gatsby";
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
-import Intro from '@sections/Intro'
+import Intro, { IntroProps} from '@sections/Intro'
 import ThemedContext from '@theme/ThemeContext'
-import Featured from '@sections/Featured'
+import Featured, {FeaturedProps}from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive'
-import { Header } from '@components/Navbar'
+import { Header } from '@components/Header'
 
-
-type DataProps = {
-  featured: any,
-  intro: any,
-  barrels: {
-    fluid: any
-  },
-  junction: {
-    fluid: any
-  },
-  robert: {
-    fluid: any
-  }
-  archive: ArchiveProps.edges
-}
-
+interface DataProps extends ArchiveProps, FeaturedProps, IntroProps {}
 
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
@@ -47,9 +32,9 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <Layout>
         <Header />
         <Content>
-          <Intro intro={data.intro.edges} />
-          <Featured featured={data.featured.edges} />
-          <Archive archive={data.archive.edges}/>
+          <Intro intro={data.intro} />
+          <Featured featured={data.featured} />
+          <Archive archive={data.archive}/>
         </Content>
        <Sidebar/>
       </Layout>

@@ -6,27 +6,29 @@ import { GitHub, ExternalLink } from 'react-feather'
 import Image from '../components/shared/Image'
 import mixins from '@theme/mixins'
 
-interface FeaturedProps {
-  featured: [
-    {
-      node: {
-        frontmatter: {
-          title: string
-          description: String
-          external?: string
-          github?: string
-          blog?: string
-          darkCover: boolean
-          skills: [string]
-          image: {
-            childImageSharp: {
-              fluid: any;
+export interface FeaturedProps {
+  featured: {
+    edges: [
+      {
+        node: {
+          frontmatter: {
+            title: string
+            description: String
+            external?: string
+            github?: string
+            blog?: string
+            darkCover: boolean
+            skills: [string]
+            image: {
+              childImageSharp: {
+                fluid: any;
+              }
             }
           }
         }
       }
-    }
-  ]
+    ]
+  }
 }
 const SkillList = styled.div`
   display: block;
@@ -41,7 +43,7 @@ const Skill = styled.span`
 
 const featured: React.FC<FeaturedProps> = ({ featured }) => {
 
-  const featuredToShow = featured.map(({ node }) => node);
+  const featuredToShow = featured.edges.map(({ node }) => node);
 
   return (<section id='featured'  style={{minHeight: '100vh'}}>
     <SectionHeader>Featured Projects</SectionHeader>

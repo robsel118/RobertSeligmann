@@ -65,23 +65,27 @@ const ArchiveTag = styled.span`
 `
 
 export interface ArchiveProps {
-  archive: [{
-    node :{
-      frontmatter: {
-        type: string;
-        title:string
-        tags: [string]
-        external? :string
-        internal?: string
-        github?: string
+  archive: {
+    edges: [
+      {
+        node :{
+          frontmatter: {
+            type: string;
+            title:string
+            tags: [string]
+            external? :string
+            internal?: string
+            github?: string
+          }
+          html: string
+        }
       }
-      html: string
-    }
-  }]
+    ]
+  }
 }
 
 const Projects: React.FC<ArchiveProps> = ({ archive }) => {
-  const itemsToShow = archive.map(({ node }) => node);
+  const itemsToShow = archive.edges.map(({ node }) => node);
 
   return (<section id="archive">
     <SectionHeader>Other Projects/Links</SectionHeader>

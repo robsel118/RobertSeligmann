@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import mixins from '@theme/mixins'
 import {color} from '@theme/styles'
 
-const SectionHeader = styled.p`
+const SectionHeader = styled.p<{contentBefore?: string }>`
   ${mixins.teko}
   display: flex;
   position: relative;
@@ -14,7 +14,7 @@ const SectionHeader = styled.p`
     position: relative;
     color: ${color.caribbeanGreen};
     counter-increment: section;
-    content: "0" counter(section) ". "
+    content: ${props => props.contentBefore || '"0" counter(section) ". "'}
   }
   &::after{
     content:'';

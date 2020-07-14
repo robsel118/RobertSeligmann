@@ -27,7 +27,7 @@ interface AboutProps {
 }
 
 const About:React.FC<AboutProps> = ({about}) => {
-  return (<Grid cols={2}>
+  return (<Grid cols={2} style={{minHeight: 'calc(100vmin - 170px)'}}>
     <AboutText dangerouslySetInnerHTML={{__html: about[0].node.html}}>
 
     </AboutText>

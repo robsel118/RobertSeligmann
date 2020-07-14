@@ -60,10 +60,25 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `resume`,
-        path: `${__dirname}/content/resume`,
+        name: `jobs`,
+        path: `${__dirname}/content/resume/jobs`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `educations`,
+        path: `${__dirname}/content/resume/educations`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `extras`,
+        path: `${__dirname}/content/resume/extras`,
+      },
+    },
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

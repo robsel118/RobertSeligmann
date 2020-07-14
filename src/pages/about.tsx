@@ -1,21 +1,24 @@
 import React from 'react'
 import { graphql, PageProps } from "gatsby";
 
-import Layout from '../components/shared/Layout'
-import Content from '../components/shared/Content'
-import { Header } from '../components/Navbar'
+import Layout from '@components/shared/Layout'
+import Content from '@components/shared/Content'
+import { Header } from '@components/Header'
 import About from '@sections/About'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
-import SEO from '../components/shared/seo'
-import Resume from '../components/Resume'
+import SEO from '@components/shared/seo'
+// import Resume from '@components/Resume'
+import Resume, { ResumeProps} from '@sections/Resume'
+import Sidebar from '@components/shared/Sidebar';
 
-type DataProps = {
+interface DataProps extends ResumeProps {
   about: any,
-  
+
 }
 
-const AboutPage:React.FC<PageProps<DataProps>> = ({data}) => {
+const AboutPage: React.FC<PageProps<DataProps>> = ({ data }) => {
+  console.log(data)
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -24,14 +27,14 @@ const AboutPage:React.FC<PageProps<DataProps>> = ({data}) => {
         <Header />
         <Content>
         <About about={data.about.edges}/>
-          <hr />
-          <Resume />
+          {/* <hr /> */}
+          <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} />
         </Content>
+        <Sidebar/>
       </Layout>
     </ThemedContext>
   )
 }
-
 
 
 export const query = graphql`
@@ -44,6 +47,55 @@ export const query = graphql`
           frontmatter{
             title
             linkToResume
+          }
+          html
+        }
+      }
+    },
+    jobs:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/jobs/" }}
+      sort: { fields: [frontmatter___endDate], order: DESC }
+      ){
+      edges {
+        node {
+          frontmatter{
+            endDate
+            position
+            company
+            range
+            location
+          }
+          html
+        }
+      }
+    },
+    educations:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/educations/" }}
+      sort: { fields: [frontmatter___endDate], order: DESC }
+      ){
+      edges {
+        node {
+          frontmatter{
+            endDate
+            school
+            range
+            location
+          }
+          html
+        }
+      }
+    },
+    extras:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/extras/" }}
+      sort: { fields: [frontmatter___date], order: DESC }
+      ){
+      edges {
+        node {
+          frontmatter{
+            date
+            name
+            role
+            mention
           }
           html
         }

@@ -152,26 +152,28 @@ export const SocialContainer = styled.div`
 
 
 
-interface IntroProps {
-  intro: [
-    {
-      node: {
-        frontmatter: {
-          welcomeMessage: string
-          profilePic: {
-            childImageSharp: {
-              fluid: any;
+export interface IntroProps {
+  intro: {
+    edges:[
+      {
+        node: {
+          frontmatter: {
+            welcomeMessage: string
+            profilePic: {
+              childImageSharp: {
+                fluid: any;
+              }
             }
           }
+          html: string
         }
-        html: string
       }
-    }
-  ],
+    ]
+  },
 }
 
 const Intro: React.FC<IntroProps> = ({ intro }) => {
-  const introduction = intro[0].node;
+  const introduction = intro.edges[0].node;
   const { welcomeMessage, profilePic } = introduction.frontmatter;
 
   return (<section id="introduction">
@@ -188,11 +190,11 @@ const Intro: React.FC<IntroProps> = ({ intro }) => {
         </Headline>
 
         <CTA>
-          <Statement dangerouslySetInnerHTML={{__html: intro[0].node.html}}/>
+          <Statement dangerouslySetInnerHTML={{__html: intro.edges[0].node.html}}/>
 
           <Line />
           <SocialContainer>
-            {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name} /></a>)}
+            {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name as IconName} /></a>)}
           </SocialContainer>
         </CTA>
 

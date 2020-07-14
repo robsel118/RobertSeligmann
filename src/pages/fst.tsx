@@ -1,16 +1,16 @@
 import React from 'react'
 import { graphql, PageProps } from "gatsby";
-import Banner, { BannerTitle, BannerSubTitle } from '../components/shared/Banner'
-import { Title, Paragraph, TextContent } from '../components/shared/Typography'
-import Grid from '../components/shared/Grid'
-import Image from '../components/shared/Image'
-import Stack, { VueStack, D3Stack, LodashStack } from '../components/shared/Stack'
-import Layout from '../components/shared/Layout'
-import Content from '../components/shared/Content'
+import Banner, { BannerTitle, BannerSubTitle } from '@components/shared/Banner'
+import { Title, Paragraph, TextContent } from '@components/shared/Typography'
+import Grid from '@components/shared/Grid'
+import Image from '@components/shared/Image'
+import Stack, { VueStack, D3Stack, LodashStack } from '@components/shared/Stack'
+import Layout from '@components/shared/Layout'
+import Content from '@components/shared/Content'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
-import SEO from '../components/shared/seo'
-import { Header } from '../components/Navbar'
+import SEO from '@components/shared/seo'
+import { Header } from '@components/Header'
 
 type DataProps = {
   matsumoto: {
