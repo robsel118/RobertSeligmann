@@ -25,6 +25,7 @@ jobs:
 
       - run: yarn install --prod --pure-lockfile
       # This triggers `gatsby build` script in "package.json"
+      - run: yarn clean
       - run: yarn build
 
       # deploying branch to git pages
