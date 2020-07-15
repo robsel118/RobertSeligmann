@@ -30,9 +30,9 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${fonts.roboto};
         color: ${({ theme }) => theme.onBackground};
         text-decoration: none;
+        transition: color 0.3s ease-in-out;
         &:hover{
             color: ${({ theme }) => theme.onBackgroundHover};
-            transition: color 0.3s ease-in-out;
         }
         & > svg {
             cursor: pointer;

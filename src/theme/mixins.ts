@@ -23,7 +23,7 @@ const mixins = {
   `,
   inlineLink: css`
     text-decoration: none;
-    color: ${({ theme }) => theme.textLink};
+    color: ${({ theme }) => theme.onBackground};
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: inset 0 -0.2rem ${({ theme }) => theme.primary};
