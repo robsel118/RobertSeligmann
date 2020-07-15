@@ -7,11 +7,10 @@ import mixins from '@theme/mixins'
 
 
 const ResumeContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr ;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
   width: 100%;
-
 `
 
 const Tab = styled.div`
@@ -37,7 +36,7 @@ const TabItem = styled(Link).attrs({
 const ResumeSection = styled.section<{ selected: boolean }>`
   opacity: ${({selected}) => selected ? '1' : '0'};
   visibility: ${({selected}) => selected ? 'visible' : 'hidden'};
-  transform: ${({selected}) => selected ? 'none': 'translateX(20%)'};
+  transform: ${({selected}) => selected ? 'none': 'translateX(-20%)'};
   min-height: ${({selected}) => selected? 'calc(100vmin - 80px)': "0"};
   max-height: ${({selected}) => selected? '100%': "0"};
   flex-direction: column;
@@ -45,7 +44,7 @@ const ResumeSection = styled.section<{ selected: boolean }>`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 
 `
 const SkillsSection = styled.div`
@@ -186,6 +185,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
         {jobToShow.map((job, index) => {
           const { frontmatter } = job;
           const { position, company, range } = frontmatter;
+          
           return (<EventContainer key={index}>
             <span>
               <SectionText><b>{position}</b> @ {company}</SectionText>
@@ -196,44 +196,49 @@ const Resume: React.FC<ResumeProps> = (data) => {
         })}
      </Section>
     </ResumeSection>
+
     <ResumeSection  selected={selectedTab === orderedTabs.indexOf('other')}>
-    <Section>
-      <SectionHeader contentBefore={`"▹"`}>Extra-Curricular</SectionHeader>
-        {extrasToShow.map((extra, index) => {
-          const { frontmatter } = extra;
-          const {  name, role, mention } = frontmatter;
-          return (<EventContainer key={index}>
-            <span>
-              <SectionText><b>{role}</b> @ {name}</SectionText>
-              <EventPeriod>{mention}</EventPeriod>
-            </span>
+      <Section>
+        <SectionHeader contentBefore={`"▹"`}>Extra-Curricular</SectionHeader>
+          {extrasToShow.map((extra, index) => {
+            const { frontmatter } = extra;
+            const {  name, role, mention } = frontmatter;
+            return (<EventContainer key={index}>
+              <span>
+                <SectionText><b>{role}</b> @ {name}</SectionText>
+                <EventPeriod>{mention}</EventPeriod>
+              </span> 
             <div dangerouslySetInnerHTML={{__html: extra.html}}/>
-          </EventContainer>)
-        })}
-     </Section>
+            </EventContainer>)
+          })}
+      </Section>
     </ResumeSection>
+
     <ResumeSection selected={selectedTab === orderedTabs.indexOf('educations')}>
     <Section>
       <SectionHeader contentBefore={`"▹"`}>education</SectionHeader>
         {educationToShow.map((education, index) => {
           const { frontmatter } = education;
           const {  school, range } = frontmatter;
-          return (<EventContainer key={index}>
-            <span>
-              <SectionText><b>{school}</b> </SectionText>
-            </span>
-            <EventPeriod>{range}</EventPeriod>
-            <div dangerouslySetInnerHTML={{__html: education.html}}/>
+          return (
+            <EventContainer key={index}>
+              <span>
+                <SectionText><b>{school}</b> </SectionText>
+              </span>
+              <EventPeriod>{range}</EventPeriod>
+              <div dangerouslySetInnerHTML={{__html: education.html}}/>
           </EventContainer>)
         })}
      </Section>
     </ResumeSection>
+
     <ResumeSection selected={selectedTab === orderedTabs.indexOf('skills')}>
-    <Section>
-      <SectionHeader contentBefore={`"▹"`}>Skills</SectionHeader>
-        <SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/>
-     </Section>
+      <Section>
+          <SectionHeader contentBefore={`"▹"`}>Skills</SectionHeader>
+          <SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/>
+      </Section>
     </ResumeSection>
+
   </ResumeContainer>
 }
 

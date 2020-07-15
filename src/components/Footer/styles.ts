@@ -12,6 +12,7 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
+  max-width: 80vw;
   ${mixins.contentSpace};
   padding: 0 1rem;
 `
