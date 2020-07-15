@@ -13,6 +13,7 @@ export const Content = styled.div`
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
   max-width: 80vw;
+  margin: 0 auto;
   ${mixins.contentSpace};
   padding: 0 1rem;
 `

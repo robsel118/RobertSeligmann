@@ -22,8 +22,8 @@ const MenuWrapper = styled.div`
   ${mixins.roboto};
   ${mediaMin.md`display: flex;`}; 
 `
-const Line = styled.div`
-  height: 80px;
+const Line = styled.div<{height?: string}>`
+  height: ${({height}) => height || '50px'};
   width: 1px;
   background-color: ${({theme})=> theme.onBackground};
 `
@@ -41,9 +41,9 @@ const Sidebar =()=> {
     {
       socials.map((social: Record<string, string>, index: number) => <LinkWrapper key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name}/></LinkWrapper>)
     }
-    <Line />
+    <Line height="70px"/>
     <LinkWrapper title="E-Mail contact" href={`mailto:${email}`}>{email}</LinkWrapper>
-    <Line style={{height: '50px'}}/>
+    <Line height="50px"/>
   </MenuWrapper>)
 }
 export default Sidebar;
