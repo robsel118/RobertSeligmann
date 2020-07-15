@@ -1,20 +1,14 @@
 import styled from 'styled-components'
-import { breakpoints } from '@theme/styles'
 import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
 
-interface GridProps {
-  cols: number
-}
-
-const Grid = styled.div<GridProps>`
+const Grid = styled.div<{ cols: number }>`
   margin: 1.5rem 0;
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
-  display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center;
 
+  ${mixins.flexCenter};
   ${mediaMin.md`
     display: grid;
     grid-template-columns: repeat(2, 1fr);

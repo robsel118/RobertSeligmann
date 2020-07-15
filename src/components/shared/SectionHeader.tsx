@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
-import {color} from '@theme/styles'
+import { fontSizes } from '@theme/styles'
 import mediaMin from '@theme/media'
 
 const SectionHeader = styled.p<{ contentBefore?: string }>`
@@ -11,14 +11,16 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
   align-items:center;
   padding-top: 3rem;
   margin-bottom: 5rem;
-  font-size: 1.4rem;
-  ${mediaMin.sm` font-size: 2rem;`}
+  font-size: ${fontSizes.xl};
+  ${mediaMin.sm` font-size: ${fontSizes.xxl}`}
+
   &::before{
     position: relative;
-    color: ${color.caribbeanGreen};
+    color: ${({theme}) => theme.primary};
     counter-increment: section;
-    content: ${props => props.contentBefore || '"0" counter(section) ". "'}
+    content: ${({contentBefore}) => contentBefore || '"0" counter(section) ". "'}
   }
+
   ${mediaMin.sm`
     &::after{
       content:'';

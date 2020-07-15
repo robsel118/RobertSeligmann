@@ -5,19 +5,16 @@ import { ThemeContext } from '@theme/ThemeContext'
 import { Sun} from 'react-feather'
 
 
-interface ToggleableSunProps {
-  active: boolean
-}
-const ToggleableSun = styled.span<ToggleableSunProps>`
+const ToggleableSun = styled.span<{active: boolean}>`
   cursor: pointer;
   svg{
     path, circle, line {
         stroke: white;
     }
     line{
-      opacity: ${props => props.active? '80%': '100%'};
-      stroke-width: ${props => props.active? '1px': '2px'};
-      transition: all 0.2s ease-in;
+      opacity: ${({active}) => active? '80%': '100%'};
+      stroke-width: ${({active}) => active? '1px': '2px'};
+      transition: opacity 0.2s ease-in, stroke-width 0.2s ease-in;
     }
   }
   svg:hover {
@@ -25,8 +22,8 @@ const ToggleableSun = styled.span<ToggleableSunProps>`
         stroke: white;
     }
     line{
-      opacity: ${props => props.active? '100%': '80%'};
-      stroke-width: ${props => props.active? '2px': '1px'};
+      opacity: ${({ active }) => active? '100%': '80%'};
+      stroke-width: ${({ active }) => active? '2px': '1px'};
     }
   }
   

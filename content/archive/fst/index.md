@@ -1,13 +1,13 @@
 ---
-icon: "Icon3"
+icon: "Edit3"
 iconColor: "#06d6a0"
 title: 'Fujitsu'
 tags:
   - Internship
   - Vue.js
   - D3.js
-external: ''
-github: ''
+external: 'https://www.youtube.com/watch?v=hUXEmnTOyyE'
+github: 'https://www.youtube.com/watch?v=hUXEmnTOyyE'
 internal: 'fst'
 ---
 

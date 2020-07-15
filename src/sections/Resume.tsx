@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import SectionHeader from '@components/shared/SectionHeader'
-import { fonts } from '@theme/styles'
+import { fonts, fontSizes } from '@theme/styles'
 import mixins from '@theme/mixins'
 
 
@@ -25,29 +25,27 @@ const TabItem = styled(Link).attrs({
   to: '/about#resume'
 })<{selected: boolean}>`
   ${mixins.teko};
-  font-size: 1.2rem ;
+  ${mixins.transitionAll};
+  font-size: ${fontSizes.lg};
   margin: 0 1rem;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: ${props => props.selected? 'inset 0 -0.8rem': 'inset 0 -0.2rem'} ${props => props.theme.highlight};
+  box-shadow: ${props => props.selected? 'inset 0 -0.8rem': 'inset 0 -0.2rem'} ${props => props.theme.primary};
   
   &:hover{
     padding-bottom: 0.2em;
   }
 `
 const ResumeSection = styled.section<{ selected: boolean }>`
-  transition: all 1s ease;
-  opacity: ${props => props.selected ? '1' : '0'};
-  visibility: ${props => (props.selected ? 'visible' : 'hidden')};
-  transform: ${props => (props.selected ? 'none': 'translateX(-20%)')};
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  min-height: ${props => props.selected? 'calc(100vmin - 80px)': "0"};
-  max-height: ${props => props.selected? '100%': "0"};
+  opacity: ${({selected}) => selected ? '1' : '0'};
+  visibility: ${({selected}) => selected ? 'visible' : 'hidden'};
+  transform: ${({selected}) => selected ? 'none': 'translateX(20%)'};
+  min-height: ${({selected}) => selected? 'calc(100vmin - 80px)': "0"};
+  max-height: ${({selected}) => selected? '100%': "0"};
   flex-direction: column;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  transition: transform 0.3s ease-in-out;
 
 `
 const SkillsSection = styled.div`
@@ -65,7 +63,6 @@ const SkillsSection = styled.div`
       display: grid;
       grid-template-columns:  auto 60% 40%;
       ${mixins.roboto}
-      font-weight: 500;
       code {
         ${mixins.roboto}
 
@@ -75,7 +72,7 @@ const SkillsSection = styled.div`
         position: relative;
         left: 0;
         margin-right: 5px;
-        color: #06d6a0;
+        color: ${({theme}) => theme.primary };
       }
     }
   }
@@ -87,9 +84,9 @@ export const Section = styled.div`
 `
 export const SectionTitle = styled.p`
   font-family: ${fonts.teko};
+  font-size: ${fontSizes.lg};
   text-transform: uppercase;
-  font-size: 1.2rem;
-  color: ${props => props.theme.linkColor};
+  color: ${({theme}) => theme.onBackground};
   margin-bottom: 1.6rem;
 `
 
@@ -103,7 +100,7 @@ export const SectionText = styled.p`
 `
 
 export const EventPeriod = styled(SectionText)`
-  font-size: 0.8rem;
+  font-size: ${ fontSizes.sm };
 `
 
 export const EventContainer = styled.div`
@@ -162,7 +159,6 @@ export interface ResumeProps {
     edges: [
       {
         node: {
-
           html: string
         }
       }
@@ -176,6 +172,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
   const extrasToShow = data.extras.edges.map(({ node }) => node);
 
   const [selectedTab, setSelectedTab] = useState(0)
+
   const orderedTabs = ['jobs', 'educations', 'skills', 'other']
 
   

@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { fonts } from '@theme/styles'
+import { fonts, fontSizes } from '@theme/styles'
 import mediaMin from '@theme/media'
 
 const mixins = {
@@ -7,28 +7,28 @@ const mixins = {
     font-family: ${fonts.muli};
     letter-spacing: 0.03em;
     line-height: 150%;
-    font-size: 1.1rem;
+    font-size: ${fontSizes.md};
   `,
   teko: css`
     font-family: ${fonts.teko};
-    font-size: 2rem;
+    font-size: ${fontSizes.xxl};
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 300;
   `,
   roboto: css`
     font-family: ${fonts.roboto};
-    font-size: 1rem;
+    font-size: ${fontSizes.md};
     letter-spacing: 0.01rem;
   `,
   inlineLink: css`
     text-decoration: none;
-    color: ${({ theme }) => theme.textColor};
+    color: ${({ theme }) => theme.textLink};
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: inset 0 -0.2rem ${({ theme }) => theme.highlight};
+    box-shadow: inset 0 -0.2rem ${({ theme }) => theme.primary};
     &:hover {
-      box-shadow: inset 0 -0.7rem ${({ theme }) => theme.highlightHover};
+      box-shadow: inset 0 -0.7rem ${({ theme }) => theme.primary};
     }
   `,
   grid: (md?: string) => {
@@ -53,9 +53,22 @@ const mixins = {
   `,
   heading: css`
     font-family: ${fonts.muli};
-    font-size: 1.5rem;
-    ${mediaMin.sm`font-size: 2rem;`}
-    ${mediaMin.lg`font-size: 2.5rem;`}
+    font-size: ${fontSizes.xl};
+    ${mediaMin.sm`font-size: ${fontSizes.xxl};`}
+    ${mediaMin.lg`font-size: ${fontSizes.xxxl};`}
+  `,
+  flexCenter: css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  flexBetween: css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
+  transitionAll: css`
+    transition: all 0.3s ease-in-out;
   `,
 }
 

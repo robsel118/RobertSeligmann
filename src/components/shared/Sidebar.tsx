@@ -17,16 +17,16 @@ const MenuWrapper = styled.div`
   flex-direction: column;
   align-items:center;
   justify-content: flex-end;
-  color: ${props => props.theme.textColor};
+  color: ${({theme}) => theme.onBackground};
   z-index: 99;
 
   ${mixins.roboto}
-  ${mediaMin.md`display: flex;`  }
+  ${mediaMin.md`display: flex;`}
 `
 const Line = styled.div`
   height: 80px;
   width: 1px;
-  background-color: gray;
+  background-color: ${({theme})=> theme.onBackground};
 `
 
 const LinkWrapper = styled.a`

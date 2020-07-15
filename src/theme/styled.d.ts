@@ -4,20 +4,15 @@ import 'styled-components'
 declare module 'styled-components' {
   export interface DefaultTheme {
     background: string
-    cardBackground: string
-    cardBackgroundHover: string
-    cardShadowFlat: string
-    cardShadowPressed: string
-    iconShadowFlat: string
-    iconShadowPressed: string
-    buttonBackground: string
-    textColor: string
-    linkColor: string
-    linkColorHover: string
-    buttonColor: string
+    surface: string
+    primary: string
+    onBackground: string
+    onBackgroundHover: string
+    onPrimary: string
+    onPrimaryHover: string
     inverted: string
-    highlight: string
-    highlightHover: string
-    bw: string
+    textLink: string
+    textLinkHover: string
+    reverse: string
   }
 }

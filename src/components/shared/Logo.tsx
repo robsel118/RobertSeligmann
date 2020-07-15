@@ -16,13 +16,13 @@ const LogoImg = styled.div<LogoImgProps>`
   font-size: 100%;
   margin : 0.5rem 0;
   background-image: url(${logosvg});
-  width: ${props => props.height};
-  height: ${props => props.width};
+  width: ${({height}) => height};
+  height: ${({width}) => width};
   background-repeat: no-repeat;
-  filter: ${props => props.filter || props.theme.inverted}
+  filter: ${({filter, theme}) => filter || theme.inverted}
 `
 
-const Logo:React.FC<LogoImgProps> = ({ height = "3.2rem", width = "2.8rem", filter}) => (
+const Logo:React.FC<LogoImgProps> = ({ height = "3.2rem", width = "3rem", filter}) => (
   <Link to="/" >
     <LogoImg height={height} width={width} filter={filter}/>
   </Link>

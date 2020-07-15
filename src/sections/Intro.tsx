@@ -1,16 +1,15 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { fonts, breakpoints, themes } from '@theme/styles'
-import mixins from '@theme/mixins'
 import Image from '@components/shared/Image'
-import { socials } from '@config';
-import mediaMin from '@theme/media'
 import Icon from '@components/shared/Icons'
+import mixins from '@theme/mixins'
+import mediaMin from '@theme/media'
+import { fonts, themes } from '@theme/styles'
+import { socials } from '@config';
 
 export const Headline = styled.h1`
   font-family: ${fonts.muli};
-  color: ${props => props.theme.bw};
   z-index: 4;
   color: black;
   filter: blur(0.2px);
@@ -83,7 +82,7 @@ export const IntroContainer = styled.div`
   ${Headline}:nth-child(3) {
     z-index: 10;
     mix-blend-mode: exclusion;
-    color: ${props => (props.theme == themes.light ? 'black' : 'white')};
+    color: ${({theme}) => theme.reverse};
   }
 `
    
@@ -94,8 +93,9 @@ export const ImageContainer = styled.div`
    grid-column: 1 / 1;
    grid-row: 2 / 2;
    & > div {
+
        img {
-         background: #06d6a0;
+         background: ${({theme}) => theme.primary};
        }
    }
    ${mediaMin.sm`
@@ -107,11 +107,12 @@ export const ImageContainer = styled.div`
          position: absolute;
          content: '';
          display: block;
-         border: 2px solid #06d6a0;
          top: 1.5rem;
          left: 1.5rem;
          height: 100%;
          width: 100%;
+         border: 2px solid ${({theme})=> theme.primary};
+
        }
      }
      `
@@ -125,7 +126,7 @@ export const ImageContainer = styled.div`
 `
    
 const Statement = styled.div`
-position: relative;
+  position: relative;
   max-width: 75%;
   z-index: 10;
   p{
@@ -138,7 +139,7 @@ position: relative;
 const Line = styled.div`
   height: 1px;
   width: 80px;
-  background-color: gray;
+  background-color: ${({theme}) => theme.onBackground};
 `
 
 export const SocialContainer = styled.div`

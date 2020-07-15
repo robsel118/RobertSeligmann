@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Banner, { BannerLinks, BannerSubTitle, BannerTitle, BorderedButton } from '../components/shared/Banner'
+import Banner, { BannerLinks, BannerSubTitle, BannerTitle, BorderedButton, Skill, SkillList } from '../components/shared/Banner'
 import SectionHeader from '../components/shared/SectionHeader'
 import { GitHub, ExternalLink } from 'react-feather'
 import Image from '../components/shared/Image'
@@ -30,15 +30,7 @@ export interface FeaturedProps {
     ]
   }
 }
-const SkillList = styled.div`
-  display: block;
-  margin: 2rem 0;
-`
 
-const Skill = styled.span`
-  ${mixins.roboto}
-  margin-right: 1rem;
-`
 
 
 const featured: React.FC<FeaturedProps> = ({ featured }) => {

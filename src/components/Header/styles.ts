@@ -1,33 +1,31 @@
 import styled from 'styled-components'
-import { themes } from '../../theme/styles'
+import { themes, fontSizes } from '../../theme/styles'
 import { HeaderPopDown } from '../../theme/animation'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
 
 export const NavLinkcontainer = styled.div`
   display: block;
-  float: right;
 `
 export const Line = styled.div`
   margin: 0 auto;
   height: 1px;
   width: 50%;
-  background-color: gray;
+  background-color: ${({ theme }) => theme.onBackground};
   opacity: 50%;
 `
 
 export const ContentRow = styled.div`
-  display: block;
   padding: 0 0 0 1rem;
-
-  ${mixins.contentSpace}
+  ${mixins.flexBetween};
+  ${mixins.contentSpace};
 `
 
 export const HeaderContainer = styled.div`
+  display: block;
   grid-area: header-start / header-start / header-end / header-end;
   position: relative;
   top: -4rem;
-  display: block;
   background-color: ${themes.dark.background};
   height: 4rem;
   animation: ${HeaderPopDown} 0.5s ease-in-out forwards;
@@ -35,17 +33,16 @@ export const HeaderContainer = styled.div`
 `
 
 export const Navlink = styled.li`
-  margin: 0.5rem 1rem;
+  /* margin: 0.5rem 1rem; */
   padding: 0;
   float: right;
   a {
     ${mixins.teko}
-    font-size: 1.25rem;
+    font-size: ${fontSizes.lg};
     color: white;
     text-decoration: none;
-
     &:hover {
-      color: #06d6a0;
+      color: ${({ theme }) => theme.primary};
     }
   }
 `
@@ -54,12 +51,11 @@ export const LinkList = styled.ul`
   margin: 0;
   padding: 0;
   float: right;
-  list-style: none;
   display: none;
   ${mediaMin.sm`display: block;`}
 
   li {
-    margin: 1.2rem 1.5rem 0rem 1rem;
+    margin: 0 1.5rem 0rem 1rem;
   }
 
   &.icons li {
@@ -81,31 +77,29 @@ export const CollapseButton = styled.ul<CollapsibleMenuProps>`
     margin: 1rem 1.5rem 1rem 1rem;
 
     line {
-      transition: all 0.3s ease-in-out;
+      ${mixins.transitionAll}
     }
     line:first-child {
-      opacity: ${props => (props.expanded ? '0' : '1')};
+      opacity: ${({ expanded }) => (expanded ? '0' : '1')};
     }
     line:nth-child(2) {
-      transform: ${props =>
-        props.expanded ? 'translateY(15px) rotate(-45deg)' : 'none'};
+      transform: ${({ expanded }) =>
+        expanded ? 'translateY(15px) rotate(-45deg)' : 'none'};
     }
     line:last-child {
-      transform: ${props =>
-        props.expanded
-          ? 'translate3d(17px, -10px, 0px) rotate(45deg)'
-          : 'none'};
+      transform: ${({ expanded }) =>
+        expanded ? 'translate3d(17px, -10px, 0px) rotate(45deg)' : 'none'};
     }
   }
 `
 
 export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   transition: all 0.5s ease-in-out;
-  visibility: ${props => (props.expanded ? 'visible' : 'hidden')};
+  visibility: ${({ expanded }) => (expanded ? 'visible' : 'hidden')};
   background-color: #111;
   z-index: 1000;
   display: block;
-  max-height: ${props => (props.expanded ? '80vh' : '0')};
+  max-height: ${({ expanded }) => (expanded ? '80vh' : '0')};
   overflow: hidden;
   width: 100%;
   position: absolute;
@@ -115,6 +109,7 @@ export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   ${mediaMin.sm`
     visibility: hidden;
     max-width: 0;`}
+
   ${Navlink} {
     float: inherit;
     display: block;

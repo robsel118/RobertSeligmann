@@ -19,25 +19,31 @@ const GlobalStyle = createGlobalStyle`
 
     a, p, span, li, h1, h2{
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
-        color: ${({ theme }) => theme.textColor};
+        color: ${({ theme }) => theme.onBackground};
+    }
+
+    ul{
+        list-style: none;
     }
 
     a {
         font-family: ${fonts.roboto};
-        color: ${props => props.theme.linkColor};
+        color: ${({ theme }) => theme.onBackground};
         text-decoration: none;
         &:hover{
-            color: ${({ theme }) => theme.linkColorHover};
-
+            color: ${({ theme }) => theme.onBackgroundHover};
+            transition: color 0.3s ease-in-out;
         }
         & > svg {
-            transition: all 0.3s ease-in-out;
             cursor: pointer;
-            stroke: ${({ theme }) => theme.linkColor};
+            transition: all 0.3s ease-in-out;
+            stroke: ${({ theme }) => theme.onBackground};
+            stroke-width: 1.5px;
         }
         &:hover > svg{
             /* transform: translateY(-3px); */
-            stroke:  ${({ theme }) => theme.linkColorHover};
+            stroke-width: 2px;
+            stroke:  ${({ theme }) => theme.onBackgroundHover};
         }
     }
   

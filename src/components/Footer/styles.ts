@@ -22,7 +22,7 @@ export const ContentRow = styled.div`
   margin: 1.5rem 0;
   ${mixins.muli}
   a {
-    margin-right: 0.8rem;
+    margin-right: 1rem;
   }
 `
 

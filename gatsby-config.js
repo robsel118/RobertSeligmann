@@ -18,6 +18,15 @@ module.exports = {
               rel: 'nofollow noopener noreferrer',
             },
           },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1000,
+            },
+          },
         ],
       },
     },
@@ -81,6 +90,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `articles`,
+        path: `${__dirname}/content/articles`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `skills`,
         path: `${__dirname}/content/resume/skills`,
       },
@@ -101,6 +117,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-scroll-reveal`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
