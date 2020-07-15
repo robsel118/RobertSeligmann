@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
+import { fontSizes } from '@theme/styles'
 import Icon from '@components/shared/Icons'
 import { email, socials } from '@config';
-
-
 
 const MenuWrapper = styled.div`
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 1rem;
   height: calc(100vh - 64px);
-  width: 4rem;
+
   display: none;
   flex-direction: column;
   align-items:center;
@@ -20,8 +19,8 @@ const MenuWrapper = styled.div`
   color: ${({theme}) => theme.onBackground};
   z-index: 99;
 
-  ${mixins.roboto}
-  ${mediaMin.md`display: flex;`}
+  ${mixins.roboto};
+  ${mediaMin.md`display: flex;`}; 
 `
 const Line = styled.div`
   height: 80px;
@@ -33,6 +32,8 @@ const LinkWrapper = styled.a`
   text-decoration: none;
   writing-mode: vertical-rl;
   margin: 0.8rem 0.5rem;
+  font-size: ${fontSizes.sm};
+
 `
 
 const Sidebar =()=> {
