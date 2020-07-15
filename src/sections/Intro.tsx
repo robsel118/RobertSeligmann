@@ -8,11 +8,10 @@ import mediaMin from '@theme/media'
 import { fonts, themes } from '@theme/styles'
 import { socials } from '@config';
 
-const Headline = styled.h1`
+const Headline = styled.p`
   font-family: ${fonts.muli};
+  ${mixins.heading}
   z-index: 4;
-  color: ${({theme}) => theme.onBackground};
-  filter: blur(0.2px);
   grid-area: 1 / 1 / -1 / -1;
   
   ${mixins.heading}
