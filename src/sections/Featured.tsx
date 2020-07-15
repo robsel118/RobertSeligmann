@@ -1,10 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import Banner, { BannerLinks, BannerSubTitle, BannerTitle, BorderedButton, Skill, SkillList } from '../components/shared/Banner'
 import SectionHeader from '../components/shared/SectionHeader'
 import { GitHub, ExternalLink } from 'react-feather'
 import Image from '../components/shared/Image'
-import mixins from '@theme/mixins'
 
 export interface FeaturedProps {
   featured: {

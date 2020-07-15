@@ -31,9 +31,6 @@ background: ${({theme})=> theme.surface};
 const ArchiveHeader = styled.div`
   height: 3rem;
   ${mixins.flexBetween};
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   margin-bottom: 1rem;
 `
 
@@ -41,10 +38,6 @@ const ArchiveHeaderTag = styled.div<{color?: string}>`
   height: 3rem;
   width: 3rem;
   ${mixins.flexCenter};
-
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   border-radius:50%;
   background-color: ${({color}) => hex2rgba(color || '#000000', 0.2)};
   svg {
@@ -109,7 +102,7 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
       const { title, icon, iconColor, tags, github, external, internal } = archiveItem.frontmatter;
-      return <ArchiveCard key={index}>
+      return <ArchiveCard key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-delay={(index % 3) *150} data-sal-easing="ease-out" >
         <ArchiveHeader>
           <ArchiveHeaderTag color={iconColor}>
             <Icon name={icon} size={30}/>
