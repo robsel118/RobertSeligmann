@@ -6,9 +6,9 @@ tags:
   - Internship
   - Vue.js
   - D3.js
-external: 'https://www.youtube.com/watch?v=hUXEmnTOyyE'
-github: 'https://www.youtube.com/watch?v=hUXEmnTOyyE'
-internal: 'fst'
+external: ''
+github: ''
+internal: 'fujitsu-2019'
 ---
 
 

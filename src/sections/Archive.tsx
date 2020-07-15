@@ -8,7 +8,7 @@ import SectionHeader from '@components/shared/SectionHeader'
 import { hex2rgba } from '@utils/'
 
 const ArchiveGrid = styled.div`
-  ${mixins.grid("repeat(auto-fill, minmax(300px, 25vw))")}
+  ${mixins.grid("repeat(auto-fill, minmax(300px, 1fr))")}
 `
 
 const ArchiveCard = styled.div`

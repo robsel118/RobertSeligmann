@@ -1,7 +1,7 @@
 ---
 title: "Portfolio V3"
 description: "Latest and current version of my web portfolio"
-image: "./banner-junction.png"
+image: "./banner.png"
 skills:
     - React.JS
     - TypeScript

@@ -3,13 +3,6 @@ require('typeface-teko')
 require('typeface-roboto')
 import { hex2rgba } from '@utils/'
 
-export const breakpoints = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-}
-
 export const color = {
   caribbeanGreen: '#06d6a0',
   blue: '#B4DDE3',
@@ -19,15 +12,6 @@ export const fonts = {
   muli: 'Muli, sans-serif',
   teko: 'Teko, sans-serif',
   roboto: 'Roboto, sans-serif',
-}
-
-const darkPalette = {
-  background: '#091B34',
-  surface: hex2rgba('#294B63', 0.3),
-  primary: color.caribbeanGreen, //carabean green
-  onBackground: '#FFFFFF',
-  onPrimary: '#FFFFFF',
-  onSecondary: '#FFFFFF',
 }
 
 export const fontSizes = {
