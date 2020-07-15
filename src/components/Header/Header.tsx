@@ -24,7 +24,7 @@ export const Header = () => {
       </NavLinkcontainer>
     </ContentRow>
     <CollapsibleMenu expanded={expanded}>
-        <Navlink><Link to="/">Projects</Link></Navlink>
+        <Navlink><Link to="/#featured">Projects</Link></Navlink>
         <Navlink><Link to="/about">About</Link></Navlink>
         <Line/>
         <Navlink><ThemeToggleButton /></Navlink>
