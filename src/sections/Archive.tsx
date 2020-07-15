@@ -11,6 +11,8 @@ const ArchiveGrid = styled.div`
   ${mixins.grid("repeat(auto-fill, minmax(300px, 1fr))")}
 `
 
+
+
 const ArchiveCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@ const ArchiveCard = styled.div`
   min-height: 5rem;
   padding: 1rem;
   z-index: 3;
-background: ${({theme})=> theme.surface};
+  background: ${({theme})=> theme.surface};
   ${mixins.transitionAll};
   border: 0.5px solid rgba(0, 0, 0, 0.06);
   box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1), 1px 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -102,7 +104,8 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
       const { title, icon, iconColor, tags, github, external, internal } = archiveItem.frontmatter;
-      return <ArchiveCard key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-delay={(index % 3) *150} data-sal-easing="ease-out" >
+      return <div style={{display: 'flex'}} key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-delay={(index % 3) *150 }  data-sal-easing="ease-out">
+         <ArchiveCard>
         <ArchiveHeader>
           <ArchiveHeaderTag color={iconColor}>
             <Icon name={icon} size={30}/>
@@ -119,6 +122,7 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
         </div>
          <div> {tags.map((tag, index) => <ArchiveTag key={index}>{tag}</ArchiveTag>)}</div>
       </ArchiveCard>
+      </div>
     } )}
     </ArchiveGrid>
   </section>)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { themes, fontSizes } from '../../theme/styles'
+import { themes, fontSizes, color } from '../../theme/styles'
 import { HeaderPopDown } from '../../theme/animation'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
@@ -42,7 +42,7 @@ export const Navlink = styled.li`
     color: white;
     text-decoration: none;
     &:hover {
-      color: ${({ theme }) => theme.primary};
+      color: ${color.caribbeanGreen};
     }
   }
 `
