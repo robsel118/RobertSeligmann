@@ -20,15 +20,18 @@ const Tab = styled.div`
   height: 3rem;
 `
 
+interface Props {
+  selected: boolean
+}
 const TabItem = styled(Link).attrs({
   to: '/about#resume'
 })<{selected: boolean}>`
   ${mixins.teko};
-  ${mixins.transitionAll};
   font-size: ${fontSizes.lg};
   margin: 0 1rem;
-  box-shadow: ${props => props.selected? 'inset 0 -0.8rem': 'inset 0 -0.2rem'} ${props => props.theme.primary};
+  box-shadow: ${({selected}) => selected? 'inset 0 -0.8rem': 'inset 0 -0.2rem'} ${({theme}) => theme.primary};
   
+  transition: all 0.3s ease-in-out;
   &:hover{
     padding-bottom: 0.2em;
   }
