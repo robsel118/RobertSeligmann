@@ -7,8 +7,8 @@ tags:
   - React.js
   - Firebase
   - Android
-external: 'https://github.com/robsel118/Junction_2019'
-github: ''
+external: ''
+github: 'https://github.com/robsel118/Junction_2019'
 internal: 'junction-2019'
 ---
 
