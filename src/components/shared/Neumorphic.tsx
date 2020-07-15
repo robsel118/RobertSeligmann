@@ -26,7 +26,6 @@ interface ButtonProps extends BaseProps {
 
 export const FlatIcon = styled(Bordered)<ButtonProps>`
   background: ${props => props.theme.cardBackground};
-  /* border: 1px solid #525252; */
   box-shadow: ${props =>
     props.pressed ? props.theme.iconShadowPressed : props.theme.iconShadowFlat};
   &:hover {

@@ -1,7 +1,11 @@
 import React from 'react';
-import { GitHub, Linkedin } from 'react-feather'
 import styled from 'styled-components'
-import { breakpoints, fonts } from '../../theme/styles'
+import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
+import Icon from '@components/shared/Icons'
+import { email, socials } from '@config';
+
+
 
 const MenuWrapper = styled.div`
   position: fixed;
@@ -9,21 +13,20 @@ const MenuWrapper = styled.div`
   right: 0;
   height: calc(100vh - 64px);
   width: 4rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items:center;
   justify-content: flex-end;
-  font-family: ${fonts.roboto};
-  color: ${props => props.theme.textColor};
+  color: ${({theme}) => theme.onBackground};
+  z-index: 99;
 
-  @media (max-width: ${breakpoints.md}) {
-    display: none;
-  }
+  ${mixins.roboto}
+  ${mediaMin.md`display: flex;`}
 `
 const Line = styled.div`
   height: 80px;
   width: 1px;
-  background-color: gray;
+  background-color: ${({theme})=> theme.onBackground};
 `
 
 const LinkWrapper = styled.a`
@@ -33,11 +36,12 @@ const LinkWrapper = styled.a`
 `
 
 const Sidebar =()=> {
-  return ( <MenuWrapper>
-    <LinkWrapper title="GitHub profile" href='https://github.com/robsel118' target='_blank' rel='noreferrer' ><GitHub/></LinkWrapper>
-    <LinkWrapper title="LinkedIn profile" href='https://www.linkedin.com/in/robert-seligmann/' target='_blank' rel='noreferrer' ><Linkedin/></LinkWrapper>
+  return (<MenuWrapper>
+    {
+      socials.map((social: Record<string, string>, index: number) => <LinkWrapper key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name}/></LinkWrapper>)
+    }
     <Line />
-    <LinkWrapper title="E-Mail contact" href='mailto:robert.seligmann@protonmail.ch'>robert.seligmann@protonmail.ch</LinkWrapper>
+    <LinkWrapper title="E-Mail contact" href={`mailto:${email}`}>{email}</LinkWrapper>
     <Line style={{height: '50px'}}/>
   </MenuWrapper>)
 }

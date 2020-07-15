@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts } from '../../theme/styles'
+import { fonts } from '@theme/styles'
 
 export const Paragraph = styled.p`
   /* color: ${props => props.theme.textColor}; */

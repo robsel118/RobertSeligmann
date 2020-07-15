@@ -1,30 +1,25 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../theme/styles'
+import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
 
-interface GridProps {
-  cols: number
-}
-
-const Grid = styled.div<GridProps>`
+const Grid = styled.div<{ cols: number }>`
   margin: 1.5rem 0;
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
-  display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center;
 
-  @media (min-width: ${breakpoints.md}) {
+  ${mixins.flexCenter};
+  ${mediaMin.md`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-betweeen;
-  }
+  `}
 
-  @media (min-width: ${breakpoints.lg}) {
+  ${mediaMin.lg`
     display: grid;
     grid-template-columns: repeat(${props => props.cols}, 1fr);
     justify-content: space-betweeen;
-  }
+  `}
 `
 
 export default Grid

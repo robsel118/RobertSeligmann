@@ -1,34 +1,18 @@
 import React, { useEffect } from 'react'
-import { Link } from 'gatsby'
-import SEO from '../components/shared/seo'
 import { graphql, PageProps } from "gatsby";
-import Layout from '../components/shared/Layout'
-import Content from '../components/shared/Content'
-import Grid from '../components/shared/Grid'
-import Intro from '../components/Intro'
-import { GitHub, Archive, Linkedin } from 'react-feather'
-import ThemedContext from '../theme/ThemeContext'
-import { TextContent, Title, Paragraph } from '../components/shared/Typography'
-import GlobalStyle from '../theme/Global'
-import Image from '../components/shared/Image'
-import Banner, { BannerSubTitle, BannerTitle, BannerLinks, BorderedButton } from '../components/shared/Banner'
-import Sidebar from '../components/shared/Sidebar'
+import SEO from '@components/shared/seo'
+import Layout from '@components/shared/Layout'
+import Content from '@components/shared/Content'
+import Intro, { IntroProps} from '@sections/Intro'
+import ThemedContext from '@theme/ThemeContext'
+import Featured, {FeaturedProps}from '@sections/Featured'
+import GlobalStyle from '@theme/Global'
+import Sidebar from '@components/shared/Sidebar'
+import Archive, { ArchiveProps } from '@sections/Archive'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
-import { Header } from '../components/Navbar'
-
-
-type DataProps = {
-  barrels: {
-    fluid: any
-  },
-  junction: {
-    fluid: any
-  },
-  robert: {
-    fluid: any
-  }
-}
-
+interface DataProps extends ArchiveProps, FeaturedProps, IntroProps {}
 
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
@@ -42,7 +26,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
     #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
   })
-
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -50,90 +33,95 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <Layout>
         <Header />
         <Content>
-          <section id='intro'>
-            <Intro picture={data.robert} />
-          </section>
-          <TextContent>
-            <Title>
-              Some of the things I have done
-          </Title>
-            <Paragraph>
-              While you're here, why not take a look at some of the applications and articles I've spent time on?
-          </Paragraph>
-          </TextContent>
-          {/* <ProjectContainer>
-        <ProjectImage>  <Image title="Sake Barrels" fluid={data.barrels.fluid} /></ProjectImage>
-        <ProjectDescription>
-          <DescriptionTitle>Tests</DescriptionTitle>
-          <DescriptionText> A nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.</DescriptionText>
-          <DescriptionTechList>
-            <span>JAvaScript</span>
-            <span>Nodejs</span>
-            <span>TypeScript</span>
-          </DescriptionTechList>
-          <DescriptionLinks>
-            <a><GitHub/></a>
-            <a><Archive/></a>
-          </DescriptionLinks>
-          </ProjectDescription>
-      </ProjectContainer> */}
-
-
-
-          <Banner alignment="left">
-            <Image title="Sake Barrels" fluid={data.barrels.fluid} />
-            <div>
-              <BannerTitle>Working in Matsumoto, Japan</BannerTitle>
-              <BannerSubTitle>Summer internship in the Land of the Rising Sun</BannerSubTitle>
-              <BorderedButton to="fst">Read More</BorderedButton>
-            </div>
-          </Banner>
-          <Banner alignment="right" >
-            <Image title="Junction" fluid={data.junction.fluid} />
-            <div>
-              <BannerTitle>Junction 2019</BannerTitle>
-              <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-              <BannerLinks>
-                <BorderedButton to="junction-2019">Read More</BorderedButton>
-              </BannerLinks>
-            </div>
-          </Banner>
-          <Banner alignment="right" >
-            <Image title="Junction" fluid={data.junction.fluid} />
-            <div>
-              <BannerTitle>Junction 2019</BannerTitle>
-              <BannerSubTitle>Using data to help people reduce food waste and live healthier lives.</BannerSubTitle>
-              <BannerLinks>
-                <a><GitHub /></a>
-                <a><Archive /></a>
-              </BannerLinks>
-            </div>
-          </Banner>
+          <Intro intro={data.intro} />
+          <Featured featured={data.featured} />
+          <Archive archive={data.archive}/>
         </Content>
-       <Sidebar/>
+        <Sidebar />
+        <Footer/>
       </Layout>
-
     </ThemedContext>
   )
 }
 
 export const query = graphql`
   {
-    barrels: imageSharp(fluid: { originalName: { regex: "/barrels/" } }) {
-      fluid(maxWidth: 1200, quality: 100) {
-        ...GatsbyImageSharpFluid
+    featured:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/featured/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            title
+            description
+            external
+            github
+            blog
+            skills
+            darkCover
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            } 
+          }
+        }
       }
     },
-    junction: imageSharp(fluid: { originalName: { regex: "/banner-junction/" } }) {
-      fluid(maxWidth: 1200, quality: 100) {
-        ...GatsbyImageSharpFluid
+    intro:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/intro/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            profilePic{
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            welcomeMessage
+          }
+          html
+        }
       }
     },
-    robert: imageSharp(fluid: { originalName: { regex: "/me/" } }) {
-      fluid(maxWidth: 700, quality: 100) {
-        ...GatsbyImageSharpFluid
+    about:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/about/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            title
+            linkToResume
+          }
+          html
+        }
       }
     },
+    archive:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/archive/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            icon
+            iconColor
+            title
+            description
+            tags
+            external
+            internal
+            github
+          }
+          html
+        }
+      }
+    },
+   
   }
 `
 

@@ -1,12 +1,11 @@
 require('typeface-muli')
-
 require('typeface-teko')
+require('typeface-roboto')
+import { hex2rgba } from '@utils/'
 
-export const breakpoints = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
+export const color = {
+  caribbeanGreen: '#06d6a0',
+  blue: '#B4DDE3',
 }
 
 export const fonts = {
@@ -15,55 +14,41 @@ export const fonts = {
   roboto: 'Roboto, sans-serif',
 }
 
-const darkPalette = {
-  background: '#091B34', // Oxford blue
-  surface: '#393939', // transmarent primary
-  primary: '06D6A0', //carabean green
-  secondary: 'F25F5C', //fire opal
-  onBackground: 'FDF7FA',
-  onPrimary: '#000000',
-  onSecondary: '#000000',
+export const fontSizes = {
+  xs: '0.6rem',
+  sm: '0.8',
+  md: '1rem',
+  lg: '1.25rem',
+  xl: '1.5rem',
+  xxl: '2rem',
+  xxxl: '2.5rem',
 }
 
 export const themes = {
   light: {
-    background: 'white',
-    cardBackground: 'white',
-    cardBackgroundHover: 'linear-gradient(145deg, #e6e6e6, #ffffff)',
-    cardShadowFlat: '9px 9px 17px #bfbfbf, -9px -9px 17px #ffffff',
-    cardShadowPressed:
-      'inset 9px 9px 17px #bfbfbf, inset -9px -9px 17px #ffffff',
-    iconShadowFlat: '5px 5px 12px #bfbfbf, -5px -5px 12px  #ffffff',
-    iconShadowPressed:
-      'inset 5px 5px 12px #bfbfbf, inset -5px -5px 12px #ffffff',
-    buttonBackground: '#5E81AC',
-    textColor: '#333',
     linkColor: '#9a9a9a',
     linkColorHover: '#333333',
-    buttonColor: '#ECEFF4',
+    background: '#FFFFF',
+    surface: '#FFFFFF',
+    primary: color.blue,
+    onBackground: '#5E5E5E',
+    onBackgroundHover: '#333333',
+    onPrimary: '#5E5E5E',
+    onPrimaryHover: '#333333',
     inverted: 'invert(0%)',
-    highlight: '#CDEEF2',
-    highlightHover: '#B4DDE3',
-    bw: 'black',
+    reverse: '#000000',
   },
   dark: {
-    background: '#181818',
-    cardBackground: '#474747',
-    cardBackgroundHover: 'linear-gradient(145deg, #404040, #4c4c4c)',
-    cardShadowFlat: '9px 9px 17px #3c3c3c, -9px -9px 17px #525252',
-    cardShadowPressed:
-      'inset 9px 9px 17px #3c3c3c, inset -9px -9px 17px #525252',
-    iconShadowFlat: '5px 5px 12px #353535, -5px -5px 12px #595959',
-    iconShadowPressed:
-      'inset 5px 5px 12px #353535, inset -5px -5px 12px #595959',
-    buttonBackground: '#5E81AC',
-    textColor: 'white',
     linkColor: '#e6e6e6',
-    linkColorHover: 'white',
-    buttonColor: '#ECEFF4',
+    linkColorHover: '#FFFFFF',
+    background: '#091B34',
+    surface: hex2rgba('#294B63', 0.3),
+    primary: color.caribbeanGreen, //carabean green
+    onBackground: '#CCD6F9',
+    onBackgroundHover: '#FFFFFF',
+    onPrimary: '#CCD6F9',
+    onPrimaryHover: '#FFFFFF',
     inverted: 'invert(100%)',
-    highlight: '#4AAD52 ',
-    highlightHover: '#488B49',
-    bw: 'white',
+    reverse: '#FFFFFF',
   },
 }

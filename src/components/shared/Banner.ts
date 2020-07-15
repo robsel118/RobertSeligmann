@@ -2,24 +2,22 @@ import styled from 'styled-components'
 import Image from './Image'
 import { Link } from 'gatsby'
 import { Title, Paragraph } from './Typography'
-import { fonts, themes, breakpoints } from '../../theme/styles'
+import { themes, fontSizes } from '@theme/styles'
+import mediaMin from '@theme/media'
+import mixins from '@theme/mixins'
 
 export const BannerTitle = styled(Title)`
-  font-size: 2.5rem;
-  line-height: 2rem;
+  font-size: ${fontSizes.xxxl};
+  line-height: 100%;
   margin: 0 0;
-  @media (min-width: ${breakpoints.md}) {
-    line-height: 3.5rem;
-  }
+  ${mediaMin.md`line-height: 3.5rem;`}
 `
 
 export const BannerSubTitle = styled(Paragraph)`
-  font-size: 1rem;
+  font-size: ${fontSizes.md};
   font-weight: 500;
-  margin: 1rem 0 4rem 0 !important;
-  @media (min-width: ${breakpoints.md}) {
-    font-size: 1.1rem;
-  }
+  margin: 1rem 0 2.5rem 0 !important;
+  ${mediaMin.md`font-size: ${fontSizes.lg}`}
 `
 
 export const BannerLinks = styled.div`
@@ -28,15 +26,26 @@ export const BannerLinks = styled.div`
 `
 
 export const BorderedButton = styled(Link)`
+  ${mixins.teko};
+  ${mixins.transitionAll};
+  font-size: ${fontSizes.lg};
   text-decoration: none;
   border: 2px solid;
   margin-right: 2rem;
-  font-family: ${fonts.teko};
   padding: 0.8rem 1.5rem;
-  transition: all 0.3s linear;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 2px;
+`
+
+export const SkillList = styled.div`
+  display: block;
+  margin: 2rem 0;
+`
+
+export const Skill = styled.span`
+  ${mixins.roboto}
+
+  &:not(:first-child)::before {
+    content: '  ·  ';
+  }
 `
 
 interface BannerProps {
@@ -48,15 +57,13 @@ const Banner = styled.div<BannerProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: ${props => props.alignment || 'center'};
+  align-items: ${({ alignment }) => alignment || 'center'};
   margin: 2rem 0;
   min-height: 30rem;
   position: relative;
-  padding-left: 4rem;
+  padding: 1rem;
 
-  @media (max-width: ${breakpoints.md}) {
-    padding: 1rem;
-  }
+  ${mediaMin.sm`padding-left: 3rem;`}
 
   ${Image} {
     filter: brightness(75%);
@@ -68,46 +75,29 @@ const Banner = styled.div<BannerProps>`
     width: 100%;
     height: 100%;
     z-index: -1;
-    border: 1px solide red;
   }
 
-  p {
-    margin: 0.5rem 0;
-    color: ${props =>
-      props.isBackgroundDark
-        ? themes.light.textColor
-        : themes.dark.textColor} !important;
+  p,
+  ${Skill} {
+    /* margin: 0.5rem 0; */
+    color: ${({ isBackgroundDark }) =>
+      isBackgroundDark ? themes.dark.reverse : themes.light.reverse} !important;
   }
   a > svg {
     margin-right: 1rem;
-    stroke: ${props =>
-      props.isBackgroundDark
-        ? themes.light.linkColor
-        : themes.dark.linkColor} !important;
-    &:hover {
-      stroke: ${props =>
-        props.isBackgroundDark
-          ? themes.dark.linkColorHover
-          : themes.light.linkColorHover} !important;
-    }
+    stroke: ${({ isBackgroundDark }) =>
+      isBackgroundDark ? themes.dark.reverse : themes.light.reverse};
   }
   ${BorderedButton} {
-    border-color: ${props =>
-      props.isBackgroundDark ? themes.light.textColor : themes.dark.textColor};
-
-    color: ${props =>
-      props.isBackgroundDark
-        ? themes.light.textColor
-        : themes.dark.textColor} !important;
+    border-color: ${({ isBackgroundDark }) =>
+      isBackgroundDark ? themes.dark.reverse : themes.light.reverse};
+    color: ${({ isBackgroundDark }) =>
+      isBackgroundDark ? themes.dark.reverse : themes.light.reverse};
     &:hover {
-      color: ${props =>
-        props.isBackgroundDark
-          ? themes.dark.textColor
-          : themes.light.textColor} !important;
-      background-color: ${props =>
-        props.isBackgroundDark
-          ? themes.light.textColor
-          : themes.dark.textColor} !important;
+      color: ${({ isBackgroundDark }) =>
+        isBackgroundDark ? themes.light.reverse : themes.dark.reverse};
+      background-color: ${({ isBackgroundDark }) =>
+        isBackgroundDark ? themes.dark.reverse : themes.light.reverse};
     }
   }
 `

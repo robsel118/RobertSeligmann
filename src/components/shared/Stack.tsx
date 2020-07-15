@@ -1,19 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../theme/styles'
+import { fonts, fontSizes } from '@theme/styles'
 import { FlatBorder } from './Neumorphic'
-import vueSVG from '../../images/tech/Logo_Vue.svg'
-import d3SVG from '../../images/tech/Logo_D3.svg'
-import lodashSVG from '../../images/tech/Logo_Lodash.svg'
-import reactSVG from '../../images/tech/Logo_React.svg'
-import androidSVG from '../../images/tech/Logo_Android.svg'
-import firebaseSVG from '../../images/tech/Logo_Firebase.svg'
+import vueSVG from '@images/tech/Logo_Vue.svg'
+import d3SVG from '@images/tech/Logo_D3.svg'
+import lodashSVG from '@images/tech/Logo_Lodash.svg'
+import reactSVG from '@images/tech/Logo_React.svg'
+import androidSVG from '@images/tech/Logo_Android.svg'
+import firebaseSVG from '@images/tech/Logo_Firebase.svg'
+import mixins from '@theme/mixins'
 
 const Stack = styled.div`
-  display: flex;
+  ${mixins.flexCenter};
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
 `
 
 const TechStackImage = styled.img`
@@ -26,8 +26,8 @@ const TechStackText = styled.p`
   
   margin-left: 1rem;
   font-family: ${fonts.muli};
-  color: ${props => props.theme.textColor};
-  font-size: 1.2rem;
+  color: ${({theme}) => theme.onBackground};
+  font-size: ${fontSizes.lg};
 `
 
 const TechStackContainer = styled(FlatBorder)`

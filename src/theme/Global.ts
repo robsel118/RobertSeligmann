@@ -17,28 +17,34 @@ const GlobalStyle = createGlobalStyle`
         transition: box-shadow 0.3s ease-in-out;
     }
 
-    a, p, span{
+    a, p, span, li, h1, h2{
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
-        color: ${props => props.theme.textColor};
+        color: ${({ theme }) => theme.onBackground};
+    }
+
+    ul{
+        list-style: none;
     }
 
     a {
         font-family: ${fonts.roboto};
-        color: ${props => props.theme.linkColor};
+        color: ${({ theme }) => theme.onBackground};
+        text-decoration: none;
         &:hover{
-            color: ${props => props.theme.linkColorHover};
-
+            color: ${({ theme }) => theme.onBackgroundHover};
+            transition: color 0.3s ease-in-out;
         }
         & > svg {
-            transition: all 0.3s ease-in-out;
             cursor: pointer;
-            stroke: ${({ theme }) => theme.linkColor};
+            transition: all 0.3s ease-in-out;
+            stroke: ${({ theme }) => theme.onBackground};
+            stroke-width: 1.5px;
         }
         &:hover > svg{
-            transform: translateY(-3px);
-            svg {
-                stroke: ${({ theme }) => theme.linkColorHover};
-            }}
+            /* transform: translateY(-3px); */
+            stroke-width: 2px;
+            stroke:  ${({ theme }) => theme.onBackgroundHover};
+        }
     }
   
 

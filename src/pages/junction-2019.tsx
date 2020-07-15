@@ -1,18 +1,17 @@
 import React from 'react'
 import { graphql, PageProps } from "gatsby";
-import Banner, { BannerTitle, BannerSubTitle } from '../components/shared/Banner'
-import { Title, Paragraph, TextContent } from '../components/shared/Typography'
-import { HighlightedLink } from '../components/shared/Highlight'
-import Grid from '../components/shared/Grid'
-import Image from '../components/shared/Image'
-import Stack, { ReactStack, AndroidStack, FirebaseStack } from '../components/shared/Stack'
-import Layout from '../components/shared/Layout'
-import Content from '../components/shared/Content'
+import Banner, { BannerTitle, BannerSubTitle } from '@components/shared/Banner'
+import { Title, Paragraph, TextContent } from '@components/shared/Typography'
+import Grid from '@components/shared/Grid'
+import Image from '@components/shared/Image'
+import Stack, { ReactStack, AndroidStack, FirebaseStack } from '@components/shared/Stack'
+import Layout from '@components/shared/Layout'
+import Content from '@components/shared/Content'
 import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
-import SEO from '../components/shared/seo'
-import { Header, Footer } from '../components/Navbar'
-import { FlatBorder } from '../components/shared/Neumorphic'
+import SEO from '@components/shared/seo'
+import Header from '@components/Header'
+import { FlatBorder } from '@components/shared/Neumorphic'
 
 type DataProps = {
   junction: {
@@ -73,7 +72,7 @@ const FST: React.FC<PageProps<DataProps>> = ({ data }) => {
             <Title>Summary</Title>
             <Paragraph>
               Hackathons are a great way to challenge thyself, being surrounded by such innovative people is an incredible experience. We gave our best effort into delivering a product we tought could really help people become more sustainable.
-            The idea and our demonstration was enthousiastically received by the challenge issuers, as a result, we received the 2nd place price of the challenge. An extra big than you to my teammate <HighlightedLink href="https://www.linkedin.com/in/matti-mk/">Matti</HighlightedLink> for the fun experience and for enduring me when I was sleep-deprieved.
+            The idea and our demonstration was enthousiastically received by the challenge issuers, as a result, we received the 2nd place price of the challenge. An extra big than you to my teammate Matti for the fun experience and for enduring me when I was sleep-deprieved.
           </Paragraph>
           </TextContent>
           <Image title="Matt and I" fluid={data.team.fluid} /></Content>      </Layout>
