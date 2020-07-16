@@ -2,30 +2,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from '@components/shared/Image'
-import Icon from '@components/shared/Icons'
+import Icon, { IconName } from '@components/shared/Icons'
 import mixins from '@theme/mixins'
 import mediaMin from '@theme/media'
-import { fonts, themes } from '@theme/styles'
+import { fonts, fontSizes } from '@theme/styles'
 import { socials } from '@config';
 
-const Headline = styled.p`
-  font-family: ${fonts.muli};
-  ${mixins.heading}
-  z-index: 4;
-  grid-area: 1 / 1 / -1 / -1;
-  
-  ${mixins.heading}
-  ${mediaMin.sm`
-    grid-column: 1 / 1;
-    grid-row: 1 / auto;`
-  }
 
-  ${mediaMin.lg`
-    grid-column: 1 / 1;
-    grid-row: 1 / auto;
-  `}
-`
- const CTA = styled.div`
+const CTA = styled.div`
  ${mediaMin.sm`
     grid-column: 1 / -1;
     grid-row: 2 / auto;
@@ -63,7 +47,7 @@ const IntroWrapper = styled.div`
   position: relative;
 
 `
-   
+
 const ImageContainer = styled.div`
    z-index: 5;
    position: relative;
@@ -72,7 +56,7 @@ const ImageContainer = styled.div`
    & > div {
 
        img {
-         background: ${({theme}) => theme.primary};
+         background: ${({ theme }) => theme.primary};
        }
    }
    ${mediaMin.sm`
@@ -87,30 +71,56 @@ const ImageContainer = styled.div`
          left: 1rem;
          height: 100%;
          width: 100%;
-         border: 2px solid ${({theme})=> theme.primary};
-
+         border: 2px solid ${({ theme }) => theme.primary};
        }
      }
      `
-   }
+  }
   
 `
-   
+
 const Statement = styled.div`
   position: relative;
-  max-width: 75%;
 
   p{
-    ${mediaMin.md`font-size: 1.2rem;`}
+    ${mediaMin.md`font-size: 1.2rem; max-width: 80%;`}
     a{
       ${mixins.inlineLink}
     }
+  }
+  h1 {
+    ${mixins.heading}
+    z-index: 4;
+    grid-area: 1 / 1 / -1 / -1;
+    margin: 0.5rem 0 0 0;
+    ${mixins.heading}
+    ${mediaMin.sm`
+      grid-column: 1 / 1;
+      grid-row: 1 / auto;`
+  }
+
+    ${mediaMin.lg`
+      grid-column: 1 / 1;
+      grid-row: 1 / auto;
+    `}
+
+    &::before{
+      content: "Hi there, my name is";
+      display: block;
+      color: ${({ theme }) => theme.primary};
+      font-size: ${fontSizes.lg};
+    }
+  }
+  h2{
+    color: ${({ theme }) => theme.onBackground};
+    font-size: ${fontSizes.xxl};
+    margin: 0;
   }
 `
 const Line = styled.div`
   height: 1px;
   width: 80px;
-  background-color: ${({theme}) => theme.onBackground};
+  background-color: ${({ theme }) => theme.onBackground};
 `
 
 const SocialContainer = styled.div`
@@ -125,7 +135,7 @@ const SocialContainer = styled.div`
 
 export interface IntroProps {
   intro: {
-    edges:[
+    edges: [
       {
         node: {
           frontmatter: {
@@ -145,30 +155,25 @@ export interface IntroProps {
 
 const Intro: React.FC<IntroProps> = ({ intro }) => {
   const introduction = intro.edges[0].node;
-  const { welcomeMessage, profilePic } = introduction.frontmatter;
+  const { profilePic } = introduction.frontmatter;
 
   return (<section id="introduction">
-      <IntroWrapper>
-    <IntroContainer>
+    <IntroWrapper>
+      <IntroContainer>
         <IntroTextContainer>
-          <Headline>
-            {welcomeMessage}
-          </Headline>
-        <CTA>
-            <Statement dangerouslySetInnerHTML={{__html: intro.edges[0].node.html}}/>
+            <Statement dangerouslySetInnerHTML={{ __html: intro.edges[0].node.html }} />
 
             <Line />
             <SocialContainer>
               {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name as IconName} /></a>)}
             </SocialContainer>
-          </CTA>
 
         </IntroTextContainer>
         <ImageContainer>
           <Image fluid={profilePic.childImageSharp.fluid} />
         </ImageContainer>
-    </IntroContainer>
-      </IntroWrapper>
+      </IntroContainer>
+    </IntroWrapper>
   </section>)
 }
 
