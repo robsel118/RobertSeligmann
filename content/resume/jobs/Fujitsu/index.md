@@ -1,8 +1,8 @@
 ---
 endDate: '2019-09'
-position: "Sofware Engineer Intern"
-company: "Fujitsu Software Technology"
-range: "June 2019 - August 2019 (3 mos)"
+title: "Sofware Engineer Intern"
+titleExtension: "Fujitsu Software Technology"
+subTitle: "June 2019 - August 2019 (3 mos)"
 location: "Helsinki, FI"
 ---
 

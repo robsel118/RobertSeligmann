@@ -32,7 +32,7 @@ const LinkWrapper = styled.a`
   text-decoration: none;
   writing-mode: vertical-rl;
   margin: 0.8rem 0.5rem;
-  font-size: ${fontSizes.sm};
+  font-size: ${fontSizes.md};
 
 `
 

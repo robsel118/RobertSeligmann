@@ -57,9 +57,9 @@ export const query = graphql`
         node {
           frontmatter{
             endDate
-            position
-            company
-            range
+            title
+            titleExtension
+            subTitle
             location
           }
           html
@@ -74,8 +74,9 @@ export const query = graphql`
         node {
           frontmatter{
             endDate
-            school
-            range
+            title
+            titleExtension
+            subTitle
             location
           }
           html
@@ -84,15 +85,16 @@ export const query = graphql`
     },
     extras:allMarkdownRemark(
       filter: {fileAbsolutePath: { regex: "/extras/" }}
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___endDate], order: DESC }
       ){
       edges {
         node {
           frontmatter{
-            date
-            name
-            role
-            mention
+            endDate
+            title
+            titleExtension
+            subTitle
+            location
           }
           html
         }

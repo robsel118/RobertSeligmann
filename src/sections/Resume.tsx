@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
+import { Briefcase } from 'react-feather'
 import SectionHeader from '@components/shared/SectionHeader'
 import { fonts, fontSizes } from '@theme/styles'
 import mixins from '@theme/mixins'
-
+import { SlideLeft, FadeIn } from '@theme/animation'
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -25,34 +26,35 @@ interface Props {
 }
 const TabItem = styled(Link).attrs({
   to: '/about#resume'
-})<{selected: boolean}>`
+}) <{ selected: boolean }>`
   ${mixins.teko};
   font-size: ${fontSizes.lg};
   margin: 0 1rem;
-  box-shadow: ${({selected}) => selected? 'inset 0 -0.8rem': 'inset 0 -0.2rem'} ${({theme}) => theme.primary};
+  box-shadow: ${({ selected }) => selected ? 'inset 0 -0.8rem' : 'inset 0 -0.2rem'} ${({ theme }) => theme.primary};
   
   transition: all 0.3s ease-in-out;
   &:hover{
     padding-bottom: 0.2em;
   }
 `
-const ResumeSection = styled.section<{ selected: boolean }>`
-  opacity: ${({selected}) => selected ? '1' : '0'};
-  visibility: ${({selected}) => selected ? 'visible' : 'hidden'};
-  transform: ${({selected}) => selected ? 'none': 'translateX(-20%)'};
-  min-height: ${({selected}) => selected? 'calc(100vmin - 80px)': "0"};
-  max-height: ${({selected}) => selected? '100%': "0"};
+const ResumeSection = styled.section`
+  min-height: calc(90vmin - 80px);
+  animation: ${SlideLeft} 0.4s ease-in-out forwards, ${FadeIn} 0.4s ease-in-out forwards;
+  transform: translateX(100px);
+  opacity: 0;
   flex-direction: column;
-  display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   transition: transform 0.4s ease-in-out;
 
 `
 const SkillsSection = styled.div`
   h1 {
-    ${mixins.muli}
+    ${mixins.muli};
+    font-size: ${fontSizes.lg};
   }
   ul{
     ${mixins.grid()}
@@ -63,32 +65,34 @@ const SkillsSection = styled.div`
     list-style-type: none;
     li{
       display: grid;
-      grid-template-columns:  auto 60% 40%;
+      grid-template-columns:  auto 1fr 1fr;
       ${mixins.roboto}
+      letter-spacing: 0.03rem;
+
       code {
         ${mixins.roboto}
-
+        font-weight: 300;
       }
+
       &::before{
         content: "○";
         position: relative;
         left: 0;
         margin-right: 5px;
-        color: ${({theme}) => theme.primary };
+        color: ${({ theme }) => theme.primary};
       }
     }
   }
 
 `
 export const Section = styled.div`
-  max-width: 700px;
   width: 100%
 `
 export const SectionTitle = styled.p`
   font-family: ${fonts.teko};
   font-size: ${fontSizes.lg};
   text-transform: uppercase;
-  color: ${({theme}) => theme.onBackground};
+  color: ${({ theme }) => theme.onBackground};
   margin-bottom: 1.6rem;
 `
 
@@ -102,61 +106,33 @@ export const SectionText = styled.p`
 `
 
 export const EventPeriod = styled(SectionText)`
-  font-size: ${ fontSizes.sm };
+  font-size: ${ fontSizes.sm};
 `
 
 export const EventContainer = styled.div`
   margin: 0.5rem 0 2.5rem 0;
 `
 
-
+interface SectionProps {
+  edges: [
+    {
+      node: {
+        frontmatter: {
+          endDate: string,
+          title: string,
+          titleExtension: string,
+          subTitle: string,
+          location: string,
+        }
+        html: string
+      }
+    }
+  ]
+}
 export interface ResumeProps {
-  jobs: {
-    edges: [
-      {
-        node: {
-          frontmatter: {
-            endDate: string,
-            position: string,
-            company: string,
-            range: string,
-            ocation: string,
-          }
-          html: string
-        }
-      }
-    ]
-  },
-  educations: {
-    edges: [
-      {
-        node: {
-          frontmatter: {
-            endData: string,
-            school: string,
-            range: string,
-            location: string,
-          }
-          html: string
-        }
-      }
-    ]
-  },
-  extras: {
-    edges: [
-      {
-        node: {
-          frontmatter: {
-            date: string,
-            name: string,
-            role: string,
-            mention: string,
-          }
-          html: string
-        }
-      }
-    ]
-  },
+  jobs: SectionProps,
+  educations: SectionProps,
+  extras: SectionProps,
   skills: {
     edges: [
       {
@@ -175,72 +151,76 @@ const Resume: React.FC<ResumeProps> = (data) => {
 
   const [selectedTab, setSelectedTab] = useState(0)
 
-  const orderedTabs = ['jobs', 'educations', 'skills', 'other']
+  const orderedTabs: Array<string> = ['jobs', 'educations', 'skills', 'extras']
 
-  
   return <ResumeContainer id="resume">
     <Tab>
-      {orderedTabs.map((tab, index) => <TabItem key={index} selected={selectedTab == index} onClick={()=>setSelectedTab(index)}>{tab}</TabItem>) }
+      {orderedTabs.map((tab, index) => <TabItem key={index} selected={selectedTab == index} onClick={() => setSelectedTab(index)}>{tab}</TabItem>)}
     </Tab>
-    <ResumeSection selected={selectedTab === orderedTabs.indexOf('jobs')}>
-      <Section>
-        <SectionHeader contentBefore={`"▹"`}>Work Experience</SectionHeader>
-        {jobToShow.map((job, index) => {
-          const { frontmatter } = job;
-          const { position, company, range } = frontmatter;
-          
-          return (<EventContainer key={index}>
-            <span>
-              <SectionText><b>{position}</b> @ {company}</SectionText>
-            </span>
-            <EventPeriod>{range}</EventPeriod>
-            <div dangerouslySetInnerHTML={{__html: job.html}}/>
-          </EventContainer>)
-        })}
-     </Section>
-    </ResumeSection>
 
-    <ResumeSection  selected={selectedTab === orderedTabs.indexOf('other')}>
-      <Section>
-        <SectionHeader contentBefore={`"▹"`}>Extra-Curricular</SectionHeader>
-          {extrasToShow.map((extra, index) => {
-            const { frontmatter } = extra;
-            const {  name, role, mention } = frontmatter;
+    {/* Render conditionally to trigger animation */}
+
+    {selectedTab === orderedTabs.indexOf('jobs') &&
+      <ResumeSection>
+        <Section>
+          <SectionHeader contentBefore={`"◷"`}>Work Experience</SectionHeader>
+          {jobToShow.map((job, index) => {
+            const { frontmatter } = job;
+            const { title, subTitle, titleExtension } = frontmatter;
+
             return (<EventContainer key={index}>
               <span>
-                <SectionText><b>{role}</b> @ {name}</SectionText>
-                <EventPeriod>{mention}</EventPeriod>
-              </span> 
-            <div dangerouslySetInnerHTML={{__html: extra.html}}/>
+                <SectionText><b>{title}</b> @ {titleExtension}</SectionText>
+              </span>
+              <EventPeriod>{subTitle}</EventPeriod>
+              <div dangerouslySetInnerHTML={{ __html: job.html }} />
             </EventContainer>)
           })}
-      </Section>
-    </ResumeSection>
+        </Section>
+      </ResumeSection>
+    }
 
-    <ResumeSection selected={selectedTab === orderedTabs.indexOf('educations')}>
-    <Section>
-      <SectionHeader contentBefore={`"▹"`}>education</SectionHeader>
+    {selectedTab === orderedTabs.indexOf('educations') && <ResumeSection>
+      <Section>
+        <SectionHeader contentBefore={`"◶"`}>education</SectionHeader>
         {educationToShow.map((education, index) => {
           const { frontmatter } = education;
-          const {  school, range } = frontmatter;
+          const { title, subTitle } = frontmatter;
           return (
             <EventContainer key={index}>
               <span>
-                <SectionText><b>{school}</b> </SectionText>
+                <SectionText><b>{title}</b> </SectionText>
               </span>
-              <EventPeriod>{range}</EventPeriod>
-              <div dangerouslySetInnerHTML={{__html: education.html}}/>
+              <EventPeriod>{subTitle}</EventPeriod>
+              <div dangerouslySetInnerHTML={{ __html: education.html }} />
+            </EventContainer>)
+        })}
+      </Section>
+    </ResumeSection>}
+
+    {selectedTab === orderedTabs.indexOf('skills') && <ResumeSection>
+      <Section>
+        <SectionHeader contentBefore={`"◵"`}>Skills</SectionHeader>
+        <SkillsSection dangerouslySetInnerHTML={{ __html: data.skills.edges[0].node.html }} />
+      </Section>
+    </ResumeSection>}
+
+    {selectedTab === orderedTabs.indexOf('extras') && <ResumeSection>
+      <Section>
+        <SectionHeader contentBefore={`"◴"`}>Extra-Curricular</SectionHeader>
+        {extrasToShow.map((extra, index) => {
+          const { frontmatter } = extra;
+          const { title, subTitle, titleExtension } = frontmatter;
+          return (<EventContainer key={index}>
+            <span>
+              <SectionText><b>{title}</b> @ {titleExtension}</SectionText>
+              <EventPeriod>{subTitle}</EventPeriod>
+            </span>
+            <div dangerouslySetInnerHTML={{ __html: extra.html }} />
           </EventContainer>)
         })}
-     </Section>
-    </ResumeSection>
-
-    <ResumeSection selected={selectedTab === orderedTabs.indexOf('skills')}>
-      <Section>
-          <SectionHeader contentBefore={`"▹"`}>Skills</SectionHeader>
-          <SkillsSection dangerouslySetInnerHTML={{__html: data.skills.edges[0].node.html}}/>
       </Section>
-    </ResumeSection>
+    </ResumeSection>}
 
   </ResumeContainer>
 }
