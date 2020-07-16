@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Grid from '@components/shared/Grid'
 import mixins from '@theme/mixins'
+import { fontSizes } from '@theme/styles'
 
 const AboutText = styled.div`
   p{
-    ${mixins.muli}
+    ${mixins.muli};
+    font-size: ${fontSizes.lg};
     a{
-      ${mixins.inlineLink}
+      ${mixins.inlineLink};
     }
   }
 `
@@ -27,8 +29,10 @@ export interface AboutProps {
 
 const About:React.FC<AboutProps> = ({about}) => {
   return (<Grid cols={2} style={{minHeight: 'calc(100vmin - 170px)'}}>
-    <AboutText dangerouslySetInnerHTML={{__html: about.edges[0].node.html}}>
+    <AboutText dangerouslySetInnerHTML={{ __html: about.edges[0].node.html }}>
+      
     </AboutText>
+      <a target="_blank" href={about.edges[0].node.frontmatter.linkToResume}>Download</a>
   </Grid>)
 }
 

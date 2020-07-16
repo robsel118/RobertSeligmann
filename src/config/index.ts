@@ -1,7 +1,7 @@
 module.exports = {
   github: 'https://github.com/robsel118',
   linkedin: 'https://www.linkedin.com/in/robert-seligmann/',
-  email: 'robert.seligmann@protonmail.ch',
+  email: 'robert.seligmann@pm.me',
 
   // Nmae match the name of the the featerIcon component
   socials: [
@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: 'Mail',
-      url: 'mailto:robert.seligmann@protonmail.ch',
+      url: 'mailto:robert.seligmann@pm.me',
     },
   ],
 }

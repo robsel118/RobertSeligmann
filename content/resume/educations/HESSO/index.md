@@ -1,7 +1,8 @@
 ---
-endData: "2017-6"
-school: "HES-SO Valais"
-range: "2015 - 2017"
+endDate: "2017-6"
+title: "HES-SO Valais"
+titleExtension: "B.Sc. in Business Information Technology"
+subTitle: "2015 - 2017"
 location: "Sierre, CH"
 ---
 

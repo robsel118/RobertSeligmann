@@ -1,5 +1,9 @@
 ---
-NOTE: Add backticks to add a value at the end of the line
+endDate: ''
+title: ""
+titleExtension: ""
+subTitle: ""
+location: ""
 ---
 
 # Skills

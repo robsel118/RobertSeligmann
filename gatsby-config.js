@@ -117,7 +117,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-scroll-reveal`,
-
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.4,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

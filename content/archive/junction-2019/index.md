@@ -3,7 +3,6 @@ icon: "Code"
 iconColor: "#ef8022"
 title: 'Junction 2019'
 tags:
-  - Hackathon
   - React.js
   - Firebase
   - Android
@@ -13,4 +12,4 @@ internal: 'junction-2019'
 ---
 
 
-Retrospective on my second experience with [Europe's largest Hackathon](https://www.hackjunction.com/)
+Retrospective on my second experience in [Europe's largest Hackathon](https://www.hackjunction.com/)

@@ -1,8 +1,9 @@
 ---
-endData: "2020-6"
-school: "Aalto University"
-range: "2018 - Current"
+endDate: "2020-6"
+title: "Aalto University"
+titleExtension: "M.Sc. in Computer Science"
+subTitle: "2018 - Current"
 location: "Espoo, Fi"
 ---
 
-M.Sc. in Computer Science
+Studied CS

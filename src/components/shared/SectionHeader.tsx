@@ -18,7 +18,8 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
     position: relative;
     color: ${({theme}) => theme.primary};
     counter-increment: section;
-    content: ${({contentBefore}) => contentBefore || '"0" counter(section) ". "'}
+    content: ${({ contentBefore }) => contentBefore || '"0" counter(section) ". "'};
+    margin-right: 0.5rem;
   }
 
   ${mediaMin.sm`
