@@ -10,7 +10,7 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
   position: relative;
   align-items:center;
   padding-top: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   font-size: ${fontSizes.xl};
   ${mediaMin.sm` font-size: ${fontSizes.xxl}`}
 

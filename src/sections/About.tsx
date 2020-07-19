@@ -32,7 +32,7 @@ const About:React.FC<AboutProps> = ({about}) => {
     <AboutText dangerouslySetInnerHTML={{ __html: about.edges[0].node.html }}>
       
     </AboutText>
-      <a target="_blank" href={about.edges[0].node.frontmatter.linkToResume}>Download</a>
+    
   </Grid>)
 }
 

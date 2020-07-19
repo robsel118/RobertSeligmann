@@ -38,6 +38,9 @@ const ArticleMain = styled.div`
 
   p{
     ${mixins.muli};
+    a{
+      ${mixins.inlineLink};
+    }
   }
 
   h1{
@@ -46,6 +49,7 @@ const ArticleMain = styled.div`
     ${mixins.teko};
     ${mediaMin.sm`font-size: ${fontSizes.xxl}`};
   }
+
 
   img{
     box-shadow: none !important;

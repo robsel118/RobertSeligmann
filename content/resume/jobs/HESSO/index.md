@@ -6,4 +6,7 @@ subTitle: "June 2018 - August 2018 (3 mos)"
 location: "Sierre, CH"
 ---
 
-Designed a prototype to visualize 3D medical images on the Microsoft HoloLens and the HTC Vive using Unity and C#. Developed a Java API to handle the heavy computations.
+
+- Designed and built a prototype XR application to visualize 3D medical images for the Microsoft HoloLens and HTC Vive .
+- Implemented various AR and VR interactions using Unity 3D and C#.
+- Developed a Java REST API that performs 3D segmentation using the Icy Open Source Image Processing Sofware.

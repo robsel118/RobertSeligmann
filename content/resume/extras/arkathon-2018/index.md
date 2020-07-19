@@ -2,7 +2,7 @@
 endDate: '2018-4'
 title: "Health Arkathon 2018"
 titleExtension: "Developer"
-subTitle: "Jury's pick"
+subTitle: "Award: Jury's pick"
 location: ""
 ---
 

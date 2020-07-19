@@ -12,9 +12,9 @@ isBannerDark: true
 # Working at Fujitsu Software Technologies 
 
 
-I had the opportunty to work with the Fujutsu Software Technologies (FST) team in Matsumoto, Japan. This was an amaying experience where I was pushed beyond my comfort zone.  
+I had the opportunty to work with the Fujutsu Software Technologies (FST) team in Matsumoto, Japan. This was an amazing experience where I was pushed beyond my comfort zone.  
 
-During the summer, I was pushed and challenged in every aspect of my life, from designing new visualization tools to adapting to a foreign culture.  
+During the summer, I challenged in every aspect of my life, from developing with new frameworks to adapting to a foreign culture.  
 
 Prior to arriving there, I had set some personal goals to know what I wanted to improve on. My main priorities was focused on improving my current programming skills and learning from some of the people working for one of the largest IT services provider in Japan.  
 
@@ -30,7 +30,7 @@ Prior to arriving there, I had set some personal goals to know what I wanted to 
 >
 >  At FST, I developed an interactive visualization tool using D3.JS and Vue.JS. The complex user interactions requested by the client trulty tested my analytical skills and pushed my problem-solving skills to the next level.
 >
->  The biggest challenge was the communcation barrier. As Matsumoto is closer to country-side city, not many people spoke English inside/outisde of work. It took time and effort to talk with my collegues, which made learning from them a significanlty difficult task.
+>  The biggest challenge was the communcation barrier. As Matsumoto is closer to a country-side city, not many people spoke English inside/outisde of work. It took time and effort to talk with my collegues, which made learning from them a significanlty difficult task.
 > </div>
 
 

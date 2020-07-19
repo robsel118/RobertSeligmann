@@ -6,4 +6,5 @@ subTitle: "2017 - 2018"
 location: "Helsinki, FI"
 ---
 
-B.Sc. in Business Administration
+B.Sc. in Business Administration  
+Exchange studies

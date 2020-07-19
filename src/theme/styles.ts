@@ -5,7 +5,7 @@ import { hex2rgba } from '@utils/'
 
 export const color = {
   caribbeanGreen: '#06d6a0',
-  blue: '#B4DDE3',
+  blue: '#A4CED5',
 }
 
 export const fonts = {
