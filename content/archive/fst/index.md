@@ -3,8 +3,8 @@ icon: "Edit3"
 iconColor: "#06d6a0"
 title: 'Fujitsu'
 tags:
-  - Vue.JS
-  - D3.JS
+  - Vue.js
+  - D3.js
   - Lodash
 external: ''
 github: ''

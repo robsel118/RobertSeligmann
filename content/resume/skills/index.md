@@ -10,11 +10,15 @@ location: ""
  - JavaScript `Current`
  - TypeScript `Current`
  - Styled-Components `Current`
- - React.JS `Current`
+ - React.js `Current`
+ - Koa.js `Current`
  - Figma `Current`
+ - NoSQL `Current`
+ - SCSS/SASS `Recent`
+ - Vue.js `Recent`
+ - Python  `Recent`
  - C#/.NET  `Recent`
  - SQL  `Recent`
- - Python  `Recent`
 
 
 # Languages 
