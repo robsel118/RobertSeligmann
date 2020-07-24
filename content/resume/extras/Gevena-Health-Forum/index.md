@@ -6,4 +6,4 @@ subTitle: ""
 location: ""
 ---
 
-Promoted the use of XR technologies in the medical field to experts in the healthcare industry. Our rescue application made during the Arkathon was showcased.
+Promoted the use of XR technologies in the medical field to experts in the healthcare industry. Our stand showcased the VR application made during the Arkathon 2018.

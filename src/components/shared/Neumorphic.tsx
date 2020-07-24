@@ -7,35 +7,3 @@ interface BaseProps {
 const Bordered = styled.div<BaseProps>`
   border-radius: ${props => props.radius || '51px'};
 `
-
-export const FlatBorder = styled(Bordered)<BaseProps>`
-  width: 100%;  
-  margin: 1rem auto;
-  background: ${props => props.theme.cardBackground};
-  box-shadow: ${props => props.theme.cardShadowFlat};
-`
-
-export const FlatCard = styled(FlatBorder)<BaseProps>`
-  max-width: 300px;
-  padding: 0 0.8rem;
-`
-
-interface ButtonProps extends BaseProps {
-  pressed?: boolean
-}
-
-export const FlatIcon = styled(Bordered)<ButtonProps>`
-  background: ${props => props.theme.cardBackground};
-  box-shadow: ${props =>
-    props.pressed ? props.theme.iconShadowPressed : props.theme.iconShadowFlat};
-  &:hover {
-    background: ${props =>
-      props.pressed
-        ? props.theme.cardBackground
-        : props.theme.cardBackgroundHover};
-    box-shadow: ${props =>
-      props.pressed
-        ? props.theme.iconShadowPressed
-        : props.theme.iconShadowFlat};
-  }
-`

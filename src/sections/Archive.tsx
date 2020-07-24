@@ -11,8 +11,6 @@ const ArchiveGrid = styled.div`
   ${mixins.grid("repeat(auto-fill, minmax(300px, 1fr))")}
 `
 
-
-
 const ArchiveCard = styled.div`
   display: flex;
   flex-direction: column;

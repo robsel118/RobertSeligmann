@@ -1,6 +1,6 @@
 ---
 title: "Flutter Travel UI"
-description: "Recreation in Flutter of a design saw on Dribbble"
+description: "Recreation in Flutter of a design I saw on Dribbble"
 image: "./banner-flutter-travel-ui.png"
 skills:
     - Flutter

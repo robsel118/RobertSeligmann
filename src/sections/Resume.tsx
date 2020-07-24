@@ -83,8 +83,30 @@ const SkillsSection = styled.div`
       }
     }
   }
-
 `
+const JobSection = styled.div`
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: outside none none;
+  }
+
+  li{
+    position: relative;
+    padding-left: 1rem;
+    margin: 0.4rem 0;
+    line-height: 120%;
+    &::before{
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: ${({ theme }) => theme.primary};
+  }
+}
+    
+`
+
+
 export const Section = styled.div`
   width: 100%
 `
@@ -98,6 +120,8 @@ export const SectionTitle = styled.p`
 
 export const SectionText = styled.p`
   ${mixins.muli}
+  
+  font-size: ${fontSizes.lg};
 
   a{
     ${mixins.inlineLink}
@@ -106,7 +130,8 @@ export const SectionText = styled.p`
 `
 
 export const EventPeriod = styled(SectionText)`
-  font-size: ${ fontSizes.sm};
+    font-size: ${ fontSizes.md};
+  line-height: 150%;
 `
 
 export const EventContainer = styled.div`
@@ -162,51 +187,44 @@ const Resume: React.FC<ResumeProps> = (data) => {
 
     {selectedTab === orderedTabs.indexOf('jobs') &&
       <ResumeSection>
-        <Section>
           <SectionHeader contentBefore={`"◷"`}>Work Experience</SectionHeader>
           {jobToShow.map((job, index) => {
             const { frontmatter } = job;
-            const { title, subTitle, titleExtension } = frontmatter;
+            const { title, subTitle, titleExtension, location } = frontmatter;
 
             return (<EventContainer key={index}>
               <span>
                 <SectionText><b>{title}</b> @ {titleExtension}</SectionText>
               </span>
-              <EventPeriod>{subTitle}</EventPeriod>
-              <div dangerouslySetInnerHTML={{ __html: job.html }} />
+              <EventPeriod>{subTitle} // {location}</EventPeriod>
+              <JobSection dangerouslySetInnerHTML={{ __html: job.html }} />
             </EventContainer>)
           })}
-        </Section>
       </ResumeSection>
     }
 
     {selectedTab === orderedTabs.indexOf('educations') && <ResumeSection>
-      <Section>
         <SectionHeader contentBefore={`"◶"`}>education</SectionHeader>
         {educationToShow.map((education, index) => {
           const { frontmatter } = education;
-          const { title, subTitle } = frontmatter;
+          const { title, subTitle, location } = frontmatter;
           return (
             <EventContainer key={index}>
               <span>
                 <SectionText><b>{title}</b> </SectionText>
               </span>
-              <EventPeriod>{subTitle}</EventPeriod>
+              <EventPeriod>{subTitle} // {location}</EventPeriod>
               <div dangerouslySetInnerHTML={{ __html: education.html }} />
             </EventContainer>)
         })}
-      </Section>
     </ResumeSection>}
 
     {selectedTab === orderedTabs.indexOf('skills') && <ResumeSection>
-      <Section>
         <SectionHeader contentBefore={`"◵"`}>Skills</SectionHeader>
         <SkillsSection dangerouslySetInnerHTML={{ __html: data.skills.edges[0].node.html }} />
-      </Section>
     </ResumeSection>}
 
     {selectedTab === orderedTabs.indexOf('extras') && <ResumeSection>
-      <Section>
         <SectionHeader contentBefore={`"◴"`}>Extra-Curricular</SectionHeader>
         {extrasToShow.map((extra, index) => {
           const { frontmatter } = extra;
@@ -219,7 +237,6 @@ const Resume: React.FC<ResumeProps> = (data) => {
             <div dangerouslySetInnerHTML={{ __html: extra.html }} />
           </EventContainer>)
         })}
-      </Section>
     </ResumeSection>}
 
   </ResumeContainer>

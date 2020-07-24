@@ -38,6 +38,9 @@ const ArticleMain = styled.div`
 
   p{
     ${mixins.muli};
+    a{
+      ${mixins.inlineLink};
+    }
   }
 
   h1{
@@ -46,6 +49,7 @@ const ArticleMain = styled.div`
     ${mixins.teko};
     ${mediaMin.sm`font-size: ${fontSizes.xxl}`};
   }
+
 
   img{
     box-shadow: none !important;
@@ -63,7 +67,6 @@ const ArticleMain = styled.div`
   .gatsby-resp-image-background-image{
     background-image: none !important;
     background-color: ${({ theme }) => theme.surface};
-    box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1), 1px 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   }
   .gatsby-resp-image-link{
@@ -74,7 +77,7 @@ const ArticleMain = styled.div`
   }
   img.gatsby-resp-image-image{
     height: auto !important;
-    top: initial !important;
+    /* top: initial !important; */
   }
 `
 

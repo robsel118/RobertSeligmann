@@ -28,6 +28,7 @@ const mixins = {
     transition: all 0.3s ease-in-out;
     box-shadow: inset 0 -0.2rem ${({ theme }) => theme.primary};
     &:hover {
+      color: ${({ theme }) => theme.onBackgroundHover};
       box-shadow: inset 0 -0.7rem ${({ theme }) => theme.primary};
     }
   `,

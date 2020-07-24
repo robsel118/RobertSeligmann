@@ -1,9 +1,9 @@
 ---
 title: "Portfolio V3"
-description: "Latest and current version of my web portfolio"
+description: "Latest and current version of my web portfolio build with Gatsby"
 image: "./banner.png"
 skills:
-    - React.JS
+    - Gatsby.js
     - TypeScript
     - Styled-Components
 darkCover: true
