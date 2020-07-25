@@ -5,7 +5,7 @@ import Image from '@components/shared/Image'
 import Icon, { IconName } from '@components/shared/Icons'
 import mixins from '@theme/mixins'
 import mediaMin from '@theme/media'
-import { fonts, fontSizes } from '@theme/styles'
+import { fontSizes } from '@theme/styles'
 import { socials } from '@config';
 
 

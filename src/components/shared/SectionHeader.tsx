@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
 import { fontSizes } from '@theme/styles'

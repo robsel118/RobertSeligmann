@@ -77,7 +77,8 @@ const ArticleMain = styled.div`
   }
   img.gatsby-resp-image-image{
     height: auto !important;
-    /* top: initial !important; */
+    top: 50% !important;
+    margin-top: -50% !important;
   }
 `
 
