@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { Briefcase } from 'react-feather'
 import SectionHeader from '@components/shared/SectionHeader'
 import { fonts, fontSizes } from '@theme/styles'
 import mixins from '@theme/mixins'
