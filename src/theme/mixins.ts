@@ -54,9 +54,8 @@ const mixins = {
   `,
   heading: css`
     font-family: ${fonts.muli};
-    font-size: ${fontSizes.xl};
+    font-size: ${fontSizes.xxl};
     color: ${({ theme }) => theme.onBackgroundHover};
-    ${mediaMin.sm`font-size: ${fontSizes.xxl};`}
     ${mediaMin.lg`font-size: ${fontSizes.xxxxl};`}
   `,
   flexCenter: css`
