@@ -84,6 +84,7 @@ const Statement = styled.div`
 
   p{
     ${mediaMin.md`font-size: 1.2rem; max-width: 80%;`}
+    line-height: 140%;
     a{
       ${mixins.inlineLink}
     }
@@ -93,6 +94,7 @@ const Statement = styled.div`
     z-index: 4;
     grid-area: 1 / 1 / -1 / -1;
     margin: 0.5rem 0 0 0;
+    line-height: 110%;
     ${mixins.heading}
     ${mediaMin.sm`
       grid-column: 1 / 1;
@@ -113,7 +115,9 @@ const Statement = styled.div`
   }
   h2{
     color: ${({ theme }) => theme.onBackground};
-    font-size: ${fontSizes.xxl};
+    font-size: ${fontSizes.xl};
+    line-height: 120%;
+    ${mediaMin.sm`font-size: ${fontSizes.xxl}`}
     margin: 0;
   }
 `

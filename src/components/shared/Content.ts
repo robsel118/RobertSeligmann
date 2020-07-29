@@ -17,6 +17,7 @@ const Content = styled.div`
   animation: ${FadeIn} 0.5s 0.3s ease-in-out forwards;
   grid-area: content-start / content-start / content-end / content-end;
   ${mixins.contentSpace};
+  padding: 2rem 2rem;
   ${mediaMin.lg`
     padding: 0 2rem;
   `}
