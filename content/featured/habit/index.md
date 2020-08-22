@@ -6,6 +6,7 @@ skills:
     - Koa.js
     - TypeScript
     - Passport.js
+    - Mongoose
 darkCover: true
 github: ""
 external: ""

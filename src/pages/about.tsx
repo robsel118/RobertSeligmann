@@ -42,8 +42,13 @@ export const query = graphql`
       edges {
         node {
           frontmatter{
-            title
-            linkToResume
+            photo {
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           html
         }
