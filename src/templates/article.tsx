@@ -31,55 +31,49 @@ interface DataProps {
 }
 
 const ArticleMain = styled.div`
-  blockquote{
-    ${mixins.grid()};
-    margin: 0;
+  table {
+    width: 100%;
   }
 
-  p{
-    ${mixins.muli};
+  thead {
+    display: none;
+  }
+
+  tr{
+    ${mixins.grid()};
+    margin: 1.5rem 0;
+  }
+
+  br{
+    content: "";
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  p {
+    &, td {
+      ${mixins.muli};
+      line-height: 150%;
+    }
     a{
       ${mixins.inlineLink};
     }
   }
 
   h1{
-    margin-bottom: 3rem;
-    font-size: ${fontSizes.xl};
     ${mixins.teko};
     ${mediaMin.sm`font-size: ${fontSizes.xxl}`};
+    font-size: ${fontSizes.xl};
+    margin: 4rem 0 3rem 0;
+    & + p {
+      max-width: 50rem;
+    }
   }
-
 
   img{
     box-shadow: none !important;
   }
-  div{
-    margin: 4rem 0;
-    max-width: 50rem;
-  }
-  
 
-  .gatsby-resp-image-wrapper{
-    height: 100%;
-    
-  }
-  .gatsby-resp-image-background-image{
-    background-image: none !important;
-    background-color: ${({ theme }) => theme.surface};
-
-  }
-  .gatsby-resp-image-link{
-    height: 100%;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-  }
-  img.gatsby-resp-image-image{
-    height: auto !important;
-    top: 50% !important;
-    margin-top: -50% !important;
-  }
 `
 
 const ArticlePage: React.FC<DataProps> = ({ data }) => {
