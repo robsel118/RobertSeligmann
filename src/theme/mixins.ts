@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { fonts, fontSizes, themes } from '@theme/styles'
+import { fonts, fontSizes } from '@theme/styles'
 import mediaMin from '@theme/media'
 
 const mixins = {
