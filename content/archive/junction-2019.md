@@ -1,4 +1,5 @@
 ---
+date: 15-11-2019
 icon: "Code"
 iconColor: "#ef8022"
 title: 'Junction 2019'

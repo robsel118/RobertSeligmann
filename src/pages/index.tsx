@@ -46,9 +46,10 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
 export const query = graphql`
   {
-    featured:allMarkdownRemark(filter: {
-      fileAbsolutePath: { regex: "/featured/" }
-    }){
+    featured:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/featured/" }}
+      sort: { fields: [frontmatter___order], order: ASC }
+    ){
       edges {
         node {
           frontmatter{
@@ -106,9 +107,10 @@ export const query = graphql`
         }
       }
     },
-    archive:allMarkdownRemark(filter: {
-      fileAbsolutePath: { regex: "/archive/" }
-    }){
+    archive:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/archive/" }}
+      sort: { fields: [frontmatter___date], order: DESC }  
+    ){
       edges {
         node {
           frontmatter{

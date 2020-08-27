@@ -1,4 +1,5 @@
 ---
+order: 2
 title: "Portfolio V3"
 description: "Latest and current version of my web portfolio build with Gatsby"
 image: "./banner.png"
