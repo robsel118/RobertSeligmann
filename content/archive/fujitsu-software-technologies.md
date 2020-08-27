@@ -1,4 +1,5 @@
 ---
+date: 01-06-2019
 icon: "Edit3"
 iconColor: "#06d6a0"
 title: 'Fujitsu'

@@ -31,7 +31,6 @@ const ArchiveCard = styled.div`
 const ArchiveHeader = styled.div`
   height: 3rem;
   ${mixins.flexBetween};
-  margin-bottom: 1rem;
 `
 
 const ArchiveHeaderTag = styled.div<{color?: string}>`
@@ -50,10 +49,12 @@ const ArchiveHeaderTag = styled.div<{color?: string}>`
 const ArchiveTitle = styled.p`
    ${mixins.muli};
    font-size: ${fontSizes.xl};
+   margin: 1rem 0 2rem 0;
 `
 const ArchiveDescription = styled.div`
    p{
     ${mixins.muli}
+    margin-bottom: 1.5rem;
     a{
       ${mixins.inlineLink}
     }
