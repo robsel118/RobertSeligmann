@@ -5,6 +5,5 @@ import mixins from '@theme/mixins'
 const Stack = styled.div`
   ${mixins.flexCenter};
   flex-direction: column;
-
 `
 export default Stack

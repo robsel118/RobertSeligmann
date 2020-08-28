@@ -9,8 +9,8 @@ import ThemedContext from '../theme/ThemeContext'
 import GlobalStyle from '../theme/Global'
 import SEO from '@components/shared/seo'
 import Sidebar from '@components/shared/Sidebar';
-import About, { AboutProps} from '@sections/About'
-import Resume, { ResumeProps} from '@sections/Resume'
+import About, { AboutProps} from '@sections/About/About'
+import Resume, { ResumeProps} from '@sections/Resume/Resume'
 
 interface DataProps extends ResumeProps, AboutProps { }
 

@@ -18,7 +18,7 @@ const Content = styled.div`
   grid-area: content-start / content-start / content-end / content-end;
   ${mixins.contentSpace};
   padding: 2rem 2rem;
-  ${mediaMin.lg`
+  ${mediaMin.laptop`
     padding: 0 2rem;
   `}
 `

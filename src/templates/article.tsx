@@ -62,7 +62,7 @@ const ArticleMain = styled.div`
 
   h1{
     ${mixins.teko};
-    ${mediaMin.sm`font-size: ${fontSizes.xxl}`};
+    ${mediaMin.mobile`font-size: ${fontSizes.xxl}`};
     font-size: ${fontSizes.xl};
     margin: 4rem 0 3rem 0;
     & + p {

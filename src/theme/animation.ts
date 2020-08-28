@@ -6,6 +6,9 @@ export const HeaderPopDown = keyframes`
     }
 `
 export const SlideLeft = keyframes`
+    from {
+      transform: translateX(100px);
+    }
     to {
        transform:  translateX(0)
     }

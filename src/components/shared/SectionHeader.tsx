@@ -11,7 +11,7 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
   padding-top: 3rem;
   margin-bottom: 2rem;
   font-size: ${fontSizes.xl};
-  ${mediaMin.sm` font-size: ${fontSizes.xxl}`}
+  ${mediaMin.mobile` font-size: ${fontSizes.xxl}`}
 
   &::before{
     position: relative;
@@ -21,7 +21,7 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
     margin-right: 0.5rem;
   }
 
-  ${mediaMin.sm`
+  ${mediaMin.mobile`
     &::after{
       content:'';
       display: block;

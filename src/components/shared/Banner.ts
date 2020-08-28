@@ -10,14 +10,14 @@ export const BannerTitle = styled(Title)`
   font-size: ${fontSizes.xxxl};
   line-height: 100%;
   margin: 0 0;
-  ${mediaMin.md`line-height: 3.5rem;`}
+  ${mediaMin.tablet`line-height: 3.5rem;`}
 `
 
 export const BannerSubTitle = styled(Paragraph)`
   font-size: ${fontSizes.md};
   font-weight: 500;
   margin: 1rem 0 2.5rem 0 !important;
-  ${mediaMin.md`font-size: ${fontSizes.lg}`}
+  ${mediaMin.tablet`font-size: ${fontSizes.lg}`}
 `
 
 export const BannerLinks = styled.div`
@@ -63,7 +63,7 @@ const Banner = styled.div<BannerProps>`
   position: relative;
   padding: 1rem;
 
-  ${mediaMin.sm`padding-left: 3rem;`}
+  ${mediaMin.mobile`padding-left: 3rem;`}
 
   ${Image} {
     filter: brightness(75%);
