@@ -32,22 +32,22 @@ const mixins = {
       box-shadow: inset 0 -0.7rem ${({ theme }) => theme.primary};
     }
   `,
-  grid: (md?: string) => {
+  grid: (col?: string) => {
     return css`
       display: grid;
       grid-template-columns: 1fr;
       grid-column-gap: 3rem;
       grid-row-gap: 2rem;
-      ${mediaMin.md`grid-template-columns: ${md || 'repeat(2, 1fr)'}`}
+      ${mediaMin.tablet`grid-template-columns: ${col || 'repeat(2, 1fr)'}`}
     `
   },
   contentSpace: css`
-    ${mediaMin.lg`
+    ${mediaMin.laptop`
       max-width: 800px;
       margin: 0 auto;
       padding: 0;`}
 
-    ${mediaMin.xl`
+    ${mediaMin.desktop`
       max-width: 1000px;
       margin: 0 auto;
   `}
@@ -56,7 +56,7 @@ const mixins = {
     font-family: ${fonts.muli};
     font-size: ${fontSizes.xxl};
     color: ${({ theme }) => theme.onBackgroundHover};
-    ${mediaMin.lg`font-size: ${fontSizes.xxxxl};`}
+    ${mediaMin.laptop`font-size: ${fontSizes.xxxxl};`}
   `,
   flexCenter: css`
     display: flex;

@@ -10,14 +10,8 @@ import GlobalStyle from '../theme/Global'
 import SEO from '@components/shared/seo'
 import Sidebar from '@components/shared/Sidebar';
 import { fontSizes, fonts } from '@theme/styles';
+import Stack from '@components/shared/Stack'
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
 
 const Error = styled.p`
   font-family: ${fonts.teko};
@@ -41,10 +35,10 @@ const NotFoundPage = () => (
   <SEO title="About" />
   <Layout>
     <Header />
-      <Container>
+      <Stack>
           <Error>404</Error>
           <Message>Page Not Found</Message>
-      </Container>
+      </Stack>
     <Sidebar />
   </Layout>
 </ThemedContext>

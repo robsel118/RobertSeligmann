@@ -20,7 +20,7 @@ const MenuWrapper = styled.div`
   z-index: 99;
 
   ${mixins.roboto};
-  ${mediaMin.md`display: flex;`}; 
+  ${mediaMin.tablet`display: flex;`}; 
 `
 const Line = styled.div<{height?: string}>`
   height: ${({height}) => height || '50px'};

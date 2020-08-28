@@ -52,7 +52,7 @@ export const LinkList = styled.ul`
   padding: 0;
   float: right;
   display: none;
-  ${mediaMin.sm`display: block;`}
+  ${mediaMin.mobile`display: block;`}
 
   li {
     margin: 0 1.5rem 0rem 1rem;
@@ -71,7 +71,7 @@ export const CollapseButton = styled.ul<CollapsibleMenuProps>`
   margin: 0;
   display: inline;
   cursor: pointer;
-  ${mediaMin.sm`display: none;`}
+  ${mediaMin.mobile`display: none;`}
 
   svg {
     margin: 1rem 1.5rem 1rem 1rem;
@@ -106,7 +106,7 @@ export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   top: 4rem;
   text-align: center;
 
-  ${mediaMin.sm`
+  ${mediaMin.mobile`
     visibility: hidden;
     max-width: 0;`}
 

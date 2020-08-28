@@ -1,10 +1,10 @@
 import { css, CSSObject } from 'styled-components'
 
 const breakpoints: Record<string, number> = {
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
+  mobile: 640,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 1280,
 }
 
 // As seen in
