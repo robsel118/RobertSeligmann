@@ -65,7 +65,7 @@ All the content in the project can be changed by editing the MD files located in
 
  	.
     ├── content
-    	├── intro
+      ├── intro
       └── about
    
 ### Adding New Content
