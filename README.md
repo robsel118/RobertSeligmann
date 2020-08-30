@@ -66,7 +66,7 @@ All the content in the project can be changed by editing the MD files located in
  	.
     ├── content
     	├── intro
-        └── about
+      └── about
    
 ### Adding New Content
 
@@ -92,8 +92,6 @@ isBannerDark: true # set a different text color depending on if the background i
 
 # This markdown text will be converted to an HTML <h1> tag. 
 ```
-
-A sample content is added when suited. Just duplicate it and remove the `.sample` extension to the `index.md.sample` file.
 
 
 ### Change your `static` folder
