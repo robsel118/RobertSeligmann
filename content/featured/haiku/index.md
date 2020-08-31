@@ -10,5 +10,5 @@ skills:
 darkCover: true
 github: ""
 external: ""
-blog: ""
+internal: ""
 ---

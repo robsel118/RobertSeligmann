@@ -57,7 +57,7 @@ export const query = graphql`
             description
             external
             github
-            blog
+            internal
             skills
             darkCover
             image {

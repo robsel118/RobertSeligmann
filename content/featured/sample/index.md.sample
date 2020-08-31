@@ -1,0 +1,14 @@
+---
+order: 1 # defines in which position it should be displayed
+title: "Awesome title"
+description: "Awesome description"
+image: "./path-to-image.png"
+skills:
+    - skill 1
+    - skill 2
+    - skill 3
+darkCover: true # set a different text color depending if the background image is dark or not
+github: ""
+external: ""
+internal: ""
+---

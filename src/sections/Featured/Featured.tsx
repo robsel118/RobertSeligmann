@@ -14,7 +14,7 @@ export interface FeaturedProps {
             description: String
             external?: string
             github?: string
-            blog?: string
+            internal?: string
             darkCover: boolean
             skills: [string]
             image: {
@@ -41,7 +41,7 @@ const featured: React.FC<FeaturedProps> = ({ featured }) => {
       featuredToShow.map((feature, index) => {
 
         const { frontmatter } = feature;
-        const { title, description, image, skills, external, github, blog, darkCover } = frontmatter;
+        const { title, description, image, skills, external, github, internal, darkCover } = frontmatter;
 
         return (<Banner alignment="left" key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-easing="ease-out" isBackgroundDark={darkCover}>
           <Image title={title} fluid={image.childImageSharp.fluid} />
@@ -51,7 +51,7 @@ const featured: React.FC<FeaturedProps> = ({ featured }) => {
             {skills.map((skill, index) => <Skill key={index}>{skill}</Skill>)}
           </SkillList>
           <BannerLinks>
-            {blog && <BorderedButton to={blog}>Read More</BorderedButton>}
+            {internal && <BorderedButton to={internal}>Read More</BorderedButton>}
             {github && <a title="GitHub Repo" href={github} target='_blank' rel='noreferrer' ><GitHub /></a>}
             {external && <a title="Demo site" href={external} target='_blank' rel='noreferrer' ><ExternalLink /></a>}
           </BannerLinks>
