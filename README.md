@@ -19,6 +19,8 @@
   </a>
 </p>
 
+![preview](https://raw.githubusercontent.com/robsel118/RobertSeligmann/master/src/images/preview.png)
+
 ## 🔧 Quick start
 
 
@@ -61,12 +63,7 @@ __TL;DR__ => Use it as you will, but please give me proper credit by linking bac
 
 ### Editing Content
 
-All the content in the project can be changed by editing the MD files located in the `content` folder. For your purpose, you should only need to edit the files the following folders: 
-
- 	.
-    ├── content
-      ├── intro
-      └── about
+All the content in the project can be changed by editing the MD files located in the `content` folder.
    
 ### Adding New Content
 
@@ -92,7 +89,7 @@ isBannerDark: true # set a different text color depending on if the background i
 
 # This markdown text will be converted to an HTML <h1> tag. 
 ```
-
+Sample files have been created when appropriate, e.g. just duplicate the `index.md.sample` file in the folder, remove the `.sample` extension and edit the file.
 
 ### Change your `static` folder
 
