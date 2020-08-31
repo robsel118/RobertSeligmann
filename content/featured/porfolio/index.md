@@ -10,5 +10,5 @@ skills:
 darkCover: true
 github: "https://github.com/robsel118/RobertSeligmann"
 external: ""
-blog: ""
+internal: "fujitsu-2019"
 ---
