@@ -4,10 +4,11 @@ import mixins from '@theme/mixins'
 import { hex2rgba } from '@utils/'
 
 export const ArchiveGrid = styled.div`
-  ${mixins.grid('repeat(auto-fill, minmax(300px, 1fr))')}
+  ${mixins.grid('repeat(auto-fill, minmax(300px, 33%))')}
 `
 
 export const ArchiveCard = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

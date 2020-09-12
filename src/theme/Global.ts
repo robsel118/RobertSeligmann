@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 import { fonts } from './styles'
+import Fonts from './fonts'
 
 const GlobalStyle = createGlobalStyle`
+
+    ${Fonts};
 
     body{
         font-family: ${fonts.muli};

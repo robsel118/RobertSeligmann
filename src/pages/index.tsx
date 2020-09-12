@@ -3,17 +3,16 @@ import { graphql, PageProps } from "gatsby";
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
-import Intro, { IntroProps} from '@sections/Intro/Intro'
+import Intro, { IntroProps} from '@sections/Intro'
 import ThemedContext from '@theme/ThemeContext'
-import Featured, {FeaturedProps}from '@sections/Featured/Featured'
+import Featured, {FeaturedProps}from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive/Archive'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
-interface DataProps extends ArchiveProps, FeaturedProps, IntroProps {}
-
+type DataProps =  ArchiveProps & FeaturedProps & IntroProps 
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {

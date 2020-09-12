@@ -32,13 +32,16 @@ const mixins = {
       box-shadow: inset 0 -0.7rem ${({ theme }) => theme.primary};
     }
   `,
-  grid: (col?: string) => {
+  grid: (tablet?: string, laptop?: string) => {
     return css`
       display: grid;
       grid-template-columns: 1fr;
       grid-column-gap: 3rem;
       grid-row-gap: 2rem;
-      ${mediaMin.tablet`grid-template-columns: ${col || 'repeat(2, 1fr)'}`}
+      ${mediaMin.tablet`grid-template-columns: ${tablet || 'repeat(2, 1fr)'}`}
+      /* ${mediaMin.laptop`grid-template-columns: ${
+        laptop || 'repeat(2, 1fr)'
+      }`} */
     `
   },
   contentSpace: css`
