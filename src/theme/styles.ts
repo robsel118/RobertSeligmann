@@ -10,7 +10,7 @@ export const color = {
 }
 
 export const fonts = {
-  muli: 'Muli, sans-serif',
+  muli: 'Inter, Muli, sans-serif',
   teko: 'Teko, sans-serif',
   roboto: 'Roboto, sans-serif',
 }
