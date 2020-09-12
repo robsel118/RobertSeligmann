@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Icon, { IconName } from '@components/shared/Icons'
 import SectionHeader from '@components/shared/SectionHeader'
-
 import {
   ArchiveCard,
   ArchiveDescription,

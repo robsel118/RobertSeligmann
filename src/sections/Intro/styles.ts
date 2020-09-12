@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import * as Dot from '@images/dot.svg'
 import mixins from '@theme/mixins'
 import mediaMin from '@theme/media'
 import { fontSizes } from '@theme/styles'
@@ -47,19 +48,24 @@ export const ImageContainer = styled.div`
       background: ${({ theme }) => theme.primary};
     }
   }
-  ${mediaMin.mobile`
+  ${mediaMin.tablet`
 
     & > div {
       overflow: visible !important;
+  
       &::before {
         position: absolute;
         content: '';
         display: block;
-        top: 1rem;
-        left: 1rem;
+        top: 4rem;
+        left: 3rem;
         height: 100%;
         width: 100%;
-        border: 2px solid ${({ theme }) => theme.primary};
+        background-size: 20px;
+        background-repeat: repeat;
+        background-color: ${({ theme }) => theme.primary};
+        -webkit-mask-image: url(${Dot});
+        mask-image: url(${Dot});      
       }
     }
     `}
