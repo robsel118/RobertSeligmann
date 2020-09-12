@@ -3,7 +3,7 @@ profilePic: './me.png'
 ---
 
 # Robert Seligmann
-## I build things for the web
+## Software Engineer
 
 I'm a passionate introvert who loves building things with code.
 

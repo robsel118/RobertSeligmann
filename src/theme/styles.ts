@@ -1,4 +1,3 @@
-require('typeface-muli')
 require('typeface-teko')
 require('typeface-roboto')
 

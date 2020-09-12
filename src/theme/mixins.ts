@@ -39,7 +39,9 @@ const mixins = {
       grid-column-gap: 3rem;
       grid-row-gap: 2rem;
       ${mediaMin.tablet`grid-template-columns: ${tablet || 'repeat(2, 1fr)'}`}
-      ${mediaMin.laptop`grid-template-columns: ${laptop || 'repeat(2, 1fr)'}`}
+      /* ${mediaMin.laptop`grid-template-columns: ${
+        laptop || 'repeat(2, 1fr)'
+      }`} */
     `
   },
   contentSpace: css`
