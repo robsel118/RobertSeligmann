@@ -9,7 +9,7 @@ export const FeaturedSection = styled.section.attrs({ id: 'featured' })`
 `
 
 export const ProjectList = styled.div`
-  ${mixins.grid('1fr')};
+  ${mixins.grid()};
   grid-column-gap: 5rem;
 `
 
