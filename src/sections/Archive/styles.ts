@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { fontSizes } from '@theme/styles'
 import mixins from '@theme/mixins'
+import mediaMin from '@theme/media'
 import { hex2rgba } from '@utils/'
 
 export const ArchiveGrid = styled.div`
-  ${mixins.grid('repeat(auto-fill, minmax(300px, 33%))')}
+  ${mixins.grid};
+  ${mediaMin.laptop`grid-template-columns: repeat(auto-fill, minmax(300px, 33%))`}
 `
 
 export const ArchiveCard = styled.div`
@@ -15,7 +16,7 @@ export const ArchiveCard = styled.div`
   min-height: 5rem;
   padding: 1rem;
   z-index: 3;
-  background: ${({ theme }) => theme.surface};
+  background: var(--cl-background);
   ${mixins.transitionAll};
   border: 0.5px solid rgba(0, 0, 0, 0.06);
   box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -44,13 +45,11 @@ export const ArchiveHeaderTag = styled.div<{ color?: string }>`
 `
 
 export const ArchiveTitle = styled.p`
-  ${mixins.muli};
-  font-size: ${fontSizes.xl};
+  font-size: var(--fs-md);
   margin: 1rem 0 2rem 0;
 `
 export const ArchiveDescription = styled.div`
   p {
-    ${mixins.muli}
     margin-bottom: 1.5rem;
     a {
       ${mixins.inlineLink}

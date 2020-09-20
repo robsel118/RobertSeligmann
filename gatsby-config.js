@@ -74,13 +74,7 @@ module.exports = {
         path: `${__dirname}/content/resume/jobs`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `educations`,
-        path: `${__dirname}/content/resume/educations`,
-      },
-    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -93,13 +87,6 @@ module.exports = {
       options: {
         name: `articles`,
         path: `${__dirname}/content/articles`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `skills`,
-        path: `${__dirname}/content/resume/skills`,
       },
     },
 

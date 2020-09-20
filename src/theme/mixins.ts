@@ -1,50 +1,33 @@
 import { css } from 'styled-components'
-import { fonts, fontSizes } from '@theme/styles'
 import mediaMin from '@theme/media'
 
 const mixins = {
-  muli: css`
-    font-family: ${fonts.muli};
-    letter-spacing: 0.03em;
-    line-height: 150%;
-    font-size: ${fontSizes.md};
-  `,
-  teko: css`
-    font-family: ${fonts.teko};
-    font-size: ${fontSizes.xxl};
+  display: css`
+    font-family: var(--ff-display);
+    font-size: var(--fs-h3);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 300;
   `,
-  roboto: css`
-    font-family: ${fonts.roboto};
-    font-size: ${fontSizes.md};
-    letter-spacing: 0.01rem;
-  `,
   inlineLink: css`
     text-decoration: none;
-    color: ${({ theme }) => theme.onBackground};
+    color: var(--cl-text-main);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: inset 0 -0.2rem ${({ theme }) => theme.primary};
+    box-shadow: inset 0 -0.2rem var(--cl-primary);
     &:hover {
-      color: ${({ theme }) => theme.onBackgroundHover};
-      box-shadow: inset 0 -0.7rem ${({ theme }) => theme.primary};
+      color: var(--cl-text-main-lt);
+      box-shadow: inset 0 -0.7rem var(--cl-primary);
     }
   `,
-  grid: (tablet?: string, laptop?: string) => {
-    return css`
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-column-gap: 3rem;
-      grid-row-gap: 2rem;
-      ${mediaMin.tablet`grid-template-columns: ${tablet || 'repeat(2, 1fr)'}`}
-      /* ${mediaMin.laptop`grid-template-columns: ${
-        laptop || 'repeat(2, 1fr)'
-      }`} */
-    `
-  },
+  grid: css`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 3rem;
+    grid-row-gap: 2rem;
+  `,
   contentSpace: css`
+    margin: 0 1rem;
     ${mediaMin.laptop`
       max-width: 800px;
       margin: 0 auto;
@@ -56,10 +39,10 @@ const mixins = {
   `}
   `,
   heading: css`
-    font-family: ${fonts.muli};
-    font-size: ${fontSizes.xxl};
-    color: ${({ theme }) => theme.onBackgroundHover};
-    ${mediaMin.laptop`font-size: ${fontSizes.xxxxl};`}
+    font-family: var(--ff-alt);
+    font-size: var(--fs-h3);
+    color: var(--cl-text-main);
+    ${mediaMin.laptop`font-size: var(--fs-h1)`}
   `,
   flexCenter: css`
     display: flex;

@@ -1,4 +1,4 @@
-import Intro, { IntroProps } from './Intro'
+import Intro from './Intro'
 
-export { IntroProps }
+export { SectionProps as IntroProps } from './Intro'
 export default Intro

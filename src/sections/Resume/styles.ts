@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { fonts, fontSizes } from '@theme/styles'
+import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
 import { SlideLeft, FadeIn } from '@theme/animation'
 
@@ -12,25 +12,29 @@ export const ResumeContainer = styled.div`
 `
 
 export const Tab = styled.div`
-  margin: 1rem auto;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
+  ${mixins.flexCenter};
+  flex-direction: row;
+`
+export const TabList = styled.ul`
+  z-index: 0;
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  border-bottom: 2px solid var(--cl-text-main);
+  height: var(--tab-height);
 `
 
-export const TabItem = styled(Link).attrs({
-  to: '/about#resume',
-})<{ selected: boolean }>`
-  ${mixins.teko};
-  font-size: ${fontSizes.lg};
-  margin: 0 1rem;
-  box-shadow: ${({ selected }) =>
-      selected ? 'inset 0 -0.8rem' : 'inset 0 -0.2rem'}
-    ${({ theme }) => theme.primary};
-
+export const TabItem = styled.li`
+  ${mixins.display};
+  ${mixins.flexCenter};
+  z-index: 8;
+  cursor: pointer;
+  color: var(--cl-text-main-dk);
+  font-size: var(--fs-h4);
   transition: all 0.3s ease-in-out;
+  width: var(--tab-width);
   &:hover {
-    padding-bottom: 0.2em;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `
 export const ResumeSection = styled.section`
@@ -42,43 +46,11 @@ export const ResumeSection = styled.section`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  ${mediaMin.laptop`max-width: 75%;`}
   margin: 0 auto;
   transition: transform 0.4s ease-in-out;
 `
-export const SkillsSection = styled.div`
-  h1 {
-    ${mixins.muli};
-    font-size: ${fontSizes.lg};
-  }
-  ul {
-    ${mixins.grid()}
-    width: 100%;
-    padding: 0;
-    margin: 2rem 0;
-    grid-row-gap: 1rem;
-    list-style-type: none;
-    li {
-      display: grid;
-      grid-template-columns: auto 1fr 1fr;
-      ${mixins.roboto}
-      letter-spacing: 0.03rem;
 
-      code {
-        ${mixins.roboto}
-        font-weight: 300;
-      }
-
-      &::before {
-        content: '○';
-        position: relative;
-        left: 0;
-        margin-right: 5px;
-        color: ${({ theme }) => theme.primary};
-      }
-    }
-  }
-`
 export const JobSection = styled.div`
   ul {
     padding: 0;
@@ -95,38 +67,41 @@ export const JobSection = styled.div`
       content: '▹';
       position: absolute;
       left: 0;
-      color: ${({ theme }) => theme.primary};
+      color: var(--cl-primary);
     }
   }
 `
 
-export const Section = styled.div`
-  width: 100%;
-`
-export const SectionTitle = styled.p`
-  font-family: ${fonts.teko};
-  font-size: ${fontSizes.lg};
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.onBackground};
-  margin-bottom: 1.6rem;
-`
-
-export const SectionText = styled.p`
-${mixins.muli}
-
-font-size: ${fontSizes.lg};
-
-a{
-  ${mixins.inlineLink}
-}
-margin: 0.4rem 0;
+export const SectionText = styled.h1`
+  strong {
+    color: var(--cl-primary);
+  }
+  font-size: var(--fs-main);
+  a {
+    ${mixins.inlineLink}
+  }
+  font-size: var(--fs-h4);
+  font-weight: 400;
+  margin: 0.4rem 0;
 `
 
 export const EventPeriod = styled(SectionText)`
-  font-size: ${fontSizes.md};
+  font-size: var(--fs-sm);
   line-height: 150%;
 `
 
 export const EventContainer = styled.div`
   margin: 0.5rem 0 2.5rem 0;
+`
+
+export const Glider = styled.div<{ offset: number }>`
+  transition: transform 0.3s ease;
+  position: absolute;
+  display: flex;
+  width: var(--tab-width);
+  border-bottom: 2px solid var(--cl-primary);
+  background: transparent;
+  z-index: 1;
+  transform: translateX(${({ offset }) => offset * 100}%);
+  height: var(--tab-height);
 `

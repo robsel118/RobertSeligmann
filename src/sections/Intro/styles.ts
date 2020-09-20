@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
-import * as Dot from '@images/dot.svg'
 import mixins from '@theme/mixins'
 import mediaMin from '@theme/media'
-import { fontSizes } from '@theme/styles'
 
 export const CTA = styled.div`
   ${mediaMin.mobile`
@@ -17,18 +15,12 @@ export const CTA = styled.div`
 
 export const IntroTextContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
 `
 
 export const IntroContainer = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  ${mediaMin.mobile`
-   grid-template-columns: 60% 40%;
-   grid-column-gap: 1rem;
- `}
 `
 
 export const IntroWrapper = styled.div`
@@ -38,88 +30,49 @@ export const IntroWrapper = styled.div`
   position: relative;
 `
 
-export const ImageContainer = styled.div`
-  z-index: 5;
+export const Statement = styled.div`
   position: relative;
-  filter: contrast(90%);
 
-  & > div {
-    img {
-      background: ${({ theme }) => theme.primary};
+  p {
+    line-height: var(--lh-xl);
+
+    a {
+      ${mixins.inlineLink}
     }
   }
-  ${mediaMin.tablet`
+  h1 {
+    font-size: var(--fs-utlra);
 
-    & > div {
-      overflow: visible !important;
-  
-      &::before {
-        position: absolute;
-        content: '';
-        display: block;
-        top: 4rem;
-        left: 3rem;
-        height: 100%;
-        width: 100%;
-        background-size: 20px;
-        background-repeat: repeat;
-        background-color: ${({ theme }) => theme.primary};
-        -webkit-mask-image: url(${Dot});
-        mask-image: url(${Dot});      
-      }
+    color: var(--cl-text-main-dk);
+    margin: 0;
+    font-weight: 600;
+
+    strong {
+      color: var(--cl-primary);
+      font-weight: 500;
     }
-    `}
-`
-
-export const Statement = styled.div`
- position: relative;
-
- p{
-   ${mediaMin.tablet`font-size: 1.2rem; max-width: 80%;`}
-   line-height: 140%;
-   a{
-     ${mixins.inlineLink}
-   }
- }
- h1 {
-   ${mixins.heading}
-   z-index: 4;
-   grid-area: 1 / 1 / -1 / -1;
-   margin: 0.5rem 0 0 0;
-   ${mixins.heading}
-   ${mediaMin.mobile`
-     grid-column: 1 / 1;
-     grid-row: 1 / auto;`}
-
-   ${mediaMin.laptop`
-     grid-column: 1 / 1;
-     grid-row: 1 / auto;
-   `}
-
-   &::before{
-     content: "Hi there, my name is";
-     display: block;
-     color: ${({ theme }) => theme.primary};
-     font-size: ${fontSizes.lg};
-   }
- }
- h2{
-   color: ${({ theme }) => theme.onBackground};
-   font-size: ${fontSizes.xl};
-   ${mediaMin.mobile`font-size: ${fontSizes.xxl}`}
-   margin: 0.5rem 0 1rem 0;
- }
-`
-export const Line = styled.div`
-  height: 1px;
-  width: 80px;
-  background-color: ${({ theme }) => theme.onBackground};
+  }
+  h2 {
+    color: var(--cl-text-main-dk);
+    font-size: var(--fs-h2);
+    ${mediaMin.mobile` font-size: var(--fs-h2);`}
+    margin: 0;
+  }
+  hr {
+    width: 200px;
+    margin: 1rem 0;
+    border-top: 0.5px solid var(--cl-text-main);
+    border-bottom: none;
+  }
 `
 
 export const SocialContainer = styled.div`
-  display: table;
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
   a {
-    margin-right: 0.8rem;
+    min-height: var(--min-press-size);
+    margin-right: 1rem;
+    ${mixins.flexCenter};
   }
 `

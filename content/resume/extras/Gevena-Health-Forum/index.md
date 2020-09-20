@@ -1,7 +1,7 @@
 ---
 endDate: '2018-7'
-title: "Geneva Health Forum 2018"
-titleExtension: "Demoer"
+titleExtension: "Geneva Health Forum 2018"
+title: "Demoer"
 subTitle: ""
 location: ""
 ---

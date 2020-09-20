@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import { themes, fontSizes, color } from '../../theme/styles'
 import { HeaderPopDown } from '../../theme/animation'
 import mediaMin from '@theme/media'
 import mixins from '@theme/mixins'
 
-export const NavLinkcontainer = styled.div`
+export const NavLinkcontainer = styled.nav`
   display: block;
 `
 export const Line = styled.div`
@@ -16,7 +15,8 @@ export const Line = styled.div`
 `
 
 export const ContentRow = styled.div`
-  padding: 0 0 0 1rem;
+  height: 100%;
+  margin: 0;
   ${mixins.flexBetween};
   ${mixins.contentSpace};
 `
@@ -26,23 +26,27 @@ export const HeaderContainer = styled.div`
   grid-area: header-start / header-start / header-end / header-end;
   position: relative;
   top: -4rem;
-  background-color: ${themes.dark.background};
   height: 4rem;
   animation: ${HeaderPopDown} 0.5s ease-in-out forwards;
   z-index: 999;
 `
 
 export const Navlink = styled.li`
-  /* margin: 0.5rem 1rem; */
   padding: 0;
   float: right;
+
+  height: var(--min-press-size);
+  min-width: var(--min-press-size);
+  line-height: var(--min-press-size);
   a {
-    ${mixins.teko}
-    font-size: ${fontSizes.lg};
-    color: white;
+    margin: auto 0;
+    ${mixins.display}
+    font-size: var(--fs-h4);
+    color: var(--cl-text-main-dk);
+
     text-decoration: none;
     &:hover {
-      color: ${color.caribbeanGreen};
+      color: var(--cl-text-main);
     }
   }
 `

@@ -1,5 +1,5 @@
 ---
-photo: "photo.jpg"
+photo: "photo.png"
 ---
 
 A soon-to-be graduate of the __MSC__ in Computer Science at [Aalto University](https://www.aalto.fi/en/), my journey actually began at the [HES-SO Valais](https://www.hevs.ch/en/) where I studied Business Information Technology.

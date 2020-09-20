@@ -9,10 +9,12 @@ import Featured, {FeaturedProps}from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive/Archive'
+import About, { AboutProps} from '@sections/About/About'
+import Resume, { ResumeProps} from '@sections/Resume/Resume'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
-type DataProps =  ArchiveProps & FeaturedProps & IntroProps 
+type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & ResumeProps
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
@@ -25,6 +27,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
     #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
   })
+
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -33,6 +36,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Header />
         <Content>
           <Intro intro={data.intro} />
+           <About about={data.about}/>
+          <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} skills={data.skills}/>
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/>
         </Content>
@@ -88,6 +93,26 @@ export const query = graphql`
         }
       }
     },
+    archive:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/archive/" }}
+      sort: { fields: [frontmatter___date], order: DESC }  
+    ){
+      edges {
+        node {
+          frontmatter{
+            icon
+            iconColor
+            title
+            description
+            tags
+            external
+            internal
+            github
+          }
+          html
+        }
+      }
+    },
     about:allMarkdownRemark(filter: {
       fileAbsolutePath: { regex: "/about/" }
     }){
@@ -106,21 +131,35 @@ export const query = graphql`
         }
       }
     },
-    archive:allMarkdownRemark(
-      filter: {fileAbsolutePath: { regex: "/archive/" }}
-      sort: { fields: [frontmatter___date], order: DESC }  
-    ){
+    jobs:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/jobs/" }}
+      sort: { fields: [frontmatter___endDate], order: DESC }
+      ){
       edges {
         node {
           frontmatter{
-            icon
-            iconColor
+            endDate
             title
-            description
-            tags
-            external
-            internal
-            github
+            titleExtension
+            subTitle
+            location
+          }
+          html
+        }
+      }
+    },
+    extras:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/extras/" }}
+      sort: { fields: [frontmatter___endDate], order: DESC }
+      ){
+      edges {
+        node {
+          frontmatter{
+            endDate
+            title
+            titleExtension
+            subTitle
+            location
           }
           html
         }
