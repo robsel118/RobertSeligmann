@@ -7,6 +7,6 @@ location: "Sierre, CH"
 ---
 
 
-- Designed and built a prototype XR application to visualize 3D medical images for the Microsoft HoloLens and HTC Vive .
-- Implemented various AR and VR interactions using Unity 3D and C#.
-- Developed a Java REST API that performs 3D segmentation using the Icy Open Source Image Processing Sofware.
+- Designed and built a prototype XR application to visualize 3D medical images for the Microsoft HoloLens and HTC Vive.
+- Implemented various XR interactions using Unity 3D and C#.
+- Developed a Java Spring RESTful API that performs image segmentations using the Icy Open Source Image Processing Sofware.
