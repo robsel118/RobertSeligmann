@@ -9,7 +9,7 @@ const breakpoints: Record<string, number> = {
 
 // As seen in
 // https://tobbelindstrom.com/blog/how-to-create-a-breakpoint-mixin-with-styled-components/
-export const mediaMin = Object.keys(breakpoints).reduce(
+export const media = Object.keys(breakpoints).reduce(
   (accumulator: Record<string, any>, label: string) => {
     const emSize = breakpoints[label] / 16
     accumulator[label] = (...args: [TemplateStringsArray | CSSObject]) => css`
@@ -21,4 +21,4 @@ export const mediaMin = Object.keys(breakpoints).reduce(
   },
   {}
 )
-export default mediaMin
+export default media

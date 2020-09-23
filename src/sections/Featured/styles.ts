@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import mixins from '@theme/mixins'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import Image from '@components/shared/Image'
+import Section from '@components/shared/Section'
 
-export const FeaturedSection = styled.section.attrs({ id: 'featured' })`
-  min-height: 100vh;
+export const FeaturedSection = styled.div.attrs({ id: 'featured' })`
+  counter-reset: section;
 `
 
 export const ProjectList = styled.div`
   ${mixins.grid};
-  ${mediaMin.laptop`grid-template-columns: repeat(2, 1fr);`}
+  ${media.laptop`grid-template-columns: repeat(1, 1fr);`}
 `
 
 export const Card = styled.div`
@@ -18,23 +19,55 @@ export const Card = styled.div`
   min-height: 300px;
   margin: 2rem 0;
   position: relative;
-  border-radius: 8px;
   overflow: hidden;
+  border-radius: 8px;
+  ${mixins.grid};
+  ${media.tablet`
+    grid-template-columns: repeat(2, 1fr);
+    /* Alternate image order */
+    &:nth-child(odd) {
+      text-align: right;
+      ${Image} {
+        order: 2;
+        &:hover {
+          img {
+            transform: translateX(-1rem);
+          }
+        }
+      }
+    }
+    `}
+
   ${Image} {
     transition: scale 0.5s ease-in-out;
     height: 100%;
-
+    border-radius: 8px;
     img {
-      /* scale: 110%;
-      transition: all 0.5s ease-in-out !important; */
+      scale: 110%;
+      transition: all 0.5s ease-in-out !important;
     }
     &:hover {
-      scale: 110%;
-
       img {
-        transform: translateY(0.5rem);
+        transform: translateX(1rem);
       }
     }
+  }
+`
+
+export const CardContent = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: 25% 0%;
+
+  p,
+  div,
+  a,
+  h2,
+  div,
+  span {
+    width: 100%;
   }
 `
 
@@ -42,42 +75,20 @@ export const FeaturedHeader = styled.h1`
   font-family: var(--ff-mono);
   color: var(--cl-primary);
   font-size: var(--fs-sm);
-  max-width: 70%;
   font-weight: 600;
-`
+  margin: 0;
+  &::after {
+    position: relative;
 
-export const CardContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 8;
-  border-radius: 8px;
-  padding: 1rem;
-  background: linear-gradient(
-    90deg,
-    rgba(63, 63, 63, 0.67) 0%,
-    rgba(63, 63, 63, 0.22) 88.54%
-  );
-  background-position: 25% 0%;
-  &:hover {
-  }
-  p,
-  a,
-  h2,
-  div,
-  span {
-    color: #ffffff;
-    margin: 0 0 1rem 0;
+    counter-increment: section;
+    content: ' / 0' counter(section);
+    margin-right: 0.5rem;
   }
 `
 
 export const CardText = styled.h2`
-  font-size: var(--fs-h4);
+  font-size: var(--fs-md);
+  margin-bottom: 1rem;
 `
 
 export const CardDescription = styled.p`
@@ -87,36 +98,9 @@ export const CardDescription = styled.p`
   }
 `
 
-export const BannerLinks = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    display: flex;
-  }
-`
-
-export const BorderedButton = styled(Link)`
-  display: flex;
-  text-decoration: none;
-  margin-right: 2rem;
-  align-items: center;
-  polyline {
-    stroke: #ffffff;
-  }
-  polyline:first-child {
-    transform: translateX(-7px);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  &:hover {
-    polyline:first-child {
-      transform: translateX(0);
-    }
-  }
-`
-
 export const SkillList = styled.div`
   display: block;
+  margin: 0.5rem 0;
 `
 
 export const Skill = styled.span`
@@ -126,4 +110,12 @@ export const Skill = styled.span`
   &:not(:first-child)::before {
     content: '  ·  ';
   }
+`
+
+export const RedirectButton = styled(Link)`
+  display: flex;
+  text-decoration: none;
+  margin-right: 2rem;
+  align-items: center;
+  font-size: var(--fs-sm);
 `

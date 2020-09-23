@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import Icon from '@components/shared/Icons'
 import { socials } from '@config';
 
@@ -14,9 +14,9 @@ const MenuWrapper = styled.div`
   flex-direction: column;
   align-items:center;
   justify-content: flex-end;
-  color: ${({theme}) => theme.onBackground};
+  color: var(--cl-text-main);
   z-index: 99;
-  ${mediaMin.tablet`display: flex;`}; 
+  ${media.tablet`display: flex;`}; 
 `
 const Line = styled.div<{height?: string}>`
   height: ${({height}) => height || '50px'};

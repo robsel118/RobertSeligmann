@@ -10,11 +10,11 @@ const ToggleableSun = styled.span<{ active: boolean }>`
   width: var(--min-press-size);
   height: var(--min-press-size);
   cursor: pointer;
-  
+
   svg{
     path, circle, line {
-        stroke: var(--cl-text-main-dk);
-        fill:  ${({ active }) => active ?  'transparent': 'var(--cl-text-main-dk)'};
+        stroke: var(--cl-text-alt);
+        fill:  ${({ active }) => active ?  'transparent': 'var(--cl-text-alt)'};
 
     }
     line{

@@ -37,7 +37,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Content>
           <Intro intro={data.intro} />
            <About about={data.about}/>
-          <Resume educations={data.educations} jobs={data.jobs} extras={data.extras} skills={data.skills}/>
+          <Resume jobs={data.jobs} />
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/>
         </Content>
@@ -147,25 +147,7 @@ export const query = graphql`
           html
         }
       }
-    },
-    extras:allMarkdownRemark(
-      filter: {fileAbsolutePath: { regex: "/extras/" }}
-      sort: { fields: [frontmatter___endDate], order: DESC }
-      ){
-      edges {
-        node {
-          frontmatter{
-            endDate
-            title
-            titleExtension
-            subTitle
-            location
-          }
-          html
-        }
-      }
-    },
-   
+    },  
   }
 `
 

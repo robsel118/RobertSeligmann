@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { HeaderPopDown } from '../../theme/animation'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import mixins from '@theme/mixins'
 
-export const NavLinkcontainer = styled.nav`
+export const NavLinkcontainer = styled.div`
   display: block;
 `
 export const Line = styled.div`
@@ -21,14 +21,15 @@ export const ContentRow = styled.div`
   ${mixins.contentSpace};
 `
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.nav`
+  width: 100;
   display: block;
   grid-area: header-start / header-start / header-end / header-end;
   position: relative;
   top: -4rem;
   height: 4rem;
   animation: ${HeaderPopDown} 0.5s ease-in-out forwards;
-  z-index: 999;
+  z-index: 10;
 `
 
 export const Navlink = styled.li`
@@ -42,7 +43,7 @@ export const Navlink = styled.li`
     margin: auto 0;
     ${mixins.display}
     font-size: var(--fs-h4);
-    color: var(--cl-text-main-dk);
+    color: var(--cl-text-alt);
 
     text-decoration: none;
     &:hover {
@@ -56,7 +57,11 @@ export const LinkList = styled.ul`
   padding: 0;
   float: right;
   display: none;
-  ${mediaMin.mobile`display: block;`}
+  ${media.mobile`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  `}
 
   li {
     margin: 0 1.5rem 0rem 1rem;
@@ -75,7 +80,7 @@ export const CollapseButton = styled.ul<CollapsibleMenuProps>`
   margin: 0;
   display: inline;
   cursor: pointer;
-  ${mediaMin.mobile`display: none;`}
+  ${media.mobile`display: none;`}
 
   svg {
     margin: 1rem 1.5rem 1rem 1rem;
@@ -110,7 +115,7 @@ export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   top: 4rem;
   text-align: center;
 
-  ${mediaMin.mobile`
+  ${media.mobile`
     visibility: hidden;
     max-width: 0;`}
 

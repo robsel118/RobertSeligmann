@@ -1,7 +1,7 @@
 ---
 endDate: '2019-09'
 title: "Sofware Engineer Intern"
-titleExtension: "Fujitsu Software Technology"
+titleExtension: "Fujitsu"
 subTitle: "June 2019 - August 2019 (3 mos)"
 location: "Helsinki, FI"
 ---

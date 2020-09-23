@@ -2,13 +2,20 @@
 photo: "photo.png"
 ---
 
-A soon-to-be graduate of the __MSC__ in Computer Science at [Aalto University](https://www.aalto.fi/en/), my journey actually began at the [HES-SO Valais](https://www.hevs.ch/en/) where I studied Business Information Technology.
+Hello, I'm Robert, a soon-to-be graduate of the MSC program at Aalto University currently studying software systems and technologies.
 
-I am always looking for new challenges and opportunities that will help me learn and grow as a person.
+Since I was little, I was always fascinated by how some things were made, especially video games and movies. As a child, these seemed like sorcery to me, but when I decided to pursue at career in tech at HES-SO, I fell in love with programming and would spend most of my time working on coding school projects.
 
-Currently, I am open to new opportunities from freelance work to full-time contract.
+That path led to incredible opportunities that brought me to Finland and Japan. With my master's degree soon completed, I am looking for new challenges and opportunities that will help me learn and grow as a developer and as a person.
 
-Thanks for viewing my portfolio!
 
-[Download resume](/resume.pdf)
+Some of the technologies I've been recently working with:
+  - JavaScript
+  - TypeScript
+  - React.js
+  - Node.js
+  - MongoDB
+  - Styled-Components
+  - (S)CSS
+  - Figma
 

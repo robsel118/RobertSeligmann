@@ -1,7 +1,7 @@
 ---
 endDate: '2018-08'
 title: "Sofware Engineer Intern"
-titleExtension: "Institute of Information Systems HES-SO Valais"
+titleExtension: "HES-SO"
 subTitle: "June 2018 - August 2018 (3 mos)"
 location: "Sierre, CH"
 ---

@@ -23,16 +23,18 @@ const GlobalStyle = createGlobalStyle`
 
         --white: #FFFFFF;
         --oxford-blue: #091B34;
+        --oxford-blue-lt: #1d2e4b;
 
         /* Font-family */
         --ff-sans: 'Inter', -apple-system, Arial, Helvetica, sans-serif;
-        --ff-mono: 'Fire Code', 'Fira Mono', 'Roboto Mono', Lucida Console, monospace;
+        --ff-mono: 'Fira Code', 'Fira Mono', 'Roboto Mono', Lucida Console, monospace;
         --ff-display: 'Teko', sans-serif;
   
 
         /* Font-style */
         --fs-main: 1rem;
 
+        --fs-xs: 0.5rem;
         --fs-sm: 0.8rem;
         --fs-md: 1.5rem;
         --fs-h1: 2.5rem;
@@ -56,9 +58,10 @@ const GlobalStyle = createGlobalStyle`
         /* Light theme */
         /* alt background #F2F6FF; */
         --background: #FFFFFF; 
+        --background-alt: #fafafa; 
         --cl-primary: var(--cerulean);
         --cl-text-main: var(--onyx);
-        --cl-text-main-dk: var(--onyx-dk);
+        --cl-text-alt: var(--onyx-dk);
         
         --tab-width: 120px;
         --tab-height: 44px;
@@ -67,9 +70,10 @@ const GlobalStyle = createGlobalStyle`
     /* Dark theme */
     [data-theme="dark"] {
         --background: var(--oxford-blue);
+        --background-alt: var(--oxford-blue-lt);
         --cl-primary: #06d637;
         --cl-text-main: var(--lavender);
-        --cl-text-main-dk: var(--lavender-dk);
+        --cl-text-alt: var(--lavender-dk);
 
     }
 
@@ -96,22 +100,22 @@ const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     a {
-        color: var(--cl-text-main);
+        color: var(--cl-text-alt);
         text-decoration: none;
         transition: color 0.3s ease-in-out;
         &:hover{
-            color: var(--cl-text-main-lt);
+            color: var(--cl-text-main);
         }
         & > svg {
             cursor: pointer;
             transition: all 0.3s ease-in-out;
-            stroke: var(--cl-text-main)
+            stroke: var(--cl-text-alt);
             stroke-width: 1.5px;
         }
         &:hover > svg{
-            /* transform: translateY(-3px); */
+            transform: translateY(-3px); 
             stroke-width: 2px;
-            stroke:  var(--cl-text-main-lt)
+            stroke:  var(--cl-text-main);
         }
     }
   

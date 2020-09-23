@@ -21,7 +21,7 @@ const LogoImg = styled.div<LogoImgProps>`
   width: ${({height}) => height};
   height: ${({width}) => width};
   transition: background-color 0.3s ease;
-  background-color: var(--cl-text-main-dk);
+  background-color: var(--cl-text-alt);
   &:hover{
     background-color: var(--cl-text-main);
   }

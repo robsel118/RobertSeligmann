@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import { hex2rgba } from '@utils/'
 
 export const ArchiveGrid = styled.div`
   ${mixins.grid};
-  ${mediaMin.laptop`grid-template-columns: repeat(auto-fill, minmax(300px, 33%))`}
+  ${media.laptop`grid-template-columns: repeat(auto-fill, minmax(300px, 33%))`}
 `
 
-export const ArchiveCard = styled.div`
+export const ArchiveCard = styled.div<{ color?: string }>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,9 +16,11 @@ export const ArchiveCard = styled.div`
   min-height: 5rem;
   padding: 1rem;
   z-index: 3;
-  background: var(--cl-background);
+  background: var(--background-alt);
+  border-radius: 8px;
   ${mixins.transitionAll};
   border: 0.5px solid rgba(0, 0, 0, 0.06);
+  border-left: 0.5rem solid ${({ color }) => color};
   box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1),
     1px 2px 4px -1px rgba(0, 0, 0, 0.06);
   &:hover {
@@ -45,7 +47,7 @@ export const ArchiveHeaderTag = styled.div<{ color?: string }>`
 `
 
 export const ArchiveTitle = styled.p`
-  font-size: var(--fs-md);
+  font-size: var(--fs-h4);
   margin: 1rem 0 2rem 0;
 `
 export const ArchiveDescription = styled.div`
@@ -58,7 +60,8 @@ export const ArchiveDescription = styled.div`
 `
 
 export const ArchiveTag = styled.span`
-  ${mixins.roboto}
+  font-size: var(--fs-sm);
+  font-family: var(--ff-mono);
   &:not(:first-child)::before {
     content: ' · ';
   }

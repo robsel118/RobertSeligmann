@@ -1,29 +1,48 @@
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import * as Dot from '@images/dot.svg'
 
+export const Grid = styled.div`
+  ${mixins.flexCenter};
+  ${mixins.grid};
+  ${media.tablet`
+    grid-template-columns:55% 30%;
+    justify-content: space-betweeen;
+`}
+`
+
 export const AboutText = styled.div`
+  max-width: 90%;
   p {
     font-size: var(--fs-main);
     a {
       ${mixins.inlineLink};
     }
   }
-`
+  ul {
+    ${mixins.grid}
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 0;
+    margin: 2rem 0;
+    grid-row-gap: 1rem;
+    list-style-type: none;
+    li {
+      letter-spacing: 0.03rem;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-sm);
 
-export const Grid = styled.div`
-  margin: 1.5rem 0;
-  grid-column-gap: 3rem;
-  grid-row-gap: 2rem;
-  flex-direction: column;
-  min-height: calc(100vmin - 170px);
-  ${mixins.flexCenter};
-  ${mixins.grid};
-  ${mediaMin.tablet`
-  grid-template-columns:45% 35%;
-  justify-content: space-betweeen;
-`}
+      &::before {
+        content: '○';
+        position: relative;
+        font-size: var(--fs-sm);
+        left: 0;
+        margin-right: 5px;
+        color: var(--cl-primary);
+      }
+    }
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -36,7 +55,7 @@ export const ImageContainer = styled.div`
       background: var(--cl-primary);
     }
   }
-  ${mediaMin.tablet`
+  ${media.tablet`
 
     & > div {
       overflow: visible !important;

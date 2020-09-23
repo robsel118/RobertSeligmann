@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
+import SectionHeader from '@components/shared/SectionHeader'
+import Section from '@components/shared/Section'
 import {
-  ResumeContainer,
-  ResumeSection,
-  SectionText,
-  EventContainer,
-  EventPeriod,
-  JobSection,
+  JobHeader,
+  JobItem,
+  JobDuration,
+  JobDescription,
   Glider,
   Tab,
   TabList,
-  TabItem
+  TabItem,
+  JobContainer
 } from './styles'
 
 interface SectionProps {
@@ -33,57 +34,43 @@ interface SectionProps {
 export interface ResumeProps {
   jobs: SectionProps,
   extras: SectionProps,
-  
+
 }
 
 const Resume: React.FC<ResumeProps> = (data) => {
   const jobToShow = data.jobs.edges.map(({ node }) => node);
-  const extrasToShow = data.extras.edges.map(({ node }) => node);
-
   const [selectedTab, setSelectedTab] = useState(0)
 
-  const orderedTabs: Array<string> = ['jobs',  'extras']
+  return <Section id='work'>
+      <SectionHeader>Where I've worked</SectionHeader>
+      <JobContainer>
+        <Tab>
+          <TabList>
+            {jobToShow.map((job, index) => <TabItem key={job.frontmatter.titleExtension} onClick={() => setSelectedTab(index)} selected={selectedTab == index}>{job.frontmatter.titleExtension}</TabItem>)}
+            <Glider offset={selectedTab} />
+          </TabList>
+        </Tab>
 
-  return <ResumeContainer id="resume">
-    <Tab>
-      <TabList>
-        {orderedTabs.map((tab, index) => <TabItem key={index} onClick={() => setSelectedTab(index)}>{tab}</TabItem>)}
-        <Glider offset={selectedTab}/>
-      </TabList>
-    </Tab>
-
-    {selectedTab === orderedTabs.indexOf('jobs') &&
-      <ResumeSection>
+        <div>
           {jobToShow.map((job, index) => {
             const { frontmatter } = job;
             const { title, subTitle, titleExtension, location } = frontmatter;
 
-            return (<EventContainer key={index}>
+            return (selectedTab == index && <JobItem key={index}>
               <span>
-                <SectionText>{title} @ {titleExtension}</SectionText>
+                <JobHeader>{title} @ {titleExtension}</JobHeader>
               </span>
-              <EventPeriod>{subTitle} // {location}</EventPeriod>
-              <JobSection dangerouslySetInnerHTML={{ __html: job.html }} />
-            </EventContainer>)
+              <JobDuration>{subTitle} // {location}</JobDuration>
+              <JobDescription dangerouslySetInnerHTML={{ __html: job.html }} />
+            </JobItem>)
           })}
-      </ResumeSection>
-    }
+        </div>
 
-    {selectedTab === orderedTabs.indexOf('extras') && <ResumeSection>
-        {extrasToShow.map((extra, index) => {
-          const { frontmatter } = extra;
-          const { title, subTitle, titleExtension } = frontmatter;
-          return (<EventContainer key={index}>
-            <span>
-              <SectionText> {title} @ {titleExtension}</SectionText>
-              <EventPeriod>{subTitle}</EventPeriod>
-            </span>
-            <div dangerouslySetInnerHTML={{ __html: extra.html }} />
-          </EventContainer>)
-        })}
-    </ResumeSection>}
 
-  </ResumeContainer>
+      </JobContainer>
+
+
+  </Section>
 }
 
 export default Resume

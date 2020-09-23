@@ -1,17 +1,7 @@
 import styled from 'styled-components'
 
 import mixins from '@theme/mixins'
-import mediaMin from '@theme/media'
-
-export const CTA = styled.div`
-  ${mediaMin.mobile`
-   grid-column: 1 / -1;
-   grid-row: 2 / auto;
-   `}
-  ${mediaMin.laptop`
-   grid-column: 1 / -1;
-   grid-row: 2 / auto;`}
-`
+import media from '@theme/media'
 
 export const IntroTextContainer = styled.div`
   display: flex;
@@ -23,12 +13,12 @@ export const IntroContainer = styled.div`
   width: 100%;
 `
 
-export const IntroWrapper = styled.div`
-  ${mixins.flexCenter};
-  width: 100%;
-  min-height: calc(100vmin - 64px);
-  position: relative;
-`
+// export const IntroWrapper = styled.div`
+//   ${mixins.flexCenter};
+//   width: 100%;
+//   min-height: calc(100vmin - 64px);
+//   position: relative;
+// `
 
 export const Statement = styled.div`
   position: relative;
@@ -41,9 +31,8 @@ export const Statement = styled.div`
     }
   }
   h1 {
-    font-size: var(--fs-utlra);
-
-    color: var(--cl-text-main-dk);
+    font-size: clamp(var(--fs-h3), 8vw, var(--fs-utlra));
+    color: var(--cl-text-alt);
     margin: 0;
     font-weight: 600;
 
@@ -53,9 +42,9 @@ export const Statement = styled.div`
     }
   }
   h2 {
-    color: var(--cl-text-main-dk);
+    color: var(--cl-text-alt);
     font-size: var(--fs-h2);
-    ${mediaMin.mobile` font-size: var(--fs-h2);`}
+    ${media.mobile` font-size: var(--fs-h2);`}
     margin: 0;
   }
   hr {

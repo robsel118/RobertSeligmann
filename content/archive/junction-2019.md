@@ -13,4 +13,4 @@ internal: 'junction-2019'
 ---
 
 
-Retrospective on my second experience in [Europe's largest Hackathon](https://www.hackjunction.com/)
+Retrospective on my second experience in Europe's largest [Hackathon](https://www.hackjunction.com/)

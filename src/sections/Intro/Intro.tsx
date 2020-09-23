@@ -1,12 +1,10 @@
 
 import React from 'react'
-import Image from '@components/shared/Image'
 import Icon, { IconName } from '@components/shared/Icons'
+import Section from '@components/shared/Section'
 import { socials } from '@config'
 import {
   IntroContainer,
-  IntroTextContainer,
-  IntroWrapper,
   SocialContainer,
   Statement
 } from './styles'
@@ -36,20 +34,16 @@ export interface SectionProps {
 const Intro: React.FC<SectionProps> = ({ intro }) => {
   const introduction = intro.edges[0].node;
 
-  return (<section id="introduction">
-    <IntroWrapper>
+  return (<Section id="introduction">
       <IntroContainer>
-        <IntroTextContainer>
-          <Statement dangerouslySetInnerHTML={{ __html: intro.edges[0].node.html }} />
+          <Statement dangerouslySetInnerHTML={{ __html: introduction.html }} />
 
           <SocialContainer>
             {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name as IconName} /></a>)}
           </SocialContainer>
 
-        </IntroTextContainer>
       </IntroContainer>
-    </IntroWrapper>
-  </section>)
+  </Section>)
 }
 
 export default Intro

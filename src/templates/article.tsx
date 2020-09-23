@@ -12,7 +12,7 @@ import Sidebar from '@components/shared/Sidebar'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import mixins from '@theme/mixins'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 
 interface DataProps {
   data: {
@@ -40,7 +40,7 @@ const ArticleMain = styled.div`
 
   tr{
     ${mixins.grid};
-    ${mediaMin.laptop`grid-template-columns: repeat(2, 1fr);`};
+    ${media.laptop`grid-template-columns: repeat(2, 1fr);`};
     margin: 1.5rem 0;
   }
 
@@ -61,7 +61,7 @@ const ArticleMain = styled.div`
 
   h1{
     ${mixins.display};
-    ${mediaMin.mobile`font-size: var(--fs-h4)`};
+    ${media.mobile`font-size: var(--fs-h4)`};
     font-size: var(--fs-md);
     margin: 4rem 0 3rem 0;
     & + p {

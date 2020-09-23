@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 
 const mixins = {
   display: css`
@@ -11,13 +11,26 @@ const mixins = {
   `,
   inlineLink: css`
     text-decoration: none;
-    color: var(--cl-text-main);
+    color: var(--cl-primary);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: inset 0 -0.2rem var(--cl-primary);
-    &:hover {
-      color: var(--cl-text-main-lt);
-      box-shadow: inset 0 -0.7rem var(--cl-primary);
+    display: inline-block;
+    position: relative;
+    &:before {
+      content: ' ';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--cl-primary);
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+      transform-origin: center;
+      transform: scale(0);
+      transition: 0.3s ease-in-out;
+    }
+    &:hover:before {
+      transform: scale(1);
     }
   `,
   grid: css`
@@ -28,12 +41,12 @@ const mixins = {
   `,
   contentSpace: css`
     margin: 0 1rem;
-    ${mediaMin.laptop`
+    ${media.laptop`
       max-width: 800px;
       margin: 0 auto;
       padding: 0;`}
 
-    ${mediaMin.desktop`
+    ${media.desktop`
       max-width: 1000px;
       margin: 0 auto;
   `}
@@ -42,7 +55,7 @@ const mixins = {
     font-family: var(--ff-alt);
     font-size: var(--fs-h3);
     color: var(--cl-text-main);
-    ${mediaMin.laptop`font-size: var(--fs-h1)`}
+    ${media.laptop`font-size: var(--fs-h1)`}
   `,
   flexCenter: css`
     display: flex;

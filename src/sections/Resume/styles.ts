@@ -1,57 +1,101 @@
-import { Link } from 'gatsby'
 import styled from 'styled-components'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 import mixins from '@theme/mixins'
 import { SlideLeft, FadeIn } from '@theme/animation'
 
-export const ResumeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+export const JobContainer = styled.div`
+  ${mixins.grid};
+  ${media.tablet`grid-template-columns: 25% 60%;`};
+  min-height: 300px;
 `
 
 export const Tab = styled.div`
   ${mixins.flexCenter};
-  flex-direction: row;
+  width: 100%;
 `
 export const TabList = styled.ul`
   z-index: 0;
   display: flex;
   padding: 0;
   flex-direction: row;
-  border-bottom: 2px solid var(--cl-text-main);
-  height: var(--tab-height);
+  border-bottom: 1px solid var(--cl-text-main);
+  border-left: none;
+  ${media.tablet`
+    flex-direction: column;
+    border-bottom: none;
+    border-left: 1px solid var(--cl-text-main);
+
+  `};
+  list-style: outside none none;
 `
 
-export const TabItem = styled.li`
-  ${mixins.display};
+export const TabItem = styled.li<{ selected: boolean }>`
   ${mixins.flexCenter};
   z-index: 8;
+  padding: 0;
+
   cursor: pointer;
-  color: var(--cl-text-main-dk);
-  font-size: var(--fs-h4);
+  color: ${({ selected }) =>
+    selected ? 'var(--cl-primary)' : 'var(--cl-text-alt)'};
+  font-size: var(--fs-caption);
   transition: all 0.3s ease-in-out;
-  width: var(--tab-width);
+  height: var(--min-press-size);
+  width: 100%;
+  min-width: var(--tab-width);
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--background-alt);
   }
 `
-export const ResumeSection = styled.section`
-  min-height: calc(90vmin - 80px);
+
+export const Glider = styled.div<{ offset: number }>`
+  transition: transform 0.3s ease;
+  position: absolute;
+  display: flex;
+  height: var(min-press-size);
+  border-bottom: 2px solid var(--cl-primary);
+  background: transparent;
+  z-index: 8;
+  padding: 0;
+  width: var(--tab-width);
+  border-left: none;
+  height: var(--tab-height);
+
+  transform: translateX(${({ offset }) => offset * 100}%);
+  ${media.tablet`
+    transform: translateY(${({ offset }) => offset * 100}%);
+    border-left: 2px solid var(--cl-primary);
+    border-bottom: none;
+    width: 2px;
+`};
+`
+
+export const JobItem = styled.div`
+  margin: 0.5rem 0 2.5rem 0;
+  transition: transform 0.4s ease-in-out;
   animation: ${SlideLeft} 0.4s ease-in-out forwards,
     ${FadeIn} 0.4s ease-in-out forwards;
   opacity: 0;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  ${mediaMin.laptop`max-width: 75%;`}
-  margin: 0 auto;
-  transition: transform 0.4s ease-in-out;
 `
 
-export const JobSection = styled.div`
+export const JobHeader = styled.h1`
+  strong {
+    color: var(--cl-primary);
+  }
+  font-size: var(--fs-main);
+  a {
+    ${mixins.inlineLink}
+  }
+  font-size: var(--fs-h4);
+  font-weight: 400;
+  margin: 0.4rem 0;
+`
+
+export const JobDuration = styled.p`
+  font-size: var(--fs-sm);
+  line-height: 150%;
+`
+
+export const JobDescription = styled.div`
   ul {
     padding: 0;
     margin: 0;
@@ -70,38 +114,4 @@ export const JobSection = styled.div`
       color: var(--cl-primary);
     }
   }
-`
-
-export const SectionText = styled.h1`
-  strong {
-    color: var(--cl-primary);
-  }
-  font-size: var(--fs-main);
-  a {
-    ${mixins.inlineLink}
-  }
-  font-size: var(--fs-h4);
-  font-weight: 400;
-  margin: 0.4rem 0;
-`
-
-export const EventPeriod = styled(SectionText)`
-  font-size: var(--fs-sm);
-  line-height: 150%;
-`
-
-export const EventContainer = styled.div`
-  margin: 0.5rem 0 2.5rem 0;
-`
-
-export const Glider = styled.div<{ offset: number }>`
-  transition: transform 0.3s ease;
-  position: absolute;
-  display: flex;
-  width: var(--tab-width);
-  border-bottom: 2px solid var(--cl-primary);
-  background: transparent;
-  z-index: 1;
-  transform: translateX(${({ offset }) => offset * 100}%);
-  height: var(--tab-height);
 `

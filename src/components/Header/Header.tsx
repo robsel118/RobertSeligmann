@@ -14,11 +14,11 @@ export const Header = () => {
       <Logo filter="invert(100%)"/>
       <NavLinkcontainer>
         <LinkList>
-          <Navlink><ThemeToggleButton /></Navlink>
           <Navlink><Link to="/#about">About</Link></Navlink>
           <Navlink><Link to="/#work">Work</Link></Navlink>
-          <Navlink><Link to="/#featured">Featured</Link></Navlink>
+          <Navlink><Link to="/#featured">Projects</Link></Navlink>
           <Navlink><Link to="/">Contact</Link></Navlink>
+          <Navlink><ThemeToggleButton /></Navlink>
         </LinkList>
         <CollapseButton expanded={expanded}>
           <Menu onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
