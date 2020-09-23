@@ -17,7 +17,7 @@ export const Header = () => {
           <Navlink><Link to="/#about">About</Link></Navlink>
           <Navlink><Link to="/#work">Work</Link></Navlink>
           <Navlink><Link to="/#featured">Projects</Link></Navlink>
-          <Navlink><Link to="/">Contact</Link></Navlink>
+          <Navlink><Link to="/#contact">Contact</Link></Navlink>
           <Navlink><ThemeToggleButton /></Navlink>
         </LinkList>
         <CollapseButton expanded={expanded}>
