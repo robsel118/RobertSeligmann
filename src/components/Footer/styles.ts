@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer.attrs({
+  id: 'contact',
+})`
   grid-area: footer-start / footer-start / footer-end / footer-end;
   position: relative;
   margin: 2.5rem 0 3rem 0;
