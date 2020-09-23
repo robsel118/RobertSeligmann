@@ -1,27 +1,18 @@
 import styled from 'styled-components'
 import mixins from '@theme/mixins'
-import { fontSizes } from '@theme/styles'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 
 const SectionHeader = styled.p<{ contentBefore?: string }>`
-  ${mixins.teko}
+  ${mixins.display};
   display: flex;
   position: relative;
   align-items:center;
   padding-top: 3rem;
   margin-bottom: 2rem;
-  font-size: ${fontSizes.xl};
-  ${mediaMin.mobile` font-size: ${fontSizes.xxl}`}
+  font-size: var(--fs-md);
+  ${media.mobile` font-size: var(--fs-h3)`}
 
-  &::before{
-    position: relative;
-    color: ${({theme}) => theme.primary};
-    counter-increment: section;
-    content: ${({ contentBefore }) => contentBefore || '"0" counter(section) ". "'};
-    margin-right: 0.5rem;
-  }
-
-  ${mediaMin.mobile`
+  ${media.mobile`
     &::after{
       content:'';
       display: block;
@@ -29,9 +20,9 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
       top: 50%;
       height: 1px;
       width: 100%;
-      max-width: 200px;
+      max-width: 300px;
       margin-left: 1rem;
-      background-color: gray;
+      background-color: var(--cl-text-main);
     }`
   }
 `

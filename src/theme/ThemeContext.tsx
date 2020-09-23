@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { themes } from './styles'
 
 type Theme = 'light' | 'dark'
 
@@ -26,7 +25,9 @@ const ThemedContext = ({ children }: ThemedContextProps) => {
   useEffect(() => {
     const currentTheme: Theme =
       (localStorage.getItem('theme') as Theme) || 'light'
-    setTheme(currentTheme)
+      document.documentElement.setAttribute('data-theme', currentTheme)
+      setTheme(currentTheme)
+
   }, [])
 
   // OnComponentUpdate
@@ -40,11 +41,13 @@ const ThemedContext = ({ children }: ThemedContextProps) => {
         theme: theme,
         setTheme: () => {
           const newTheme = theme == 'light' ? 'dark' : 'light'
+
+          document.documentElement.setAttribute('data-theme', newTheme)
           setTheme(newTheme)
         },
       }}
     >
-      <ThemeProvider theme={themes[theme]}>{children}</ThemeProvider>
+      {children}
     </ThemeContext.Provider>
   )
 }

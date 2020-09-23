@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import SectionHeader from '@components/shared/SectionHeader'
+import Section from '@components/shared/Section'
 import {
-  ResumeContainer,
-  ResumeSection,
-  SectionText,
-  EventContainer,
-  EventPeriod,
-  JobSection,
-  SkillsSection,
+  JobHeader,
+  JobItem,
+  JobDuration,
+  JobDescription,
+  Glider,
   Tab,
-  TabItem
+  TabList,
+  TabItem,
+  JobContainer
 } from './styles'
 
 interface SectionProps {
@@ -32,90 +33,44 @@ interface SectionProps {
 
 export interface ResumeProps {
   jobs: SectionProps,
-  educations: SectionProps,
   extras: SectionProps,
-  skills: {
-    edges: [
-      {
-        node: {
-          html: string
-        }
-      }
-    ]
-  },
+
 }
 
 const Resume: React.FC<ResumeProps> = (data) => {
   const jobToShow = data.jobs.edges.map(({ node }) => node);
-  const educationToShow = data.educations.edges.map(({ node }) => node);
-  const extrasToShow = data.extras.edges.map(({ node }) => node);
-
   const [selectedTab, setSelectedTab] = useState(0)
 
-  const orderedTabs: Array<string> = ['jobs', 'educations', 'skills', 'extras']
+  return <Section id='work'>
+      <SectionHeader>Where I've worked</SectionHeader>
+      <JobContainer>
+        <Tab>
+          <TabList>
+            {jobToShow.map((job, index) => <TabItem key={job.frontmatter.titleExtension} onClick={() => setSelectedTab(index)} selected={selectedTab == index}>{job.frontmatter.titleExtension}</TabItem>)}
+            <Glider offset={selectedTab} />
+          </TabList>
+        </Tab>
 
-  return <ResumeContainer id="resume">
-    <Tab>
-      {orderedTabs.map((tab, index) => <TabItem key={index} selected={selectedTab == index} onClick={() => setSelectedTab(index)}>{tab}</TabItem>)}
-    </Tab>
-
-    {/* Render conditionally to trigger animation */}
-
-    {selectedTab === orderedTabs.indexOf('jobs') &&
-      <ResumeSection>
-          <SectionHeader contentBefore={`"◷"`}>Work Experience</SectionHeader>
+        <div>
           {jobToShow.map((job, index) => {
             const { frontmatter } = job;
             const { title, subTitle, titleExtension, location } = frontmatter;
 
-            return (<EventContainer key={index}>
+            return (selectedTab == index && <JobItem key={index}>
               <span>
-                <SectionText><b>{title}</b> @ {titleExtension}</SectionText>
+                <JobHeader>{title} @ {titleExtension}</JobHeader>
               </span>
-              <EventPeriod>{subTitle} // {location}</EventPeriod>
-              <JobSection dangerouslySetInnerHTML={{ __html: job.html }} />
-            </EventContainer>)
+              <JobDuration>{subTitle} // {location}</JobDuration>
+              <JobDescription dangerouslySetInnerHTML={{ __html: job.html }} />
+            </JobItem>)
           })}
-      </ResumeSection>
-    }
+        </div>
 
-    {selectedTab === orderedTabs.indexOf('educations') && <ResumeSection>
-        <SectionHeader contentBefore={`"◶"`}>education</SectionHeader>
-        {educationToShow.map((education, index) => {
-          const { frontmatter } = education;
-          const { title, subTitle, location } = frontmatter;
-          return (
-            <EventContainer key={index}>
-              <span>
-                <SectionText><b>{title}</b> </SectionText>
-              </span>
-              <EventPeriod>{subTitle} // {location}</EventPeriod>
-              <div dangerouslySetInnerHTML={{ __html: education.html }} />
-            </EventContainer>)
-        })}
-    </ResumeSection>}
 
-    {selectedTab === orderedTabs.indexOf('skills') && <ResumeSection>
-        <SectionHeader contentBefore={`"◵"`}>Skills</SectionHeader>
-        <SkillsSection dangerouslySetInnerHTML={{ __html: data.skills.edges[0].node.html }} />
-    </ResumeSection>}
+      </JobContainer>
 
-    {selectedTab === orderedTabs.indexOf('extras') && <ResumeSection>
-        <SectionHeader contentBefore={`"◴"`}>Extra-Curricular</SectionHeader>
-        {extrasToShow.map((extra, index) => {
-          const { frontmatter } = extra;
-          const { title, subTitle, titleExtension } = frontmatter;
-          return (<EventContainer key={index}>
-            <span>
-              <SectionText><b>{title}</b> @ {titleExtension}</SectionText>
-              <EventPeriod>{subTitle}</EventPeriod>
-            </span>
-            <div dangerouslySetInnerHTML={{ __html: extra.html }} />
-          </EventContainer>)
-        })}
-    </ResumeSection>}
 
-  </ResumeContainer>
+  </Section>
 }
 
 export default Resume

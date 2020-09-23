@@ -1,21 +1,19 @@
 import styled from 'styled-components'
 import Image from './Image'
-import { Title, Paragraph } from './Typography'
-import { themes, fontSizes } from '@theme/styles'
-import mediaMin from '@theme/media'
+import media from '@theme/media'
 
-export const BannerTitle = styled(Title)`
-  font-size: ${fontSizes.xxxl};
+export const BannerTitle = styled.h1`
+  font-size: var(--fs-h2);
   line-height: 100%;
   margin: 0 0;
-  ${mediaMin.tablet`line-height: 3.5rem;`}
+  ${media.tablet`line-height: 3.5rem;`}
 `
 
-export const BannerSubTitle = styled(Paragraph)`
-  font-size: ${fontSizes.md};
+export const BannerSubTitle = styled.p`
+  font-size: var(--fs-md);
   font-weight: 500;
   margin: 1rem 0 2.5rem 0 !important;
-  ${mediaMin.tablet`font-size: ${fontSizes.lg}`}
+  ${media.tablet`font-size: var(--fs-h4)`}
 `
 
 interface BannerProps {
@@ -33,7 +31,7 @@ const Banner = styled.div<BannerProps>`
   position: relative;
   padding: 1rem;
 
-  ${mediaMin.mobile`padding-left: 3rem;`}
+  ${media.mobile`padding-left: 3rem;`}
 
   ${Image} {
     filter: brightness(75%);

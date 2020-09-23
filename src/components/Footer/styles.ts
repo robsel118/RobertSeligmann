@@ -10,8 +10,7 @@ export const FooterContainer = styled.div`
 
 export const Content = styled.div`
   ${mixins.contentSpace};
-  display: grid;
-  grid-template-columns: 100%;
+  ${mixins.grid};
   grid-template-rows: auto auto;
   max-width: 80vw;
   margin: 0 auto;
@@ -22,15 +21,15 @@ export const ContentRow = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin: 1.5rem 0;
-  ${mixins.muli}
   a {
     margin-right: 1rem;
   }
 `
 
 export const TextWrapper = styled.div`
-  p:first-child {
-    ${mixins.heading}
+  h1 {
+    font-family: var(--ff-alt);
+    font-size: var(--fs-h1);
   }
   a {
     ${mixins.inlineLink}

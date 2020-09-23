@@ -9,10 +9,12 @@ import Featured, {FeaturedProps}from '@sections/Featured'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive/Archive'
+import About, { AboutProps} from '@sections/About/About'
+import Resume, { ResumeProps} from '@sections/Resume/Resume'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
-type DataProps =  ArchiveProps & FeaturedProps & IntroProps 
+type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & ResumeProps
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
@@ -25,6 +27,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
     #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
   })
+
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -33,6 +36,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Header />
         <Content>
           <Intro intro={data.intro} />
+           <About about={data.about}/>
+          <Resume jobs={data.jobs} />
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/>
         </Content>
@@ -88,24 +93,6 @@ export const query = graphql`
         }
       }
     },
-    about:allMarkdownRemark(filter: {
-      fileAbsolutePath: { regex: "/about/" }
-    }){
-      edges {
-        node {
-          frontmatter{
-            photo {
-              childImageSharp {
-                fluid(maxWidth: 800, quality: 90) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          html
-        }
-      }
-    },
     archive:allMarkdownRemark(
       filter: {fileAbsolutePath: { regex: "/archive/" }}
       sort: { fields: [frontmatter___date], order: DESC }  
@@ -126,7 +113,41 @@ export const query = graphql`
         }
       }
     },
-   
+    about:allMarkdownRemark(filter: {
+      fileAbsolutePath: { regex: "/about/" }
+    }){
+      edges {
+        node {
+          frontmatter{
+            photo {
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          html
+        }
+      }
+    },
+    jobs:allMarkdownRemark(
+      filter: {fileAbsolutePath: { regex: "/jobs/" }}
+      sort: { fields: [frontmatter___endDate], order: DESC }
+      ){
+      edges {
+        node {
+          frontmatter{
+            endDate
+            title
+            titleExtension
+            subTitle
+            location
+          }
+          html
+        }
+      }
+    },  
   }
 `
 

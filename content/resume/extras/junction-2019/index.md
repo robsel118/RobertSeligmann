@@ -1,7 +1,7 @@
 ---
 endDate: '2019-11'
-title: "Junction 2019"
-titleExtension: "Developer"
+titleExtension: "Junction 2019"
+title: "Developer"
 subTitle: "Award: Challenge runner up"
 location: ""
 ---

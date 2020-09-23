@@ -1,21 +1,17 @@
 
 import React from 'react'
-import Image from '@components/shared/Image'
 import Icon, { IconName } from '@components/shared/Icons'
+import Section from '@components/shared/Section'
 import { socials } from '@config'
 import {
   IntroContainer,
-  IntroTextContainer,
-  IntroWrapper,
-  ImageContainer,
-  Line,
   SocialContainer,
   Statement
 } from './styles'
 
 
 
-export interface IntroProps {
+export interface SectionProps {
   intro: {
     edges: [
       {
@@ -35,28 +31,19 @@ export interface IntroProps {
   },
 }
 
-const Intro: React.FC<IntroProps> = ({ intro }) => {
+const Intro: React.FC<SectionProps> = ({ intro }) => {
   const introduction = intro.edges[0].node;
-  const { profilePic } = introduction.frontmatter;
 
-  return (<section id="introduction">
-    <IntroWrapper>
+  return (<Section id="introduction">
       <IntroContainer>
-        <IntroTextContainer>
-          <Statement dangerouslySetInnerHTML={{ __html: intro.edges[0].node.html }} />
+          <Statement dangerouslySetInnerHTML={{ __html: introduction.html }} />
 
-          <Line />
           <SocialContainer>
             {socials.map((social: Record<string, string>, index: number) => <a key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' ><Icon name={social.name as IconName} /></a>)}
           </SocialContainer>
 
-        </IntroTextContainer>
-        <ImageContainer>
-          <Image fluid={profilePic.childImageSharp.fluid} />
-        </ImageContainer>
       </IntroContainer>
-    </IntroWrapper>
-  </section>)
+  </Section>)
 }
 
 export default Intro

@@ -1,88 +1,122 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import mixins from '@theme/mixins'
-import { fontSizes } from '@theme/styles'
+import media from '@theme/media'
 import Image from '@components/shared/Image'
+import Section from '@components/shared/Section'
 
-export const FeaturedSection = styled.section.attrs({ id: 'featured' })`
-  min-height: 100vh;
+export const FeaturedSection = styled.div.attrs({ id: 'featured' })`
+  counter-reset: section;
 `
 
 export const ProjectList = styled.div`
-  ${mixins.grid()};
-  grid-column-gap: 5rem;
+  ${mixins.grid};
+  ${media.laptop`grid-template-columns: repeat(1, 1fr);`}
+
 `
 
 export const Card = styled.div`
   width: 100%;
-  min-height: 500px;
+  min-height: 300px;
   margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  ${mixins.grid};
+  ${media.tablet`
+    grid-template-columns: repeat(2, 1fr);
+    /* Alternate image order */
+    &:nth-child(odd) {
+      text-align: right;
+      ${Image} {
+        order: 2;
+        &:hover {
+          img {
+            transform: translateX(-1rem);
+          }
+        }
+      }
+    }
+    `}
 
   ${Image} {
     transition: scale 0.5s ease-in-out;
-    height: 250px;
-
+    height: 100%;
+    border-radius: 8px;
     img {
       scale: 110%;
       transition: all 0.5s ease-in-out !important;
     }
     &:hover {
-      scale: 110%;
-
       img {
-        transform: translateY(0.5rem);
+        transform: translateX(1rem);
       }
     }
   }
 `
-export const CardText = styled.p`
-  ${mixins.teko};
+
+export const CardContent = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: 25% 0%;
+
+  p,
+  div,
+  a,
+  h2,
+  div,
+  span {
+    width: 100%;
+  }
+`
+
+export const FeaturedHeader = styled.h1`
+  font-family: var(--ff-mono);
+  color: var(--cl-primary);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin: 0;
+  &::after {
+    position: relative;
+
+    counter-increment: section;
+    content: ' / 0' counter(section);
+    margin-right: 0.5rem;
+  }
+`
+
+export const CardText = styled.h2`
+  font-size: var(--fs-md);
+  margin-bottom: 1rem;
 `
 
 export const CardDescription = styled.p`
-  ${mixins.muli};
+  font-size: var(--fs-sm);
   a {
     ${mixins.inlineLink};
   }
 `
 
-export const BannerLinks = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    display: flex;
-  }
-`
-
-export const BorderedButton = styled(Link)`
-  ${mixins.teko};
-  display: flex;
-  font-size: ${fontSizes.xl};
-  text-decoration: none;
-  margin-right: 2rem;
-  align-items: center;
-
-  polyline:first-child {
-    transform: translateX(-7px);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  &:hover {
-    polyline:first-child {
-      transform: translateX(0);
-    }
-  }
-`
-
 export const SkillList = styled.div`
   display: block;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 `
 
 export const Skill = styled.span`
-  ${mixins.roboto}
+  font-size: var(--fs-sm);
+  font-family: var(--ff-mono);
 
   &:not(:first-child)::before {
     content: '  ·  ';
   }
+`
+
+export const RedirectButton = styled(Link)`
+  display: flex;
+  text-decoration: none;
+  margin-right: 2rem;
+  align-items: center;
+  font-size: var(--fs-sm);
 `

@@ -1,15 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Sun } from 'react-feather'
 import { ThemeContext } from '@theme/ThemeContext'
+import mixins from '@theme/mixins'
 
-import { Sun} from 'react-feather'
 
-
-const ToggleableSun = styled.span<{active: boolean}>`
+const ToggleableSun = styled.span<{ active: boolean }>`
+  ${mixins.flexCenter};
+  width: var(--min-press-size);
+  height: var(--min-press-size);
   cursor: pointer;
+
   svg{
     path, circle, line {
-        stroke: white;
+        stroke: var(--cl-text-alt);
+        fill:  ${({ active }) => active ?  'transparent': 'var(--cl-text-alt)'};
+
     }
     line{
       opacity: ${({active}) => active? '80%': '100%'};
@@ -19,7 +25,8 @@ const ToggleableSun = styled.span<{active: boolean}>`
   }
   svg:hover {
     path, circle{
-        stroke: white;
+        stroke: var(--cl-text-main);
+        fill:  ${({ active }) => active ?  'var(--cl-text-main)': 'transparent'};
     }
     line{
       opacity: ${({ active }) => active? '100%': '80%'};

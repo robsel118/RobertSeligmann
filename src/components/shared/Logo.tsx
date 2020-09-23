@@ -8,21 +8,29 @@ interface LogoImgProps {
   width?: string;
   filter?: string;
 }
+
+
 const LogoImg = styled.div<LogoImgProps>`
   cursor: pointer;
   position: relative;
   float: left;
   display: block;
   font-size: 100%;
-  margin : 0.5rem 0;
-  background-image: url(${logosvg});
+  margin : 0 0;
+  mask-size: ${({height}) => height} ${({width}) => width};
   width: ${({height}) => height};
   height: ${({width}) => width};
-  background-repeat: no-repeat;
-  filter: ${({filter, theme}) => filter || theme.inverted}
+  transition: background-color 0.3s ease;
+  background-color: var(--cl-text-alt);
+  &:hover{
+    background-color: var(--cl-primary);
+  }
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url(${logosvg});
+  mask-image: url(${logosvg});     
 `
 
-const Logo:React.FC<LogoImgProps> = ({ height = "3.2rem", width = "3rem", filter}) => (
+const Logo:React.FC<LogoImgProps> = ({ height = "48px", width = "48px", filter}) => (
   <Link to="/" >
     <LogoImg height={height} width={width} filter={filter}/>
   </Link>

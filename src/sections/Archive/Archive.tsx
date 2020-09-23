@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Icon, { IconName } from '@components/shared/Icons'
+import Section from '@components/shared/Section'
 import SectionHeader from '@components/shared/SectionHeader'
 import {
   ArchiveCard,
@@ -37,13 +38,13 @@ export interface ArchiveProps {
 const Projects: React.FC<ArchiveProps> = ({ archive }) => {
   const itemsToShow = archive.edges.map(({ node }) => node);
 
-  return (<section id="archive">
+  return (<Section id="archive">
     <SectionHeader>Other Projects/Links</SectionHeader>
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
       const { title, icon, iconColor, tags, github, external, internal } = archiveItem.frontmatter;
       return <div style={{display: 'flex'}} key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-delay={(index % 3) *150 }  data-sal-easing="ease-out">
-         <ArchiveCard>
+         <ArchiveCard color={iconColor}>
         <ArchiveHeader>
           <ArchiveHeaderTag color={iconColor}>
             <Icon name={icon} size={30}/>
@@ -63,7 +64,7 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
       </div>
     } )}
     </ArchiveGrid>
-  </section>)
+  </Section>)
 }
 
 export default Projects
