@@ -12,6 +12,7 @@ export const FeaturedSection = styled.div.attrs({ id: 'featured' })`
 export const ProjectList = styled.div`
   ${mixins.grid};
   ${media.laptop`grid-template-columns: repeat(1, 1fr);`}
+
 `
 
 export const Card = styled.div`
