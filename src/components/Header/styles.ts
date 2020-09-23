@@ -47,7 +47,7 @@ export const Navlink = styled.li`
 
     text-decoration: none;
     &:hover {
-      color: var(--cl-text-main);
+      color: var(--cl-primary);
     }
   }
 `

@@ -3,26 +3,14 @@ import styled from 'styled-components'
 import mixins from '@theme/mixins'
 import media from '@theme/media'
 
-export const IntroTextContainer = styled.div`
+export const IntroContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 `
 
-export const IntroContainer = styled.div`
-  width: 100%;
-`
-
-// export const IntroWrapper = styled.div`
-//   ${mixins.flexCenter};
-//   width: 100%;
-//   min-height: calc(100vmin - 64px);
-//   position: relative;
-// `
-
 export const Statement = styled.div`
-  position: relative;
-
   p {
     line-height: var(--lh-xl);
 

@@ -23,7 +23,7 @@ const LogoImg = styled.div<LogoImgProps>`
   transition: background-color 0.3s ease;
   background-color: var(--cl-text-alt);
   &:hover{
-    background-color: var(--cl-text-main);
+    background-color: var(--cl-primary);
   }
   mask-repeat: no-repeat;
   -webkit-mask-image: url(${logosvg});
