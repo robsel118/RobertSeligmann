@@ -15,7 +15,7 @@ Some of the technologies I've been recently working with:
   - React.js
   - Node.js
   - MongoDB
-  - Styled-Components
   - (S)CSS
   - Figma
+  - Styled-Components
 

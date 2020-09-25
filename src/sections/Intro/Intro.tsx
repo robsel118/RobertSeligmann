@@ -11,7 +11,7 @@ import {
 
 
 
-export interface SectionProps {
+export interface IntroProps {
   intro: {
     edges: [
       {

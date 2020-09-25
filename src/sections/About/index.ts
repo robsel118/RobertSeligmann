@@ -1,3 +1,3 @@
-import About from './About'
-
+import About, { AboutProps } from './About'
+export { AboutProps }
 export default About

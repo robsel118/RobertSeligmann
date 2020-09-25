@@ -10,7 +10,7 @@ export const Line = styled.div`
   margin: 0 auto;
   height: 1px;
   width: 50%;
-  background-color: ${({ theme }) => theme.onBackground};
+  background-color: var(--cl-text-alt);
   opacity: 50%;
 `
 
@@ -81,9 +81,9 @@ export const CollapseButton = styled.ul<CollapsibleMenuProps>`
   display: inline;
   cursor: pointer;
   ${media.mobile`display: none;`}
-
   svg {
     margin: 1rem 1.5rem 1rem 1rem;
+    stroke: var(--cl-text-alt);
 
     line {
       ${mixins.transitionAll}
@@ -105,7 +105,7 @@ export const CollapseButton = styled.ul<CollapsibleMenuProps>`
 export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
   transition: all 0.5s ease-in-out;
   visibility: ${({ expanded }) => (expanded ? 'visible' : 'hidden')};
-  background-color: #111;
+  background-color: var(--background-alt);
   z-index: 1000;
   display: block;
   max-height: ${({ expanded }) => (expanded ? '80vh' : '0')};
@@ -123,5 +123,20 @@ export const CollapsibleMenu = styled.div<CollapsibleMenuProps>`
     float: inherit;
     display: block;
     margin: 1.5rem auto;
+  }
+`
+
+export const ResumeButton = styled.a.attrs({
+  href: '/resume.pdf',
+  target: '_blank',
+  rel: 'noreferrer',
+})`
+  border: 2px solid var(--cl-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  color: var(--cl-primary) !important;
+  ${mixins.transitionAll};
+  &:hover {
+    background-color: var(--cl-primary-tint);
   }
 `
