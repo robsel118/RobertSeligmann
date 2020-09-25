@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Menu } from 'react-feather'
 import Logo from '@components/shared/Logo'
 import ThemeToggleButton from '@components/shared/ThemeToggleButton'
-import {  NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line } from './styles'
+import {  NavLinkcontainer, HeaderContainer, ContentRow, LinkList, Navlink, CollapsibleMenu, CollapseButton, Line, ResumeButton } from './styles'
 
 export const Header = () => {
 
@@ -18,18 +18,21 @@ export const Header = () => {
           <Navlink><Link to="/#work">Work</Link></Navlink>
           <Navlink><Link to="/#featured">Projects</Link></Navlink>
           <Navlink><Link to="/#contact">Contact</Link></Navlink>
-          <Navlink><ThemeToggleButton /></Navlink>
+          <Navlink><ResumeButton>Resume</ResumeButton></Navlink>
+          {/* <Navlink><ThemeToggleButton /></Navlink> */}
         </LinkList>
         <CollapseButton expanded={expanded}>
-          <Menu onClick={()=>{setExpanded(!expanded)}} color="white"  size="28"/>
+          <Menu onClick={()=>{setExpanded(!expanded)}}  size="28"/>
         </CollapseButton>
       </NavLinkcontainer>
     </ContentRow>
     <CollapsibleMenu expanded={expanded}>
-    <Navlink><Link to="/#about">About</Link></Navlink>
+          <Navlink><Link to="/#about">About</Link></Navlink>
           <Navlink><Link to="/#work">Work</Link></Navlink>
-          <Navlink><Link to="/#featured">Featured</Link></Navlink>
-          <Navlink><Link to="/">Contact</Link></Navlink>
+          <Navlink><Link to="/#featured">Projects</Link></Navlink>
+          <Navlink><Link to="/#contact">Contact</Link></Navlink>
+          <Navlink><ResumeButton>Resume</ResumeButton></Navlink>
+
         <Line/>
         <Navlink><ThemeToggleButton /></Navlink>
     </CollapsibleMenu>

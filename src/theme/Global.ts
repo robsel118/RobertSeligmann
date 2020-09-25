@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
         --background: #FFFFFF; 
         --background-alt: #fafafa; 
         --cl-primary: var(--cerulean);
+        --cl-primary-tint: rgba(6, 165, 214, 0.1);
         --cl-text-main: var(--onyx);
         --cl-text-alt: var(--onyx-dk);
         
@@ -71,7 +72,8 @@ const GlobalStyle = createGlobalStyle`
     [data-theme="dark"] {
         --background: var(--oxford-blue);
         --background-alt: var(--oxford-blue-lt);
-        --cl-primary: #06d637;
+        --cl-primary: var(--lime);
+        --cl-primary-tint: rgba(6, 214, 55, 0.2);
         --cl-text-main: var(--lavender);
         --cl-text-alt: var(--lavender-dk);
 

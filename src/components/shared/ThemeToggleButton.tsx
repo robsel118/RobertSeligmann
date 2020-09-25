@@ -7,7 +7,7 @@ import mixins from '@theme/mixins'
 
 const ToggleableSun = styled.span<{ active: boolean }>`
   ${mixins.flexCenter};
-  width: var(--min-press-size);
+  width: 100%;
   height: var(--min-press-size);
   cursor: pointer;
 
@@ -39,8 +39,8 @@ const ThemeToggleButton = () => {
   return (
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
-        <ToggleableSun onClick={setTheme} active={theme === 'dark'}>
-          <Sun />
+        <ToggleableSun active={theme === 'dark'}>
+          <Sun onClick={setTheme} />
         </ToggleableSun>
       )}
     </ThemeContext.Consumer>

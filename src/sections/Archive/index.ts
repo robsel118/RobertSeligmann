@@ -1,3 +1,4 @@
-import Archive from './Archive'
+import Archive, { ArchiveProps } from './Archive'
 
+export { ArchiveProps }
 export default Archive
