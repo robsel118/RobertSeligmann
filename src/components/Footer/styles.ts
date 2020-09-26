@@ -34,6 +34,6 @@ export const TextWrapper = styled.div`
     font-size: var(--fs-h1);
   }
   a {
-    ${mixins.inlineLink}
+    ${mixins.inlineLink};
   }
 `
