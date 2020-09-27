@@ -16,6 +16,9 @@ const mixins = {
     transition: all 0.3s ease-in-out;
     display: inline-block;
     position: relative;
+    &:hover {
+      color: var(--cl-primary);
+    }
     &:before {
       content: ' ';
       display: block;

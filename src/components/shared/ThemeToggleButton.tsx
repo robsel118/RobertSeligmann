@@ -40,7 +40,7 @@ const ThemeToggleButton = () => {
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
         <ToggleableSun active={theme === 'dark'}>
-          <Sun onClick={setTheme} />
+          <Sun aria-label="Toggle light/dark Theme" onClick={setTheme} />
         </ToggleableSun>
       )}
     </ThemeContext.Consumer>

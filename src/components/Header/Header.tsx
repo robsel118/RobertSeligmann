@@ -14,11 +14,11 @@ export const Header = () => {
       <Logo filter="invert(100%)"/>
       <NavLinkcontainer>
         <LinkList>
-          <Navlink><Link to="/#about">About</Link></Navlink>
-          <Navlink><Link to="/#work">Work</Link></Navlink>
-          <Navlink><Link to="/#featured">Projects</Link></Navlink>
-          <Navlink><Link to="/#contact">Contact</Link></Navlink>
-          <Navlink><ResumeButton>Resume</ResumeButton></Navlink>
+          <Navlink><Link to="/#about" aria-label="Navigate to about section">About</Link></Navlink>
+          <Navlink><Link to="/#work" aria-label="Navigate to work section">Work</Link></Navlink>
+          <Navlink><Link to="/#featured" aria-label="Navigate to project section">Projects</Link></Navlink>
+          <Navlink><Link to="/#contact" aria-label="Navigate to contact section">Contact</Link></Navlink>
+          <Navlink><ResumeButton aria-label="View Resume">Resume</ResumeButton></Navlink>
           {/* <Navlink><ThemeToggleButton /></Navlink> */}
         </LinkList>
         <CollapseButton expanded={expanded}>
@@ -27,11 +27,11 @@ export const Header = () => {
       </NavLinkcontainer>
     </ContentRow>
     <CollapsibleMenu expanded={expanded}>
-          <Navlink><Link to="/#about">About</Link></Navlink>
-          <Navlink><Link to="/#work">Work</Link></Navlink>
-          <Navlink><Link to="/#featured">Projects</Link></Navlink>
-          <Navlink><Link to="/#contact">Contact</Link></Navlink>
-          <Navlink><ResumeButton>Resume</ResumeButton></Navlink>
+          <Navlink><Link to="/#about" aria-label="Navigate to about section">About</Link></Navlink>
+          <Navlink><Link to="/#work" aria-label="Navigate to work section">Work</Link></Navlink>
+          <Navlink><Link to="/#featured" aria-label="Navigate to featured section">Projects</Link></Navlink>
+          <Navlink><Link to="/#contact" aria-label="Navigate to contact section">Contact</Link></Navlink>
+          <Navlink><ResumeButton aria-label="View Resume">Resume</ResumeButton></Navlink>
 
         <Line/>
         <Navlink><ThemeToggleButton /></Navlink>

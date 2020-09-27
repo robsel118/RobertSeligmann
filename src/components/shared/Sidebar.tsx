@@ -32,13 +32,13 @@ const LinkWrapper = styled.a`
 
 const Sidebar = () => {
   return (<MenuWrapper>
-    <LinkWrapper title="Return to the top" href="#top"><Icon name="ChevronsUp" /></LinkWrapper>
+    <LinkWrapper title="Return to the top" aria-label={"Return to top"} href="#top"><Icon name="ChevronsUp" /></LinkWrapper>
     <Line height="40px" />
     <ThemeToggleButton />
     <Line height="20px" />
     {
       socials.map((social: Record<string, string>, index: number) =>
-        <LinkWrapper key={index} title={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' >
+        <LinkWrapper key={index} title={`${social.name} Link`} aria-label={`${social.name} Link`} href={social.url} target='_blank' rel='noreferrer' >
           <Icon name={social.name} />
         </LinkWrapper>)
     }
