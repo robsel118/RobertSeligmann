@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Robert Lee Seligmann - Software Developer`,
-    description: `I am a software developer open for new opportunities. My passion is building simple and beautiful user experiences.`,
+    description: `Personal Website`,
     author: `@robsel118`,
   },
   plugins: [
