@@ -5,7 +5,8 @@ import { hex2rgba } from '@utils/'
 
 export const ArchiveGrid = styled.div`
   ${mixins.grid};
-  ${media.laptop`grid-template-columns: repeat(auto-fill, minmax(300px, 33%))`}
+  ${media.mobile`grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))`}
+  /* ${media.tablet`grid-template-columns: repeat(auto-fill, minmax(300px, 33%))`} */
 `
 
 export const ArchiveCard = styled.div<{ color?: string }>`

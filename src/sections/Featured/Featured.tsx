@@ -12,6 +12,7 @@ export interface FeaturedProps {
             title: string
             description: String
             internal?: string
+            external: string
             darkCover: boolean
             skills: [string]
             image: {
@@ -39,10 +40,10 @@ const featured: React.FC<FeaturedProps> = ({ featured }) => {
         featuredToShow.map((feature, index) => {
 
           const { frontmatter } = feature;
-          const { title, description, image, skills, internal} = frontmatter;
+          const { title, description, image, skills, internal, external} = frontmatter;
 
           return (<Card key={index} data-sal="slide-up" data-sal-duration="300" data-sal-easing="ease-out">
-            <Image title={title} fluid={image.childImageSharp.fluid} />
+            <a href={external} target="_blank"><Image title={title} fluid={image.childImageSharp.fluid} /></a>
             <CardContent>
               <FeaturedHeader>Featured Project</FeaturedHeader>
               <CardText>{title}</CardText>

@@ -33,8 +33,6 @@ interface SectionProps {
 
 export interface ResumeProps {
   jobs: SectionProps,
-  extras: SectionProps,
-
 }
 
 const Resume: React.FC<ResumeProps> = (data) => {
@@ -42,34 +40,30 @@ const Resume: React.FC<ResumeProps> = (data) => {
   const [selectedTab, setSelectedTab] = useState(0)
 
   return <Section id='work'>
-      <SectionHeader>Where I've worked</SectionHeader>
-      <JobContainer>
-        <Tab>
-          <TabList>
-            {jobToShow.map((job, index) => <TabItem key={job.frontmatter.titleExtension} onClick={() => setSelectedTab(index)} selected={selectedTab == index}>{job.frontmatter.titleExtension}</TabItem>)}
-            <Glider offset={selectedTab} />
-          </TabList>
-        </Tab>
+    <SectionHeader>Where I've worked</SectionHeader>
+    <JobContainer>
+      <Tab>
+        <TabList>
+          {jobToShow.map((job, index) => <TabItem key={job.frontmatter.titleExtension} onClick={() => setSelectedTab(index)} selected={selectedTab == index}>{job.frontmatter.titleExtension}</TabItem>)}
+          <Glider offset={selectedTab} />
+        </TabList>
+      </Tab>
 
-        <div>
-          {jobToShow.map((job, index) => {
-            const { frontmatter } = job;
-            const { title, subTitle, titleExtension, location } = frontmatter;
+      <div>
+        {jobToShow.map((job, index) => {
+          const { frontmatter } = job;
+          const { title, subTitle, titleExtension, location } = frontmatter;
 
-            return (selectedTab == index && <JobItem key={index}>
-              <span>
-                <JobHeader>{title} @ {titleExtension}</JobHeader>
-              </span>
-              <JobDuration>{subTitle} // {location}</JobDuration>
-              <JobDescription dangerouslySetInnerHTML={{ __html: job.html }} />
-            </JobItem>)
-          })}
-        </div>
-
-
-      </JobContainer>
-
-
+          return (selectedTab == index && <JobItem key={index}>
+            <span>
+              <JobHeader>{title} @ {titleExtension}</JobHeader>
+            </span>
+            <JobDuration>{subTitle} // {location}</JobDuration>
+            <JobDescription dangerouslySetInnerHTML={{ __html: job.html }} />
+          </JobItem>)
+        })}
+      </div>
+    </JobContainer>
   </Section>
 }
 

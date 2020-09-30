@@ -6,7 +6,7 @@ import * as Dot from '@images/dot.svg'
 export const Grid = styled.div`
   ${mixins.flexCenter};
   ${mixins.grid};
-  ${media.tablet`
+  ${media.laptop`
     grid-template-columns:55% 30%;
     justify-content: space-betweeen;
 `}

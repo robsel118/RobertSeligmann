@@ -61,7 +61,7 @@ const ArticleMain = styled.div`
 
   h1{
     ${mixins.display};
-    ${media.mobile`font-size: var(--fs-h4)`};
+    ${media.mobile`font-size: var(--fs-h3)`};
     font-size: var(--fs-md);
     margin: 4rem 0 3rem 0;
     & + p {
