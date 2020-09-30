@@ -10,7 +10,7 @@ const SectionHeader = styled.p<{ contentBefore?: string }>`
   padding-top: 3rem;
   margin-bottom: 2rem;
   font-size: var(--fs-md);
-  ${media.mobile` font-size: var(--fs-h3)`}
+  ${media.tablet` font-size: var(--fs-h3)`}
 
   ${media.mobile`
     &::after{

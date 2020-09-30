@@ -8,7 +8,6 @@ skills:
     - TypeScript
     - Styled-Components
 darkCover: true
-github: "https://github.com/robsel118/RobertSeligmann"
-external: ""
+external: "https://github.com/robsel118/RobertSeligmann"
 internal: ""
 ---

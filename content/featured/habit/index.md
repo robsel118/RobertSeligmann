@@ -1,7 +1,7 @@
 ---
 order: 4
-title: "Habit Tracker | Backend (Coming Soon)"
-description: "A habit tracker application, the backend part is handled by myself"
+title: "Habit Tracker | Backend"
+description: "A habit tracker application for mobile devices"
 image: "./banner.png"
 skills:
     - Koa.js
@@ -10,6 +10,6 @@ skills:
     - Mongoose
 darkCover: true
 github: ""
-external: ""
+external: "https://github.com/robsel118/habit-tracker-server"
 internal: ""
 ---

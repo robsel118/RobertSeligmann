@@ -59,7 +59,6 @@ export const query = graphql`
           frontmatter{
             title
             description
-            external
             github
             internal
             skills
