@@ -45,12 +45,12 @@ export const Card = styled.div`
     height: 100%;
     border-radius: 8px;
     img {
-      scale: 110%;
       transition: all 0.5s ease-in-out !important;
     }
     &:hover {
       img {
-        transform: translateX(1rem);
+        /* transform: translateX(1rem); */
+        scale: 110%;
       }
     }
   }
