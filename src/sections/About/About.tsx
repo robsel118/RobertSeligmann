@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from '@components/shared/Image'
 import Section from '@components/shared/Section'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Grid, AboutText, ImageContainer } from './styles'
 import SectionHeader from '@components/shared/SectionHeader'
 
@@ -17,7 +18,7 @@ export interface AboutProps {
             }
           }
         }
-        html: string
+        body: string
       }
     }]
 }}
@@ -27,7 +28,7 @@ const About:React.FC<AboutProps> = ({about}) => {
     <Grid>
       <div>
         <SectionHeader>About Me</SectionHeader>
-        <AboutText dangerouslySetInnerHTML={{ __html: about.edges[0].node.html }}/>
+        <MDXRenderer components={{ wrapper: AboutText }}>{about.edges[0].node.body}</MDXRenderer>
       </div>
       <ImageContainer>
         <Image fluid={about.edges[0].node.frontmatter.photo.childImageSharp.fluid}  />

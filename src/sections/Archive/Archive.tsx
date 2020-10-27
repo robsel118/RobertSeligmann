@@ -13,6 +13,7 @@ import {
   ArchiveTitle,
   LinkWrapper
 } from './styles'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export interface ArchiveProps {
   archive: {
@@ -28,7 +29,7 @@ export interface ArchiveProps {
             internal?: string
             github?: string
           }
-          html: string
+          body: string
         }
       }
     ]
@@ -37,13 +38,14 @@ export interface ArchiveProps {
 
 const Projects: React.FC<ArchiveProps> = ({ archive }) => {
   const itemsToShow = archive.edges.map(({ node }) => node);
-
   return (<Section id="archive">
     <SectionHeader>Other Projects/Links</SectionHeader>
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
       const { title, icon, iconColor, tags, github, external, internal } = archiveItem.frontmatter;
-      return <div style={{display: 'flex'}} key={index} data-sal="slide-up"  data-sal-duration="300" data-sal-delay={(index % 3) *150 }  data-sal-easing="ease-out">
+      console.log(archiveItem)
+
+      return <div style={{ display: 'flex' }} key={index} data-sal="slide-up" data-sal-duration="300" data-sal-delay={(index % 3) * 150} data-sal-easing="ease-out">
          <ArchiveCard color={iconColor}>
         <ArchiveHeader>
           <ArchiveHeaderTag color={iconColor}>
@@ -57,7 +59,7 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
         </ArchiveHeader>
         <div>
           <ArchiveTitle>{title}</ArchiveTitle>
-          <ArchiveDescription dangerouslySetInnerHTML={{__html: archiveItem.html}}></ArchiveDescription>
+          <MDXRenderer components={{ wrapper: ArchiveDescription }}>{ archiveItem.body }</MDXRenderer>
         </div>
          <div> {tags.map((tag, index) => <ArchiveTag key={index}>{tag}</ArchiveTag>)}</div>
       </ArchiveCard>

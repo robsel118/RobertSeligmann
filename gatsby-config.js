@@ -6,11 +6,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -82,14 +82,6 @@ module.exports = {
         path: `${__dirname}/content/resume/extras`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `articles`,
-        path: `${__dirname}/content/articles`,
-      },
-    },
-
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
