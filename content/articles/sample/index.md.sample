@@ -1,0 +1,12 @@
+---
+title: 'Some Title'
+slug: '/path' # defines the path of to the articles, e.g. robert.selgmann.dev/path
+bannerImage: './path-to-image.jpg'
+bannerTitle: 'Center title displayed inside the image'
+bannerSubTitle: 'Center subtitle displayed inside the image'
+isBannerDark: true # set a different text color depending if the background image is dark or not
+---
+
+# Title
+
+Some markdown content
