@@ -43,7 +43,6 @@ const Projects: React.FC<ArchiveProps> = ({ archive }) => {
     <ArchiveGrid>
     {itemsToShow.map((archiveItem, index) => { 
       const { title, icon, iconColor, tags, github, external, internal } = archiveItem.frontmatter;
-      console.log(archiveItem)
 
       return <div style={{ display: 'flex' }} key={index} data-sal="slide-up" data-sal-duration="300" data-sal-delay={(index % 3) * 150} data-sal-easing="ease-out">
          <ArchiveCard color={iconColor}>

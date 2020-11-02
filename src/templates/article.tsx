@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
 import Banner, { BannerTitle, BannerSubTitle } from '@components/shared/Banner'
 import Image from '@components/shared/Image'
+import Grid from '@components/shared/Grid'
 import ThemedContext from '@theme/ThemeContext'
 import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
@@ -77,7 +79,7 @@ const ArticleMain = styled.div`
 
 const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
   const { frontmatter, body } = mdx
-  const { title, bannerImage, bannerTitle, bannerSubTitle, isBannerDark } = frontmatter
+  const { title, bannerImage, bannerTitle, bannerSubTitle } = frontmatter
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -90,7 +92,9 @@ const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
             {bannerTitle && <BannerTitle>{bannerTitle}</BannerTitle>}
             {bannerSubTitle && <BannerSubTitle>{bannerSubTitle}</BannerSubTitle>}
           </Banner> }
-          <MDXRenderer components={{ wrapper: ArticleMain }}>{ body }</MDXRenderer>
+          <MDXProvider components={{ Grid }}>
+            <MDXRenderer components={{ wrapper: ArticleMain }}>{ body }</MDXRenderer>
+          </MDXProvider>
         </Content>
         <Sidebar />
         <Footer />
