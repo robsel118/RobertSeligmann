@@ -20,10 +20,9 @@ interface DataProps {
     mdx: {
       frontmatter: {
         title: string,
-        bannerImage?: any,
+        bannerImage: any,
         bannerTitle: string,
         bannerSubTitle: string,
-        isBannerDark: boolean
       }
       body: string
     }
@@ -60,7 +59,7 @@ const ArticleMain = styled.div`
     }
   }
 
-  h1{
+  h2{
     ${mixins.display};
     ${media.mobile`font-size: var(--fs-h3)`};
     font-size: var(--fs-md);
@@ -78,7 +77,6 @@ const ArticleMain = styled.div`
 
 const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
   const { frontmatter, body } = mdx
-  console.log(mdx);
   const { title, bannerImage, bannerTitle, bannerSubTitle, isBannerDark } = frontmatter
   return (
     <ThemedContext>
@@ -87,12 +85,12 @@ const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
       <Layout>
         <Header />
         <Content>
-          {bannerImage && bannerImage.childImageSharp.fluid && <Banner isBackgroundDark={isBannerDark}>
+          {bannerImage && bannerImage.childImageSharp.fluid && <Banner>
             <Image fluid={bannerImage.childImageSharp.fluid} />
             {bannerTitle && <BannerTitle>{bannerTitle}</BannerTitle>}
             {bannerSubTitle && <BannerSubTitle>{bannerSubTitle}</BannerSubTitle>}
           </Banner> }
-          <MDXRenderer>{ body }</MDXRenderer>
+          <MDXRenderer components={{ wrapper: ArticleMain }}>{ body }</MDXRenderer>
         </Content>
         <Sidebar />
         <Footer />
@@ -117,9 +115,7 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }
-        isBannerDark
-        
+        }        
       }
     } 
   }
