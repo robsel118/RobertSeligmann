@@ -15,7 +15,7 @@ export const BannerTitle = styled.h1`
 
 export const BannerSubTitle = styled.p`
   font-size: var(--fs-md);
-  color: var(--white);
+  color: varyarn (--white);
   font-weight: 500;
   margin: 1rem 0 2.5rem 0 !important;
   ${media.tablet`font-size: var(--fs-h4)`}

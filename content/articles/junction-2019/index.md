@@ -6,9 +6,6 @@ bannerTitle: 'Junction Hackathon 2019'
 bannerSubTitle: 'Improving the user sustainability'
 ---
 
-import Grid from '../../../src/components/shared/Grid'
-
-
 ## Joining the Sustainability Track
 
 Junction is an annual hackathon that gathers around 1'500 hackers for a weekend long experience. A place where designers, developers, and other techies team up to create new tech projects in 48 hours.  

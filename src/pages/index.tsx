@@ -10,7 +10,7 @@ import GlobalStyle from '@theme/Global'
 import Sidebar from '@components/shared/Sidebar'
 import Archive, { ArchiveProps } from '@sections/Archive'
 import About, { AboutProps} from '@sections/About'
-import Resume, { ResumeProps} from '@sections/Resume'
+import Resume, { ResumeProps } from '@sections/Resume'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
@@ -18,15 +18,7 @@ type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & Resum
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
-    console.log(data)
-    console.log(`
-    #     #                              #######                             ### 
-    #     # ###### #      #      ######     #    #    # ###### #####  ###### ### 
-    #     # #      #      #      #    #     #    #    # #      #    # #      ### 
-    ####### #####  #      #      #    #     #    ###### #####  #    # #####   #  
-    #     # #      #      #      #    #     #    #    # #      #####  #          
-    #     # #      #      #      #    #     #    #    # #      #   #  #      ### 
-    #     # ###### ###### ###### ######     #    #    # ###### #    # ###### ### `)
+    console.log(`Hello There`);
   })
 
   return (
