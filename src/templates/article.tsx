@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
@@ -16,7 +17,7 @@ import media from '@theme/media'
 
 interface DataProps {
   data: {
-    markdownRemark: {
+    mdx: {
       frontmatter: {
         title: string,
         bannerImage?: any,
@@ -24,7 +25,7 @@ interface DataProps {
         bannerSubTitle: string,
         isBannerDark: boolean
       }
-      html: string
+      body: string
     }
   }
 }
@@ -75,8 +76,9 @@ const ArticleMain = styled.div`
 
 `
 
-const ArticlePage: React.FC<DataProps> = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
+  const { frontmatter, body } = mdx
+  console.log(mdx);
   const { title, bannerImage, bannerTitle, bannerSubTitle, isBannerDark } = frontmatter
   return (
     <ThemedContext>
@@ -90,7 +92,7 @@ const ArticlePage: React.FC<DataProps> = ({ data }) => {
             {bannerTitle && <BannerTitle>{bannerTitle}</BannerTitle>}
             {bannerSubTitle && <BannerSubTitle>{bannerSubTitle}</BannerSubTitle>}
           </Banner> }
-          <ArticleMain dangerouslySetInnerHTML={{ __html: html }} />
+          <MDXRenderer>{ body }</MDXRenderer>
         </Content>
         <Sidebar />
         <Footer />
@@ -101,22 +103,25 @@ const ArticlePage: React.FC<DataProps> = ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $path } }) {
-      html
-      frontmatter {
+    mdx( frontmatter: {
+      slug: {eq: $path}
+    }) {
+      body
+      frontmatter{
         title
-        bannerImage {
-             childImageSharp {
-                fluid(maxWidth: 800, quality: 90) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-        }
         bannerTitle
         bannerSubTitle
+        bannerImage {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         isBannerDark
+        
       }
-    }
+    } 
   }
 `;
 

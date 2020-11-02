@@ -9,13 +9,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/articles/" } }) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/articles/" } }) {
         edges {
           node {
             frontmatter {
               slug
             }
-            html
+            body
           }
         }
       }
@@ -25,8 +25,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
       component: path.resolve(`./src/templates/article.tsx`),

@@ -6,11 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-external-links',
             options: {

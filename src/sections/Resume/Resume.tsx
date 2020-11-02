@@ -12,6 +12,7 @@ import {
   TabItem,
   JobContainer
 } from './styles'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 interface SectionProps {
   edges: [
@@ -24,7 +25,7 @@ interface SectionProps {
           subTitle: string
           location: string
         }
-        html: string
+        body: string
       }
     }
   ]
@@ -59,7 +60,7 @@ const Resume: React.FC<ResumeProps> = (data) => {
               <JobHeader>{title} @ {titleExtension}</JobHeader>
             </span>
             <JobDuration>{subTitle} // {location}</JobDuration>
-            <JobDescription dangerouslySetInnerHTML={{ __html: job.html }} />
+            <MDXRenderer components={{ wrapper: JobDescription }}>{job.body}</MDXRenderer>
           </JobItem>)
         })}
       </div>

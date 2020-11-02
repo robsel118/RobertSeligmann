@@ -18,7 +18,7 @@ This challenge pushed us invent a novel solution to support people in making dai
 
 |||
 |------------- | -------------|
-| ![](./stack.png "FST Ideathon") | <h1>Our solution</h1>We tried to improve the clients' spending habits through social interaction and gamification. We build a React.js dashboard and an Android application that is served by a Firebase Real-time database.<br>The application offers weekly challenges to the users, which are define to help the users make more sustainable purchase decisions depending on the user group. On top of helping the user be healtier and smarter in their spending habits, they also benefit from special rewards given when completing a challenge.<br>The system also uses social interactions between users, by doing so, the users will be able to help one another become more mindful and concious about the products that they will buy. |
+| ![](./stack.png "FST Ideathon") | <h1>Our solution</h1>We tried to improve the clients' spending habits through social interaction and gamification. We build a React.js dashboard and an Android application that is served by a Firebase Real-time database.<br/>The application offers weekly challenges to the users, which are define to help the users make more sustainable purchase decisions depending on the user group. On top of helping the user be healtier and smarter in their spending habits, they also benefit from special rewards given when completing a challenge.<br/>The system also uses social interactions between users, by doing so, the users will be able to help one another become more mindful and concious about the products that they will buy. |
 | ![](./junction-android.png "Android version") | ![](./junction-react.png "React.JS version") |
 
 
@@ -27,7 +27,7 @@ This challenge pushed us invent a novel solution to support people in making dai
 Hackathons are a great way to challenge thyself, being surrounded by such innovative people is an incredible experience. We gave our best effort into delivering a product we tought could really help people become more sustainable.  
 The idea and our demonstration was enthousiastically received by the challenge issuers, as a result, we received the 2nd place price of the challenge. An extra big than you to my teammate [Matti](https://www.linkedin.com/in/matti-mk/) for the fun experience and for enduring me when I was sleep-deprieved.
 
-<br>
-<br>
+<br/>
+<br/>
 
 ![](./junction-team.jpg "Our team") 

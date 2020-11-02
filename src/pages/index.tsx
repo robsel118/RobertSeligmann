@@ -18,6 +18,7 @@ type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & Resum
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
+    console.log(data)
     console.log(`
     #     #                              #######                             ### 
     #     # ###### #      #      ######     #    #    # ###### #####  ###### ### 
@@ -36,10 +37,11 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         <Header />
         <Content>
           <Intro intro={data.intro} />
-           <About about={data.about}/>
+          <About about={data.about}/>
           <Resume jobs={data.jobs} />
           <Featured featured={data.featured} />
-          <Archive archive={data.archive}/>
+          <Archive archive={data.archive}/> 
+         
         </Content>
         <Sidebar />
         <Footer/>
@@ -50,7 +52,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
 export const query = graphql`
   {
-    featured:allMarkdownRemark(
+    featured:allMdx(
       filter: {fileAbsolutePath: { regex: "/featured/" }}
       sort: { fields: [frontmatter___order], order: ASC }
     ){
@@ -74,7 +76,7 @@ export const query = graphql`
         }
       }
     },
-    intro:allMarkdownRemark(filter: {
+    intro: allMdx(filter: {
       fileAbsolutePath: { regex: "/intro/" }
     }){
       edges {
@@ -88,11 +90,11 @@ export const query = graphql`
               }
             }
           }
-          html
+          body
         }
       }
     },
-    archive:allMarkdownRemark(
+    archive:allMdx(
       filter: {fileAbsolutePath: { regex: "/archive/" }}
       sort: { fields: [frontmatter___date], order: DESC }  
     ){
@@ -108,11 +110,11 @@ export const query = graphql`
             internal
             github
           }
-          html
+          body
         }
       }
     },
-    about:allMarkdownRemark(filter: {
+    about:allMdx(filter: {
       fileAbsolutePath: { regex: "/about/" }
     }){
       edges {
@@ -126,11 +128,11 @@ export const query = graphql`
               }
             }
           }
-          html
+          body
         }
       }
     },
-    jobs:allMarkdownRemark(
+    jobs:allMdx(
       filter: {fileAbsolutePath: { regex: "/jobs/" }}
       sort: { fields: [frontmatter___endDate], order: DESC }
       ){
@@ -143,7 +145,7 @@ export const query = graphql`
             subTitle
             location
           }
-          html
+          body
         }
       }
     },  
