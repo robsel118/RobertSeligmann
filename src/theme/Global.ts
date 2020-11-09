@@ -25,35 +25,12 @@ const GlobalStyle = createGlobalStyle`
         --oxford-blue: #091B34;
         --oxford-blue-lt: #1d2e4b;
 
+        --min-press-size: 44px;
+
         /* Font-family */
         --ff-sans: 'Inter', -apple-system, Arial, Helvetica, sans-serif;
-        --ff-mono: 'Fira Code', 'Fira Mono', 'Roboto Mono', Lucida Console, monospace;
+        --ff-mono: 'Fira Code', 'Roboto Mono', Lucida Console, monospace;
         --ff-display: 'Teko', sans-serif;
-  
-
-        /* Font-style */
-        --fs-main: 1rem;
-
-        --fs-xs: 0.5rem;
-        --fs-sm: 0.8rem;
-        --fs-md: 1.5rem;
-        --fs-h1: 2.5rem;
-        --fs-h2: 2rem;
-        --fs-h3: 1.8rem;
-        --fs-h4: 1.25rem;
-        --fs-utlra: 4rem;
-
-        /* letter-spacing */
-        --ls-main: 0.02rem;
- 
-        /* line-height */
-        --lh-sd: 110%;
-        --lh-md: 130%;
-        --lh-lg: 150%;
-        --lh-xl: 166%;
-
-
-        --min-press-size: 44px;
 
         /* Light theme */
         /* alt background #F2F6FF; */
@@ -102,14 +79,39 @@ const GlobalStyle = createGlobalStyle`
         transition: box-shadow 0.3s ease-in-out;
     }
 
-    a, p, span, li, h1, h2, h3, td{
+    a, p, pre, span, li, h1, h2, h3, th, td {
+     
+        --fs-xs: 0.5rem;
+        --fs-sm: 0.8rem;
+        --fs-base: 1rem;
+        --fs-lg: 1.25rem;
+        --fs-xl: 1.5rem;
+        --fs-2xl: 1.875rem;
+        --fs-3xl: 2.25rem;
+        --fs-4xl: 3rem;
+        --fs-5xl: 4rem;
+
+        /* letter-spacing */
+        --ls-wide: 0.03rem;
+ 
+        /* line-height */
+        --lh-lg: 150%;
+        --lh-xl: 166%;
+
         transition: color 0.3s ease-in-out, border 0.3s ease-in-out;        
+        font-family: var(--ff-sans);
         color: var(--cl-text-main);
+
+    }
+
+    p, span, pre {
+        line-height: var(--lh-lg);
     }
 
     ul{
         list-style: none;
     }
+    
     a {
         color: var(--cl-text-alt);
         text-decoration: none;
@@ -126,7 +128,7 @@ const GlobalStyle = createGlobalStyle`
         &:hover > svg{
             transform: translateY(-3px); 
             stroke-width: 2px;
-            stroke:  var(--cl-text-main);
+            stroke:  var(--cl-primary);
         }
     }
   

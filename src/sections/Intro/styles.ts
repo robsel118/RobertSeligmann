@@ -19,7 +19,7 @@ export const Statement = styled.div`
     }
   }
   h1 {
-    font-size: clamp(var(--fs-h3), 8vw, var(--fs-utlra));
+    font-size: clamp(var(--fs-2xl), 8vw, var(--fs-5xl));
     color: var(--cl-text-alt);
     margin: 0;
     font-weight: 600;
@@ -31,14 +31,14 @@ export const Statement = styled.div`
   }
   h2 {
     color: var(--cl-text-alt);
-    font-size: var(--fs-h2);
-    ${media.mobile` font-size: var(--fs-h2);`}
+    font-size: var(--fs-3xl);
+    ${media.mobile` font-size: var(--fs-3xl);`}
     margin: 0;
   }
   hr {
-    width: 200px;
-    margin: 1rem 0;
-    border-top: 0.5px solid var(--cl-text-main);
+    width: 100px;
+    margin: 2rem 0;
+    border-top: 3px solid var(--cl-primary);
     border-bottom: none;
   }
 `

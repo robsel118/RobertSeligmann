@@ -33,7 +33,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <Resume jobs={data.jobs} />
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/> 
-         
         </Content>
         <Sidebar />
         <Footer/>

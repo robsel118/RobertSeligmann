@@ -42,7 +42,7 @@ export const Navlink = styled.li`
   a {
     margin: auto 0;
     ${mixins.display}
-    font-size: var(--fs-h4);
+    font-size: var(--fs-lg);
     color: var(--cl-text-alt);
 
     text-decoration: none;

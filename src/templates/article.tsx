@@ -6,7 +6,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from '@components/shared/seo'
 import Layout from '@components/shared/Layout'
 import Content from '@components/shared/Content'
-import Banner, { BannerTitle, BannerSubTitle } from '@components/shared/Banner'
 import Image from '@components/shared/Image'
 import Grid from '@components/shared/Grid'
 import ThemedContext from '@theme/ThemeContext'
@@ -32,54 +31,72 @@ interface DataProps {
 }
 
 const ArticleMain = styled.div`
-  table {
-    width: 100%;
+
+  ${Grid}{
+    margin: 3rem 0 
   }
 
-  thead {
-    display: none;
-  }
 
-  tr{
-    ${mixins.grid};
-    ${media.laptop`grid-template-columns: repeat(2, 1fr);`};
-    margin: 1.5rem 0;
-  }
+  table{
+    min-width:50%;
+    margin: 6rem 0;
+    tbody{
+      tr{
+        &:first-child{
+          td{
+            font-weight: 600;
+            font-size: var(--fs-lg);
+          }
+        }
+        td {
+          padding-bottom: 1rem;
 
-  br{
-    content: "";
-    margin-bottom: 1em;
-    display: block;
+          a{
+            ${mixins.inlineLink};
+          }
+        }
+      }
+    }
   }
 
   p {
-    &, td {
-      line-height: 150%;
-    }
+    margin: 0;
     a{
       ${mixins.inlineLink};
     }
   }
 
-  h2{
-    ${mixins.display};
-    ${media.mobile`font-size: var(--fs-h3)`};
-    font-size: var(--fs-md);
-    margin: 4rem 0 3rem 0;
-    & + p {
-      max-width: 50rem;
+  h1 {
+    font-size: clamp(var(--fs-2xl), 8vw, var(--fs-5xl));
+    margin: 0;
+    font-weight: bold;
+    margin: 4em 0;
+    text-align: center;
+    strong {
+      color: var(--cl-primary);
     }
   }
 
-  img{
+  h2 {
+    ${mixins.display};
+    ${media.mobile`font-size: var(--fs-2xl)`};
+    font-size: var(--fs-xl);
+    margin: 0;
+    & + p {
+      max-width: 35em;
+    }
+  }
+
+  span.gatsby-resp-image-wrapper{
     box-shadow: none !important;
+    margin: 6rem auto 4rem auto !important;
   }
 
 `
 
 const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
   const { frontmatter, body } = mdx
-  const { title, bannerImage, bannerTitle, bannerSubTitle } = frontmatter
+  const { title } = frontmatter
   return (
     <ThemedContext>
       <GlobalStyle />
@@ -87,11 +104,7 @@ const ArticlePage: React.FC<DataProps> = ({ data: {mdx} }) => {
       <Layout>
         <Header />
         <Content>
-          {bannerImage && bannerImage.childImageSharp.fluid && <Banner>
-            <Image fluid={bannerImage.childImageSharp.fluid} />
-            {bannerTitle && <BannerTitle>{bannerTitle}</BannerTitle>}
-            {bannerSubTitle && <BannerSubTitle>{bannerSubTitle}</BannerSubTitle>}
-          </Banner> }
+          
           <MDXProvider components={{ Grid }}>
             <MDXRenderer components={{ wrapper: ArticleMain }}>{ body }</MDXRenderer>
           </MDXProvider>

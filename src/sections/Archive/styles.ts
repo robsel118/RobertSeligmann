@@ -21,7 +21,7 @@ export const ArchiveCard = styled.div<{ color?: string }>`
   border-radius: 8px;
   ${mixins.transitionAll};
   border: 0.5px solid rgba(0, 0, 0, 0.06);
-  border-left: 0.5rem solid ${({ color }) => color};
+  border-top: 8px solid ${({ color }) => color};
   box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1),
     1px 2px 4px -1px rgba(0, 0, 0, 0.06);
   &:hover {
@@ -48,7 +48,8 @@ export const ArchiveHeaderTag = styled.div<{ color?: string }>`
 `
 
 export const ArchiveTitle = styled.p`
-  font-size: var(--fs-h4);
+  font-size: var(--fs-xl);
+  font-weight: 500;
   margin: 1rem 0 2rem 0;
 `
 export const ArchiveDescription = styled.div`

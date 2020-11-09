@@ -5,7 +5,7 @@ import media from '@theme/media'
 import Image from '@components/shared/Image'
 import Section from '@components/shared/Section'
 
-export const FeaturedSection = styled.div.attrs({ id: 'featured' })`
+export const FeaturedSection = styled(Section).attrs({ id: 'featured' })`
   counter-reset: section;
 `
 
@@ -89,12 +89,12 @@ export const FeaturedHeader = styled.h1`
 `
 
 export const CardText = styled.h2`
-  font-size: var(--fs-md);
+  font-size: var(--fs-xl);
   margin-bottom: 1rem;
 `
 
 export const CardDescription = styled.p`
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   a {
     ${mixins.inlineLink};
   }
