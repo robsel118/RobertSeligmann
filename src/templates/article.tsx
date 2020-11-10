@@ -84,6 +84,11 @@ const ArticleMain = styled.div`
     margin: 0;
     & + p {
       max-width: 35em;
+      line-height: var(--lh-xl);
+
+      br {
+        margin-bottom: 1em;
+      }
     }
   }
 
