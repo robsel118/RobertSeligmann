@@ -21,7 +21,7 @@ export const ArchiveCard = styled.div<{ color?: string }>`
   border-radius: 8px;
   ${mixins.transitionAll};
   border: 0.5px solid rgba(0, 0, 0, 0.06);
-  border-top: 8px solid ${({ color }) => color};
+  border-left: 6px solid ${({ color }) => color};
   box-shadow: 1px 4px 6px -1px rgba(0, 0, 0, 0.1),
     1px 2px 4px -1px rgba(0, 0, 0, 0.06);
   &:hover {

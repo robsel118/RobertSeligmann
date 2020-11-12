@@ -18,7 +18,7 @@ type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & Resum
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
-    console.log(`Hello There`);
+    console.log(`${String.fromCodePoint(0x1F440)} Hello there`);
   })
 
   return (

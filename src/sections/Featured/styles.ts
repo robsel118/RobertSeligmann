@@ -33,7 +33,7 @@ export const Card = styled.div`
       ${Image} {
         &:hover {
           img {
-            transform: translateX(-1rem);
+            transform: scale(1.2);
           }
         }
       }
@@ -49,8 +49,7 @@ export const Card = styled.div`
     }
     &:hover {
       img {
-        /* transform: translateX(1rem); */
-        scale: 110%;
+        transform: scale(1.2);
       }
     }
   }

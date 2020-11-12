@@ -35,7 +35,6 @@ export interface FeaturedProps {
 const featured: React.FC<FeaturedProps> = ({ featured }) => {
 
   const featuredToShow = featured.edges.map(({ node }) => node);
-
   return (<FeaturedSection>
     <SectionHeader>What I've worked on</SectionHeader>
     <ProjectList>
