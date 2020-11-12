@@ -100,9 +100,16 @@ export const CardDescription = styled.p`
   }
 `
 
-export const SkillList = styled.div`
+export const List = styled.div`
   display: block;
   margin: 0.5rem 0;
+
+  a:not(:first-child)::before {
+    content: ' ';
+    display: inline-block;
+    width: 1rem;
+  }
+
 `
 
 export const Skill = styled.span`
@@ -114,10 +121,3 @@ export const Skill = styled.span`
   }
 `
 
-export const RedirectButton = styled(Link)`
-  display: flex;
-  text-decoration: none;
-  margin-right: 2rem;
-  align-items: center;
-  font-size: var(--fs-sm);
-`

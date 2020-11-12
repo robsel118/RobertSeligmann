@@ -8,8 +8,8 @@ skills:
     - TypeScript
     - Passport.js
     - Mongoose
-darkCover: true
 github: ""
 external: "https://github.com/robsel118/habit-tracker-server"
+github: "https://github.com/robsel118/habit-tracker-server"
 internal: ""
 ---

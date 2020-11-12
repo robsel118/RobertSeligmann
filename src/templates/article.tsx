@@ -33,7 +33,7 @@ interface DataProps {
 const ArticleMain = styled.div`
 
   ${Grid}{
-    margin: 3rem 0 
+    margin: 4rem 0 
   }
 
 
@@ -94,7 +94,7 @@ const ArticleMain = styled.div`
 
   span.gatsby-resp-image-wrapper{
     box-shadow: none !important;
-    margin: 6rem auto 4rem auto !important;
+    margin: 2rem auto !important;
   }
 
 `
@@ -128,16 +128,7 @@ export const pageQuery = graphql`
     }) {
       body
       frontmatter{
-        title
-        bannerTitle
-        bannerSubTitle
-        bannerImage {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }        
+        title   
       }
     } 
   }

@@ -7,7 +7,7 @@ skills:
     - Gatsby.js
     - TypeScript
     - Styled-Components
-darkCover: true
 external: "https://github.com/robsel118/RobertSeligmann"
-internal: ""
+github: "https://github.com/robsel118/RobertSeligmann"
+internal: "/personal-website"
 ---

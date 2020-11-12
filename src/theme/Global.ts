@@ -79,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
         transition: box-shadow 0.3s ease-in-out;
     }
 
-    a, p, pre, span, li, h1, h2, h3, th, td {
+    a, p, pre, span, li, h1, h2, h3, th, td, figcaption {
      
         --fs-xs: 0.5rem;
         --fs-sm: 0.8rem;

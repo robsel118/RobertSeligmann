@@ -52,10 +52,10 @@ export const query = graphql`
           frontmatter{
             title
             description
+            external
             github
             internal
             skills
-            darkCover
             image {
               childImageSharp {
                 fluid(maxWidth: 1200, quality: 90) {

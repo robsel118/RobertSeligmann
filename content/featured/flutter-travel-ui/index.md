@@ -7,7 +7,7 @@ skills:
     - Flutter
     - Dart
     - Dribbble
-darkCover: true
 external: "https://github.com/robsel118/flutter_travel_app_challenge"
+github: "https://github.com/robsel118/flutter_travel_app_challenge"
 internal: ""
 ---
