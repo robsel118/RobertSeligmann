@@ -1,4 +1,3 @@
-import Intro, { IntroProps } from './Intro'
-
-export { IntroProps } from './Intro'
+import Intro, {IntroProps} from './Intro'
+export type { IntroProps }
 export default Intro

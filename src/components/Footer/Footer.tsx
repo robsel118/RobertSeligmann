@@ -8,7 +8,7 @@ const Footer = () => {
     <Content>
       <ContentRow>
         <TextWrapper>
-          <h1>Let's Build Something Together</h1>
+          <h2>Let's Build Something Together</h2>
           <p>Need a developer? Or maybe you just want to chat? Feel free to reach me out.</p>
           <a href={`mailto:${email}`}>{email}</a>
         </TextWrapper>

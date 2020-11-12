@@ -1,7 +1,7 @@
 ---
 date: 01-06-2019
 icon: "Edit3"
-iconColor: "#06d6a0"
+iconColor: "#FF2D16"
 title: 'Fujitsu'
 tags:
   - Vue.js

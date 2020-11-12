@@ -5,7 +5,7 @@ import media from '@theme/media'
 import Image from '@components/shared/Image'
 import Section from '@components/shared/Section'
 
-export const FeaturedSection = styled.div.attrs({ id: 'featured' })`
+export const FeaturedSection = styled(Section).attrs({ id: 'featured' })`
   counter-reset: section;
 `
 
@@ -33,7 +33,7 @@ export const Card = styled.div`
       ${Image} {
         &:hover {
           img {
-            transform: translateX(-1rem);
+            transform: scale(1.2);
           }
         }
       }
@@ -49,8 +49,7 @@ export const Card = styled.div`
     }
     &:hover {
       img {
-        /* transform: translateX(1rem); */
-        scale: 110%;
+        transform: scale(1.2);
       }
     }
   }
@@ -89,20 +88,27 @@ export const FeaturedHeader = styled.h1`
 `
 
 export const CardText = styled.h2`
-  font-size: var(--fs-md);
+  font-size: var(--fs-xl);
   margin-bottom: 1rem;
 `
 
 export const CardDescription = styled.p`
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   a {
     ${mixins.inlineLink};
   }
 `
 
-export const SkillList = styled.div`
+export const List = styled.div`
   display: block;
   margin: 0.5rem 0;
+
+  a:not(:first-child)::before {
+    content: ' ';
+    display: inline-block;
+    width: 1rem;
+  }
+
 `
 
 export const Skill = styled.span`
@@ -114,10 +120,3 @@ export const Skill = styled.span`
   }
 `
 
-export const RedirectButton = styled(Link)`
-  display: flex;
-  text-decoration: none;
-  margin-right: 2rem;
-  align-items: center;
-  font-size: var(--fs-sm);
-`

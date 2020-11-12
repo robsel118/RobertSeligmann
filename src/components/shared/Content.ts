@@ -15,6 +15,7 @@ const Content = styled.main`
   ${media.laptop`
     padding: 0 2rem;
   `}
+
 `
 
 export default Content

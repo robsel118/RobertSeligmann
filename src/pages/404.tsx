@@ -20,7 +20,7 @@ const Error = styled.p`
 `
 
 const Message = styled.p`
-  font-size: var(--fs-h3);
+  font-size: var(--fs-2xl);
   margin: 0;
   `
 

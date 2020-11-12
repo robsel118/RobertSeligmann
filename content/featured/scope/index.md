@@ -1,13 +1,13 @@
 ---
 order: 3
-title: "Flow"
+title: "Scope"
 description: "A mobile application to focus or what matters"
 image: "./banner.png"
 skills:
     - Flutter
     - Firebase
     - Figma
-darkCover: true
-external: "https://github.com/robsel118/flow"
+external: "https://github.com/robsel118/scope"
+github: "https://github.com/robsel118/scope"
 internal: ""
 ---

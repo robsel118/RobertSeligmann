@@ -15,7 +15,7 @@ export const Grid = styled.div`
 export const AboutText = styled.div`
   max-width: 90%;
   p {
-    font-size: var(--fs-main);
+    font-size: var(--fs-base);
     a {
       ${mixins.inlineLink};
     }
@@ -29,7 +29,7 @@ export const AboutText = styled.div`
     grid-row-gap: 1rem;
     list-style-type: none;
     li {
-      letter-spacing: 0.03rem;
+      letter-spacing: var(--ls-wide);
       font-family: var(--ff-mono);
       font-size: var(--fs-sm);
 

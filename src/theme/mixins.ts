@@ -4,9 +4,9 @@ import media from '@theme/media'
 const mixins = {
   display: css`
     font-family: var(--ff-display);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-2xl);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: var(--ls-wide);
     font-weight: 300;
   `,
   inlineLink: css`
@@ -56,9 +56,9 @@ const mixins = {
   `,
   heading: css`
     font-family: var(--ff-alt);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-2xl);
     color: var(--cl-text-main);
-    ${media.laptop`font-size: var(--fs-h1)`}
+    ${media.laptop`font-size: var(--fs-4xl)`}
   `,
   flexCenter: css`
     display: flex;

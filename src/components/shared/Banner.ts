@@ -3,22 +3,22 @@ import Image from './Image'
 import media from '@theme/media'
 
 export const BannerTitle = styled.h1`
-  font-size: var(--fs-h2);
+  font-size: var(--fs-3xl);
   line-height: 100%;
   margin: 0 0;
   color: var(--white);
   ${media.tablet`
     line-height: 3.5rem;
-    font-size: var(--fs-h1);
+    font-size: var(--fs-4xl);
   `}
 `
 
-export const BannerSubTitle = styled.p`
-  font-size: var(--fs-md);
-  color: varyarn (--white);
+export const BannerSubTitle = styled.h2`
+  font-size: var(--fs-xl);
+  color: var(--white);
   font-weight: 500;
   margin: 1rem 0 2.5rem 0 !important;
-  ${media.tablet`font-size: var(--fs-h4)`}
+  ${media.tablet`font-size: var(--fs-lg)`}
 `
 
 interface BannerProps {

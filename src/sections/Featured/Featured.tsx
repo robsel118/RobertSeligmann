@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'gatsby'
+
 import SectionHeader from '@components/shared/SectionHeader'
 import Image from '@components/shared/Image'
-import { FeaturedSection, FeaturedHeader, ProjectList, Card, CardText, CardDescription, CardContent, RedirectButton, Skill, SkillList } from './styles'
+import { FeaturedSection, FeaturedHeader, ProjectList, Card, CardText, CardDescription, CardContent, Skill, List } from './styles'
+import { GitHub, Link as LinkIcon } from 'react-feather'
 
 export interface FeaturedProps {
   featured: {
@@ -10,10 +13,10 @@ export interface FeaturedProps {
         node: {
           frontmatter: {
             title: string
-            description: String
-            internal?: string
+            description: string
+            internal: string
+            github: string
             external: string
-            darkCover: boolean
             skills: [string]
             image: {
               childImageSharp: {
@@ -32,7 +35,6 @@ export interface FeaturedProps {
 const featured: React.FC<FeaturedProps> = ({ featured }) => {
 
   const featuredToShow = featured.edges.map(({ node }) => node);
-
   return (<FeaturedSection>
     <SectionHeader>What I've worked on</SectionHeader>
     <ProjectList>
@@ -40,19 +42,21 @@ const featured: React.FC<FeaturedProps> = ({ featured }) => {
         featuredToShow.map((feature, index) => {
 
           const { frontmatter } = feature;
-          const { title, description, image, skills, internal, external} = frontmatter;
+          const { title, description, image, skills, internal, external, github} = frontmatter;
 
           return (<Card key={index} data-sal="slide-up" data-sal-duration="300" data-sal-easing="ease-out">
-            <a href={external} target="_blank"><Image title={title} fluid={image.childImageSharp.fluid} /></a>
+            <a href={external} target="_blank" rel="noreferrer noopener" ><Image title={title} fluid={image.childImageSharp.fluid} /></a>
             <CardContent>
               <FeaturedHeader>Featured Project</FeaturedHeader>
               <CardText>{title}</CardText>
               <CardDescription>{description}</CardDescription>
-              <SkillList>
+              <List>
                 {skills.map((skill, index) => <Skill key={index}>{skill}</Skill>)}
-              </SkillList>
-                {internal ?  <RedirectButton to={internal}>Read More</RedirectButton> : <p>Coming Soon</p>}
-               
+              </List>
+              <List>
+              { internal && <Link to={internal}><LinkIcon/></Link> }
+              { github && <a href={github} target="_blank" rel="noreferrer noopener" ><GitHub/></a>}
+              </List>
             </CardContent>
           </Card>
           )

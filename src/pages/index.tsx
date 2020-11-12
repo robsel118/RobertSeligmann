@@ -18,7 +18,7 @@ type DataProps =  ArchiveProps & FeaturedProps & IntroProps & AboutProps & Resum
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   useEffect(() => {
-    console.log(`Hello There`);
+    console.log(`${String.fromCodePoint(0x1F440)} Hello there`);
   })
 
   return (
@@ -33,7 +33,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <Resume jobs={data.jobs} />
           <Featured featured={data.featured} />
           <Archive archive={data.archive}/> 
-         
         </Content>
         <Sidebar />
         <Footer/>
@@ -53,10 +52,10 @@ export const query = graphql`
           frontmatter{
             title
             description
+            external
             github
             internal
             skills
-            darkCover
             image {
               childImageSharp {
                 fluid(maxWidth: 1200, quality: 90) {

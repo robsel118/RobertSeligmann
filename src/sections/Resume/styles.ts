@@ -37,7 +37,8 @@ export const TabItem = styled.li<{ selected: boolean }>`
   cursor: pointer;
   color: ${({ selected }) =>
     selected ? 'var(--cl-primary)' : 'var(--cl-text-alt)'};
-  font-size: var(--fs-caption);
+  font-size: var(--fs-base);
+  text-transform: uppercase;
   transition: all 0.3s ease-in-out;
   height: var(--min-press-size);
   width: 100%;
@@ -77,22 +78,23 @@ export const JobItem = styled.div`
   opacity: 0;
 `
 
-export const JobHeader = styled.h1`
+export const JobHeader = styled.h3`
   strong {
     color: var(--cl-primary);
   }
-  font-size: var(--fs-main);
+  font-size: var(--fs-xl);
   a {
     ${mixins.inlineLink}
   }
-  font-size: var(--fs-h4);
-  font-weight: 400;
+  font-size: var(--fs-lg);
+  font-weight: 500;
   margin: 0.4rem 0;
 `
 
 export const JobDuration = styled.p`
   font-size: var(--fs-sm);
-  line-height: 150%;
+  line-height: var(--lh-xl);
+  color: var(--cl-text-alt);
 `
 
 export const JobDescription = styled.div`
@@ -106,7 +108,7 @@ export const JobDescription = styled.div`
     position: relative;
     padding-left: 1rem;
     margin: 0.4rem 0;
-    line-height: 120%;
+    line-height: var(--lh-lg);
     &::before {
       content: '▹';
       position: absolute;

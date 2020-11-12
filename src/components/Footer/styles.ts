@@ -29,9 +29,9 @@ export const ContentRow = styled.div`
 `
 
 export const TextWrapper = styled.div`
-  h1 {
+  h2 {
     font-family: var(--ff-alt);
-    font-size: var(--fs-h1);
+    font-size: var(--fs-4xl);
   }
   a {
     ${mixins.inlineLink};
