@@ -19,7 +19,6 @@ export const Header = () => {
           <Navlink><Link to="/#featured" aria-label="Navigate to project section">Projects</Link></Navlink>
           <Navlink><Link to="/#contact" aria-label="Navigate to contact section">Contact</Link></Navlink>
           <Navlink><ResumeButton aria-label="View Resume">Resume</ResumeButton></Navlink>
-          {/* <Navlink><ThemeToggleButton /></Navlink> */}
         </LinkList>
         <CollapseButton expanded={expanded}>
           <Menu onClick={()=>{setExpanded(!expanded)}}  size="28"/>

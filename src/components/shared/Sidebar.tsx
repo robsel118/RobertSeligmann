@@ -17,7 +17,7 @@ const MenuWrapper = styled.div`
   justify-content: flex-end;
   color: var(--cl-text-main);
   z-index: 99;
-  ${media.tablet`display: flex;`}; 
+  ${media.laptop`display: flex;`}; 
 `
 const Line = styled.div<{ height?: string }>`
   height: ${({ height }) => height || '50px'};

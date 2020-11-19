@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import mixins from '@theme/mixins'
 import media from '@theme/media'
 import Image from '@components/shared/Image'
-import Section from '@components/shared/Section'
 
-export const FeaturedSection = styled(Section).attrs({ id: 'featured' })`
+export const FeaturedSection = styled.section.attrs({ id: 'featured' })`
   counter-reset: section;
 `
 
@@ -14,13 +12,15 @@ export const ProjectList = styled.div`
   ${media.laptop`grid-template-columns: repeat(1, 1fr);`}
 `
 
-export const Card = styled.div`
+export const Card = styled.div<{ isOnScreen: boolean }>`
   width: 100%;
   min-height: 300px;
   margin: 2rem 0;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: ${props => props.isOnScreen? 1 : 0 };
   ${mixins.grid};
   ${media.tablet`
     grid-template-columns: repeat(2, 1fr);
@@ -108,7 +108,6 @@ export const List = styled.div`
     display: inline-block;
     width: 1rem;
   }
-
 `
 
 export const Skill = styled.span`
@@ -119,4 +118,3 @@ export const Skill = styled.span`
     content: '  ·  ';
   }
 `
-
