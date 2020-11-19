@@ -5,6 +5,7 @@ import media from '@theme/media'
 
 export const IntroContainer = styled.div`
   width: 100%;
+  margin: 3rem 0;
   display: flex;
   justify-content: center;
   flex-direction: column;

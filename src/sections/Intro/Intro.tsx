@@ -32,7 +32,7 @@ export interface IntroProps {
   },
 }
 
-const Intro: React.FC<SectionProps> = ({ intro }) => {
+const Intro: React.FC<IntroProps> = ({ intro }) => {
   const introduction = intro.edges[0].node;
 
   return (<Section id="introduction">

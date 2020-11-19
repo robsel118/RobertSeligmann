@@ -5,7 +5,8 @@ import SectionHeader from '@components/shared/SectionHeader'
 import Image from '@components/shared/Image'
 import { FeaturedSection, FeaturedHeader, ProjectList, Card, CardText, CardDescription, CardContent, Skill, List } from './styles'
 import { GitHub, Link as LinkIcon } from 'react-feather'
-import useOnScreen from '../../hooks/useOnScreen'
+import useOnScreen from '@hooks/useOnScreen'
+
 interface Project {
   title: string
   description: string
