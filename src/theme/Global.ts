@@ -43,16 +43,6 @@ const GlobalStyle = createGlobalStyle`
         
         --tab-width: 120px;
         --tab-height: 44px;
-
-        /* Automatic dark theme based on user preferences */
-        @media(prefers-color-scheme: dark) {
-            --background: var(--oxford-blue);
-            --background-alt: var(--oxford-blue-lt);
-            --cl-primary: var(--lime);
-            --cl-primary-tint: rgba(6, 214, 55, 0.2);
-            --cl-text-main: var(--lavender);
-            --cl-text-alt: var(--lavender-dk);
-        }
     }
     
     /* Manual Dark theme */
