@@ -24,7 +24,7 @@ const ThemedContext = ({ children }: ThemedContextProps) => {
   // OnComponentMount
   useEffect(() => {
     const currentTheme: Theme =
-      (localStorage.getItem('theme') as Theme) || 'light'
+      (localStorage.getItem('theme') as Theme) || window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', currentTheme)
       setTheme(currentTheme)
 
