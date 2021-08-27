@@ -9,5 +9,5 @@ skills:
     - Styled-Components
 external: "https://github.com/robsel118/RobertSeligmann"
 github: "https://github.com/robsel118/RobertSeligmann"
-internal: "/personal-website"
+internal: ""
 ---

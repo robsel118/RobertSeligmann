@@ -2,7 +2,7 @@
 photo: "photo.png"
 ---
 
-Hello, I'm Robert, a soon-to-be graduate of the MSC program at Aalto University currently studying software systems and technologies.
+Hello, I'm Robert, a recent graduate of the Master's program at Aalto University. Currently working at [Epassi](https://www.epassi.com/).
 
 Since I was little, I was always fascinated by how some things were made, especially video games and movies. As a child, these seemed like sorcery to me, but when I decided to pursue a career in tech at HES-SO, I fell in love with programming and would spend most of my time working on school coding projects.
 
@@ -10,12 +10,12 @@ That path led to incredible opportunities that brought me to Finland and Japan. 
 
 
 Some of the technologies I've been recently working with:
-  - JavaScript
   - TypeScript
   - React.js
   - Node.js
-  - MongoDB
-  - Flutter
+  - Ruby on Rails
+  - MySQL
+  - SASS/CSS modules
+  - Svelte.js
   - Figma
-  - Styled-Components
 

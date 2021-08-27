@@ -11,14 +11,15 @@ export const Wrapper = styled.section<{ isOnScreen: boolean }>`
   opacity: ${props => props.isOnScreen? 1 : 0 };
 `
 export interface Props  { 
-  children: React.ReactNode
+  children: React.ReactNode,
+  id?: string
 }
-const Section = ({ children }: Props) => {
+const Section = ({ children, ...props }: Props) => {
 
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
   const onScreen = useOnScreen(ref, 0.1, true);
 
-  return (<Wrapper ref={ref} isOnScreen={onScreen}>
+  return (<Wrapper ref={ref} isOnScreen={onScreen} {...props}>
     {children}
   </Wrapper>);
 }
